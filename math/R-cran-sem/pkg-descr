@@ -1,0 +1,6 @@
+This package contains functions for fitting general linear structural
+equation models (with observed and unobserved variables) using the
+RAM approach, and for fitting structural equations in observed-variable
+models by two-stage least squares.
+
+WWW:	http://cran.r-project.org/web/packages/sem/
