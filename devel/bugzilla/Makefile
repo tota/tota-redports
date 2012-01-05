@@ -6,8 +6,7 @@
 #
 
 PORTNAME=	bugzilla
-PORTVERSION=	4.0.2
-PORTREVISION=	1
+PORTVERSION=	4.0.3
 CATEGORIES=	devel
 MASTER_SITES=	${MASTER_SITE_MOZILLA}
 MASTER_SITE_SUBDIR=	webtools webtools/archived
@@ -163,12 +162,13 @@ post-patch:
 	@${PERL} -pi -e 's/(default =>.+|Default is )mysql/$$1Pg/' \
 		${WRKSRC}/Bugzilla/Install/Localconfig.pm
 .endif
-	@${FIND} ${WRKSRC} \( -name "CVS" -or -name ".cvsignore" -or -name "*.orig" \
-		-or -name ".bzr*" -or -name "README.docs" \) | ${XARGS} ${RM} -rf
 	@${FIND} ${WRKSRC} -type f -exec ${REINPLACE_CMD} -i '' \
 		-e 's!/usr/lib/sendmail!/usr/sbin/sendmail!g; s=/usr/bin/perl=${PERL}=g' {} \+
 	@${FIND} ${WRKSRC}/docs -type f | \
 		${XARGS} ${REINPLACE_CMD} -i '' -e "s!/var/www/html/bugzilla!${WWWDIR}!"
+	@${FIND} ${WRKSRC} \( -name "CVS" -or -name ".cvsignore" -or -name "*.orig" \
+		-or -name "*.bak" -or -name ".bzr*" -or -name "README.docs" \) \
+		| ${XARGS} ${RM} -rf
 
 do-install:	.SILENT
 	${MKDIR} ${WWWDIR}
