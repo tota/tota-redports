@@ -16,6 +16,8 @@ COMMENT=	Weighted k-Nearest Neighbors
 LICENSE=	GPLv2 GPLv3
 LICENSE_COMB=	dual
 
+RUN_DEPENDS=	R-cran-igraph>0:${PORTSDIR}/math/R-cran-igraph
+
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
