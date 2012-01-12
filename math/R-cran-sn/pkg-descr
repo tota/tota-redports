@@ -1,0 +1,5 @@
+Functions for manipulating skew-normal and skew-t probability
+distributions, and for fitting them to data, in the scalar and in
+the multivariate case.
+
+WWW:	http://cran.r-project.org/web/packages/sn/
