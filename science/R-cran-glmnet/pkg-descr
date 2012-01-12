@@ -1,0 +1,7 @@
+Extremely efficient procedures for fitting the entire lasso or
+elastic-net regularization path for linear regression, logistic and
+multinomial regression models, poisson regression and the Cox model.
+The algorithm uses cyclical coordinate descent in a pathwise fashion,
+as described in the paper listed below.
+
+WWW:	http://cran.r-project.org/web/packages/glmnet/
