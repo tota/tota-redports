@@ -1,0 +1,8 @@
+This package provides functions for computing the density and the
+distribution function of multivariate normal and multivariate "t"
+variates, and for generating random vectors sampled from these
+distributions. Probabilities are computed via a non-Monte Carlo
+method; different routines are used for the case d=1, d=2, d>2, if
+d denotes the number of dimensions.
+
+WWW:	http://cran.r-project.org/web/packages/mnormt/
