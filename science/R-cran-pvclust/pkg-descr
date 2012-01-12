@@ -1,0 +1,6 @@
+pvclust is a package for assessing the uncertainty in hierarchical
+cluster analysis. It provides AU (approximately unbiased) p-values
+as well as BP (boostrap probability) values computed via multiscale
+bootstrap resampling.
+
+WWW:	http://cran.r-project.org/web/packages/pvclust/
