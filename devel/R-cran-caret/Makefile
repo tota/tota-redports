@@ -6,7 +6,7 @@
 #
 
 PORTNAME=	caret
-DISTVERSION=	5.11-06
+DISTVERSION=	5.12-04
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -17,8 +17,7 @@ LICENSE=	GPLv2
 
 RUN_DEPENDS=	R-cran-reshape>0:${PORTSDIR}/devel/R-cran-reshape \
 		R-cran-plyr>0:${PORTSDIR}/devel/R-cran-plyr \
-		R-cran-foreach>0:${PORTSDIR}/devel/R-cran-foreach \
-		R-cran-pROC>0:${PORTSDIR}/math/R-cran-pROC
+		R-cran-foreach>0:${PORTSDIR}/devel/R-cran-foreach
 
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
