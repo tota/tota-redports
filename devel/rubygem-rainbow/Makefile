@@ -7,7 +7,7 @@
 
 PORTNAME=	rainbow
 PORTVERSION=	1.1.3
-CATEGORIES=	misc rubygems
+CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 
 MAINTAINER=	tota@FreeBSD.org

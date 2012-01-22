@@ -14,7 +14,7 @@ MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Bugspots - Bug Prediction Heuristic
 
 RUN_DEPENDS=	rubygem-grit>=0:${PORTSDIR}/devel/rubygem-grit \
-		rubygem-rainbow>=0:${PORTSDIR}/misc/rubygem-rainbow
+		rubygem-rainbow>=0:${PORTSDIR}/devel/rubygem-rainbow
 
 USE_RUBY=	yes
 USE_RUBYGEMS=	yes
