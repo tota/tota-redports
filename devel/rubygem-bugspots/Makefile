@@ -20,6 +20,6 @@ USE_RUBY=	yes
 USE_RUBYGEMS=	yes
 RUBYGEM_AUTOPLIST=	yes
 
-PLIST_FILES=	bin/git-bugspots
+PLIST_FILES=	bin/bugspots bin/git-bugspots
 
 .include <bsd.port.mk>
