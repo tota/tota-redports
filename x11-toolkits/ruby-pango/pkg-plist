@@ -1,0 +1,6 @@
+libdata/pkgconfig/ruby-pango.pc
+%%RUBY_SITEARCHLIBDIR%%/pango.so
+%%RUBY_SITEARCHLIBDIR%%/rbpango.h
+%%RUBY_SITEARCHLIBDIR%%/rbpangoconversions.h
+%%RUBY_SITEARCHLIBDIR%%/rbpangoversion.h
+%%RUBY_SITELIBDIR%%/pango.rb
