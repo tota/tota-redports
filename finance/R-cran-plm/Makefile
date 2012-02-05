@@ -13,6 +13,9 @@ DISTNAME=	${PORTNAME}_${DISTVERSION}
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Linear Models for Panel Data
 
+LICENSE=	GPLv2 GPLv3
+LICENSE_COMB=	dual
+
 RUN_DEPENDS=	R-cran-bdsmatrix>0:${PORTSDIR}/math/R-cran-bdsmatrix \
 		R-cran-Formula>=0.2.0:${PORTSDIR}/math/R-cran-Formula \
 		R-cran-sandwich>0:${PORTSDIR}/math/R-cran-sandwich
