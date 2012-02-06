@@ -58,12 +58,15 @@ FILES=		IO/SWF.php IO/SWF/ActionEditor.php \
 EXAMPLES=	get_bitmapsize.php jpeg_dump.php \
 		swfactioneditor.php swfconvlossless2pngjpeg.php \
 		swfcopy.php swfcountshapeedges.php \
-		swfdecompile.php swfdeformeshape.php swfdump.php \
-		swfgetmovieclip.php swflistmovieclip.php \
-		swfrebuild.php swfreplaceactionstrings.php \
+		swfdecompile.php swfdeformeshape.php \
+		swfdeleteaction.php swfdump.php swfframerate.php \
+		swfgeteditstring.php swfgetmovieclip.php \
+		swfheader.php swflistmovieclip.php swfrebuild.php \
+		swfreplaceactionstrings.php \
 		swfreplacebitmapdata.php swfreplaceeditstring.php \
 		swfreplacemovieclip.php swfselectbycids.php \
-		swfsetactionvariables.php swfsetbgcolor.php
+		swfsetactionvariables.php swfsetbgcolor.php \
+		swfwireframe.php
 _EXAMPLESDIR=   sample
 
 x-generate-files: extract
