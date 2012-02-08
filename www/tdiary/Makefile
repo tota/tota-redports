@@ -2,11 +2,12 @@
 # Date created:                 21 May 2003
 # Whom:                         Fumihiko Kimura <jfkimura@yahoo.co.jp>
 #
-# $FreeBSD: ports/www/tdiary/Makefile,v 1.32 2011/11/05 00:58:26 tota Exp $
+# $FreeBSD: ports/www/tdiary/Makefile,v 1.33 2012/02/04 01:59:32 tota Exp $
 #
 
 PORTNAME=	tdiary
 PORTVERSION=	3.1.2
+PORTREVISION=	1
 CATEGORIES?=	www ruby
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/ \
 		http://www.tdiary.org/download/
@@ -20,6 +21,7 @@ LICENSE_FILE=	${WRKDIR}/doc/LICENSE
 
 RUN_DEPENDS=	hikidoc:${PORTSDIR}/textproc/ruby-hikidoc \
 		rubygem-imagesize>=0.1.1:${PORTSDIR}/graphics/rubygem-imagesize \
+		rubygem-json_pure>=1.6.5:${PORTSDIR}/devel/rubygem-json_pure \
 		rd2:${PORTSDIR}/textproc/ruby-rdtool
 
 NO_BUILD=	yes
@@ -76,7 +78,7 @@ RUN_DEPENDS+=	${RUBY_SITEARCHLIBDIR}/web/escape_ext.so:${PORTSDIR}/www/ruby-nora
 .endif
 .endif
 
-post-extract:
+pre-patch:
 	@${RM} ${WRKSRC}/.gitignore
 	@${RM} ${WRKSRC}/.rspec
 	@${RM} ${WRKSRC}/.travis.yml
@@ -90,11 +92,15 @@ post-extract:
 	@${RM} -r ${WRKSRC}/test
 	@${RM} -r ${WRKSRC}/vendor/hikidoc-0.0.6
 	@${RM} -r ${WRKSRC}/vendor/imagesize-0.1.1/*
+	@${RM} -r ${WRKSRC}/vendor/json_pure-1.6.5
 	@${RM} -r ${WRKSRC}/vendor/rdtool-0.6.29
 	@${MV} ${WRKSRC}/ChangeLog ${WRKSRC}/doc
 	@${MV} ${WRKSRC}/LICENSE ${WRKSRC}/doc
 	@${MV} ${WRKSRC}/README.md ${WRKSRC}/doc
 	@cd ${WRKSRC} && ${MV} doc ${WRKDIR}
+
+post-patch:
+	${RUBY} -i -pe "sub %r|((\s*)require 'json')|, %Q|\\\2require 'rubygems'\n\\\1|" ${WRKSRC}/tdiary.rb
 
 pre-install:
 	@${SED} -e 's,#!/usr/bin/env ruby,#!${RUBY},' \
