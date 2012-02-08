@@ -2,11 +2,11 @@
 # Date created:		2011-09-03
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/converters/R-cran-RJSONIO/Makefile,v 1.6 2011/11/27 07:02:07 bf Exp $
+# $FreeBSD: ports/converters/R-cran-RJSONIO/Makefile,v 1.8 2012/01/19 14:47:54 tota Exp $
 #
 
 PORTNAME=	RJSONIO
-DISTVERSION=	0.97-0
+DISTVERSION=	0.98-1
 CATEGORIES=	converters
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
