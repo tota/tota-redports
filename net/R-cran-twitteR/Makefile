@@ -2,11 +2,11 @@
 # Date created:		2011-09-04
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/net/R-cran-twitteR/Makefile,v 1.11 2012/01/18 23:04:06 bf Exp $
+# $FreeBSD: ports/net/R-cran-twitteR/Makefile,v 1.12 2012/01/19 20:36:09 tota Exp $
 #
 
 PORTNAME=	twitteR
-PORTVERSION=	0.99.17
+PORTVERSION=	0.99.18
 CATEGORIES=	net
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
