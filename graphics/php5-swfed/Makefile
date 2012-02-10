@@ -25,7 +25,7 @@ USE_PHP=	zlib
 USE_PHPEXT=	yes
 
 WRKSRC=	${WRKDIR}/${DISTNAME}/src
-CONFIGURE_ARGS=	--with-libdir=${PREFIX}
+CONFIGURE_ARGS=	--with-png-dir=${LOCALBASE}
 
 PORTDOCS=	readme.txt
 PORTEXAMPLES=	*
