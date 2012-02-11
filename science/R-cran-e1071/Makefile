@@ -6,12 +6,14 @@
 #
 
 PORTNAME=	e1071
-DISTVERSION=	1.5-27
+PORTVERSION=	1.6
 CATEGORIES=	science
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Misc Functions of the Department of Statistics (e1071), TU Wien
+
+LICENSE=	GPLv2
 
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
