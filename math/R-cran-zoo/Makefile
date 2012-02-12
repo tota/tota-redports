@@ -2,12 +2,11 @@
 # Date created:		2011-08-16
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/math/R-cran-zoo/Makefile,v 1.7 2011/11/27 07:02:12 bf Exp $
+# $FreeBSD: ports/math/R-cran-zoo/Makefile,v 1.8 2012/01/18 23:04:05 bf Exp $
 #
 
 PORTNAME=	zoo
-DISTVERSION=	1.7-6
-PORTREVISION=	1
+DISTVERSION=	1.7-7
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
