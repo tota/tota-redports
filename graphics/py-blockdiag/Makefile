@@ -2,11 +2,11 @@
 # Date created:		2011-08-02
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/graphics/py-blockdiag/Makefile,v 1.18 2011/12/29 04:21:30 tota Exp $
+# $FreeBSD: ports/graphics/py-blockdiag/Makefile,v 1.19 2012/01/09 15:40:58 tabthorpe Exp $
 #
 
 PORTNAME=	blockdiag
-PORTVERSION=	1.1.2
+PORTVERSION=	1.1.3
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -14,7 +14,7 @@ PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	A simple block-diagram image generator
 
-LICENSE=	ASL
+LICENSE=	AL2
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	${PKGNAMEPREFIX}imaging>=1.1.5:${PORTSDIR}/graphics/py-imaging \
