@@ -2,11 +2,11 @@
 # Date created:		2011-08-07
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/graphics/py-actdiag/Makefile,v 1.10 2011/11/23 04:38:29 tota Exp $
+# $FreeBSD: ports/graphics/py-actdiag/Makefile,v 1.11 2012/01/09 15:40:58 tabthorpe Exp $
 #
 
 PORTNAME=	actdiag
-PORTVERSION=	0.3.0
+PORTVERSION=	0.3.1
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -14,7 +14,7 @@ PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	A simple activity-diagram image generator
 
-LICENSE=	ASL
+LICENSE=	AL2
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	${PKGNAMEPREFIX}imaging>=1.1.5:${PORTSDIR}/graphics/py-imaging \
