@@ -2147,23 +2147,6 @@
 %%MMDIR%%/tests/test_security_mgr.py
 %%MMDIR%%/tests/test_smtp.py
 %%MMDIR%%/tests/testall.py
-%%PORTDOCS%%%%DOCSDIR%%/ACKNOWLEDGMENTS
-%%PORTDOCS%%%%DOCSDIR%%/BUGS
-%%PORTDOCS%%%%DOCSDIR%%/FAQ
-%%PORTDOCS%%%%DOCSDIR%%/FreeBSD-post-install-notes
-%%PORTDOCS%%%%DOCSDIR%%/INSTALL
-%%PORTDOCS%%%%DOCSDIR%%/NEWS
-%%PORTDOCS%%%%DOCSDIR%%/README
-%%PORTDOCS%%%%DOCSDIR%%/README-I18N.en
-%%PORTDOCS%%%%DOCSDIR%%/README.CONTRIB
-%%PORTDOCS%%%%DOCSDIR%%/README.NETSCAPE
-%%PORTDOCS%%%%DOCSDIR%%/README.USERAGENT
-%%PORTDOCS%%%%DOCSDIR%%/TODO
-%%PORTDOCS%%%%DOCSDIR%%/UPGRADING
-%%PORTDOCS%%%%DOCSDIR%%/mailman-admin.txt
-%%PORTDOCS%%%%DOCSDIR%%/mailman-install.txt
-%%PORTDOCS%%%%DOCSDIR%%/mailman-member.txt
-%%PORTDOCS%%@dirrm %%DOCSDIR%%
 @dirrm %%MMDIR%%/tests/msgs
 @dirrm %%MMDIR%%/tests/bounces
 @dirrm %%MMDIR%%/tests

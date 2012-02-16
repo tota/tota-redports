@@ -18,14 +18,6 @@ DIST_SUBDIR=	mailman
 MAINTAINER?=	ports@FreeBSD.org
 COMMENT?=	A mailing list manager (MLM) with a user-friendly web front-end
 
-OPTIONS=	SENDMAIL "for use with sendmail" off \
-		EXIM3 "for use with exim3" off \
-		EXIM4 "for use with exim4" off \
-		POSTFIX "for use with postfix" off \
-		COURIER "for use with courier" off \
-		HTDIG "htdig integration patches" off \
-		NAMAZU2 "make private archives searchable with namazu2" off
-
 USE_AUTOTOOLS=	autoconf
 GNU_CONFIGURE_PREFIX=	${MAILMANDIR}
 USE_PYTHON=	yes
@@ -59,16 +51,25 @@ MAILMANDIR=	${PREFIX}/${MM_DIR}
 PKGINSTALL=	${WRKDIR}/pkg-install
 PKGDEINSTALL=	${WRKDIR}/pkg-deinstall
 PLIST_SUB+=	MMDIR=${MM_DIR} IMGDIR=${IMGDIR}
-DOCFILES=	ACKNOWLEDGMENTS BUGS FAQ INSTALL NEWS README README-I18N.en \
+PORTDOCS=	ACKNOWLEDGMENTS BUGS FAQ INSTALL NEWS README README-I18N.en \
 	  	README.CONTRIB README.NETSCAPE \
 		README.USERAGENT TODO UPGRADING \
-		doc/mailman-admin.txt \
-		doc/mailman-install.txt \
-		doc/mailman-member.txt
+		mailman-admin.txt \
+		mailman-install.txt \
+		mailman-member.txt \
+		FreeBSD-post-install-notes
 
 IMGFILES=	PythonPowered.png mailman.jpg mm-icon.png
 
-.include <bsd.port.pre.mk>
+OPTIONS=	SENDMAIL "for use with sendmail" off \
+		EXIM3 "for use with exim3" off \
+		EXIM4 "for use with exim4" off \
+		POSTFIX "for use with postfix" off \
+		COURIER "for use with courier" off \
+		HTDIG "htdig integration patches" off \
+		NAMAZU2 "make private archives searchable with namazu2" off
+
+.include <bsd.port.options.mk>
 
 .if defined(WITH_SENDMAIL)
 .if defined(WITH_EXIM3) || defined(WITH_EXIM4) || defined(WITH_POSTFIX) || \
@@ -172,9 +173,10 @@ post-install:
 	@uudecode -p ${FILESDIR}/powerlogo.gif.uue > \
 	  ${PREFIX}/${IMGDIR}/powerlogo.gif
 .if !defined(NOPORTDOCS)
+	@${MV} ${WRKSRC}/doc/* ${WRKSRC}/
 	@${MKDIR} ${DOCSDIR}
 	@${INSTALL_DATA} ${FILESDIR}/FreeBSD-post-install-notes ${DOCSDIR}
-.for docfile in ${DOCFILES}
+.for docfile in ${PORTDOCS:NFreeBSD-post-install-notes}
 	@${INSTALL_DATA} ${WRKSRC}/${docfile} ${DOCSDIR}
 .endfor
 .endif
@@ -191,4 +193,4 @@ post-install:
 		fi
 .endif
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
