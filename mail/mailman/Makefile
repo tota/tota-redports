@@ -18,9 +18,15 @@ DIST_SUBDIR=	mailman
 MAINTAINER?=	ports@FreeBSD.org
 COMMENT?=	A mailing list manager (MLM) with a user-friendly web front-end
 
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/gnu-COPYING-GPL
+
+CONFLICTS=	ja-mailman-2.1.*
+
 USE_AUTOTOOLS=	autoconf
 USE_PYTHON=	yes
 USE_RC_SUBR=	mailman
+
 GNU_CONFIGURE_PREFIX=	${MAILMANDIR}
 CONFIGURE_ARGS+=--with-python=${PYTHON_CMD} \
 		--with-username=${MM_USERNAME} \
