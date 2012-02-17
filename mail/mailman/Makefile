@@ -19,17 +19,15 @@ MAINTAINER?=	ports@FreeBSD.org
 COMMENT?=	A mailing list manager (MLM) with a user-friendly web front-end
 
 USE_AUTOTOOLS=	autoconf
-GNU_CONFIGURE_PREFIX=	${MAILMANDIR}
 USE_PYTHON=	yes
-MAKE_JOBS_SAFE=	yes
+USE_RC_SUBR=	mailman
+GNU_CONFIGURE_PREFIX=	${MAILMANDIR}
 CONFIGURE_ARGS+=--with-python=${PYTHON_CMD} \
 		--with-username=${MM_USERNAME} \
 		--with-groupname=${MM_GROUPNAME} \
 		--with-mail-gid=${MAIL_GID} --with-cgi-gid=${CGI_GID} \
 		--with-permcheck=no
-SUB_FILES=	pkg-message
-SUB_LIST+=	MAILMANDIR=${MAILMANDIR}
-USE_RC_SUBR=	mailman
+MAKE_JOBS_SAFE=	yes
 
 # The Mailman port supports a number of variables that may be tweaked at
 # build time.  Getting the values of some of them right is crucial!
@@ -50,16 +48,19 @@ GROUPS=		${MM_GROUPNAME}
 MAILMANDIR=	${PREFIX}/${MM_DIR}
 PKGINSTALL=	${WRKDIR}/pkg-install
 PKGDEINSTALL=	${WRKDIR}/pkg-deinstall
-PLIST_SUB+=	MMDIR=${MM_DIR} IMGDIR=${IMGDIR}
+PLIST_SUB=	MMDIR=${MM_DIR} IMGDIR=${IMGDIR}
+SUB_FILES=	pkg-message pkg-install pkg-deinstall
+SUB_LIST=	MAILMANDIR=${MAILMANDIR} USER=${MM_USERNAME} GROUP=${MM_GROUPNAME}
+
+IMGFILES=	PythonPowered.png mailman.jpg mm-icon.png
+
 PORTDOCS=	ACKNOWLEDGMENTS BUGS FAQ INSTALL NEWS README README-I18N.en \
-	  	README.CONTRIB README.NETSCAPE \
+		README.CONTRIB README.NETSCAPE \
 		README.USERAGENT TODO UPGRADING \
 		mailman-admin.txt \
 		mailman-install.txt \
 		mailman-member.txt \
 		FreeBSD-post-install-notes
-
-IMGFILES=	PythonPowered.png mailman.jpg mm-icon.png
 
 OPTIONS=	SENDMAIL "for use with sendmail" off \
 		EXIM3 "for use with exim3" off \
@@ -151,14 +152,6 @@ post-patch:
 	@${REINPLACE_CMD} -e 's#%%LOCALBASE%%#${LOCALBASE}#g' \
 	  ${WRKSRC}/Mailman/Defaults.py.in
 	@${REINPLACE_CMD} -e 's/^0,5,10/#&/' ${WRKSRC}/cron/crontab.in.in
-	@${SED} \
-	  -e 's#%%USER%%#${MM_USERNAME}#g' \
-	  -e 's#%%MAILMANDIR%%#${MAILMANDIR}#g' \
-		${MASTERDIR}/pkg-install > ${PKGINSTALL}
-	@${SED} \
-	  -e 's#%%USER%%#${MM_USERNAME}#g' -e 's#%%GROUP%%#${MM_GROUPNAME}#g' \
-	  -e 's#%%PREFIX%%#${PREFIX}#g' -e 's#%%MAILMANDIR%%#${MAILMANDIR}#g' \
-	  ${MASTERDIR}/pkg-deinstall > ${PKGDEINSTALL}
 
 post-install:
 	@${RM} -f ${MAILMANDIR}/pythonlib/*.egg-info
