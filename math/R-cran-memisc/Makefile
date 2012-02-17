@@ -2,11 +2,11 @@
 # Date created:		2011-08-16
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: ports/math/R-cran-memisc/Makefile,v 1.1 2012/01/31 13:10:17 tota Exp $
 #
 
 PORTNAME=	memisc
-DISTVERSION=	0.95-37
+DISTVERSION=	0.95-38
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
