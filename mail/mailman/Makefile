@@ -7,16 +7,16 @@
 
 PORTNAME=	mailman
 DISTVERSION=	2.1.14
-PORTREVISION=	5
-CATEGORIES?=	mail
+PORTREVISION=	6
+CATEGORIES=	mail
 MASTER_SITES=	${MASTER_SITE_GNU} \
 		SF/${PORTNAME}/Mailman%202.1%20%28stable%29/${PORTVERSION}
 MASTER_SITE_SUBDIR=	${PORTNAME}
 EXTRACT_SUFX=	.tgz
 DIST_SUBDIR=	mailman
 
-MAINTAINER?=	ports@FreeBSD.org
-COMMENT?=	A mailing list manager (MLM) with a user-friendly web front-end
+MAINTAINER=	ports@FreeBSD.org
+COMMENT=	A mailing list manager (MLM) with a user-friendly web front-end
 
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/gnu-COPYING-GPL
@@ -52,8 +52,6 @@ USERS=		${MM_USERNAME}
 GROUPS=		${MM_GROUPNAME}
 
 MAILMANDIR=	${PREFIX}/${MM_DIR}
-PKGINSTALL=	${WRKDIR}/pkg-install
-PKGDEINSTALL=	${WRKDIR}/pkg-deinstall
 PLIST_SUB=	MMDIR=${MM_DIR} IMGDIR=${IMGDIR}
 SUB_FILES=	pkg-message pkg-install pkg-deinstall
 SUB_LIST=	MAILMANDIR=${MAILMANDIR} USER=${MM_USERNAME} GROUP=${MM_GROUPNAME}
@@ -77,6 +75,13 @@ OPTIONS=	SENDMAIL "for use with sendmail" off \
 		NAMAZU2 "make private archives searchable with namazu2" off
 
 .include <bsd.port.options.mk>
+
+.if defined(WITHOUT_NLS)
+PLIST_SUB+=	NLS="@comment "
+.else
+USE_GETTEXT=	yes
+PLIST_SUB+=	NLS=""
+.endif
 
 .if defined(WITH_SENDMAIL)
 .if defined(WITH_EXIM3) || defined(WITH_EXIM4) || defined(WITH_POSTFIX) || \
@@ -134,11 +139,7 @@ PLIST_SUB+=	SUB_HTDIG="@comment "
 .endif
 
 .if defined(WITH_NAMAZU2)
-.if defined(PKGNAMEPREFIX) && ${PKGNAMEPREFIX} == "ja-"
-RUN_DEPENDS+=	mknmz:${PORTSDIR}/japanese/namazu2
-.else
 RUN_DEPENDS+=	mknmz:${PORTSDIR}/databases/namazu2
-.endif
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-Mailman-Cgi-private.py
 .endif
 
@@ -158,6 +159,10 @@ post-patch:
 	@${REINPLACE_CMD} -e 's#%%LOCALBASE%%#${LOCALBASE}#g' \
 	  ${WRKSRC}/Mailman/Defaults.py.in
 	@${REINPLACE_CMD} -e 's/^0,5,10/#&/' ${WRKSRC}/cron/crontab.in.in
+.if defined(WITHOUT_NLS)
+	@${REINPLACE_CMD} -e 's/messages//' ${WRKSRC}/Makefile.in
+	@${REINPLACE_CMD} -e 's/templates//' ${WRKSRC}/Makefile.in
+.endif
 
 post-install:
 	@${RM} -f ${MAILMANDIR}/pythonlib/*.egg-info
