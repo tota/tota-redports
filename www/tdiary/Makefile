@@ -42,7 +42,7 @@ RUBY_SHEBANG_FILES=	index.fcgi \
 PORTDOCS=	ChangeLog HOWTO-make-io.rd HOWTO-make-plugin.html \
 		HOWTO-make-theme.html HOWTO-use-plugin.html \
 		HOWTO-write-tDiary.en.html HOWTO-write-tDiary.html INSTALL.html \
-		LICENSE README.en.html README.html README.md UPGRADE doc.css
+		README.en.html README.html README.md UPGRADE doc.css
 
 SUB_FILES=	pkg-message tdiaryinst.rb
 SUB_LIST+=	TDIARY_LANG=${TDIARY_LANG} \
@@ -78,7 +78,7 @@ RUN_DEPENDS+=	${RUBY_SITEARCHLIBDIR}/web/escape_ext.so:${PORTSDIR}/www/ruby-nora
 .endif
 .endif
 
-pre-patch:
+post-extract:
 	@${RM} ${WRKSRC}/.gitignore
 	@${RM} ${WRKSRC}/.rspec
 	@${RM} ${WRKSRC}/.travis.yml
@@ -97,10 +97,10 @@ pre-patch:
 	@${MV} ${WRKSRC}/ChangeLog ${WRKSRC}/doc
 	@${MV} ${WRKSRC}/LICENSE ${WRKSRC}/doc
 	@${MV} ${WRKSRC}/README.md ${WRKSRC}/doc
-	@cd ${WRKSRC} && ${MV} doc ${WRKDIR}
+	@${MV} ${WRKSRC}/doc ${WRKDIR}
 
 post-patch:
-	${RUBY} -i -pe "sub %r|((\s*)require 'json')|, %Q|\\\2require 'rubygems'\n\\\1|" ${WRKSRC}/tdiary.rb
+	@${RUBY} -i -pe "sub %r|((\s*)require 'json')|, %Q|\\\2require 'rubygems'\n\\\1|" ${WRKSRC}/tdiary.rb
 
 pre-install:
 	@${SED} -e 's,#!/usr/bin/env ruby,#!${RUBY},' \
