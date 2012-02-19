@@ -2,7 +2,7 @@
 # Date created:		2012-02-08
 # Whom:			Shin-ya MURAKAMI <murashin@gfd-dennou.org>
 #
-# $FreeBSD:$
+# $FreeBSD$
 #
 
 PORTNAME=	myrurema
@@ -21,4 +21,8 @@ USE_RUBYGEMS=	yes
 RUBYGEM_AUTOPLIST=	yes
 PLIST_FILES=	bin/rurema
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+
+PKGNAMEPREFIX:=	${PKGNAMEPREFIX}rubygem-
+
+.include <bsd.port.post.mk>
