@@ -8,9 +8,7 @@
 PORTNAME=	simian
 PORTVERSION=	2.3.33
 CATEGORIES=	devel java
-MASTER_SITES=	http://www.harukizaemon.com/simian/ \
-		LOCAL
-MASTER_SITE_SUBDIR=	tota/${PORTNAME}
+MASTER_SITES=	http://www.harukizaemon.com/simian/
 
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Similarity analyser for source and other text files
