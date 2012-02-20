@@ -12,7 +12,7 @@ MASTER_SITES=	http://www.harukizaemon.com/simian/ \
 		LOCAL
 MASTER_SITE_SUBDIR=	tota/${PORTNAME}
 
-MAINTAINER=	gahr@FreeBSD.org
+MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Similarity analyser for source and other text files
 
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
