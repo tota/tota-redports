@@ -6,23 +6,22 @@
 #
 
 PORTNAME=	dcl
-PORTVERSION=	5.3.3
-PORTREVISION=	4
+PORTVERSION=	5.4.4
 CATEGORIES=	science graphics
-MASTER_SITES=	http://www.gfd-dennou.org/arch/dcl/ \
-		http://dennou-h.gfd-dennou.org/arch/dcl/ \
-		http://dennou-q.gfd-dennou.org/arch/dcl/
+MASTER_SITES=	http://www.gfd-dennou.org/library/dcl/ \
+		http://dennou-h.gfd-dennou.org/library/dcl/ \
+		http://dennou-q.gfd-dennou.org/library/dcl/
 
 MAINTAINER=	murashin@gfd-dennou.org
 COMMENT=	Scientific graphic library for geoscience
 
 USE_XORG=	x11 xext
 USE_FORTRAN=	yes
+USE_GNOME=	gtk20 gdkpixbuf2
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--prefix=${PREFIX} --disable-gtk2 --disable-gtk --with-x
+CONFIGURE_ARGS=	--prefix=${PREFIX} --with-x
 
-DOCFILES=	CHECK CREDITS HISTORY README README_clrmap README_gt2dlib \
-		README_itr51 README_pslib README_umfmap
+DOCFILES=	CHECK CREDITS HISTORY README
 
 RESTRICTED=	No commercial use
 
