@@ -21,7 +21,8 @@ USE_GNOME=	gtk20 gdkpixbuf2
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--prefix=${PREFIX} --with-x
 
-DOCFILES=	CHECK CREDITS HISTORY README
+PORTDOCS=	CHECK CREDITS HISTORY README
+PORTEXAMPLES=	*
 
 RESTRICTED=	No commercial use
 
@@ -32,7 +33,7 @@ post-install:
 .endif
 .if !defined(NOPORTDOCS)
 	@${MKDIR} ${DOCSDIR}
-.for i in ${DOCFILES}
+.for i in ${PORTDOCS}
 	${INSTALL_DATA} ${WRKSRC}/${i} ${DOCSDIR}/
 .endfor
 .endif
