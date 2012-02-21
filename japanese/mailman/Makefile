@@ -142,8 +142,11 @@ post-patch:
 	@${REINPLACE_CMD} -e 's/^0,5,10/#&/' ${WRKSRC}/cron/crontab.in.in
 
 pre-configure:
-	@ ${ECHO} "DEFAULT_SERVER_LANGUAGE = 'ja'" >> ${WRKSRC}/Mailman/mm_cfg.py.dist.in
-	@ ${ECHO} "GLOBAL_PIPELINE.insert(1, 'iso2022jpfix')" >> ${WRKSRC}/Mailman/mm_cfg.py.dist.in
+	@${ECHO} "DEFAULT_SERVER_LANGUAGE = 'ja'" >> ${WRKSRC}/Mailman/mm_cfg.py.dist.in
+	@${ECHO} "GLOBAL_PIPELINE.insert(1, 'iso2022jpfix')" >> ${WRKSRC}/Mailman/mm_cfg.py.dist.in
+.if defined(WITH_POSTFIX)
+	@${ECHO} "MTA = 'Postfix'" >> ${WRKSRC}/Mailman/mm_cfg.py.dist.in
+.endif
 
 post-install:
 	@${RM} -f ${MAILMANDIR}/pythonlib/*.egg-info
