@@ -164,6 +164,11 @@ post-patch:
 	@${REINPLACE_CMD} -e 's/templates//' ${WRKSRC}/Makefile.in
 .endif
 
+.if defined(WITH_POSTFIX)
+pre-configure:
+	@${ECHO} "MTA = 'Postfix'" >> ${WRKSRC}/Mailman/mm_cfg.py.dist.in
+.endif
+
 post-install:
 	@${RM} -f ${MAILMANDIR}/pythonlib/*.egg-info
 .for dir in cron scripts
