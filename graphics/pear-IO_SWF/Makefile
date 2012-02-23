@@ -2,11 +2,11 @@
 # Date created:		2011-11-02
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/graphics/pear-IO_SWF/Makefile,v 1.1 2011/12/27 15:32:44 tota Exp $
+# $FreeBSD: ports/graphics/pear-IO_SWF/Makefile,v 1.2 2012/02/06 12:03:30 tota Exp $
 #
 
 PORTNAME=	IO_SWF
-PORTVERSION=	2.1.7
+PORTVERSION=	2.1.8
 CATEGORIES=	graphics www pear
 MASTER_SITES=	http://openpear.org/get/ \
 		LOCAL
@@ -61,7 +61,8 @@ EXAMPLES=	get_bitmapsize.php jpeg_dump.php \
 		swfdecompile.php swfdeformeshape.php \
 		swfdeleteaction.php swfdump.php swfframerate.php \
 		swfgeteditstring.php swfgetmovieclip.php \
-		swfheader.php swflistmovieclip.php swfrebuild.php \
+		swfheader.php swflistaction.php \
+		swflistmovieclip.php swfrebuild.php \
 		swfreplaceactionstrings.php \
 		swfreplacebitmapdata.php swfreplaceeditstring.php \
 		swfreplacemovieclip.php swfselectbycids.php \
