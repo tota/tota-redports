@@ -2,11 +2,11 @@
 # Date created:				28 September 2001
 # Whom:					Alexey Zelkin <phantom@FreeBSD.org>
 #
-# $FreeBSD: ports/devel/bugzilla/Makefile,v 1.89 2011/10/17 04:35:00 dougb Exp $
+# $FreeBSD: ports/devel/bugzilla/Makefile,v 1.91 2012/02/06 12:03:28 skv Exp $
 #
 
 PORTNAME=	bugzilla
-PORTVERSION=	4.0.3
+PORTVERSION=	4.0.4
 CATEGORIES=	devel
 MASTER_SITES=	${MASTER_SITE_MOZILLA}
 MASTER_SITE_SUBDIR=	webtools webtools/archived
@@ -129,7 +129,7 @@ RUN_DEPENDS+=	p5-JSON-RPC>=0:${PORTSDIR}/devel/p5-JSON-RPC \
 
 .ifdef WITH_MODPERL2
 RUN_DEPENDS+=	${SITE_PERL}/${PERL_ARCH}/mod_perl2.pm:${PORTSDIR}/www/mod_perl2 \
-		${SITE_PERL}/Apache/DBI.pm:${PORTSDIR}/www/p5-Apache-DBI-mp2
+		${SITE_PERL}/Apache/DBI.pm:${PORTSDIR}/www/p5-Apache-DBI
 .endif
 
 .ifdef WITH_GRAPHVIZ
@@ -183,15 +183,14 @@ do-install:	.SILENT
 	${MKDIR} ${DOCSDIR}
 	(cd ${WRKSRC}/docs/ && ${COPYTREE_SHARE} . ${DOCSDIR}/)
 .endif
+# This are empty directories but they are needed,
+# else ckecksetup.pl will fail!
+	${MKDIR} ${WWWDIR}/contrib ${WWWDIR}/lib ${WWWDIR}/t ${WWWDIR}/xt
 .ifdef WITH_CONTRIB
-	${MKDIR} ${WWWDIR}/contrib
 	@cd ${WRKSRC}/contrib && \
 		${FIND} . -type d -exec ${MKDIR} "${WWWDIR}/contrib/{}" \; && \
 		${FIND} . -type f -exec ${INSTALL_DATA} "{}" "${WWWDIR}/contrib/{}" \;
 .endif
-# This are empty directories but they are needed,
-# else ckecksetup.pl will fail!
-	${MKDIR} ${WWWDIR}/lib ${WWWDIR}/t ${WWWDIR}/xt
 .if !defined(BATCH)
 	@${ECHO_MSG}
 	@${CAT} ${PKGMESSAGE}
