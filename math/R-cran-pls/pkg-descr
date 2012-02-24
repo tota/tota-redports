@@ -1,0 +1,23 @@
+pls is an R package implementing partial least squares regression
+(PLSR) and principal component regression (PCR). The package is
+written by Ron Wehrens and Bjrn-Helge Mevik. It started as a merge
+of Ron's earlier package `pls.pcr' and an unpublished package by
+Bjrn-Helge.
+
+Features:
+
+ * several algorithms: the traditional orthogonal scores (NIPALS)
+   PLS algorithm, kernel PLS, wide kernel PLS, Simpls and PCR through
+   svd
+ * supports multi-response models (aka PLS2)
+ * flexible cross-validation
+ * Jackknife variance estimates of regression coefficients
+ * extensive and flexible plots: scores, loadings, predictions,
+   coefficients, (R)MSEP, R^2, correlation loadings
+ * formula interface, modelled after lm(), with methods for predict,
+   print, summary, plot, update, etc.
+ * extraction functions for coefficients, scores and loadings
+ * MSEP, RMSEP and R^2 estimates
+ * multiplicative scatter correction (MSC)
+
+WWW:	http://cran.r-project.org/web/packages/pls/
