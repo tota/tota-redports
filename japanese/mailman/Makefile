@@ -16,7 +16,7 @@ DISTNAME=	${PORTNAME}-${PORTVERSION:S/.j/+j/}
 EXTRACT_SUFX=	.tgz
 DIST_SUBDIR=	mailman
 
-MAINTAINER=	koj@ofug.net
+MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Japanized mailman which is a mailing list manager with a web front-end
 
 LICENSE=	GPLv2
