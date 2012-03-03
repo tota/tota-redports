@@ -74,6 +74,7 @@ OPTIONS=	SENDMAIL "for use with sendmail" off \
 		EXIM4 "for use with exim4" off \
 		POSTFIX "for use with postfix" off \
 		COURIER "for use with courier" off \
+		INTEGRATION "integrating postfix and mailman" off \
 		NAMAZU2 "make private archives searchable with namazu2" off
 
 .include <bsd.port.options.mk>
@@ -107,7 +108,11 @@ MAIL_GID?=	mail
 defined(WITH_COURIER)
 IGNORE=	can only have one MTA selected to integrate with
 .endif
+.if defined(WITH_INTEGRATION)
+MAIL_GID?=	mailman
+.else
 MAIL_GID?=	nobody
+.endif
 EXTRA_PATCHES+=	${FILESDIR}/postfix-verp.diff
 .endif
 
@@ -144,7 +149,7 @@ post-patch:
 pre-configure:
 	@${ECHO} "DEFAULT_SERVER_LANGUAGE = 'ja'" >> ${WRKSRC}/Mailman/mm_cfg.py.dist.in
 	@${ECHO} "GLOBAL_PIPELINE.insert(1, 'iso2022jpfix')" >> ${WRKSRC}/Mailman/mm_cfg.py.dist.in
-.if defined(WITH_POSTFIX)
+.if defined(WITH_POSTFIX) && defined(WITH_INTEGRATION)
 	@${ECHO} "MTA = 'Postfix'" >> ${WRKSRC}/Mailman/mm_cfg.py.dist.in
 .endif
 
