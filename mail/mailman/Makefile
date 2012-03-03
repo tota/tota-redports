@@ -72,6 +72,7 @@ OPTIONS=	SENDMAIL "for use with sendmail" off \
 		POSTFIX "for use with postfix" off \
 		COURIER "for use with courier" off \
 		HTDIG "htdig integration patches" off \
+		INTEGRATION "integrating postfix and mailman" off \
 		NAMAZU2 "make private archives searchable with namazu2" off
 
 .include <bsd.port.options.mk>
@@ -112,7 +113,11 @@ MAIL_GID?=	mail
 defined(WITH_COURIER)
 IGNORE=	can only have one MTA selected to integrate with
 .endif
+.if defined(WITH_INTEGRATION)
+MAIL_GID?=	mailman
+.else
 MAIL_GID?=	nobody
+.endif
 EXTRA_PATCHES+=	${FILESDIR}/postfix-verp.diff
 .endif
 
@@ -164,7 +169,7 @@ post-patch:
 	@${REINPLACE_CMD} -e 's/templates//' ${WRKSRC}/Makefile.in
 .endif
 
-.if defined(WITH_POSTFIX)
+.if defined(WITH_POSTFIX) && defined(WITH_INTEGRATION)
 pre-configure:
 	@${ECHO} "MTA = 'Postfix'" >> ${WRKSRC}/Mailman/mm_cfg.py.dist.in
 .endif
