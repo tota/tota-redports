@@ -30,11 +30,6 @@ USE_PYTHON=	yes
 USE_RC_SUBR=	mailman
 
 GNU_CONFIGURE_PREFIX=	${MAILMANDIR}
-CONFIGURE_ARGS+=--with-python=${PYTHON_CMD} \
-		--with-username=${MM_USERNAME} \
-		--with-groupname=${MM_GROUPNAME} \
-		--with-mail-gid=${MAIL_GID} --with-cgi-gid=${CGI_GID} \
-		--with-permcheck=no
 MAKE_JOBS_SAFE=	yes
 
 # The Mailman port supports a number of variables that may be tweaked at
@@ -123,6 +118,12 @@ MAIL_GID?=	courier
 RUN_DEPENDS+=	mknmz:${PORTSDIR}/japanese/namazu2
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-Mailman-Cgi-private.py
 .endif
+
+CONFIGURE_ARGS+=--with-python=${PYTHON_CMD} \
+		--with-username=${MM_USERNAME} \
+		--with-groupname=${MM_GROUPNAME} \
+		--with-mail-gid=${MAIL_GID} --with-cgi-gid=${CGI_GID} \
+		--with-permcheck=no
 
 pre-fetch:
 	@${ECHO} ""
