@@ -2,11 +2,11 @@
 # Date created:		2010-08-01
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/misc/rabbit/Makefile,v 1.11 2011/08/20 21:55:06 tota Exp $
+# $FreeBSD: ports/misc/rabbit/Makefile,v 1.12 2012/02/05 05:28:36 tota Exp $
 #
 
 PORTNAME=	rabbit
-PORTVERSION=	1.0.5
+PORTVERSION=	1.0.6
 CATEGORIES=	misc ruby
 MASTER_SITES=	http://rabbit-shockers.org/download/ \
 		LOCAL
@@ -26,7 +26,7 @@ RUN_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2 \
 		rubygem-sinatra>0:${PORTSDIR}/www/rubygem-sinatra \
 		rubygem-haml>0:${PORTSDIR}/www/rubygem-haml \
 		rd2:${PORTSDIR}/textproc/ruby-rdtool \
-		rubygem-coderay>0:${PORTSDIR}/textproc/rubygem-coderay \
+		rubygem-coderay>=1.0.0:${PORTSDIR}/textproc/rubygem-coderay \
 		rubygem-kramdown>0:${PORTSDIR}/textproc/rubygem-kramdown
 
 USE_RUBY=	yes
