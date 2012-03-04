@@ -6,7 +6,7 @@
 #
 
 PORTNAME=	silentbob
-PORTVERSION=	2.4.1
+PORTVERSION=	2.4.2
 CATEGORIES=	devel
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}2/${PORTNAME}-2.4/
 
@@ -20,6 +20,9 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 PORTDOCS=	*
 PLIST_FILES=	bin/bob
+
+post-extract:
+	@${RM} ${WRKSRC}/CMakeCache.txt
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|/usr/lib/silent_bob/|${PREFIX}/lib/silent_bob/|' \
