@@ -3,12 +3,11 @@
 # Date created:		Fri Feb  9 10:50:25 EST 2001
 # Whom:			Maurice Castro <maurice@serc.rmit.edu.au>
 #
-# $FreeBSD: ports/math/R/Makefile,v 1.110 2012/02/16 08:17:56 bf Exp $
+# $FreeBSD: ports/math/R/Makefile,v 1.111 2012/03/03 16:59:30 bf Exp $
 #
 
 PORTNAME?=	R
-PORTVERSION=	2.14.1
-PORTREVISION=	2
+PORTVERSION=	2.14.2
 CATEGORIES=	math lang
 MASTER_SITES=	http://cran.r-project.org/src/base/R-2/ \
 		ftp://cran.r-project.org/pub/R/src/base/R-2/ \
@@ -38,6 +37,7 @@ CONFIGURE_ARGS =	--disable-nls --with-ICU=no --with-cairo=no --with-iconv=no \
 			--with-tcltk=no --with-x=no --without-libintl-prefix
 PLIST_SUB=		RMATH_SOVERSION="${RMATH_SOVERSION}"
 USE_LDCONFIG=		yes
+LDFLAGS+=	-L${LOCALBASE}/lib
 .else # LIBRMATH_SLAVEPORT
 ALL_TARGET=		all
 INSTALL_TARGET =	install
@@ -169,8 +169,10 @@ PLIST_SUB+=		LIBR=""
 
 .if defined(WITHOUT_PANGOCAIRO)
 CONFIGURE_ARGS+=	--without-cairo
+PLIST_SUB+=		PANGOCAIRO="@comment "
 .else
 USE_GNOME+=		pango
+PLIST_SUB+=		PANGOCAIRO=""
 .endif
 
 .if defined(WITHOUT_PNG)
@@ -234,10 +236,6 @@ post-patch:
 		${WRKSRC}/src/extra/tzone/tzfile.h \
 		${WRKSRC}/src/scripts/javareconf
 .if !defined(LIBRMATH_SLAVEPORT)
-.if defined(WITH_PCRE_PORT)
-	@${REINPLACE_CMD} -e 's|_pcre_valid_utf8|_pcre_valid_utf|' \
-		${WRKSRC}/src/main/util.c
-.endif
 .if defined(WITHOUT_NLS)
 	@(cd ${WRKSRC}/src/library/Recommended; \
 	for tarfile in *.tgz *.tar.gz ; do \
