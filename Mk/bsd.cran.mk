@@ -1,7 +1,7 @@
 # Date created:		2009-01-25
 # Whom:			Wen Heping <wenheping@gmail.com>
 #
-# $FreeBSD: ports/Mk/bsd.cran.mk,v 1.10 2011/11/15 20:08:55 tota Exp $
+# $FreeBSD: ports/Mk/bsd.cran.mk,v 1.11 2012/02/26 21:50:44 tota Exp $
 #
 
 CRAN_Include_MAINTAINER=	wen@FreeBSD.org

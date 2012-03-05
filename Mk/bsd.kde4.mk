@@ -1,7 +1,7 @@
 #-*- mode: Makefile; tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.kde4.mk,v 1.125 2012/01/25 10:20:42 avilla Exp $
+# $FreeBSD: ports/Mk/bsd.kde4.mk,v 1.127 2012/02/24 13:34:28 avilla Exp $
 #
 
 .if !defined(_POSTMKINCLUDED) && !defined(Kde_Pre_Include)
