@@ -41,8 +41,7 @@ USE_LDCONFIG=		yes
 ALL_TARGET=		all
 INSTALL_TARGET =	install
 CONFIGURE_ARGS =	--enable-memory-profiling rdocdir=${DOCSDIR} \
-			--with-system-bzlib --with-system-zlib \
-			--with-libiconv-prefix=${LOCALBASE}
+			--with-system-bzlib --with-system-zlib
 CONFIGURE_ENV=		FCFLAGS="${FFLAGS}" \
 			INSTALL_DATA="${INSTALL} ${COPY} ${_SHROWNGRP} -m 644" \
 			R_LD_LIBRARY_PATH="${R_LD_LIBRARY_PATH}" TAR="${TAR}"
@@ -74,7 +73,9 @@ USE_LDCONFIG=		${PREFIX}/lib/R/lib
 .endif # !LIBR_SLAVEPORT
 WANT_GNOME=		yes
 .endif # LIBRMATH_SLAVEPORT
-CONFIGURE_ENV +=	LDFLAGS="${LDFLAGS}"
+CPPFLAGS=	-I${LOCALBASE}/include
+LDFLAGS=	-L${LOCALBASE}/lib
+CONFIGURE_ENV +=	CPPFLAGS="${CPPFLAGS}" LDFLAGS="${LDFLAGS}"
 GNU_CONFIGURE=		yes
 MAKE_JOBS_UNSAFE=	yes
 R_SOVERSION=		0
