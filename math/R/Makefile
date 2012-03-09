@@ -37,7 +37,6 @@ CONFIGURE_ARGS =	--disable-nls --with-ICU=no --with-cairo=no --with-iconv=no \
 			--with-tcltk=no --with-x=no --without-libintl-prefix
 PLIST_SUB=		RMATH_SOVERSION="${RMATH_SOVERSION}"
 USE_LDCONFIG=		yes
-LDFLAGS+=	-L${LOCALBASE}/lib
 .else # LIBRMATH_SLAVEPORT
 ALL_TARGET=		all
 INSTALL_TARGET =	install
