@@ -41,7 +41,8 @@ USE_LDCONFIG=		yes
 ALL_TARGET=		all
 INSTALL_TARGET =	install
 CONFIGURE_ARGS =	--enable-memory-profiling rdocdir=${DOCSDIR} \
-			--with-system-bzlib --with-system-zlib
+			--with-system-bzlib --with-system-zlib \
+			--with-libiconv-prefix=${LOCALBASE}
 CONFIGURE_ENV=		FCFLAGS="${FFLAGS}" \
 			INSTALL_DATA="${INSTALL} ${COPY} ${_SHROWNGRP} -m 644" \
 			R_LD_LIBRARY_PATH="${R_LD_LIBRARY_PATH}" TAR="${TAR}"
