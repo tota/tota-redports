@@ -2,11 +2,11 @@
 # Date created:		2011-08-07
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/graphics/py-actdiag/Makefile,v 1.11 2012/01/09 15:40:58 tabthorpe Exp $
+# $FreeBSD: ports/graphics/py-actdiag/Makefile,v 1.12 2012/02/16 11:42:07 tota Exp $
 #
 
 PORTNAME=	actdiag
-PORTVERSION=	0.3.1
+PORTVERSION=	0.3.2
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
