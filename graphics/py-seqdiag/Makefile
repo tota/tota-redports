@@ -2,11 +2,11 @@
 # Date created:		2011-08-07
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/graphics/py-seqdiag/Makefile,v 1.15 2011/12/13 20:13:35 tota Exp $
+# $FreeBSD: ports/graphics/py-seqdiag/Makefile,v 1.16 2012/01/09 15:40:58 tabthorpe Exp $
 #
 
 PORTNAME=	seqdiag
-PORTVERSION=	0.7.2
+PORTVERSION=	0.7.3
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -14,7 +14,7 @@ PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	A simple sequence-diagram image generator
 
-LICENSE=	ASL
+LICENSE=	AL2
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	${PKGNAMEPREFIX}imaging>=1.1.5:${PORTSDIR}/graphics/py-imaging \
