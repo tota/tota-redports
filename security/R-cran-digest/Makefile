@@ -2,12 +2,11 @@
 # Date created:		2011-09-04
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/security/R-cran-digest/Makefile,v 1.5 2011/11/27 07:02:14 bf Exp $
+# $FreeBSD: ports/security/R-cran-digest/Makefile,v 1.7 2012/03/03 16:59:35 bf Exp $
 #
 
 PORTNAME=	digest
-PORTVERSION=	0.5.1
-PORTREVISION=	2
+PORTVERSION=	0.5.2
 CATEGORIES=	security
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
