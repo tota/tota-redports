@@ -3,7 +3,7 @@
 # Date created:		Fri Feb  9 10:50:25 EST 2001
 # Whom:			Maurice Castro <maurice@serc.rmit.edu.au>
 #
-# $FreeBSD: ports/math/R/Makefile,v 1.111 2012/03/03 16:59:30 bf Exp $
+# $FreeBSD: ports/math/R/Makefile,v 1.112 2012/03/17 23:30:49 bf Exp $
 #
 
 PORTNAME?=	R
@@ -45,6 +45,8 @@ CONFIGURE_ARGS =	--enable-memory-profiling rdocdir=${DOCSDIR} \
 CONFIGURE_ENV=		FCFLAGS="${FFLAGS}" \
 			INSTALL_DATA="${INSTALL} ${COPY} ${_SHROWNGRP} -m 644" \
 			R_LD_LIBRARY_PATH="${R_LD_LIBRARY_PATH}" TAR="${TAR}"
+CPPFLAGS+=	-I${LOCALBASE}/include
+LDFLAGS+=	-L${LOCALBASE}/lib
 OPTIONS=	ATLAS		"Use ATLAS instead of BLAS/LAPACK" off \
 		ICU		"Use ICU for collation in multibyte locales" on \
 		NLS		"Build with NLS support" on \
@@ -73,9 +75,6 @@ USE_LDCONFIG=		${PREFIX}/lib/R/lib
 .endif # !LIBR_SLAVEPORT
 WANT_GNOME=		yes
 .endif # LIBRMATH_SLAVEPORT
-CPPFLAGS=	-I${LOCALBASE}/include
-LDFLAGS=	-L${LOCALBASE}/lib
-CONFIGURE_ENV +=	CPPFLAGS="${CPPFLAGS}" LDFLAGS="${LDFLAGS}"
 GNU_CONFIGURE=		yes
 MAKE_JOBS_UNSAFE=	yes
 R_SOVERSION=		0
