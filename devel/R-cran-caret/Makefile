@@ -2,11 +2,11 @@
 # Date created:		2011-08-30
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/devel/R-cran-caret/Makefile,v 1.18 2012/02/09 21:49:20 tota Exp $
+# $FreeBSD: ports/devel/R-cran-caret/Makefile,v 1.20 2012/03/03 16:59:26 bf Exp $
 #
 
 PORTNAME=	caret
-DISTVERSION=	5.14-023
+DISTVERSION=	5.15-023
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
