@@ -2,12 +2,11 @@
 # Date created:		2011-08-16
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/math/R-cran-xts/Makefile,v 1.4 2011/11/27 07:02:12 bf Exp $
+# $FreeBSD: ports/math/R-cran-xts/Makefile,v 1.6 2012/03/03 16:59:33 bf Exp $
 #
 
 PORTNAME=	xts
-DISTVERSION=	0.8-2
-PORTREVISION=	2
+DISTVERSION=	0.8-6
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
