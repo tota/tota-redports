@@ -2,7 +2,7 @@
 # Date created:				21 Feb 2003
 # Whom:					Sunagawa Koji <koj@ofug.net>
 #
-# $FreeBSD: ports/japanese/mailman/Makefile,v 1.4 2005/06/18 18:39:36 nork Exp $
+# $FreeBSD: ports/japanese/mailman/Makefile,v 1.5 2012/03/04 06:00:37 tota Exp $
 #
 
 PORTNAME=	mailman
@@ -166,7 +166,7 @@ post-install:
 	@uudecode -p ${FILESDIR}/powerlogo.gif.uue > \
 	  ${PREFIX}/${IMGDIR}/powerlogo.gif
 .if !defined(NOPORTDOCS)
-	@${MV} ${WRKSRC}/doc/* ${WRKSRC}/
+	@${CP} -R ${WRKSRC}/doc/* ${WRKSRC}/
 	@${MKDIR} ${DOCSDIR}
 	@${INSTALL_DATA} ${FILESDIR}/FreeBSD-post-install-notes ${DOCSDIR}
 .for docfile in ${PORTDOCS:NFreeBSD-post-install-notes}
