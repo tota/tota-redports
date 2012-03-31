@@ -2,11 +2,11 @@
 # Date created:		2011-08-16
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/science/R-cran-Epi/Makefile,v 1.5 2012/01/18 23:04:06 bf Exp $
+# $FreeBSD: ports/science/R-cran-Epi/Makefile,v 1.7 2012/03/03 16:59:34 bf Exp $
 #
 
 PORTNAME=	Epi
-PORTVERSION=	1.1.33
+PORTVERSION=	1.1.34
 CATEGORIES=	science
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
