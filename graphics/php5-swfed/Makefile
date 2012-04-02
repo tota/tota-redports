@@ -2,14 +2,14 @@
 # Date created:		2010-06-13
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/graphics/php5-swfed/Makefile,v 1.26 2012/02/22 19:49:53 tota Exp $
+# $FreeBSD: ports/graphics/php5-swfed/Makefile,v 1.27 2012/03/17 12:24:28 tota Exp $
 #
 
 PORTNAME=	swfed
-PORTVERSION=	0.55
+PORTVERSION=	0.56
 CATEGORIES=	graphics www
 MASTER_SITES=	SFJP
-MASTER_SITE_SUBDIR=	${PORTNAME}/55291
+MASTER_SITE_SUBDIR=	${PORTNAME}/55483
 PKGNAMEPREFIX=	php5-
 
 MAINTAINER=	yoya@awm.jp
