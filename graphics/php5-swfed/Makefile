@@ -15,6 +15,8 @@ PKGNAMEPREFIX=	php5-
 MAINTAINER=	yoya@awm.jp
 COMMENT=	A PHP extension to edit SWF file
 
+LICENSE=	PHP301
+
 BUILD_DEPENDS=	re2c:${PORTSDIR}/devel/re2c
 LIB_DEPENDS=	gif.5:${PORTSDIR}/graphics/giflib \
 		png.6:${PORTSDIR}/graphics/png
