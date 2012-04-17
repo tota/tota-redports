@@ -2,11 +2,11 @@
 # Date created:		2011-09-04
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/devel/R-cran-foreach/Makefile,v 1.7 2012/03/03 16:59:26 bf Exp $
+# $FreeBSD: ports/devel/R-cran-foreach/Makefile,v 1.9 2012/03/15 18:43:12 tota Exp $
 #
 
 PORTNAME=	foreach
-PORTVERSION=	1.3.5
+PORTVERSION=	1.4.0
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
