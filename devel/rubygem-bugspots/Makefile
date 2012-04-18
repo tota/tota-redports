@@ -2,11 +2,11 @@
 # Date created:		2012-01-11
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: ports/devel/rubygem-bugspots/Makefile,v 1.1 2012/01/22 13:09:53 tota Exp $
 #
 
 PORTNAME=	bugspots
-PORTVERSION=	0.1.1
+PORTVERSION=	0.1.2
 CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 
