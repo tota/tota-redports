@@ -2,11 +2,11 @@
 # Date created:		2011-10-30
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: ports/finance/R-cran-TTR/Makefile,v 1.1 2012/04/18 19:24:49 tota Exp $
 #
 
 PORTNAME=	TTR
-DISTVERSION=	0.21-0
+DISTVERSION=	0.21-1
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
