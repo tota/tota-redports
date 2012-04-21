@@ -2,11 +2,11 @@
 # Date created:		2008-02-06
 # Whom:			TAKATSU Tomonari <tota@rtfm.jp>
 #
-# $FreeBSD: ports/japanese/rubygem-jpmobile/Makefile,v 1.23 2012/02/08 21:16:34 tota Exp $
+# $FreeBSD: ports/japanese/rubygem-jpmobile/Makefile,v 1.24 2012/03/14 21:28:10 tota Exp $
 #
 
 PORTNAME=	jpmobile
-PORTVERSION=	3.0.2
+PORTVERSION=	3.0.3
 CATEGORIES=	japanese www rubygems
 MASTER_SITES=	RG
 
