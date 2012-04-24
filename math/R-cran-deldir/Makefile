@@ -2,11 +2,11 @@
 # Date created:		2011-08-16
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/math/R-cran-deldir/Makefile,v 1.8 2012/04/04 10:52:11 tota Exp $
+# $FreeBSD: ports/math/R-cran-deldir/Makefile,v 1.9 2012/04/22 13:21:42 tota Exp $
 #
 
 PORTNAME=	deldir
-DISTVERSION=	0.0-18
+DISTVERSION=	0.0-19
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
