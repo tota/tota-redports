@@ -2,11 +2,11 @@
 # Date created:				19 April 2004
 # Whom:					Yoshihiko Sarumaru <mistral@imasy.or.jp>
 #
-# $FreeBSD: ports/devel/astah-community/Makefile,v 1.44 2012/01/02 00:36:50 tota Exp $
+# $FreeBSD: ports/devel/astah-community/Makefile,v 1.45 2012/03/26 15:31:07 tota Exp $
 #
 
 PORTNAME=	astah
-PORTVERSION=	6.6
+PORTVERSION=	6.6.3
 CATEGORIES=	devel java
 MASTER_SITES=	#
 PKGNAMESUFFIX=	-community
