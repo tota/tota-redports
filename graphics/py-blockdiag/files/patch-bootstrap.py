@@ -21,7 +21,7 @@
 -        # for FreeBSD
 -        '/usr/local/share/font-ipa/ipagp.otf',  # for FreeBSD
 -    ]
-+    ipafontpath = '%%LOCALBASE%%/share/font-ipa/ipagp.otf',  # for FreeBSD
++    ipafontpath = '%%LOCALBASE%%/share/font-ipa/ipagp.otf'
  
      fontpath = None
      if options.font:
