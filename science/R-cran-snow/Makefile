@@ -2,11 +2,11 @@
 # Date created:		2011-08-16
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: ports/science/R-cran-snow/Makefile,v 1.2 2012/03/03 16:59:35 bf Exp $
 #
 
 PORTNAME=	snow
-DISTVERSION=	0.3-8
+DISTVERSION=	0.3-9
 CATEGORIES=	science
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
