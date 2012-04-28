@@ -2,11 +2,11 @@
 # Date created:		2012-01-11
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: ports/devel/rubygem-rainbow/Makefile,v 1.1 2012/01/22 13:04:30 tota Exp $
 #
 
 PORTNAME=	rainbow
-PORTVERSION=	1.1.3
+PORTVERSION=	1.1.4
 CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 
