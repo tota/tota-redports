@@ -1,0 +1,7 @@
+Pgbash is a BASH shell which includes the functionality of accessing
+the database for PostgreSQL. It is possible to execute SQL by making
+a shell script in the batch processing, and execute SQL directly
+in the interactive environment. And, Pgbash has the functionality
+for making the simple Web application.
+
+WWW: http://db.psn.ne.jp/pgbash/index-e.html

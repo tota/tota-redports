@@ -1,0 +1,4 @@
+bin/pgbash
+@unexec if cmp -s %D/etc/pgbashrc.dist %D/etc/pgbashrc; then rm -f %D/etc/pgbashrc; fi
+etc/pgbashrc.dist
+@exec if [ ! -f %D/etc/pgbashrc ] ; then cp -p %D/%F %B/pgbashrc; fi
