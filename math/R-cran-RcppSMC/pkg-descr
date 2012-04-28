@@ -1,0 +1,5 @@
+This package provides R with access to the Sequential Monte Carlo
+Template Classes by Johansen (Journal of Statistical Software, 2009,
+v30, i6).
+
+WWW:	http://cran.r-project.org/web/packages/RcppSMC/
