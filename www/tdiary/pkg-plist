@@ -1,9 +1,13 @@
+%%WWWDIR%%/Procfile
 %%WWWDIR%%/dot.htaccess
 %%WWWDIR%%/index.fcgi
 %%WWWDIR%%/index.rb
 %%WWWDIR%%/js/00default.js
 %%WWWDIR%%/js/01conf.js
+%%WWWDIR%%/js/02edit.coffee
+%%WWWDIR%%/js/02edit.js
 %%WWWDIR%%/js/amazon.js
+%%WWWDIR%%/js/calendar3.js
 %%WWWDIR%%/js/category.js
 %%WWWDIR%%/js/draft.js
 %%WWWDIR%%/js/highlight.js
@@ -148,6 +152,7 @@
 %%WWWDIR%%/misc/style/emptdiary/emptdiary_style.rb
 %%WWWDIR%%/misc/style/etdiary/README.rd
 %%WWWDIR%%/misc/style/etdiary/etdiary_style.rb
+%%WWWDIR%%/misc/style/gfm/gfm_style.rb
 %%WWWDIR%%/misc/style/rd/README.rd
 %%WWWDIR%%/misc/style/rd/rd_style.rb
 %%WWWDIR%%/misc/style/wiki/README
@@ -205,6 +210,7 @@
 %%WWWDIR%%/skel/update.rhtml
 %%WWWDIR%%/skel/update.rhtml.en
 %%WWWDIR%%/tdiary.conf.beginner
+%%WWWDIR%%/tdiary.conf.heroku
 %%WWWDIR%%/tdiary.conf.sample
 %%WWWDIR%%/tdiary.conf.sample-en
 %%WWWDIR%%/tdiary.rb
@@ -223,16 +229,19 @@
 %%WWWDIR%%/tdiary/filter/default.rb
 %%WWWDIR%%/tdiary/filter/spam.rb
 %%WWWDIR%%/tdiary/io/base.rb
+%%WWWDIR%%/tdiary/io/cache/file.rb
+%%WWWDIR%%/tdiary/io/cache/memcached.rb
 %%WWWDIR%%/tdiary/io/default.rb
 %%WWWDIR%%/tdiary/io/pstore.rb
+%%WWWDIR%%/tdiary/io/rdb.rb
 %%WWWDIR%%/tdiary/lang/en.rb
 %%WWWDIR%%/tdiary/lang/ja.rb
 %%WWWDIR%%/tdiary/plugin.rb
 %%WWWDIR%%/tdiary/referer_manager.rb
 %%WWWDIR%%/tdiary/request.rb
 %%WWWDIR%%/tdiary/response.rb
-%%WWWDIR%%/tdiary/tdiary_style.rb
-%%WWWDIR%%/tdiary/wiki_style.rb
+%%WWWDIR%%/tdiary/style/tdiary_style.rb
+%%WWWDIR%%/tdiary/style/wiki_style.rb
 %%WWWDIR%%/theme/3minutes/3minutes.css
 %%WWWDIR%%/theme/3minutes/README
 %%WWWDIR%%/theme/3minutes/h3.png
@@ -2175,7 +2184,9 @@
 @dirrm %%WWWDIR%%/theme/3pink
 @dirrm %%WWWDIR%%/theme/3minutes
 @dirrm %%WWWDIR%%/theme
+@dirrm %%WWWDIR%%/tdiary/style
 @dirrm %%WWWDIR%%/tdiary/lang
+@dirrm %%WWWDIR%%/tdiary/io/cache
 @dirrm %%WWWDIR%%/tdiary/io
 @dirrm %%WWWDIR%%/tdiary/filter
 @dirrm %%WWWDIR%%/tdiary/dispatcher
@@ -2187,6 +2198,7 @@
 @dirrm %%WWWDIR%%/misc/theme_convert
 @dirrm %%WWWDIR%%/misc/style/wiki
 @dirrm %%WWWDIR%%/misc/style/rd
+@dirrm %%WWWDIR%%/misc/style/gfm
 @dirrm %%WWWDIR%%/misc/style/etdiary
 @dirrm %%WWWDIR%%/misc/style/emptdiary
 @dirrm %%WWWDIR%%/misc/style

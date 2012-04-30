@@ -2,12 +2,11 @@
 # Date created:                 21 May 2003
 # Whom:                         Fumihiko Kimura <jfkimura@yahoo.co.jp>
 #
-# $FreeBSD: ports/www/tdiary/Makefile,v 1.33 2012/02/04 01:59:32 tota Exp $
+# $FreeBSD: ports/www/tdiary/Makefile,v 1.34 2012/02/18 22:11:47 tota Exp $
 #
 
 PORTNAME=	tdiary
-PORTVERSION=	3.1.2
-PORTREVISION=	1
+PORTVERSION=	3.1.3
 CATEGORIES?=	www ruby
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/ \
 		http://www.tdiary.org/download/
@@ -21,7 +20,7 @@ LICENSE_FILE=	${WRKDIR}/doc/LICENSE
 
 RUN_DEPENDS=	hikidoc:${PORTSDIR}/textproc/ruby-hikidoc \
 		rubygem-imagesize>=0.1.1:${PORTSDIR}/graphics/rubygem-imagesize \
-		rubygem-json_pure>=1.6.5:${PORTSDIR}/devel/rubygem-json_pure \
+		rubygem-json_pure>=1.6.6:${PORTSDIR}/devel/rubygem-json_pure \
 		rd2:${PORTSDIR}/textproc/ruby-rdtool
 
 NO_BUILD=	yes
@@ -39,10 +38,13 @@ RUBY_SHEBANG_FILES=	index.fcgi \
 			misc/plugin/xmlrpc/xmlrpc.rb \
 			misc/standalone_cgi/bin/server
 
-PORTDOCS=	ChangeLog HOWTO-make-io.rd HOWTO-make-plugin.html \
-		HOWTO-make-theme.html HOWTO-use-plugin.html \
-		HOWTO-write-tDiary.en.html HOWTO-write-tDiary.html INSTALL.html \
-		README.en.html README.html README.md UPGRADE doc.css
+HTML=	HOWTO-make-io.html HOWTO-make-plugin.html HOWTO-make-theme.html \
+	HOWTO-testing-tDiary.html HOWTO-use-plugin.html \
+	HOWTO-write-tDiary.en.html HOWTO-write-tDiary.html \
+	INSTALL-heroku.html INSTALL.html README.en.html README.html \
+	UPGRADE.html
+MD=	${HTML:C|$|.md|}
+PORTDOCS=	ChangeLog LICENSE doc.css ${HTML} ${MD}
 
 SUB_FILES=	pkg-message tdiaryinst.rb
 SUB_LIST+=	TDIARY_LANG=${TDIARY_LANG} \
@@ -80,20 +82,20 @@ RUN_DEPENDS+=	${RUBY_SITEARCHLIBDIR}/web/escape_ext.so:${PORTSDIR}/www/ruby-nora
 
 post-extract:
 	@${RM} ${WRKSRC}/.gitignore
-	@${RM} ${WRKSRC}/.rspec
 	@${RM} ${WRKSRC}/.travis.yml
 	@${RM} ${WRKSRC}/Capfile
 	@${RM} ${WRKSRC}/Gemfile
 	@${RM} ${WRKSRC}/Gemfile.lock
 	@${RM} ${WRKSRC}/Rakefile
 	@${RM} ${WRKSRC}/config.ru
+	@${RM} -r ${WRKSRC}/.bundle
 	@${RM} -r ${WRKSRC}/public
 	@${RM} -r ${WRKSRC}/spec
 	@${RM} -r ${WRKSRC}/test
 	@${RM} -r ${WRKSRC}/vendor/hikidoc-0.0.6
 	@${RM} -r ${WRKSRC}/vendor/imagesize-0.1.1/*
-	@${RM} -r ${WRKSRC}/vendor/json_pure-1.6.5
-	@${RM} -r ${WRKSRC}/vendor/rdtool-0.6.29
+	@${RM} -r ${WRKSRC}/vendor/json_pure-1.6.6
+	@${RM} -r ${WRKSRC}/vendor/rdtool-0.6.33
 	@${MV} ${WRKSRC}/ChangeLog ${WRKSRC}/doc
 	@${MV} ${WRKSRC}/LICENSE ${WRKSRC}/doc
 	@${MV} ${WRKSRC}/README.md ${WRKSRC}/doc
