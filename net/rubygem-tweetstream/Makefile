@@ -2,11 +2,11 @@
 # Date created:		2010-11-17
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/net/rubygem-tweetstream/Makefile,v 1.6 2011/11/13 22:21:49 tota Exp $
+# $FreeBSD: ports/net/rubygem-tweetstream/Makefile,v 1.8 2012/04/24 21:35:53 pav Exp $
 #
 
 PORTNAME=	tweetstream
-PORTVERSION=	1.1.4
+PORTVERSION=	1.1.5
 CATEGORIES=	net rubygems
 MASTER_SITES=	RG
 
@@ -15,7 +15,7 @@ COMMENT=	TweetStream provides simple Ruby access to Twitter\'s Streaming API
 
 RUN_DEPENDS=	rubygem-twitter-stream>=0.1.14:${PORTSDIR}/net/rubygem-twitter-stream \
 		rubygem-daemons>=1.1:${PORTSDIR}/devel/rubygem-daemons \
-		rubygem-multi_json>=1.0:${PORTSDIR}/devel/rubygem-multi_json
+		rubygem-multi_json>=1.3:${PORTSDIR}/devel/rubygem-multi_json
 
 USE_RUBY=	yes
 USE_RUBYGEMS=	yes
