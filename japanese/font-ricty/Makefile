@@ -5,11 +5,10 @@
 # $FreeBSD$
 #
 
-PORTNAME=	font-ricty
+PORTNAME=	ricty
 PORTVERSION=	3.2.0
 CATEGORIES=	japanese x11-fonts
 MASTER_SITES=	https://nodeload.github.com/yascentur/Ricty/tarball/
-DISTFILES=	${PORTVERSION}
 
 MAINTAINER=	masaki@club.kyutech.ac.jp
 COMMENT=	Ricty - fonts for programming
@@ -35,7 +34,9 @@ X_FONTSDIR=	lib/X11/fonts
 
 OPTIONS=	DISCORD "Install Ricty-Discord" On
 
-.include <bsd.port.options.mk>
+.include <bsd.port.pre.mk>
+
+PKGNAMEPREFIX:= ${PKGNAMEPREFIX}font-
 
 .if defined(WITH_DISCORD)
 PLIST_SUB+=	DISCORD=""
@@ -44,6 +45,9 @@ SUB_LIST+= DISCORD=""
 PLIST_SUB+=	DISCORD="@comment "
 SUB_LIST+= DISCORD="#"
 .endif
+
+do-fetch:
+	@${FETCH_BINARY} -o ${DISTDIR}/${DISTFILES} ${MASTER_SITES}${PORTVERSION}
 
 do-build:
 	cd ${WRKSRC} &&\
@@ -66,7 +70,6 @@ do-install:
 	${LN} -s -f \
 		${DATADIR}/*.ttf \
 		${PREFIX}/${X_FONTSDIR}/TTF/
-
 	${INSTALL_DATA} ${FILESDIR}/20-unhint-ricty.conf \
 		${FILESDIR}/62-fonts-ricty.conf \
 		${PREFIX}/etc/fonts/conf.avail
@@ -74,7 +77,6 @@ do-install:
 		${PREFIX}/etc/fonts/conf.d/20-unhint-ricty.conf
 	${LN} -s -f ../conf.avail/62-fonts-ricty.conf \
 		${PREFIX}/etc/fonts/conf.d/62-fonts-ricty.conf
-
 .if defined(WITH_DISCORD)
 	${INSTALL_DATA} ${FILESDIR}/20-unhint-rictydiscord.conf \
 		${FILESDIR}/62-fonts-rictydiscord.conf \
@@ -84,7 +86,6 @@ do-install:
 	${LN} -s -f ../conf.avail/62-fonts-rictydiscord.conf \
 		${PREFIX}/etc/fonts/conf.d/62-fonts-rictydiscord.conf
 .endif
-
 .if !defined(NOPORTDOCS)
 	${MKDIR} ${DOCSDIR}
 	cd ${WRKSRC} && ${INSTALL_DATA} ${PORTDOCS} ${DOCSDIR}
@@ -94,4 +95,4 @@ post-install:
 	${LOCALBASE}/bin/fc-cache -f -v ${PREFIX}/${X_FONTSDIR}/TTF
 	${SETENV} PKG_PREFIX=${PREFIX} ${SH} ${PKGINSTALL} ${PKGNAME} POST-INSTALL
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
