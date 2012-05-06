@@ -2,11 +2,11 @@
 # Date created:		2012-01-04
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: ports/finance/R-cran-plm/Makefile,v 1.3 2012/05/04 20:56:05 bf Exp $
 #
 
 PORTNAME=	plm
-DISTVERSION=	1.2-8
+DISTVERSION=	1.2-10
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -18,7 +18,8 @@ LICENSE_COMB=	dual
 
 RUN_DEPENDS=	R-cran-bdsmatrix>0:${PORTSDIR}/math/R-cran-bdsmatrix \
 		R-cran-Formula>=0.2.0:${PORTSDIR}/math/R-cran-Formula \
-		R-cran-sandwich>0:${PORTSDIR}/math/R-cran-sandwich
+		R-cran-sandwich>0:${PORTSDIR}/math/R-cran-sandwich \
+		R-cran-zoo>0:${PORTSDIR}/math/R-cran-zoo
 
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
