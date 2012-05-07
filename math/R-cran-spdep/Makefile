@@ -2,11 +2,11 @@
 # Date created:		2011-09-17
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/math/R-cran-spdep/Makefile,v 1.8 2012/03/03 16:59:33 bf Exp $
+# $FreeBSD: ports/math/R-cran-spdep/Makefile,v 1.10 2012/05/04 20:56:10 bf Exp $
 #
 
 PORTNAME=	spdep
-DISTVERSION=	0.5-45
+DISTVERSION=	0.5-46
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
