@@ -2,11 +2,11 @@
 # Date created:		2012-01-04
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: ports/graphics/R-cran-rgdal/Makefile,v 1.4 2012/05/07 08:12:52 wen Exp $
 #
 
 PORTNAME=	rgdal
-DISTVERSION=	0.7-8
+DISTVERSION=	0.7-10
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -17,8 +17,8 @@ LICENSE=	GPLv2 GPLv3
 LICENSE_COMB=	dual
 
 LIB_DEPENDS=	gdal.16:${PORTSDIR}/graphics/gdal \
-		proj.6:${PORTSDIR}/graphics/proj
-RUN_DEPENDS=	R-cran-sp>=0.9.60:${PORTSDIR}/math/R-cran-sp
+		proj.7:${PORTSDIR}/graphics/proj
+RUN_DEPENDS=	R-cran-sp>=0.9.99:${PORTSDIR}/math/R-cran-sp
 
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
