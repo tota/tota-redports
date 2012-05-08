@@ -2,11 +2,11 @@
 # Date created:		2012-01-04
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/graphics/R-cran-rgdal/Makefile,v 1.4 2012/05/07 08:12:52 wen Exp $
+# $FreeBSD: ports/graphics/R-cran-rgdal/Makefile,v 1.5 2012/05/07 21:55:06 tota Exp $
 #
 
 PORTNAME=	rgdal
-DISTVERSION=	0.7-10
+DISTVERSION=	0.7-11
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
