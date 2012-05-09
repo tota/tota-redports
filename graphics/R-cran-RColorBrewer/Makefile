@@ -2,19 +2,19 @@
 # Date created:		2011-09-10
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/graphics/R-cran-RColorBrewer/Makefile,v 1.4 2011/11/27 07:02:09 bf Exp $
+# $FreeBSD: ports/graphics/R-cran-RColorBrewer/Makefile,v 1.8 2012/05/04 20:56:06 bf Exp $
 #
 
 PORTNAME=	RColorBrewer
 DISTVERSION=	1.0-5
-PORTREVISION=	2
+PORTREVISION=	5
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	ColorBrewer palettes
 
-LICENSE=	ASL
+LICENSE=	AL2
 
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
