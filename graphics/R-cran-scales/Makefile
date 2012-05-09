@@ -20,7 +20,7 @@ RUN_DEPENDS=	R-cran-RColorBrewer>=0:${PORTSDIR}/graphics/R-cran-RColorBrewer \
 		R-cran-dichromat>=0:${PORTSDIR}/graphics/R-cran-dichromat \
 		R-cran-munsell>=0.2:${PORTSDIR}/graphics/R-cran-munsell \
 		R-cran-plyr>=1.2:${PORTSDIR}/devel/R-cran-plyr \
-		R-cran-labeling>=0:${PORTSDIR}/graphics/R-cran-labeling
+		R-cran-labeling>=0:${PORTSDIR}/math/R-cran-labeling
 
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
