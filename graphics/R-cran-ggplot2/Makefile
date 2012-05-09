@@ -2,11 +2,11 @@
 # Date created:		2011-09-10
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/graphics/R-cran-ggplot2/Makefile,v 1.6 2012/03/03 16:59:29 bf Exp $
+# $FreeBSD: ports/graphics/R-cran-ggplot2/Makefile,v 1.8 2012/05/04 20:56:06 bf Exp $
 #
 
 PORTNAME=	ggplot2
-PORTVERSION=	0.9.0
+PORTVERSION=	0.9.1
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -18,7 +18,7 @@ LICENSE=	GPLv2
 RUN_DEPENDS=	R-cran-plyr>=1.0:${PORTSDIR}/devel/R-cran-plyr \
 		R-cran-digest>=0:${PORTSDIR}/security/R-cran-digest \
 		R-cran-reshape2>=0:${PORTSDIR}/devel/R-cran-reshape2 \
-		R-cran-scales>=0:${PORTSDIR}/graphics/R-cran-scales \
+		R-cran-scales>=0.2.1:${PORTSDIR}/graphics/R-cran-scales \
 		R-cran-memoise>=0:${PORTSDIR}/devel/R-cran-memoise \
 		R-cran-proto>=0:${PORTSDIR}/devel/R-cran-proto
 
