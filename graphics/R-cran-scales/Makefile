@@ -2,11 +2,11 @@
 # Date created:		2012-02-08
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: ports/graphics/R-cran-scales/Makefile,v 1.2 2012/05/04 20:56:07 bf Exp $
 #
 
 PORTNAME=	scales
-PORTVERSION=	0.2.0
+PORTVERSION=	0.2.1
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -19,7 +19,8 @@ RUN_DEPENDS=	R-cran-RColorBrewer>=0:${PORTSDIR}/graphics/R-cran-RColorBrewer \
 		R-cran-stringr>=0:${PORTSDIR}/textproc/R-cran-stringr \
 		R-cran-dichromat>=0:${PORTSDIR}/graphics/R-cran-dichromat \
 		R-cran-munsell>=0.2:${PORTSDIR}/graphics/R-cran-munsell \
-		R-cran-plyr>=1.2:${PORTSDIR}/devel/R-cran-plyr
+		R-cran-plyr>=1.2:${PORTSDIR}/devel/R-cran-plyr \
+		R-cran-labeling>=0:${PORTSDIR}/graphics/R-cran-labeling
 
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
