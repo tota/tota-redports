@@ -2,7 +2,7 @@
 # Date created:		2011-08-07
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/graphics/py-nwdiag/Makefile,v 1.10 2011/11/23 04:39:11 tota Exp $
+# $FreeBSD: ports/graphics/py-nwdiag/Makefile,v 1.11 2012/01/09 15:40:58 tabthorpe Exp $
 #
 
 PORTNAME=	nwdiag
@@ -14,7 +14,7 @@ PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	A simple network-diagram image generator
 
-LICENSE=	ASL
+LICENSE=	AL2
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	${PKGNAMEPREFIX}imaging>=1.1.5:${PORTSDIR}/graphics/py-imaging \
