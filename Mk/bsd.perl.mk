@@ -1,7 +1,7 @@
 #-*- mode: makefile; tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.perl.mk,v 1.22 2011/08/15 06:50:00 sunpoet Exp $
+# $FreeBSD: ports/Mk/bsd.perl.mk,v 1.24 2012/03/11 05:22:01 linimon Exp $
 #
 # bsd.perl.mk - Support for Perl-based ports.
 #
@@ -64,6 +64,8 @@ PERL_LEVEL=0
 
 PERL_ARCH?=		mach
 
+# there must always be a default to prevent dependency failures such
+# as "ports/lang: not found"
 .if    ${PERL_LEVEL} >= 501400
 PERL_PORT?=	perl5.14
 .elif  ${PERL_LEVEL} >= 501200

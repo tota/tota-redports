@@ -1,7 +1,7 @@
 #-*- mode: makefile; tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.licenses.mk,v 1.10 2012/02/27 17:33:55 tabthorpe Exp $
+# $FreeBSD: ports/Mk/bsd.licenses.mk,v 1.11 2012/03/13 17:01:54 eadler Exp $
 
 Licenses_Include_MAINTAINER=         portmgr@FreeBSD.org
 
@@ -96,7 +96,7 @@ Licenses_Include_MAINTAINER=         portmgr@FreeBSD.org
 # pkg-mirror	- No free redistribution of package (like FTP upload; NO_PACKAGE).
 # pkg-sell		- No selling of package (like in CD-ROM; NO_CDROM).
 # auto-accept	- If license is accepted by default, without presented
-# 				  agreement, at least the user defines LICENSES_ASK.
+# 				  agreement, unless the user defines LICENSES_ASK.
 #
 # Notes about permissions:
 # - Permissions use a default-deny policy.

@@ -4,7 +4,7 @@
 # Date created:		12 Nov 2005
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
-# $FreeBSD: ports/Mk/bsd.gecko.mk,v 1.51 2012/01/31 21:17:57 flo Exp $
+# $FreeBSD: ports/Mk/bsd.gecko.mk,v 1.57 2012/05/12 16:23:08 beat Exp $
 #
 # 4 column tabs prevent hair loss and tooth decay!
 
@@ -181,7 +181,7 @@ Gecko_Pre_Include=			bsd.gecko.mk
 #                         is given by the maintainer via the port or by the
 #                         user via defined variable try to find the highest
 #                         stable installed version.
-#                         Available values: yes 10+ 36+ 10 36
+#                         Available values: yes 10+ 12+ 10 12+
 #                         NOTE:
 #                         default value 10 is used in case of USE_FIREFOX=yes
 #
@@ -192,9 +192,9 @@ Gecko_Pre_Include=			bsd.gecko.mk
 #                         version is given by the maintainer via the port 
 #                         or by the user via defined variable try to find
 #                         the highest stable installed version.
-#                         Available values: yes 27+ 27
+#                         Available values: yes 29+ 29
 #                         NOTE:
-#                         default value 27 is used in case of USE_SEAMONKEY=yes
+#                         default value 29 is used in case of USE_SEAMONKEY=yes
 #
 # USE_SEAMONKEY_BUILD     Add buildtime dependency on SeaMonkey.
 #                         Available values: see USE_SEAMONKEY
@@ -203,7 +203,7 @@ Gecko_Pre_Include=			bsd.gecko.mk
 #                         version is given by the maintainer via the port 
 #                         or by the user via defined variable try to find 
 #                         the highest stable installed version.
-#                         Available values: yes 10+ 31+ 10 31
+#                         Available values: yes 10+ 12+ 10 12
 #                         NOTE:
 #                         default value 10 is used in case of USE_THUNDERBIRD=yes
 #
@@ -223,11 +223,11 @@ _FIREFOX_BUILD_DEPENDS=		yes
 .endif
 
 _FIREFOX_DEFAULT_VERSION=	10
-_FIREFOX_VERSIONS=			10 36
-_FIREFOX_RANGE_VERSIONS=	10+ 36+
+_FIREFOX_VERSIONS=			10 12
+_FIREFOX_RANGE_VERSIONS=	10+ 12+
 
-# For specifying [36, ..]+
-_FIREFOX_36P=	36 ${_FIREFOX_10P}
+# For specifying [10, ..]+
+_FIREFOX_12P=	12 ${_FIREFOX_10P}
 _FIREFOX_10P=	10
 
 # Set the default Firefox version and check if USE_FIREFOX=yes was given
@@ -268,16 +268,8 @@ _SUPFIREFOX=		yes
 .endif
 .endif
 .if ${_SUPFIREFOX} == no
-.if ${_FIREFOX_VER} < 36
 _DISPLAY_VERSION_HAVE= ${_FIREFOX_VER}
-.else
-_DISPLAY_VERSION_HAVE:= ${_FIREFOX_VER:C/([0-9])([0-9])/\1.\2/}
-.endif
-.if ${USE_FIREFOX} < 36
 _DISPLAY_VERSION_WANT= ${USE_FIREFOX}
-.else
-_DISPLAY_VERSION_WANT:= ${USE_FIREFOX:C/([0-9])([0-9])/\1.\2/}
-.endif
 
 IGNORE=			cannot install: Firefox versions mismatch: firefox-${_DISPLAY_VERSION_HAVE} is installed and wanted version is firefox-${_DISPLAY_VERSION_WANT}
 .endif
@@ -288,8 +280,8 @@ IGNORE=			cannot install: unknown Firefox version: firefox-${USE_FIREFOX:C/([0-9
 .endif
 
 # Dependence lines for different Firefox versions
-10_DEPENDS=		${LOCALBASE}/lib/firefox/firefox:${PORTSDIR}/www/firefox
-36_DEPENDS=		${LOCALBASE}/lib/firefox3/firefox:${PORTSDIR}/www/firefox36
+10_DEPENDS=		${LOCALBASE}/lib/firefox/firefox:${PORTSDIR}/www/firefox-esr
+12_DEPENDS=		${LOCALBASE}/lib/firefox/firefox:${PORTSDIR}/www/firefox
 
 # Add dependencies
 .if defined(USE_FIREFOX)
@@ -311,12 +303,12 @@ USE_SEAMONKEY:=				${USE_SEAMONKEY_BUILD}
 _SEAMONKEY_BUILD_DEPENDS=	yes
 .endif
 
-_SEAMONKEY_DEFAULT_VERSION=	27
-_SEAMONKEY_VERSIONS=		27
-_SEAMONKEY_RANGE_VERSIONS=	27+
+_SEAMONKEY_DEFAULT_VERSION=	29
+_SEAMONKEY_VERSIONS=		29
+_SEAMONKEY_RANGE_VERSIONS=	29+
 
-# For specifying [27, 20, ..]+
-_SEAMONKEY_27P=	27
+# For specifying [29, 20, ..]+
+_SEAMONKEY_29P=	29
 
 # Set the default SeaMonkey version and check if USE_SEAMONKEY=yes was given
 .if ${USE_SEAMONKEY} == "yes"
@@ -358,7 +350,7 @@ IGNORE=			cannot install: unknown SeaMonkey version: seamonkey-${USE_SEAMONKEY:C
 .endif
 
 # Dependence lines for different SeaMonkey versions
-27_DEPENDS=		${LOCALBASE}/lib/seamonkey/seamonkey:${PORTSDIR}/www/seamonkey
+29_DEPENDS=		${LOCALBASE}/lib/seamonkey/seamonkey:${PORTSDIR}/www/seamonkey
 
 # Add dependencies
 .if defined(USE_SEAMONKEY)
@@ -381,11 +373,11 @@ _THUNDERBIRD_BUILD_DEPENDS=		yes
 .endif
 
 _THUNDERBIRD_DEFAULT_VERSION=	10
-_THUNDERBIRD_VERSIONS=			10 31
-_THUNDERBIRD_RANGE_VERSIONS=	10+ 31+
+_THUNDERBIRD_VERSIONS=			10 12
+_THUNDERBIRD_RANGE_VERSIONS=	10+ 12+
 
-# For specifying [31, 30, ..]+
-_THUNDERBIRD_31P=	31 ${_THUNDERBIRD_31P}
+# For specifying [10, ..]+
+_THUNDERBIRD_12P=	12 ${_THUNDERBIRD_10P}
 _THUNDERBIRD_10P=	10
 
 # Set the default Thunderbird version and check if USE_THUNDERBIRD=yes was given
@@ -394,16 +386,8 @@ USE_THUNDERBIRD=	${_THUNDERBIRD_DEFAULT_VERSION}
 .endif
 
 # Setting/finding Thunderbird version we want.
-.if exists(${LOCALBASE}/bin/thunderbird)
 _TMP_VER!=	${LOCALBASE}/bin/thunderbird --version 2>/dev/null | ${HEAD} -1 | ${SED} -e 's/ Thunderbird \([0-9]\{1,2\}\)\.\([0-9]*\).*/\1\2/'
-.if ${_TMP_VER} >= 100
 _THUNDERBIRD_VER:=	${_TMP_VER:C/([0-9][0-9]).*/\1/}
-.else
-_THUNDERBIRD_VER=	${_TMP_VER}
-.endif
-.elif exists(${LOCALBASE}/bin/thunderbird3)
-_THUNDERBIRD_VER!=	${LOCALBASE}/bin/thunderbird3 --version 2>/dev/null | ${HEAD} -1 | ${SED} -e 's/ Thunderbird \([0-9]\)\.\([0-9]*\).*/\1\2/'
-.endif
 
 # Check if installed Thunderbird version matches the wanted one
 .if defined(_THUNDERBIRD_VER)
@@ -426,16 +410,8 @@ _SUPTHUNDERBIRD=		yes
 .endif
 .endif
 .if ${_SUPTHUNDERBIRD} != yes
-.if ${_THUNDERBIRD_VER} < 31
 _DISPLAY_VERSION_HAVE= ${_THUNDERBIRD_VER}
-.else
-_DISPLAY_VERSION_HAVE:= ${_THUNDERBIRD_VER:C/([0-9])([0-9])/\1.\2/}
-.endif
-.if ${USE_THUNDERBIRD} < 31
 _DISPLAY_VERSION_WANT= ${USE_THUNDERBIRD}
-.else
-_DISPLAY_VERSION_WANT:= ${USE_THUNDERBIRD:C/([0-9])([0-9])/\1.\2/}
-.endif
 IGNORE=			cannot install: Thunderbird versions mismatch: thunderbird-${_DISPLAY_VERSION_HAVE} is installed and wanted version is thunderbird-${_DISPLAY_VERSION_WANT}
 .endif
 .endif
@@ -445,8 +421,8 @@ IGNORE=			cannot install: unknown Thunderbird version: thunderbird-${USE_THUNDER
 .endif
 
 # Dependence lines for different Thunderbird versions
-10_DEPENDS=		${LOCALBASE}/lib/thunderbird/thunderbird:${PORTSDIR}/mail/thunderbird
-31_DEPENDS=		${LOCALBASE}/lib/thunderbird3/thunderbird:${PORTSDIR}/mail/thunderbird3
+10_DEPENDS=		${LOCALBASE}/lib/thunderbird/thunderbird:${PORTSDIR}/mail/thunderbird-esr
+12_DEPENDS=		${LOCALBASE}/lib/thunderbird/thunderbird:${PORTSDIR}/mail/thunderbird
 
 # Add dependencies
 .if defined(USE_THUNDERBIRD)
@@ -828,10 +804,14 @@ gecko-post-patch:
 	@${REINPLACE_CMD} -e 's|%%PREFIX%%|${PREFIX}|g ; \
 		s|%%LOCALBASE%%|${LOCALBASE}|g' \
 			${MOZSRC}/build/unix/run-mozilla.sh
-	@${REINPLACE_CMD} -E -e 's|libesd\.so\.[0-9]+|libesd.so|g' \
-		${MOZSRC}/widget/src/gtk2/nsSound.cpp
-	@${REINPLACE_CMD} -E -e 's|libcups\.so\.[0-9]+|libcups.so|g' \
-		${MOZSRC}/*/*/*/nsDeviceContextSpecG.cpp
+	@if [ -f ${MOZSRC}/widget/src/gtk2/nsSound.cpp ] ; then \
+		${REINPLACE_CMD} -E -e 's|libesd\.so\.[0-9]+|libesd.so|g' \
+			${MOZSRC}/widget/src/gtk2/nsSound.cpp ; \
+	fi
+	@if ! [ -f ${MOZSRC}/widget/gtk2/nsDeviceContextSpecG.cpp ] ; then \
+		${REINPLACE_CMD} -E -e 's|libcups\.so\.[0-9]+|libcups.so|g' \
+			${MOZSRC}/*/*/*/nsDeviceContextSpecG.cpp ; \
+	fi
 	@${REINPLACE_CMD} -e 's|/usr/local/netscape|${LOCALBASE}|g ; \
 		s|/usr/local/lib/netscape|${LOCALBASE}/lib|g' \
 		${MOZSRC}/xpcom/*/SpecialSystemDirectory.cpp

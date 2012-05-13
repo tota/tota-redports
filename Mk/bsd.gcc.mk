@@ -29,7 +29,7 @@
 # If you are wondering what your port exactly does, use "make test-gcc"
 # to see some debugging.
 #
-# $FreeBSD: ports/Mk/bsd.gcc.mk,v 1.62 2011/11/12 22:03:55 gerald Exp $
+# $FreeBSD: ports/Mk/bsd.gcc.mk,v 1.63 2012/04/29 12:20:17 gerald Exp $
 #
 
 GCC_Include_MAINTAINER=		gerald@FreeBSD.org
@@ -100,11 +100,6 @@ MAKE_ENV+=		F77="${F77}" FC="${FC}" FFLAGS="${FFLAGS}"
 
 
 .if defined(USE_GCC)
-
-# GCC 4.5 got disconnected 2011-11-12, take care of any uses.
-.if ${USE_GCC} == "4.5+"
-USE_GCC=	4.6+
-.endif
 
 # See if we can use a later version or exclusively the one specified.
 _USE_GCC:=	${USE_GCC:S/+//}

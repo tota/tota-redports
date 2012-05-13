@@ -1,3 +1,5 @@
+# $FreeBSD: ports/Mk/bsd.ncurses.mk,v 1.5 2012/05/06 13:54:57 bapt Exp $
+#
 # the user/port can now set this options in the makefiles.
 #
 # WITH_NCURSES_BASE=yes	- Use the version in the base system.
@@ -55,6 +57,14 @@ NCURSESINC=		${NCURSESBASE}/include/ncurses
 # find installed port and use it for dependency
 PKG_DBDIR?=		${DESTDIR}/var/db/pkg
 .if !defined(NCURSES_INSTALLED)
+.if defined(WITH_PKGNG)
+.if defined(DESTDIR)
+PKGARGS=	-c ${DESTDIR}
+.else
+PKGARGS=
+.endif
+NCURSES_INSTALLED!=	${PKG_BIN} ${PKGARGS} which -qo ${LOCALBASE}/lib/libncurses.so
+.else
 NCURSES_INSTALLED!=	find "${PKG_DBDIR}/" -type f -name "+CONTENTS" -print0 | \
 			xargs -0 grep -l "^lib/libncurses.so." | \
 			while read contents; do \
@@ -62,9 +72,15 @@ NCURSES_INSTALLED!=	find "${PKG_DBDIR}/" -type f -name "+CONTENTS" -print0 | \
 				if test "$${ncursesprefix}" = "@cwd ${LOCALBASE}" ; then \
 					echo "$${contents}"; break; fi; done
 .endif
+.endif
 .if defined(NCURSES_INSTALLED) && ${NCURSES_INSTALLED} != ""
+.if defined(WITH_PKGNG)
+NCURSES_PORT=		${NCURSES_INSTALLED}
+NCURSES_SHLIBFILE!=	${PKG_INFO} -ql ${NCURSES_INSTALLED} | grep -m 1 "^`pkg query "%p" ${NCURSES_INSTALLED}`/lib/libncurses.so."
+.else
 NCURSES_PORT!=		grep "^@comment ORIGIN:" "${NCURSES_INSTALLED}" | ${CUT} -d : -f 2
 NCURSES_SHLIBFILE!=	grep -m 1 "^lib/libncurses.so." "${NCURSES_INSTALLED}"
+.endif
 NCURSES_SHLIBVER?=	${NCURSES_SHLIBFILE:E}
 .else
 # PKG_DBDIR was not found, default

@@ -20,7 +20,7 @@
 #
 # Note: all entries should terminate with a slash.
 #
-# $FreeBSD: ports/Mk/bsd.sites.mk,v 1.560 2012/02/24 15:28:46 tabthorpe Exp $
+# $FreeBSD: ports/Mk/bsd.sites.mk,v 1.563 2012/05/01 11:00:16 kwm Exp $
 #
 
 # Where to put distfiles that don't have any other master site
@@ -336,7 +336,6 @@ MASTER_SITE_FEDORA_LINUX+= \
 	ftp://sunsite.mff.cuni.cz/MIRRORS/fedora.redhat.com/linux/core/%SUBDIR%/ \
 	http://ftp-stud.hs-esslingen.de/pub/fedora/linux/core/%SUBDIR%/ \
 	ftp://ftp-stud.hs-esslingen.de/pub/fedora/linux/core/%SUBDIR%/ \
-	http://www.jur-linux.org/download/fedora/core/%SUBDIR%/ \
 	http://ftp.uni-erlangen.de/pub/Linux/MIRROR.fedora/core/%SUBDIR%/ \
 	ftp://ftp.uni-muenster.de/pub/linux/distributions/fedora/linux/core/%SUBDIR%/ \
 	http://ftp.uni-bayreuth.de/linux/fedora/linux/core/%SUBDIR%/ \
@@ -520,9 +519,7 @@ MASTER_SITE_GNOME+=	\
 	ftp://ftp.belnet.be/mirror/ftp.gnome.org/%SUBDIR%/ \
 	http://ftp.acc.umu.se/pub/GNOME/%SUBDIR%/ \
 	ftp://ftp.cse.buffalo.edu/pub/Gnome/%SUBDIR%/ \
-	http://ftp.unina.it/pub/linux/GNOME/%SUBDIR%/ \
 	http://fr2.rpmfind.net/linux/gnome.org/%SUBDIR%/ \
-	http://www.gtlib.cc.gatech.edu/pub/gnome/%SUBDIR%/ \
 	ftp://ftp.dti.ad.jp/pub/X/gnome/%SUBDIR%/ \
 	http://linorg.usp.br/gnome/%SUBDIR%/ \
 	http://mirror.aarnet.edu.au/pub/gnome/%SUBDIR%/ \
@@ -747,7 +744,7 @@ MASTER_SITE_MOZDEV+= \
 #
 .if !defined(IGNORE_MASTER_SITE_MOZILLA)
 MASTER_SITE_MOZILLA+= \
-	http://ftp.mozilla.org/pub/mozilla.org/%SUBDIR%/ \
+	https://ftp.mozilla.org/pub/mozilla.org/%SUBDIR%/ \
 	http://mirror3.mirrors.tds.net/pub/mozilla.org/%SUBDIR%/ \
 	http://mozilla.isc.org/pub/mozilla.org/%SUBDIR%/ \
 	http://releases.mozilla.org/pub/mozilla.org/%SUBDIR%/ \

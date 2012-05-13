@@ -1,7 +1,7 @@
 # -*- mode: Makefile; tab-width: 4; -*-
 # ex: ts=4
 #
-# $FreeBSD: ports/Mk/bsd.ldap.mk,v 1.8 2011/02/24 21:50:08 delphij Exp $
+# $FreeBSD: ports/Mk/bsd.ldap.mk,v 1.9 2012/05/11 15:19:49 bapt Exp $
 #
 
 .if defined(_POSTMKINCLUDED) && !defined(Ldap_Post_Include)
@@ -64,7 +64,7 @@ IGNORE=	cannot install: OpenLDAP versions mismatch: openldap${_OPENLDAP_VER}-cli
 
 CFLAGS+=	-DLDAP_DEPRECATED
 
-_OPENLDAP_CLIENT_PKG!=	${PKG_INFO} -Ex openldap.\*-client || ${TRUE}
+_OPENLDAP_CLIENT_PKG!=	${PKG_INFO} -Ex openldap.\*-client 2>/dev/null || ${TRUE}
 _OPENLDAP_FLAVOUR=	${_OPENLDAP_CLIENT_PKG:C/openldap//:C/-client-.*//}
 
 .if defined(WANT_OPENLDAP_SASL)

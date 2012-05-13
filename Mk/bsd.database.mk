@@ -1,7 +1,7 @@
 # -*- mode: Makefile; tab-width: 4; -*-
 # ex: ts=4
 #
-# $FreeBSD: ports/Mk/bsd.database.mk,v 1.66 2011/10/14 22:30:35 dougb Exp $
+# $FreeBSD: ports/Mk/bsd.database.mk,v 1.73 2012/04/20 21:56:49 delphij Exp $
 #
 
 .if defined(_POSTMKINCLUDED) && !defined(Database_Post_Include)
@@ -35,20 +35,19 @@ Database_Include_MAINTAINER=	ports@FreeBSD.org
 # MYSQL_VER
 #				- Detected MySQL version.
 ##
-# USE_PGSQL		- Add PostgreSQL client dependency.
+# USE_PGSQL		- Add PostgreSQL client dependency.  Components can be depended
+#				  on using USE_PGSQL=	component[:target].  For the full list
+#				  use make -V _USE_PGSQL_DEP
 #				  If no version is given (by the maintainer via the port or
 #				  by the user via defined variable), try to find the
 #				  currently installed version.  Fall back to default if
-#				  necessary (PostgreSQL-8.4 = 84).
+#				  necessary (PostgreSQL-9.0 = 90).
 # DEFAULT_PGSQL_VER
-#				- PostgreSQL default version.  Can be overridden within a
-#				  port.  Default: 84.
+#				- PostgreSQL default version, currently 90.
 # WANT_PGSQL_VER
 #				- Maintainer can set an arbitrary version of PostgreSQL to
 #				  always build this port with (overrides WITH_PGSQL_VER).
-# IGNORE_WITH_PGSQL
-#				- This variable can be defined if the ports does not support
-#				  one or more versions of PostgreSQL.
+#				  Minimum and maximum versions can be set (e.g. 90+)
 # WITH_PGSQL_VER
 #				- User defined variable to set PostgreSQL version.
 # PGSQL_VER
@@ -109,7 +108,7 @@ DEFAULT_MYSQL_VER?=	55
 MYSQL41_LIBVER=		14
 MYSQL50_LIBVER=		15
 MYSQL51_LIBVER=		16
-MYSQL52_LIBVER=		16
+MYSQL53_LIBVER=		16
 MYSQL55_LIBVER=		18
 
 # Setting/finding MySQL version we want.
@@ -138,7 +137,7 @@ IGNORE=		cannot install: MySQL versions mismatch: mysql${_MYSQL_VER}-client is i
 .endif
 .endif
 
-.if (${MYSQL_VER} == "52")
+.if (${MYSQL_VER} == "53")
 _MYSQL_CLIENT=	databases/mariadb-client
 _MYSQL_SERVER=	databases/mariadb-server
 .else
@@ -173,58 +172,94 @@ IGNORE=		cannot install: unknown MySQL version: ${MYSQL_VER}
 .endif # USE_MYSQL
 
 .if defined(USE_PGSQL)
-DEFAULT_PGSQL_VER?=	84
-PGSQL82_LIBVER=		5
+VALID_PGSQL_VER=	83 84 90 91
+DEFAULT_PGSQL_VER?=	90
 PGSQL83_LIBVER=		5
 PGSQL84_LIBVER=		5
 PGSQL90_LIBVER=		5
 PGSQL91_LIBVER=		5
 
 # Setting/finding PostgreSQL version we want.
-.if exists(${LOCALBASE}/bin/pg_config)
+.  if exists(${LOCALBASE}/bin/pg_config)
 _PGSQL_VER!=	${LOCALBASE}/bin/pg_config --version | ${SED} -n 's/PostgreSQL[^0-9]*\([0-9][0-9]*\)\.\([0-9][0-9]*\)[^0-9].*/\1\2/p'
-.endif
+WITH_PGSQL_VER?=	${_PGSQL_VER}
+.	 if ${WITH_PGSQL_VER} != ${_PGSQL_VER}
+IGNORE?=		cannot install: you have set WITH_PGSQL_VER=${WITH_PGSQL_VER} in make.conf, but you have postgresql${_PGSQL_VER}-client installed
+.	 endif
+.  endif
 
-.if defined(WANT_PGSQL_VER)
-.if defined(WITH_PGSQL_VER) && ${WITH_PGSQL_VER} != ${WANT_PGSQL_VER}
-IGNORE=		cannot install: the port wants postgresql${WANT_PGSQL_VER}-client and you try to install postgresql${WITH_PGSQL_VER}-client
-.endif
-PGSQL_VER=	${WANT_PGSQL_VER}
-.elif defined(WITH_PGSQL_VER)
+.  if defined(WANT_PGSQL_VER)
+.    if ${WANT_PGSQL_VER:M*+}
+.      for version in ${VALID_PGSQL_VER}
+.        if ${WANT_PGSQL_VER:S/+//} <= ${version}
+_WANT_PGSQL_VER+=${version}
+.        endif
+.      endfor
+.    elif ${WANT_PGSQL_VER:M*-}
+.      for version in ${VALID_PGSQL_VER}
+.        if ${WANT_PGSQL_VER:S/-//} >= ${version}
+_WANT_PGSQL_VER+=${version}
+.        endif
+.      endfor
+.    endif
+_WANT_PGSQL_VER?=	${WANT_PGSQL_VER}
+.  endif
+
+.  if !empty(_WANT_PGSQL_VER)
+.    for version in ${_WANT_PGSQL_VER}
+.      if defined(WITH_PGSQL_VER)
+.        if ${WITH_PGSQL_VER} == ${version}
 PGSQL_VER=	${WITH_PGSQL_VER}
-.else
-.if defined(_PGSQL_VER)
-PGSQL_VER=	${_PGSQL_VER}
-.else
-PGSQL_VER=	${DEFAULT_PGSQL_VER}
-.endif
-.endif # WANT_PGSQL_VER
+.        endif
+.      elif ${DEFAULT_PGSQL_VER} == ${version}
+PGSQL_VER=	${version}
+.      endif
+PGSQL_VER?=	${version}
+.    endfor
+.    if empty(PGSQL_VER)
+IGNORE?=	cannot install: the port wants postgresql-client version ${WANT_PGSQL_VER} and you have version ${WITH_PGSQL_VER} installed or set in make.conf
+.    endif
+.  endif
 
-.if defined(_PGSQL_VER) && ${PGSQL_VER} != ${_PGSQL_VER}
-IGNORE=		cannot install: the port wants postgresql${PGSQL_VER}-client but you have postgresql${_PGSQL_VER}-client installed
+.if !empty(WITH_PGSQL_VER)
+PGSQL_VER?=	${WITH_PGSQL_VER}
+.else
+PGSQL_VER?=	${DEFAULT_PGSQL_VER}
 .endif
 
 # And now we are checking if we can use it
 .if defined(PGSQL${PGSQL_VER}_LIBVER)
-# compatibility shim
-.if defined(BROKEN_WITH_PGSQL)
-IGNORE_WITH_PGSQL=${BROKEN_WITH_PGSQL}
-.endif
 .if defined(IGNORE_WITH_PGSQL)
-.	for VER in ${IGNORE_WITH_PGSQL}
-.		if (${PGSQL_VER} == "${VER}")
-IGNORE=		cannot install: does not work with postgresql${PGSQL_VER}-client (PostgresSQL ${IGNORE_WITH_PGSQL} not supported)
+.	for ver in ${IGNORE_WITH_PGSQL}
+.		if (${PGSQL_VER} == ${ver})
+IGNORE?=		cannot install: does not work with postgresql${PGSQL_VER}-client (PostgresSQL ${IGNORE_WITH_PGSQL} not supported)
 .		endif
 .	endfor
 .endif # IGNORE_WITH_PGSQL
+
 LIB_DEPENDS+=	pq.${PGSQL${PGSQL_VER}_LIBVER}:${PORTSDIR}/databases/postgresql${PGSQL_VER}-client
+
+_USE_PGSQL_DEP=			contrib docs pltcl plperl server
+_USE_PGSQL_DEP_contrib=	pgbench
+_USE_PGSQL_DEP_docs=	postgresql-docs>0
+_USE_PGSQL_DEP_pltcl=	postgresql-pltcl>0
+_USE_PGSQL_DEP_plperl=	postgresql-plperl>0
+_USE_PGSQL_DEP_server=	postgres
+.  for depend in ${_USE_PGSQL_DEP}
+.    if ${USE_PGSQL:M${depend}}
+BUILD_DEPENDS+=	${_USE_PGSQL_DEP_${depend}}:${PORTSDIR}/databases/postgresql${PGSQL_VER}-${depend}
+RUN_DEPENDS+=	${_USE_PGSQL_DEP_${depend}}:${PORTSDIR}/databases/postgresql${PGSQL_VER}-${depend}
+.    elif ${USE_PGSQL:M${depend}\:*}
+BUILD_DEPENDS+=	${NONEXISTENT}:${PORTSDIR}/databases/postgresql${PGSQL_VER}-${depend}:${USE_PGSQL:M${depend}\:*:C,^[^:]*\:,,}
+.    endif
+.  endfor
+
 .else
-IGNORE=		cannot install: unknown PostgreSQL version: ${PGSQL_VER}
+IGNORE?=		cannot install: unknown PostgreSQL version: ${PGSQL_VER}
 .endif # Check for correct version
 CPPFLAGS+=		-I${LOCALBASE}/include
 LDFLAGS+=		-L${LOCALBASE}/lib
 .endif # USE_PGSQL
-
 
 .if defined(USE_BDB)
 

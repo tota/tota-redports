@@ -1,7 +1,7 @@
 #-*- mode: Makefile: tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.pkgng.mk,v 1.2 2012/02/22 17:34:47 bapt Exp $
+# $FreeBSD: ports/Mk/bsd.pkgng.mk,v 1.3 2012/05/10 14:34:57 bapt Exp $
 #
 
 .if defined(_POSTMKINCLUDED)
@@ -92,7 +92,6 @@ fake-pkg:
 		shift 3; \
 	done >> ${MANIFESTF}
 	@${ECHO_CMD} "}" >> ${MANIFESTF}
-	@${CAT} ${MANIFESTF}
 	@[ -f ${PKGINSTALL} ] && ${CP} ${PKGINSTALL} ${METADIR}/+INSTALL; \
 	[ -f ${PKGPREINSTALL} ] && ${CP} ${PKGPREINSTALL} ${METADIR}/+PRE_INSTALL; \
 	[ -f ${PKGPOSTINSTALL} ] && ${CP} ${PKGPOSTINSTALL} ${METADIR}/+POST_INSTALL; \
