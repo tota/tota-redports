@@ -2,11 +2,11 @@
 # Date created:				28 September 2001
 # Whom:					Alexey Zelkin <phantom@FreeBSD.org>
 #
-# $FreeBSD: ports/devel/bugzilla3/Makefile,v 1.89 2012/02/06 12:08:25 skv Exp $
+# $FreeBSD: ports/devel/bugzilla3/Makefile,v 1.90 2012/04/21 17:37:42 ohauer Exp $
 #
 
 PORTNAME=	bugzilla
-PORTVERSION=	3.6.8
+PORTVERSION=	3.6.9
 CATEGORIES=	devel
 MASTER_SITES=	${MASTER_SITE_MOZILLA}
 MASTER_SITE_SUBDIR=	webtools webtools/archived
