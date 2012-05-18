@@ -2,12 +2,11 @@
 # Date created:         3 July 2003
 # Whom:                 Hye-Shik Chang <perky@FreeBSD.org>
 #
-# $FreeBSD: ports/lang/python27/Makefile,v 1.183 2011/11/09 15:25:37 miwi Exp $
+# $FreeBSD: ports/lang/python27/Makefile,v 1.185 2012/04/11 12:52:16 miwi Exp $
 #
 
 PORTNAME=	python27
-PORTVERSION=	2.7.2
-PORTREVISION=	3
+PORTVERSION=	2.7.3
 CATEGORIES=	lang python ipv6
 MASTER_SITES=	${PYTHON_MASTER_SITES}
 MASTER_SITE_SUBDIR=	${PYTHON_MASTER_SITE_SUBDIR}
