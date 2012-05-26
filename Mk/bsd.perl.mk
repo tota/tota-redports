@@ -1,7 +1,7 @@
-#-*- mode: makefile; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.perl.mk,v 1.24 2012/03/11 05:22:01 linimon Exp $
+# $FreeBSD: ports/Mk/bsd.perl.mk,v 1.25 2012/05/23 08:17:49 miwi Exp $
 #
 # bsd.perl.mk - Support for Perl-based ports.
 #

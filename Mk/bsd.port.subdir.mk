@@ -1,8 +1,8 @@
-#-*- mode: makefile; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
 #	from: @(#)bsd.subdir.mk	5.9 (Berkeley) 2/1/91
-# $FreeBSD: ports/Mk/bsd.port.subdir.mk,v 1.79 2011/07/21 05:04:39 linimon Exp $
+# $FreeBSD: ports/Mk/bsd.port.subdir.mk,v 1.80 2012/05/23 08:17:49 miwi Exp $
 #
 # The include file <bsd.port.subdir.mk> contains the default targets
 # for building ports subdirectories.

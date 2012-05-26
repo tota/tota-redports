@@ -1,7 +1,7 @@
-# -*- mode: Makefile; tab-width: 4; -*-
+# -*- tab-width: 4; -*-
 # ex: ts=4
 #
-# $FreeBSD: ports/Mk/bsd.ldap.mk,v 1.9 2012/05/11 15:19:49 bapt Exp $
+# $FreeBSD: ports/Mk/bsd.ldap.mk,v 1.10 2012/05/23 08:17:49 miwi Exp $
 #
 
 .if defined(_POSTMKINCLUDED) && !defined(Ldap_Post_Include)

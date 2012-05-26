@@ -1,7 +1,7 @@
-# -*- mode: Makefile; tab-width: 4; -*-
+# -*- tab-width: 4; -*-
 # ex: ts=4
 #
-# $FreeBSD: ports/Mk/bsd.tcl.mk,v 1.11 2009/07/07 07:34:31 mm Exp $
+# $FreeBSD: ports/Mk/bsd.tcl.mk,v 1.12 2012/05/23 08:17:49 miwi Exp $
 #
 
 .if !defined(_POSTMKINCLUDED) && !defined(Tcl_Pre_Include)

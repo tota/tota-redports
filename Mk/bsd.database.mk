@@ -1,7 +1,7 @@
-# -*- mode: Makefile; tab-width: 4; -*-
+# -*- tab-width: 4; -*-
 # ex: ts=4
 #
-# $FreeBSD: ports/Mk/bsd.database.mk,v 1.73 2012/04/20 21:56:49 delphij Exp $
+# $FreeBSD: ports/Mk/bsd.database.mk,v 1.75 2012/05/23 08:17:48 miwi Exp $
 #
 
 .if defined(_POSTMKINCLUDED) && !defined(Database_Post_Include)
@@ -172,12 +172,13 @@ IGNORE=		cannot install: unknown MySQL version: ${MYSQL_VER}
 .endif # USE_MYSQL
 
 .if defined(USE_PGSQL)
-VALID_PGSQL_VER=	83 84 90 91
+VALID_PGSQL_VER=	83 84 90 91 92
 DEFAULT_PGSQL_VER?=	90
 PGSQL83_LIBVER=		5
 PGSQL84_LIBVER=		5
 PGSQL90_LIBVER=		5
 PGSQL91_LIBVER=		5
+PGSQL92_LIBVER=		5
 
 # Setting/finding PostgreSQL version we want.
 .  if exists(${LOCALBASE}/bin/pg_config)

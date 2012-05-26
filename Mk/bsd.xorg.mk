@@ -1,4 +1,4 @@
-#-*- mode: Fundamental; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
 # bsd.xorg.mk - Support for X.Org ports and dependencies
@@ -7,7 +7,7 @@
 #
 # !!! Here be dragons !!! (yeah, here as well...)
 #
-# $FreeBSD: ports/Mk/bsd.xorg.mk,v 1.16 2012/05/02 07:22:42 kwm Exp $
+# $FreeBSD: ports/Mk/bsd.xorg.mk,v 1.17 2012/05/23 08:17:49 miwi Exp $
 #
 
 .if !defined(_POSTMKINCLUDED) && !defined(Xorg_Pre_Include)

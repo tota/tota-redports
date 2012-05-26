@@ -1,7 +1,7 @@
-#-*- mode: makefile; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.licenses.mk,v 1.11 2012/03/13 17:01:54 eadler Exp $
+# $FreeBSD: ports/Mk/bsd.licenses.mk,v 1.12 2012/05/23 08:17:49 miwi Exp $
 
 Licenses_Include_MAINTAINER=         portmgr@FreeBSD.org
 

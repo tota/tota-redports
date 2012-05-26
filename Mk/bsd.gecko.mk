@@ -1,10 +1,10 @@
-#-*- mode: Fundamental; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
 # Date created:		12 Nov 2005
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
-# $FreeBSD: ports/Mk/bsd.gecko.mk,v 1.57 2012/05/12 16:23:08 beat Exp $
+# $FreeBSD: ports/Mk/bsd.gecko.mk,v 1.58 2012/05/23 08:17:48 miwi Exp $
 #
 # 4 column tabs prevent hair loss and tooth decay!
 

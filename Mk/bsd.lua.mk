@@ -1,7 +1,7 @@
-#-*- mode: makefile; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.lua.mk,v 1.22 2011/12/31 08:52:36 mandree Exp $
+# $FreeBSD: ports/Mk/bsd.lua.mk,v 1.23 2012/05/23 08:17:49 miwi Exp $
 #
 # bsd.lua.mk - Support for Lua based ports.
 #

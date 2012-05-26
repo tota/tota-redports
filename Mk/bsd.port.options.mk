@@ -1,4 +1,4 @@
-#-*- mode: Fundamental; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
 # bsd.port.options.mk - Allow OPTIONS to determine dependencies
@@ -13,7 +13,7 @@
 #
 # Created by: Shaun Amott <shaun@inerd.com>
 #
-# $FreeBSD: ports/Mk/bsd.port.options.mk,v 1.2 2007/05/24 22:13:55 pav Exp $
+# $FreeBSD: ports/Mk/bsd.port.options.mk,v 1.3 2012/05/23 08:17:49 miwi Exp $
 #
 
 OPTIONS_Include_MAINTAINER=		portmgr@FreeBSD.org

@@ -1,4 +1,4 @@
-#-*- mode: Makefile; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
 # USE_CMAKE		- If set, this port uses cmake.
@@ -26,7 +26,7 @@
 #				Default: ${PREFIX}
 #
 #
-# $FreeBSD: ports/Mk/bsd.cmake.mk,v 1.13 2011/11/10 19:50:26 rakuco Exp $
+# $FreeBSD: ports/Mk/bsd.cmake.mk,v 1.14 2012/05/23 08:17:48 miwi Exp $
 
 CMAKE_MAINTAINER=	kde@FreeBSD.org
 

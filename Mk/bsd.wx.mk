@@ -1,7 +1,7 @@
-#-*- mode: makefile; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.wx.mk,v 1.18 2011/12/11 18:49:39 pav Exp $
+# $FreeBSD: ports/Mk/bsd.wx.mk,v 1.19 2012/05/23 08:17:49 miwi Exp $
 #
 # bsd.wx.mk - Support for wxWidgets based ports.
 #

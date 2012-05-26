@@ -1,4 +1,4 @@
-#-*- mode: Fundamental; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
 # bsd.sdl.mk - Support for SDL-based ports.
@@ -29,7 +29,7 @@
 #
 
 #
-# $FreeBSD: ports/Mk/bsd.sdl.mk,v 1.19 2012/02/18 10:17:17 mva Exp $
+# $FreeBSD: ports/Mk/bsd.sdl.mk,v 1.20 2012/05/23 08:17:49 miwi Exp $
 #
 
 SDL_Include_MAINTAINER=		edwin@FreeBSD.org

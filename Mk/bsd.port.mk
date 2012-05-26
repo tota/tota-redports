@@ -1,7 +1,7 @@
-#-*- mode: makefile; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.port.mk,v 1.708 2012/03/13 08:14:45 zi Exp $
+# $FreeBSD: ports/Mk/bsd.port.mk,v 1.711 2012/05/24 07:11:40 miwi Exp $
 #	$NetBSD: $
 #
 #	bsd.port.mk - 940820 Jordan K. Hubbard.
@@ -234,7 +234,9 @@ FreeBSD_MAINTAINER=	portmgr@FreeBSD.org
 #				  $PATH (if it is an executable) and go into "dir" to do
 #				  a "make all install" if it's not found.  If the third
 #				  field ("target") exists, it will be used instead of
-#				  ${DEPENDS_TARGET}.
+#				  ${DEPENDS_TARGET}.  The first field also supports a
+#				  package name with a version range, in the form package>=1.2
+#				  if a particular version is desired.
 # PATCH_DEPENDS	- A list of "path:dir[:target]" tuples of other ports this
 #				  package depends on in the "patch" stage.  "path" is the
 #				  name of a file if it starts with a slash (/), an
@@ -243,7 +245,9 @@ FreeBSD_MAINTAINER=	portmgr@FreeBSD.org
 #				  $PATH (if it is an executable) and go into "dir" to do
 #				  a "make all install" if it's not found.  If the third
 #				  field ("target") exists, it will be used instead of
-#				  ${DEPENDS_TARGET}.
+#				  ${DEPENDS_TARGET}.  The first field also supports a
+#				  package name with a version range, in the form package>=1.2
+#				  if a particular version is desired.
 # FETCH_DEPENDS	- A list of "path:dir[:target]" tuples of other ports this
 #				  package depends in the "fetch" stage.  "path" is the
 #				  name of a file if it starts with a slash (/), an
@@ -252,7 +256,9 @@ FreeBSD_MAINTAINER=	portmgr@FreeBSD.org
 #				  it in your $PATH (if it is an executable) and go
 #				  into "dir" to do a "make all install" if it's not
 #				  found.  If the third field ("target") exists, it will
-#				  be used instead of ${DEPENDS_TARGET}.
+#				  be used instead of ${DEPENDS_TARGET}.  The first field
+#				  also supports a package name with a version range, in
+#				  the form package>=1.2 if a particular version is desired.
 # BUILD_DEPENDS	- A list of "path:dir[:target]" tuples of other ports this
 #				  package depends to build (between the "extract" and
 #				  "build" stages, inclusive).  The test done to
@@ -266,7 +272,9 @@ FreeBSD_MAINTAINER=	portmgr@FreeBSD.org
 #				  "install" stage and the name of the dependency will
 #				  be put into the package as well.  If the third field
 #				  ("target") exists, it will be used instead of
-#				  ${DEPENDS_TARGET}.
+#				  ${DEPENDS_TARGET}.  The first field also supports a
+#				  package name with a version range, in the form package>=1.2
+#				  if a particular version is desired.
 # LIB_DEPENDS	- A list of "lib:dir[:target]" tuples of other ports this
 #				  package depends on.  "lib" is the name of a shared library.
 #				  make will use "ldconfig -r" to search for the library.
@@ -452,14 +460,19 @@ FreeBSD_MAINTAINER=	portmgr@FreeBSD.org
 # USE_KDELIBS_VER		- Set to 3 to use the KDE libraries.
 #				  Implies inclusion of bsd.kde.mk.
 #
-# USE_KDE4			- A list of the KDE4 dependencies the port has (e.g.,
+# USE_KDE4		- A list of the KDE4 dependencies the port has (e.g.,
 #				  kdelibs, kdebase).  Implies that the port needs KDE.
 #				  Implies inclusion of bsd.kde4.mk.  See bsd.kde4.mk
 #				  for more details.
 #
-# USE_QT_VER			- Set to 3 or 4 to use the respective version
-#				  of the QT libraries.
-#				  Implies inclusion of bsd.kde.mk.
+# USE_QT_VER	- Set to 3 or 4 to use the respective version
+#				  of the Qt libraries.
+#				  Implies inclusion of bsd.kde.mk or bsd.qt.mk.
+#
+# USE_QT4		- A list of the QT4 dependencies the port has (e.g,
+#				  corelib, webkit).  Implies that the port needs Qt.
+#				  Implies the inclusion of bsd.qt.mk.  See bsd.qt.mk
+#				  for more details.
 #
 # USE_LINUX		- Set to yes to say the port needs the default linux base port.
 #				  Set to value <X>, if the port needs emulators/linux_base-<X>.
@@ -679,7 +692,7 @@ FreeBSD_MAINTAINER=	portmgr@FreeBSD.org
 #				  installed.
 #				  Useful for dynamically generated examples.
 #
-# Set the following to specify all documentation your port installs into
+# Set the following to specify all files and directories your port installs into
 # ${DATADIR}
 #
 # PORTDATA		- A list of files and directories relative to DATADIR.
@@ -1466,7 +1479,7 @@ PKGCOMPATDIR?=		${LOCALBASE}/lib/compat/pkg
 .include "${PORTSDIR}/Mk/bsd.kde.mk"
 .endif
 
-.if defined (USE_QT_VER) && ${USE_QT_VER:L} == 4
+.if defined(USE_QT_VER) && ${USE_QT_VER:L} == 4 || defined(USE_QT4)
 .include "${PORTSDIR}/Mk/bsd.qt.mk"
 .endif
 
@@ -2027,7 +2040,7 @@ IGNORE=	uses unknown USE_BISON construct
 .include "${PORTSDIR}/Mk/bsd.linux-apps.mk"
 .endif
 
-.if defined (USE_QT_VER) && ${USE_QT_VER:L} == 4
+.if defined(USE_QT_VER) && ${USE_QT_VER:L} == 4 || defined(USE_QT4)
 .include "${PORTSDIR}/Mk/bsd.qt.mk"
 .endif
 
@@ -4469,7 +4482,7 @@ checkpatch:
 .if !target(reinstall)
 reinstall:
 	@${RM} -f ${INSTALL_COOKIE} ${PACKAGE_COOKIE}
-	@cd ${.CURDIR} && DEPENDS_TARGET="${DEPENDS_TARGET}" ${MAKE} install
+	@cd ${.CURDIR} && DEPENDS_TARGET="${DEPENDS_TARGET}" ${MAKE} -DFORCE_PKG_REGISTER install
 .endif
 
 # Deinstall
@@ -5665,9 +5678,6 @@ generate-plist:
 	done
 	@${ECHO_CMD} '@cwd ${PREFIX}' >> ${TMPPLIST}
 .endif
-	@for i in $$(${ECHO_CMD} ${__MANPAGES} ${_TMLINKS:M${_PREFIX}*:S|^${_PREFIX}/||} ' ' | ${SED} -E -e 's|man([1-9ln])/([^/ ]+) |cat\1/\2 |g'); do \
-		${ECHO_CMD} "@unexec rm -f %D/$$i %D/$${i%.gz} %D/$${i%.bz2} %D/$$i.gz %D/$$i.bz2" >> ${TMPPLIST}; \
-	done
 .endfor
 	@if [ -f ${PLIST} ]; then \
 		${SED} ${PLIST_SUB:S/$/!g/:S/^/ -e s!%%/:S/=/%%!/} ${PLIST} >> ${TMPPLIST}; \

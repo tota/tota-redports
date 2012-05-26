@@ -1,7 +1,7 @@
-#-*- mode: makefile; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.octave.mk,v 1.14 2012/01/31 14:50:12 stephen Exp $
+# $FreeBSD: ports/Mk/bsd.octave.mk,v 1.15 2012/05/23 08:17:49 miwi Exp $
 #
 # bsd.octave.mk - Octave related macro
 # Common code to install octave-forge packages.

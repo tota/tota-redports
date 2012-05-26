@@ -1,4 +1,4 @@
-#-*- mode: Fundamental; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
 # bsd.java.mk - Support for Java-based ports.
@@ -9,7 +9,7 @@
 # Please send all suggested changes to the maintainer instead of committing
 # them to CVS yourself.
 #
-# $FreeBSD: ports/Mk/bsd.java.mk,v 1.93 2012/04/13 04:03:42 glewis Exp $
+# $FreeBSD: ports/Mk/bsd.java.mk,v 1.94 2012/05/23 08:17:48 miwi Exp $
 #
 
 .if !defined(Java_Include)

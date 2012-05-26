@@ -1,11 +1,11 @@
-#-*- mode: Fundamental; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
 # bsd.commands.mk - Common commands used within the ports infrastructure
 #
 # Created by: Gabor Kovesdan <gabor@FreeBSD.org>
 #
-# $FreeBSD: ports/Mk/bsd.commands.mk,v 1.10 2012/02/22 17:34:47 bapt Exp $
+# $FreeBSD: ports/Mk/bsd.commands.mk,v 1.11 2012/05/23 08:17:48 miwi Exp $
 #
 # DO NOT COMMIT CHANGES TO THIS FILE BY YOURSELF, EVEN IF YOU DID NOT GET
 # A RESPONSE FROM THE MAINTAINER(S) WITHIN A REASONABLE TIMEFRAME! ALL

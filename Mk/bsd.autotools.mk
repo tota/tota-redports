@@ -1,7 +1,7 @@
-#-*- mode: makefile; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.autotools.mk,v 1.41 2012/05/11 20:38:01 ade Exp $
+# $FreeBSD: ports/Mk/bsd.autotools.mk,v 1.42 2012/05/23 08:17:48 miwi Exp $
 #
 # Please view me with 4 column tabs!
 #

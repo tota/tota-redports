@@ -1,7 +1,7 @@
-#-*- mode: Makefile; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.qt.mk,v 1.29 2011/10/16 22:42:41 avilla Exp $
+# $FreeBSD: ports/Mk/bsd.qt.mk,v 1.32 2012/05/25 01:44:00 makc Exp $
 #
 # Variables:
 # QT_NONSTANDARD	- Suppress modification of configure and make environment.
@@ -44,7 +44,7 @@ CONFIGURE_ENV+=	CC="" CXX=""
 
 # Keep in sync with devel/qmake4/files/qconfig.cpp
 CONFIGURE_ARGS+=-fast -platform ${QMAKESPEC} \
-		-qt-gif -system-libjpeg -system-libpng \
+		-system-libjpeg -system-libpng \
 		-system-libmng -system-libtiff -system-zlib \
 		-opensource -confirm-license \
 		-no-pch \
@@ -60,8 +60,7 @@ CONFIGURE_ARGS+=-fast -platform ${QMAKESPEC} \
 		-sysconfdir ${PREFIX}/etc/xdg \
 		-examplesdir ${PREFIX}/share/examples/qt4/examples \
 		-demosdir ${PREFIX}/share/examples/qt4/demos \
-		-phonon \
-		-no-phonon-backend
+		-phonon -no-phonon-backend
 
 PLIST_SUB+=	SHLIB_VER=${QT4_VERSION:C/-.*//} \
 		SHLIB_SHVER=${QT4_VERSION:R}
@@ -147,7 +146,7 @@ QTCGFLIBS?=
 #
 # QT4 version
 #
-QT4_VERSION?=		4.7.4
+QT4_VERSION?=		4.8.1
 
 _QT_COMPONENTS_ALL=	accessible assistant assistant-adp assistantclient \
 			clucene codecs-cn codecs-jp codecs-kr codecs-tw corelib \
@@ -353,6 +352,9 @@ ${component}_run_RUN_DEPENDS?=		${${component}_RUN_DEPENDS}
 _QT_COMPONENTS_ALL_SUFFIXED+=	${component} ${component}_build ${component}_run
 .endfor
 
+.if defined(USE_QT4)
+QT_COMPONENTS=	${USE_QT4}
+.endif
 .if defined(QT_COMPONENTS)
 . for component in ${QT_COMPONENTS:O:u}
 .  if ${_QT_COMPONENTS_ALL_SUFFIXED:M${component}}!= ""

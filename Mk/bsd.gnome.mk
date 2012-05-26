@@ -1,7 +1,7 @@
-#-*- mode: Fundamental; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.gnome.mk,v 1.173 2011/08/12 08:03:18 kwm Exp $
+# $FreeBSD: ports/Mk/bsd.gnome.mk,v 1.174 2012/05/23 08:17:48 miwi Exp $
 #	$NetBSD: $
 #     $MCom: ports/Mk/bsd.gnome.mk,v 1.549 2011/06/10 22:16:59 mezz Exp $
 #

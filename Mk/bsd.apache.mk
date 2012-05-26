@@ -1,7 +1,7 @@
-#-*- mode: makefile; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.apache.mk,v 1.35 2012/01/11 20:09:27 ohauer Exp $
+# $FreeBSD: ports/Mk/bsd.apache.mk,v 1.36 2012/05/23 08:17:48 miwi Exp $
 #
 # bsd.apache.mk - Apache related macros.
 # Author: Clement Laforet <clement@FreeBSD.org>

@@ -1,4 +1,4 @@
-#-*- mode: Fundamental; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
 # bsd.gcc.mk - Support for smarter USE_GCC usage.
@@ -29,7 +29,7 @@
 # If you are wondering what your port exactly does, use "make test-gcc"
 # to see some debugging.
 #
-# $FreeBSD: ports/Mk/bsd.gcc.mk,v 1.63 2012/04/29 12:20:17 gerald Exp $
+# $FreeBSD: ports/Mk/bsd.gcc.mk,v 1.64 2012/05/23 08:17:48 miwi Exp $
 #
 
 GCC_Include_MAINTAINER=		gerald@FreeBSD.org

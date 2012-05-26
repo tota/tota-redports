@@ -1,7 +1,7 @@
-#-*- mode: Fundamental; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.mail.mk,v 1.3 2007/08/04 11:37:23 gabor Exp $
+# $FreeBSD: ports/Mk/bsd.mail.mk,v 1.4 2012/05/23 08:17:49 miwi Exp $
 #
 # Please view me with 4 column tabs!
 

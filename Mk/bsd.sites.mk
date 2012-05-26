@@ -20,7 +20,7 @@
 #
 # Note: all entries should terminate with a slash.
 #
-# $FreeBSD: ports/Mk/bsd.sites.mk,v 1.563 2012/05/01 11:00:16 kwm Exp $
+# $FreeBSD: ports/Mk/bsd.sites.mk,v 1.564 2012/05/25 21:13:13 rakuco Exp $
 #
 
 # Where to put distfiles that don't have any other master site
@@ -1037,6 +1037,7 @@ MASTER_SITE_QMAIL+= \
 
 .if !defined(IGNORE_MASTER_SITE_QT)
 MASTER_SITE_QT+= \
+	http://releases.qt-project.org/qt4/source/%SUBDIR%/ \
 	http://mi.mirror.garr.it/mirrors/qt/%SUBDIR%/ \
 	ftp://ftp.heanet.ie/mirrors/trolltech/pub/qt/source/%SUBDIR%/ \
 	http://download.qt.nokia.com/qt/source/%SUBDIR%/ \

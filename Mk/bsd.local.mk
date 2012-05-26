@@ -1,11 +1,11 @@
-# -*- mode: Makefile; tab-width: 4; -*-
+# -*- tab-width: 4; -*-
 # ex: ts=4
 #
 # bsd.local.mk - Sandbox for local modification to ports framework.
 #
 # Created by: Mark Linimon <linimon@FreeBSD.org>
 #
-# $FreeBSD: ports/Mk/bsd.local.mk,v 1.2 2006/12/10 18:15:33 linimon Exp $
+# $FreeBSD: ports/Mk/bsd.local.mk,v 1.3 2012/05/23 08:17:49 miwi Exp $
 #
 
 .if !defined(_POSTMKINCLUDED) && !defined(Local_Pre_Include)

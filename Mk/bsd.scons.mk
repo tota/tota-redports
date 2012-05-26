@@ -1,7 +1,7 @@
-#-*- mode: Makefile; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.scons.mk,v 1.13 2009/08/14 11:34:57 miwi Exp $
+# $FreeBSD: ports/Mk/bsd.scons.mk,v 1.14 2012/05/23 08:17:49 miwi Exp $
 #
 # bsd.scons.mk - Python-based SCons build system interface.
 # Author: Alexander Botero-Lowry <alexbl@FreeBSD.org>

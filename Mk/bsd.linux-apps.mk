@@ -1,7 +1,7 @@
-#-*- mode: Makefile; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.linux-apps.mk,v 1.46 2012/01/14 22:35:19 netchild Exp $
+# $FreeBSD: ports/Mk/bsd.linux-apps.mk,v 1.47 2012/05/23 08:17:49 miwi Exp $
 #
 # Please view me with 4 column tabs!
 

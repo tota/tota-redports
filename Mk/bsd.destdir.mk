@@ -1,11 +1,11 @@
-#-*- mode: makefile; tab-width: 4; -*-
+#-*- tab-width: 4; -*-
 # ex:ts=4
 #
 # bsd.destdir.mk - Support for chrooted installation
 #
 # Created by: Gabor Kovesdan <gabor@FreeBSD.org>
 #
-# $FreeBSD: ports/Mk/bsd.destdir.mk,v 1.3 2011/01/25 13:39:44 pav Exp $
+# $FreeBSD: ports/Mk/bsd.destdir.mk,v 1.4 2012/05/23 08:17:48 miwi Exp $
 #
 # Please make sure all changes to this file are passed through the maintainer.
 
