@@ -16,7 +16,7 @@ MAINTAINER=	tota@FreeBSD.org
 COMMENT=	A Web-based diary system (like weblog) written in Ruby
 
 LICENSE=	GPLv2
-LICENSE_FILE=	${WRKDIR}/doc/LICENSE
+LICENSE_FILE=	${WRKSRC}/doc/LICENSE
 
 RUN_DEPENDS=	hikidoc:${PORTSDIR}/textproc/ruby-hikidoc \
 		rubygem-imagesize>=0.1.1:${PORTSDIR}/graphics/rubygem-imagesize \
@@ -97,7 +97,6 @@ post-extract:
 	@${MV} ${WRKSRC}/ChangeLog ${WRKSRC}/doc
 	@${MV} ${WRKSRC}/LICENSE ${WRKSRC}/doc
 	@${MV} ${WRKSRC}/README.md ${WRKSRC}/doc
-	@${MV} ${WRKSRC}/doc ${WRKDIR}
 
 pre-install:
 	@${SED} -e 's,#!/usr/bin/env ruby,#!${RUBY},' \
@@ -108,8 +107,8 @@ pre-install:
 do-install:
 	@${INSTALL_SCRIPT} ${WRKDIR}/${TDIARY_SCRIPT} ${PREFIX}/bin
 	@-${MKDIR} ${WWWDIR}
-	@${CP} -pR ${WRKSRC}/ ${WWWDIR}
-	@${LN} -s ${LOCALBASE}/lib/ruby/gems/${RUBY_VER}/gems/imagesize-0.1.1/lib ${WWWDIR}/vendor/imagesize-0.1.1/lib
+	@${TAR} --exclude "doc" -C ${WRKSRC} -cf - . | ${TAR} --unlink -C ${WWWDIR} -xf -
+	@${LN} -sf ${LOCALBASE}/lib/ruby/gems/${RUBY_VER}/gems/imagesize-0.1.1/lib ${WWWDIR}/vendor/imagesize-0.1.1/lib
 	@${CHOWN} -R ${WWWOWN}:${WWWGRP} ${WWWDIR}
 
 post-install:
@@ -117,7 +116,7 @@ post-install:
 	@${ECHO_CMD} bin/${TDIARY_SCRIPT} >> ${TMPPLIST}
 .if !defined(NOPORTDOCS)
 	@${INSTALL} -d ${DOCSDIR}
-	@cd ${WRKDIR}/doc && ${INSTALL_DATA} ${PORTDOCS} ${DOCSDIR}
+	@cd ${WRKSRC}/doc && ${INSTALL_DATA} ${PORTDOCS} ${DOCSDIR}
 .endif
 	@${CAT} ${PKGMESSAGE}
 
