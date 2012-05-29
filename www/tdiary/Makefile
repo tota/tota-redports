@@ -20,7 +20,6 @@ LICENSE_FILE=	${WRKDIR}/doc/LICENSE
 
 RUN_DEPENDS=	hikidoc:${PORTSDIR}/textproc/ruby-hikidoc \
 		rubygem-imagesize>=0.1.1:${PORTSDIR}/graphics/rubygem-imagesize \
-		rubygem-json_pure>=1.6.6:${PORTSDIR}/devel/rubygem-json_pure \
 		rd2:${PORTSDIR}/textproc/ruby-rdtool
 
 NO_BUILD=	yes
@@ -94,15 +93,11 @@ post-extract:
 	@${RM} -r ${WRKSRC}/test
 	@${RM} -r ${WRKSRC}/vendor/hikidoc-0.0.6
 	@${RM} -r ${WRKSRC}/vendor/imagesize-0.1.1/*
-	@${RM} -r ${WRKSRC}/vendor/json_pure-1.6.6
 	@${RM} -r ${WRKSRC}/vendor/rdtool-0.6.33
 	@${MV} ${WRKSRC}/ChangeLog ${WRKSRC}/doc
 	@${MV} ${WRKSRC}/LICENSE ${WRKSRC}/doc
 	@${MV} ${WRKSRC}/README.md ${WRKSRC}/doc
 	@${MV} ${WRKSRC}/doc ${WRKDIR}
-
-post-patch:
-	@${RUBY} -i -pe "sub %r|((\s*)require 'json')|, %Q|\\\2require 'rubygems'\n\\\1|" ${WRKSRC}/tdiary.rb
 
 pre-install:
 	@${SED} -e 's,#!/usr/bin/env ruby,#!${RUBY},' \
