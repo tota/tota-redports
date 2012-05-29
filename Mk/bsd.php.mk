@@ -7,7 +7,7 @@
 # Please send all suggested changes to the maintainer instead of committing
 # them to CVS yourself.
 #
-# $FreeBSD: ports/Mk/bsd.php.mk,v 1.71 2012/05/24 21:01:35 ale Exp $
+# $FreeBSD: ports/Mk/bsd.php.mk,v 1.72 2012/05/27 12:05:18 crees Exp $
 #
 # Adding 'USE_PHP=yes' to a port includes this Makefile after bsd.ports.pre.mk.
 # If the port requires a predefined set of PHP extensions, they can be
@@ -15,7 +15,7 @@
 #
 # USE_PHP=	ext1 ext2 ext3
 #
-# The port can set these options in its Makefile before bsd.ports.pre.mk:
+# The port can set these options in its Makefile before bsd.port.pre.mk:
 #
 # DEFAULT_PHP_VER=N - Use PHP version N if PHP is not yet installed.
 # IGNORE_WITH_PHP=N - The port doesn't work with PHP version N.
