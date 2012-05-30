@@ -2,11 +2,11 @@
 # Date created:		2010-08-01
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/misc/rabbit/Makefile,v 1.12 2012/02/05 05:28:36 tota Exp $
+# $FreeBSD: ports/misc/rabbit/Makefile,v 1.13 2012/03/05 15:41:48 tota Exp $
 #
 
 PORTNAME=	rabbit
-PORTVERSION=	1.0.6
+PORTVERSION=	1.0.7
 CATEGORIES=	misc ruby
 MASTER_SITES=	http://rabbit-shockers.org/download/ \
 		LOCAL
@@ -67,7 +67,6 @@ RUN_DEPENDS+=	rubygem-twitter_oauth>=0:${PORTSDIR}/security/rubygem-twitter_oaut
 
 post-patch:
 	${RM} ${WRKSRC}/bin/rabwii
-	${RMDIR} ${WRKSRC}/lib/rt
 	${RUBY} -i -pe 'sub %r|((\s*)require "rack")|, %Q|\\2require "rubygems"\n\\1|' ${WRKSRC}/bin/rabbirack
 	${RUBY} -i -pe 'sub %r|(require "hikidoc")|, %Q|require "rubygems"\n\\1|' ${WRKSRC}/lib/rabbit/parser/wiki.rb
 	${RUBY} -i -pe "sub %r|((\s*)require 'twitter_oauth')|, %Q|\\\2require 'rubygems'\n\\\1|" ${WRKSRC}/lib/rabbit/twitter.rb
