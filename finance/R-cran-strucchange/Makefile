@@ -2,11 +2,11 @@
 # Date created:		2012-02-05
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: ports/finance/R-cran-strucchange/Makefile,v 1.3 2012/05/04 20:56:05 bf Exp $
 #
 
 PORTNAME=	strucchange
-DISTVERSION=	1.4-6
+DISTVERSION=	1.4-7
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
