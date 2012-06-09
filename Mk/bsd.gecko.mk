@@ -4,7 +4,7 @@
 # Date created:		12 Nov 2005
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
-# $FreeBSD: ports/Mk/bsd.gecko.mk,v 1.61 2012/06/06 21:53:17 beat Exp $
+# $FreeBSD: ports/Mk/bsd.gecko.mk,v 1.62 2012/06/09 08:28:37 beat Exp $
 #
 # 4 column tabs prevent hair loss and tooth decay!
 
@@ -203,7 +203,7 @@ Gecko_Pre_Include=			bsd.gecko.mk
 #                         version is given by the maintainer via the port 
 #                         or by the user via defined variable try to find 
 #                         the highest stable installed version.
-#                         Available values: yes 10+ 12+ 10 12
+#                         Available values: yes 10+ 13+ 10 13
 #                         NOTE:
 #                         default value 10 is used in case of USE_THUNDERBIRD=yes
 #
@@ -373,11 +373,11 @@ _THUNDERBIRD_BUILD_DEPENDS=		yes
 .endif
 
 _THUNDERBIRD_DEFAULT_VERSION=	10
-_THUNDERBIRD_VERSIONS=			10 12
-_THUNDERBIRD_RANGE_VERSIONS=	10+ 12+
+_THUNDERBIRD_VERSIONS=			10 13
+_THUNDERBIRD_RANGE_VERSIONS=	10+ 13+
 
 # For specifying [10, ..]+
-_THUNDERBIRD_12P=	12 ${_THUNDERBIRD_10P}
+_THUNDERBIRD_13P=	13 ${_THUNDERBIRD_10P}
 _THUNDERBIRD_10P=	10
 
 # Set the default Thunderbird version and check if USE_THUNDERBIRD=yes was given
@@ -424,7 +424,7 @@ IGNORE=			cannot install: unknown Thunderbird version: thunderbird-${USE_THUNDER
 
 # Dependence lines for different Thunderbird versions
 10_DEPENDS=		${LOCALBASE}/lib/thunderbird/thunderbird:${PORTSDIR}/mail/thunderbird-esr
-12_DEPENDS=		${LOCALBASE}/lib/thunderbird/thunderbird:${PORTSDIR}/mail/thunderbird
+13_DEPENDS=		${LOCALBASE}/lib/thunderbird/thunderbird:${PORTSDIR}/mail/thunderbird
 
 # Add dependencies
 .if defined(USE_THUNDERBIRD)
