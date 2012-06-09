@@ -2,11 +2,11 @@
 # Date created:		2011-08-02
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/graphics/py-blockdiag/Makefile,v 1.21 2012/03/16 19:41:30 tota Exp $
+# $FreeBSD: ports/graphics/py-blockdiag/Makefile,v 1.22 2012/04/25 12:16:42 tota Exp $
 #
 
 PORTNAME=	blockdiag
-PORTVERSION=	1.1.5
+PORTVERSION=	1.1.6
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -35,16 +35,19 @@ EXAMPLESDIR=	${PREFIX}/share/examples/${PKGNAMEPREFIX}${PORTNAME}
 PORTDOCS=	README.txt
 PORTEXAMPLES=	*
 
-OPTIONS=	PDF	"Enable PDF output" On \
-		IPAFONT	"Use IPA Font as default" Off
+OPTIONS_DEFINE=	IPAFONT PDF
+IPAFONT_DESC=	Use IPA Font as default
+PDF_DESC=	Enable PDF output
+
+OPTIONS_DEFAULT=	PDF
 
 .include <bsd.port.options.mk>
 
-.if !defined(WITHOUT_PDF)
+.if ${PORT_OPTIONS:MPDF}
 RUN_DEPENDS+=	${PKGNAMEPREFIX}reportlab2>0:${PORTSDIR}/print/py-reportlab2
 .endif
 
-.if defined(WITH_IPAFONT)
+.if ${PORT_OPTIONS:MIPAFONT}
 RUN_DEPENDS+=	${LOCALBASE}/share/font-ipa/ipag.otf:${PORTSDIR}/japanese/font-ipa
 .endif
 
