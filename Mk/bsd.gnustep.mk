@@ -1,5 +1,5 @@
 #
-# $FreeBSD: ports/Mk/bsd.gnustep.mk,v 1.70 2012/01/16 18:55:36 dinoex Exp $
+# $FreeBSD: ports/Mk/bsd.gnustep.mk,v 1.71 2012/06/01 09:59:53 dinoex Exp $
 #
 # This file contains some variable definitions that are supposed to
 # make your life easier when dealing with ports related to the GNUstep.
@@ -201,7 +201,7 @@ PLIST_SUB+=	MAJORLIBVERSION=${DEFAULT_LIBVERSION:C/([0-9]).*/\1/1}
 GNUSTEP_WITH_GCC42=yes
 .endif
 .endif
-.if !exists(${DESTDIR}/usr/lib/libobjc.so) 
+.if !exists(${DESTDIR}/usr/lib/libobjc.so)
 GNUSTEP_WITH_GCC42=yes
 .endif
 .endif

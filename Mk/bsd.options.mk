@@ -1,5 +1,5 @@
 #-*- tab-width: 4; -*-
-# $FreeBSD: ports/Mk/bsd.options.mk,v 1.2 2012/05/29 11:49:10 bapt Exp $
+# $FreeBSD: ports/Mk/bsd.options.mk,v 1.13 2012/06/06 11:47:29 bapt Exp $
 # Global options
 #
 
@@ -14,8 +14,18 @@ OPTIONSFILE?=	${PORT_DBDIR}/${UNIQUENAME}/options
 #		NLS
 
 # Set the default values for the global options, as defined by portmgr
-PORT_OPTIONS+=	NLS \
-		DOCS
+.if !defined(NOPORTDOCS)
+PORT_OPTIONS+=	DOCS
+.endif
+
+.if !defined(WITHOUT_NLS)
+PORT_OPTIONS+=	NLS
+.endif
+
+# Set the default values for the global options, as defined by portmgr
+.if !defined(NOPORTEXAMPLES)
+PORT_OPTIONS+=	EXAMPLES
+.endif
 
 # Append options set by the port Makefile
 .for opt in ${OPTIONS_DEFINE}
@@ -31,16 +41,20 @@ ALL_OPTIONS:=	${ALL_OPTIONS:N${opt}}
 
 #XXX  to kill when old option framework won't be used anymore
 .if defined(OPTIONS)
+NO_OPTIONS_SORT=	yes
 .  undef optname
 .  for O in ${OPTIONS:S|\#|\\\#|g}
 opt:=	${O}
 .    if !defined(optname)
 optname:=	${O}
 ALL_OPTIONS+=	${O}
+.if !defined(OPTIONS_DEFINE) || empty(OPTIONS_DEFINE:M${O})
+OPTIONS_DEFINE+=	${O}
+.endif
 PORT_OPTIONS+=	${O}
 .    elif !defined(optdesc)
 optdesc:=	${opt}
-${optname}_DESC:=	${opt}
+${optname}_DESC:=	${opt:S|"||g}
 .    else
 .      if ${opt:L} == off
 .        if defined(PORT_OPTIONS) && defined(optname)
@@ -89,13 +103,13 @@ PORT_OPTIONS:=	${PORT_OPTIONS:N${opt}}
 .  endfor
 
 ## Set the options specified per-port (set by user in make.conf)
-.  for opt in ${${UNIQUENAME:U}_SET}
+.  for opt in ${${UNIQUENAME}_SET}
 PORT_OPTIONS+=	${opt}
 .  endfor
 PORT_OPTIONS:=	${PORT_OPTIONS:O:u}
 
 ## Unset the options excluded per-port (set by user in make.conf)
-.  for opt in ${${UNIQUENAME:U}_UNSET}
+.  for opt in ${${UNIQUENAME}_UNSET}
 PORT_OPTIONS:=	${PORT_OPTIONS:N${opt}}
 .  endfor
 
@@ -107,20 +121,16 @@ PORT_OPTIONS:=	${PORT_OPTIONS:N${opt}}
 .  include "${OPTIONSFILE}.local"
 .  endif
 
-# XXX(to be removed)
-.  if defined(OPTIONS)
-.    undef optname
-.    for O in ${OPTIONS:C/".*"//g}
-.      if defined(WITH_${O})
-PORT_OPTIONS+=	${O}
+### convert WITH and WITHOUT found in make.conf or reloaded from old optionsfile
+.for opt in ${ALL_OPTIONS}
+.if defined(WITH_${opt})
+PORT_OPTIONS+=	${opt}
 PORT_OPTIONS:=	${PORT_OPTIONS:O:u}
-.      endif
-.      if defined(WITHOUT_${O})
-PORT_OPTIONS:=	${PORT_OPTIONS:N${O}}
-.      endif
-.    endfor
-.  endif
-# XXX(end to be removed)
+.endif
+.if defined(WITHOUT_${opt})
+PORT_OPTIONS:=	${PORT_OPTIONS:N${opt}}
+.endif
+.endfor
 
 ## Finish by using the options set by the port config dialog, if any
 .  for opt in ${OPTIONS_FILE_SET}
@@ -140,48 +150,37 @@ PORT_OPTIONS:=	${PORT_OPTIONS:N${opt}}
 NOPORTDOCS=	yes
 .endif
 
+.if empty(PORT_OPTIONS:MEXAMPLES)
+NOPORTEXAMPLES=	yes
+.endif
+
 .if empty(PORT_OPTIONS:MNLS)
 WITHOUT_NLS=	yes
 .endif
 
-### to be removed once old OPTIONS disappear
-.if defined(OPTIONS)
-# include OPTIONSFILE first if exists
-.       if exists(${OPTIONSFILE}) && !make(rmconfig)
-.       include "${OPTIONSFILE}"
-.       endif
-.       if exists(${OPTIONSFILE}.local)
-.       include "${OPTIONSFILE}.local"
-.       endif
-WITHOUT:=
-WITH:=
-.       if defined(OPTIONS)
-REALOPTIONS=${OPTIONS:C/".*"//g}
-.       for O in ${REALOPTIONS}
-RO:=${O}
-.       if ${RO:L} == off
-WITHOUT:=       ${WITHOUT} ${OPT}
-.       endif
-.       if ${RO:L} == on
-WITH:=          ${WITH} ${OPT}
-.       endif
-OPT:=${RO}
-.       endfor
-.       endif
-# define only if NO WITH/WITHOUT_${W} is defined
-.       for W in ${WITH}
-.   if !defined(WITH_${W}) && !defined(WITHOUT_${W})
-WITH_${W}:=     true
-.   endif
-.       endfor
-.       for W in ${WITHOUT}
-.   if !defined(WITH_${W}) && !defined(WITHOUT_${W})
-WITHOUT_${W}:=  true
-.   endif
-.       endfor
-.       undef WITH
-.       undef WITHOUT
-.       undef RO
-.       undef REALOPTIONS
+.if defined(NO_OPTIONS_SORT)
+_SORTED_OPTIONS:=	${ALL_OPTIONS}
+ALL_OPTIONS:=
+.for opt in ${OPTIONS_DEFINE}
+.if ${_SORTED_OPTIONS:M${opt}}
+ALL_OPTIONS+=	${opt}
 .endif
+.endfor
+.undef opt
+.undef _SORTED_OPTIONS
+.endif
+
+### to be removed once old OPTIONS disappear
+.for opt in ${ALL_OPTIONS}
+.if empty(PORT_OPTIONS:M${opt})
+.   if !defined(WITH_${opt}) && !defined(WITHOUT_${opt})
+WITHOUT_${opt}:=	true
+.   endif
+.else
+.   if !defined(WITH_${opt}) && !defined(WITHOUT_${opt})
+WITH_${opt}:=  true
+.   endif
+.endif
+.      undef opt
+.endfor
 ###

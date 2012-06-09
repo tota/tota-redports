@@ -1,7 +1,7 @@
 # -*- tab-width: 4; -*-
 # ex: ts=4
 #
-# $FreeBSD: ports/Mk/bsd.python.mk,v 1.145 2012/05/25 17:13:10 rm Exp $
+# $FreeBSD: ports/Mk/bsd.python.mk,v 1.146 2012/05/30 14:54:34 sunpoet Exp $
 #
 
 .if !defined(_POSTMKINCLUDED) && !defined(Python_Pre_Include)
@@ -95,9 +95,9 @@ Python_Include_MAINTAINER=	python@FreeBSD.org
 # There are PREFIX-clean variants of the PYTHON_*DIR variables above.
 # They are meant to be used in the installation targets.
 #
-# PYTHONPREFIX_INCLUDEDIR:	default: ${PREFIX}/include/${PYTHON_VERSION}
-# PYTHONPREFIX_LIBDIR:		default: ${PREFIX}/lib/${PYTHON_VERSION}
-# PYTHONPREFIX_SITELIBDIR:	default: ${PYTHONPREFIX_LIBDIR}/site-packages
+# PYTHONPREFIX_INCLUDEDIR	default: ${PREFIX}/include/${PYTHON_VERSION}
+# PYTHONPREFIX_LIBDIR		default: ${PREFIX}/lib/${PYTHON_VERSION}
+# PYTHONPREFIX_SITELIBDIR	default: ${PYTHONPREFIX_LIBDIR}/site-packages
 #
 # PYDISTUTILS		- Dependency line for the distutils extension. As of
 #					  Python-2.0, the distutils are in the base distribution.
@@ -553,7 +553,7 @@ ZOPESKELDIR=			${ZOPEBASEDIR}/skel
 .else
 check-makevars::
 	@${ECHO} "Makefile error: bad value for ZOPE_VERSION: ${ZOPE_VERSION}."
-	@${ECHO} "Legal values are:	2.7 (default), 2.8, 2.9, 2.10, 3.2"
+	@${ECHO} "Legal values are: 2.7 (default), 2.8, 2.9, 2.10, 3.2"
 	@${FALSE}
 .endif
 ZOPEBASEDIR?=			${PREFIX}/${SZOPEBASEDIR}

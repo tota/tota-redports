@@ -1,7 +1,7 @@
 #-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: ports/Mk/bsd.kde4.mk,v 1.130 2012/05/27 09:45:05 avilla Exp $
+# $FreeBSD: ports/Mk/bsd.kde4.mk,v 1.131 2012/05/31 00:09:11 avilla Exp $
 #
 
 .if !defined(_POSTMKINCLUDED) && !defined(Kde_Pre_Include)
@@ -19,8 +19,7 @@ Kde_Pre_Include=	bsd.kde4.mk
 # KDE4 related ports can use this as follows:
 #
 # USE_KDE4=		kdehier kdelibs kdeprefix
-# USE_QT_VER=	4
-# QT_COMPONENTS=corelib # Set additional Qt 4 components here.
+# USE_QT4=		corelib # Set Qt 4 components here.
 #
 # .include <bsd.port.mk>
 #
@@ -80,8 +79,8 @@ Kde_Pre_Include=	bsd.kde4.mk
 
 KDE4_VERSION?=			4.8.3
 KDE4_BRANCH?=			stable
-KOFFICE2_VERSION?=		2.3.2
-KOFFICE2_BRANCH?=		stable
+CALLIGRA_VERSION?=		2.4.2
+CALLIGRA_BRANCH?=		stable
 KDEVELOP_VERSION?=		4.3.1
 KDEVELOP_BRANCH?=		stable
 

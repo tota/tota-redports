@@ -4,7 +4,7 @@
 # Date created:		12 Nov 2005
 # Whom:			Michael Johnson <ahze@FreeBSD.org>
 #
-# $FreeBSD: ports/Mk/bsd.gecko.mk,v 1.58 2012/05/23 08:17:48 miwi Exp $
+# $FreeBSD: ports/Mk/bsd.gecko.mk,v 1.61 2012/06/06 21:53:17 beat Exp $
 #
 # 4 column tabs prevent hair loss and tooth decay!
 
@@ -181,7 +181,7 @@ Gecko_Pre_Include=			bsd.gecko.mk
 #                         is given by the maintainer via the port or by the
 #                         user via defined variable try to find the highest
 #                         stable installed version.
-#                         Available values: yes 10+ 12+ 10 12+
+#                         Available values: yes 10+ 13+ 10 13+
 #                         NOTE:
 #                         default value 10 is used in case of USE_FIREFOX=yes
 #
@@ -223,11 +223,11 @@ _FIREFOX_BUILD_DEPENDS=		yes
 .endif
 
 _FIREFOX_DEFAULT_VERSION=	10
-_FIREFOX_VERSIONS=			10 12
-_FIREFOX_RANGE_VERSIONS=	10+ 12+
+_FIREFOX_VERSIONS=			10 13
+_FIREFOX_RANGE_VERSIONS=	10+ 13+
 
 # For specifying [10, ..]+
-_FIREFOX_12P=	12 ${_FIREFOX_10P}
+_FIREFOX_13P=	13 ${_FIREFOX_10P}
 _FIREFOX_10P=	10
 
 # Set the default Firefox version and check if USE_FIREFOX=yes was given
@@ -281,7 +281,7 @@ IGNORE=			cannot install: unknown Firefox version: firefox-${USE_FIREFOX:C/([0-9
 
 # Dependence lines for different Firefox versions
 10_DEPENDS=		${LOCALBASE}/lib/firefox/firefox:${PORTSDIR}/www/firefox-esr
-12_DEPENDS=		${LOCALBASE}/lib/firefox/firefox:${PORTSDIR}/www/firefox
+13_DEPENDS=		${LOCALBASE}/lib/firefox/firefox:${PORTSDIR}/www/firefox
 
 # Add dependencies
 .if defined(USE_FIREFOX)
@@ -386,8 +386,10 @@ USE_THUNDERBIRD=	${_THUNDERBIRD_DEFAULT_VERSION}
 .endif
 
 # Setting/finding Thunderbird version we want.
+.if exists(${LOCALBASE}/bin/thunderbird)
 _TMP_VER!=	${LOCALBASE}/bin/thunderbird --version 2>/dev/null | ${HEAD} -1 | ${SED} -e 's/ Thunderbird \([0-9]\{1,2\}\)\.\([0-9]*\).*/\1\2/'
 _THUNDERBIRD_VER:=	${_TMP_VER:C/([0-9][0-9]).*/\1/}
+.endif
 
 # Check if installed Thunderbird version matches the wanted one
 .if defined(_THUNDERBIRD_VER)
@@ -595,7 +597,7 @@ nss_CPPFLAGS+=		-I${LOCALBASE}/include/nss -I${LOCALBASE}/include/nss/nss
 nss_LDFLAGS+=		-L${LOCALBASE}/lib/nss -Wl,-rpath,${PREFIX}/lib/${MOZ_RPATH}
 
 
-png_LIB_DEPENDS=	png.6:${PORTSDIR}/graphics/png
+png_LIB_DEPENDS=	png15:${PORTSDIR}/graphics/png
 png_MOZ_OPTIONS=	--with-system-png=${LOCALBASE}
 
 xft_LIB_DEPENDS=	Xft.2:${PORTSDIR}/x11-fonts/libXft
