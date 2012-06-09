@@ -5056,7 +5056,7 @@ ${deptype:L}-depends:
 						exit 1; \
 					fi; \
 				fi; \
-			elif ${WHICH} "$$prog" > /dev/null 2>&1 ; then \
+			elif ${WHICH} "$$prog" 2>&1 ; then \
 				${ECHO_MSG} "===>   ${PKGNAME} depends on executable: $$prog - found"; \
 				if [ ${_DEPEND_ALWAYS} = 1 ]; then \
 					${ECHO_MSG} "       (but building it anyway)"; \
