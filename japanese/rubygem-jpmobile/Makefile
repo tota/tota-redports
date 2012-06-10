@@ -2,7 +2,7 @@
 # Date created:		2008-02-06
 # Whom:			TAKATSU Tomonari <tota@rtfm.jp>
 #
-# $FreeBSD: ports/japanese/rubygem-jpmobile/Makefile,v 1.25 2012/04/21 04:16:09 tota Exp $
+# $FreeBSD: ports/japanese/rubygem-jpmobile/Makefile,v 1.26 2012/05/13 18:40:09 tota Exp $
 #
 
 PORTNAME=	jpmobile
@@ -21,23 +21,26 @@ USE_RUBY=	yes
 USE_RUBYGEMS=	yes
 RUBYGEM_AUTOPLIST=	yes
 
-OPTIONS=	GEOKIT		"Run with geokit" Off \
-		IPADDRESSES	"IP address validation support"	On \
-		TERMINFO	"terminal information support"	On
+OPTIONS_DEFINE=		GEOKIT IPADDRESSES TERMINFO
+GEOKIT_DESC=		Run with geokit
+IPADDRESSES_DESC=	IP address validation support
+TERMINFO_DESC=		terminal information support
+
+OPTIONS_DEFAULT=	IPADDRESSES TERMINFO
 
 .include <bsd.port.pre.mk>
 
 PKGNAMEPREFIX:=	${PKGNAMEPREFIX}rubygem-
 
-.if !defined(WITHOUT_GEOKIT)
+.if ${PORT_OPTIONS:MGEOKIT}
 RUN_DEPENDS+=	rubygem-geokit>=1.5.0:${PORTSDIR}/graphics/rubygem-geokit
 .endif
 
-.if defined(WITH_IPADDRESSES)
+.if ${PORT_OPTIONS:MIPADDRESSES}
 RUN_DEPENDS+=	ja-rubygem-jpmobile-ipaddresses>=0.0.1:${PORTSDIR}/japanese/rubygem-jpmobile-ipaddresses
 .endif
 
-.if defined(WITH_TERMINFO)
+.if ${PORT_OPTIONS:MTERMINFO}
 RUN_DEPENDS+=	ja-rubygem-jpmobile-terminfo>=0.0.2:${PORTSDIR}/japanese/rubygem-jpmobile-terminfo
 .endif
 
