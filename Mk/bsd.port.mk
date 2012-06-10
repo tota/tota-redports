@@ -5057,7 +5057,6 @@ ${deptype:L}-depends:
 					fi; \
 				fi; \
 			elif ${WHICH} "$$prog" > /dev/null 2>&1 ; then \
-				${ECHO_MSG} "*** DEBUG *** which $$prog: `${WHICH} $$prog`"; \
 				${ECHO_MSG} "===>   ${PKGNAME} depends on executable: $$prog - found"; \
 				if [ ${_DEPEND_ALWAYS} = 1 ]; then \
 					${ECHO_MSG} "       (but building it anyway)"; \
@@ -5066,6 +5065,7 @@ ${deptype:L}-depends:
 					notfound=0; \
 				fi; \
 			else \
+				${ECHO_MSG} "*** DEBUG *** which $$prog: `${WHICH} $$prog`"; \
 				${ECHO_MSG} "===>   ${PKGNAME} depends on executable: $$prog - not found"; \
 				notfound=1; \
 			fi; \
