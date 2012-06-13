@@ -2,7 +2,7 @@
 # Date created:		2010-08-01
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/misc/rabbit/Makefile,v 1.14 2012/06/01 05:22:21 dinoex Exp $
+# $FreeBSD: ports/misc/rabbit/Makefile,v 1.15 2012/06/12 15:10:39 tota Exp $
 #
 
 PORTNAME=	rabbit
