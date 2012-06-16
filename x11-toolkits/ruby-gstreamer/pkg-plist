@@ -1,3 +1,0 @@
-libdata/pkgconfig/ruby-gstreamer.pc
-%%RUBY_SITEARCHLIBDIR%%/gstreamer.so
-%%RUBY_SITELIBDIR%%/gst.rb

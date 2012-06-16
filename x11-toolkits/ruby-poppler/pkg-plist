@@ -1,3 +1,0 @@
-libdata/pkgconfig/ruby-poppler.pc
-%%RUBY_SITEARCHLIBDIR%%/poppler.so
-%%RUBY_SITELIBDIR%%/poppler.rb
