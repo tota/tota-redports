@@ -2,11 +2,11 @@
 # Date created:		2010-08-01
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/misc/rabbit/Makefile,v 1.15 2012/06/12 15:10:39 tota Exp $
+# $FreeBSD: ports/misc/rabbit/Makefile,v 1.16 2012/06/13 22:40:40 tota Exp $
 #
 
 PORTNAME=	rabbit
-PORTVERSION=	1.0.7
+PORTVERSION=	1.0.8
 CATEGORIES=	misc ruby
 MASTER_SITES=	http://rabbit-shockers.org/download/ \
 		LOCAL
