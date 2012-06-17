@@ -2,11 +2,12 @@
 # Date created:		2012-01-04
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/graphics/R-cran-rgdal/Makefile,v 1.5 2012/05/07 21:55:06 tota Exp $
+# $FreeBSD: ports/graphics/R-cran-rgdal/Makefile,v 1.7 2012/05/19 10:07:13 sunpoet Exp $
 #
 
 PORTNAME=	rgdal
 DISTVERSION=	0.7-11
+PORTREVISION=	1
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -16,7 +17,7 @@ COMMENT=	Bindings for the Geospatial Data Abstraction Library
 LICENSE=	GPLv2 GPLv3
 LICENSE_COMB=	dual
 
-LIB_DEPENDS=	gdal.16:${PORTSDIR}/graphics/gdal \
+LIB_DEPENDS=	gdal.17:${PORTSDIR}/graphics/gdal \
 		proj.7:${PORTSDIR}/graphics/proj
 RUN_DEPENDS=	R-cran-sp>=0.9.99:${PORTSDIR}/math/R-cran-sp
 
