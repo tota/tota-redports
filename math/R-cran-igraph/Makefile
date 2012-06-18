@@ -2,11 +2,11 @@
 # Date created:		10 May, 2009
 # Whom:			Wen Heping <wenheping@gmail.com>
 #
-# $FreeBSD: ports/math/R-cran-igraph/Makefile,v 1.13 2011/03/17 11:08:40 pav Exp $
+# $FreeBSD: ports/math/R-cran-igraph/Makefile,v 1.18 2012/06/15 23:48:46 tota Exp $
 #
 
 PORTNAME=	igraph
-DISTVERSION=	0.5.5-4
+DISTVERSION=	0.6-1
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
