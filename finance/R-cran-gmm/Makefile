@@ -2,11 +2,11 @@
 # Date created:		2011-09-11
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/finance/R-cran-gmm/Makefile,v 1.8 2012/05/26 14:00:57 tota Exp $
+# $FreeBSD: ports/finance/R-cran-gmm/Makefile,v 1.9 2012/06/01 22:51:04 tota Exp $
 #
 
 PORTNAME=	gmm
-DISTVERSION=	1.4-1
+DISTVERSION=	1.4-2
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
