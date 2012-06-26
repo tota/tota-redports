@@ -2,11 +2,11 @@
 # Date created:		2011-08-01
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/textproc/rubygem-coderay/Makefile,v 1.7 2011/12/29 00:15:07 tota Exp $
+# $FreeBSD: ports/textproc/rubygem-coderay/Makefile,v 1.8 2012/04/06 10:12:42 tota Exp $
 #
 
 PORTNAME=	coderay
-PORTVERSION=	1.0.6
+PORTVERSION=	1.0.7
 CATEGORIES=	textproc rubygems
 MASTER_SITES=	RG
 
