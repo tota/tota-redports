@@ -2,11 +2,11 @@
 # Date created:		2011-03-27
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/net-im/mikutter/Makefile,v 1.7 2011/12/20 10:24:26 tota Exp $
+# $FreeBSD: ports/net-im/mikutter/Makefile,v 1.8 2012/06/12 15:10:39 tota Exp $
 #
 
 PORTNAME=	mikutter
-PORTVERSION=	0.0.3.615
+PORTVERSION=	0.1.1.810
 CATEGORIES=	net-im ruby
 MASTER_SITES=	http://mikutter.hachune.net/bin/ \
 		LOCAL
@@ -16,8 +16,8 @@ DISTNAME=	${PORTNAME}.${PORTVERSION}
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	A simple, powerful and moeful twitter client
 
-LICENSE=        GPLv3
-LICENSE_FILE=   ${WRKSRC}/LICENSE
+LICENSE=	GPLv3
+LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2 \
 		${RUBY_SITEARCHLIBDIR}/cairo.so:${PORTSDIR}/graphics/ruby-cairo \
@@ -30,6 +30,7 @@ RUN_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2 \
 WRKSRC=	${WRKDIR}/${PORTNAME}
 
 USE_RUBY=	yes
+RUBY_VER=	1.9
 NO_BUILD=	yes
 
 RUBY_SHEBANG_FILES=	mikutter.rb \
@@ -43,7 +44,6 @@ SUB_FILES=	mikutter.desktop
 SUB_LIST=	RUBY_SITELIBDIR=${RUBY_SITELIBDIR}
 
 PORTDOCS=	README
-PORTSCOUT=	limit:^0\.0\.3\.[0-9]*
 
 OPTIONS_DEFINE=		HTTPCLIENT NOTIFY
 HTTPCLIENT_DESC=	httpclient support
@@ -62,7 +62,7 @@ RUN_DEPENDS+=	notify-send:${PORTSDIR}/devel/libnotify
 .endif
 
 post-patch:
-	@${REINPLACE_CMD} -e "50s|chdir\(.*\)|chdir\('${RUBY_SITELIBDIR}/mikutter/core'\)|" \
+	@${REINPLACE_CMD} -e "s|chdir\(.*\)|chdir\('${RUBY_SITELIBDIR}/mikutter/core'\)|" \
 		${WRKSRC}/mikutter.rb
 	@${REINPLACE_CMD} -i '' -e "s|miquire :lib, 'ruby-bsearch-1.5/bsearch'|require 'bsearch'|" \
 		${WRKSRC}/core/mui/cairo_inner_tl.rb
