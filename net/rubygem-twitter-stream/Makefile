@@ -2,11 +2,11 @@
 # Date created:		2010-11-03
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/net/rubygem-twitter-stream/Makefile,v 1.5 2011/06/24 22:39:52 tota Exp $
+# $FreeBSD: ports/net/rubygem-twitter-stream/Makefile,v 1.6 2012/04/13 03:17:28 tota Exp $
 #
 
 PORTNAME=	twitter-stream
-PORTVERSION=	0.1.15
+PORTVERSION=	0.1.16
 CATEGORIES=	net rubygems
 MASTER_SITES=	RG
 
