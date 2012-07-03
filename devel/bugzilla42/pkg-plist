@@ -574,11 +574,7 @@
 %%WWWDIR%%/skins/standard/global.css
 %%WWWDIR%%/skins/standard/global/body-back.gif
 %%WWWDIR%%/skins/standard/global/calendar.png
-%%WWWDIR%%/skins/standard/global/down.png
 %%WWWDIR%%/skins/standard/global/header.png
-%%WWWDIR%%/skins/standard/global/left.png
-%%WWWDIR%%/skins/standard/global/right.png
-%%WWWDIR%%/skins/standard/global/up.png
 %%WWWDIR%%/skins/standard/index.css
 %%WWWDIR%%/skins/standard/index/file-a-bug.png
 %%WWWDIR%%/skins/standard/index/help.png
@@ -815,7 +811,6 @@
 %%WWWDIR%%/template/en/default/list/list.csv.tmpl
 %%WWWDIR%%/template/en/default/list/list.html.tmpl
 %%WWWDIR%%/template/en/default/list/list.ics.tmpl
-%%WWWDIR%%/template/en/default/list/list.js.tmpl
 %%WWWDIR%%/template/en/default/list/list.rdf.tmpl
 %%WWWDIR%%/template/en/default/list/quips.html.tmpl
 %%WWWDIR%%/template/en/default/list/server-push.html.tmpl
