@@ -35,7 +35,7 @@ OPTIONS_DEFAULT=	\
 OPTIONS_MULTI=		DB
 OPTIONS_MULTI_DB=	MYSQL PGSQL
 
-DB=			select a DB backend listed below
+DB_DESC=		select a DB backend listed below
 BMP2PNG_DESC=		BMP Attachments to PNGs
 CHARTING_MODULES_DESC=	Bug charting support
 CONTRIB_DESC=		Install user-contributed scripts
