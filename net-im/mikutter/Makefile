@@ -2,11 +2,11 @@
 # Date created:		2011-03-27
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/net-im/mikutter/Makefile,v 1.8 2012/06/12 15:10:39 tota Exp $
+# $FreeBSD: ports/net-im/mikutter/Makefile,v 1.9 2012/07/02 11:49:34 tota Exp $
 #
 
 PORTNAME=	mikutter
-PORTVERSION=	0.1.1.810
+PORTVERSION=	0.1.1.814
 CATEGORIES=	net-im ruby
 MASTER_SITES=	http://mikutter.hachune.net/bin/ \
 		LOCAL
@@ -32,6 +32,8 @@ WRKSRC=	${WRKDIR}/${PORTNAME}
 USE_RUBY=	yes
 RUBY_VER=	1.9
 NO_BUILD=	yes
+
+CONFLICTS=	mikutter-0.0.3.*
 
 RUBY_SHEBANG_FILES=	mikutter.rb \
 			core/autotag.rb \
