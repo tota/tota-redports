@@ -2,12 +2,11 @@
 # Date created:		2010-08-01
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: head/misc/rabbit/Makefile 300896 2012-07-14 13:54:48Z beat $
+# $FreeBSD: head/misc/rabbit/Makefile 301395 2012-07-23 13:10:16Z tota $
 #
 
 PORTNAME=	rabbit
-PORTVERSION=	1.0.8
-PORTREVISION=	1
+PORTVERSION=	1.0.9
 CATEGORIES=	misc ruby
 MASTER_SITES=	http://rabbit-shockers.org/download/ \
 		LOCAL
@@ -64,7 +63,7 @@ RUN_DEPENDS+=	${LOCALBASE}/www/mimetex/cgi-bin/mimetex.cgi:${PORTSDIR}/www/mimet
 
 .if ${PORT_OPTIONS:MTWITTER}
 RUN_DEPENDS+=	rubygem-twitter_oauth>=0:${PORTSDIR}/security/rubygem-twitter_oauth \
-		rubygem-twitter-stream>=0:${PORTSDIR}/net/rubygem-twitter-stream
+		rubygem-twitter-stream>=0.1.16:${PORTSDIR}/net/rubygem-twitter-stream
 .endif
 
 post-patch:
