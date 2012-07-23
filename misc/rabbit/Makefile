@@ -2,11 +2,12 @@
 # Date created:		2010-08-01
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/misc/rabbit/Makefile,v 1.16 2012/06/13 22:40:40 tota Exp $
+# $FreeBSD: head/misc/rabbit/Makefile 300896 2012-07-14 13:54:48Z beat $
 #
 
 PORTNAME=	rabbit
 PORTVERSION=	1.0.8
+PORTREVISION=	1
 CATEGORIES=	misc ruby
 MASTER_SITES=	http://rabbit-shockers.org/download/ \
 		LOCAL
@@ -51,9 +52,9 @@ PORTDOCS=	*
 PORTEXAMPLES=	*
 PORTDATA=	*
 
-OPTIONS_DEFAULT=	MIMETEX TWITTER
-MIMETEX_DESC=		Run with mimetex
-TWITTER_DESC=		Run with Twitter
+OPTIONS_DEFINE=	MIMETEX TWITTER
+MIMETEX_DESC=	Run with mimetex
+TWITTER_DESC=	Run with Twitter
 
 .include <bsd.port.options.mk>
 
