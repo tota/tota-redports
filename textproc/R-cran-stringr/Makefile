@@ -15,7 +15,7 @@ COMMENT=	Make it easier to work with strings
 
 LICENSE=	GPLv2
 
-#RUN_DEPENDS=	R-cran-plyr>0:${PORTSDIR}/devel/R-cran-plyr
+RUN_DEPENDS=	R-cran-plyr>0:${PORTSDIR}/devel/R-cran-plyr
 
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
