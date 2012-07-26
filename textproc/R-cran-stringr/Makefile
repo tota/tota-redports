@@ -2,11 +2,11 @@
 # Date created:		2012-02-07
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: head/textproc/R-cran-stringr/Makefile 300897 2012-07-14 14:29:18Z beat $
 #
 
 PORTNAME=	stringr
-PORTVERSION=	0.6
+PORTVERSION=	0.6.1
 CATEGORIES=	textproc
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -15,7 +15,7 @@ COMMENT=	Make it easier to work with strings
 
 LICENSE=	GPLv2
 
-RUN_DEPENDS=	R-cran-plyr>0:${PORTSDIR}/devel/R-cran-plyr
+#RUN_DEPENDS=	R-cran-plyr>0:${PORTSDIR}/devel/R-cran-plyr
 
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
