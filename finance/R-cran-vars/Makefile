@@ -2,11 +2,11 @@
 # Date created:		2012-02-05
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: head/finance/R-cran-vars/Makefile 300896 2012-07-14 13:54:48Z beat $
 #
 
 PORTNAME=	vars
-DISTVERSION=	1.4-9
+DISTVERSION=	1.5-0
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
