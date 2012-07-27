@@ -2,11 +2,11 @@
 # Date created:		2012-02-06
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: head/finance/R-cran-urca/Makefile 300896 2012-07-14 13:54:48Z beat $
 #
 
 PORTNAME=	urca
-DISTVERSION=	1.2-6
+DISTVERSION=	1.2-7
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
