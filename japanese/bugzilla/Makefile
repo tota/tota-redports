@@ -2,7 +2,7 @@
 # Date created:		2004-01-19
 # Whom:			TAKATSU Tomonari <tota@rtfm.jp>
 #
-# $FreeBSD: ports/japanese/bugzilla/Makefile,v 1.23 2012/04/10 13:51:41 tota Exp $
+# $FreeBSD: head/japanese/bugzilla/Makefile 300896 2012-07-14 13:54:48Z beat $
 #
 
 PORTNAME=	bugzilla
