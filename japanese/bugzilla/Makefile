@@ -6,8 +6,7 @@
 #
 
 PORTNAME=	bugzilla
-PORTVERSION=	4.0.6
-PORTREVISION=	1
+PORTVERSION=	4.0.7
 CATEGORIES=	japanese
 MASTER_SITES=	http://bug-ja.org/releases/4.0/ \
 		LOCAL
@@ -19,17 +18,13 @@ COMMENT=	Japanese localization for Bugzilla
 
 RUN_DEPENDS=	bugzilla>=${PORTVERSION}:${PORTSDIR}/devel/bugzilla
 
-LATEST_LINK=	${PKGNAMEPREFIX}bugzilla
+NO_WRKSUBDIR=	yes
 
 .include "${.CURDIR}/../../devel/bugzilla/Makefile.common"
 
 USE_BZIP2=	yes
 
-WRKSRC=		${WRKDIR}/default
 LANGDIR=	${WWWDIR}/template/ja
-
-post-patch:
-	@${FIND} ${WRKSRC}/ -name \*.orig -delete
 
 do-install:
 	@-${MKDIR} ${LANGDIR}/default
