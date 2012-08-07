@@ -6,8 +6,7 @@
 #
 
 PORTNAME=	bugzilla
-PORTVERSION=	4.2.1
-PORTREVISION=	1
+PORTVERSION=	4.2.2
 CATEGORIES=	japanese
 MASTER_SITES=	http://bug-ja.org/releases/4.2/ \
 		LOCAL
@@ -20,6 +19,8 @@ COMMENT=	Japanese localization for Bugzilla
 RUN_DEPENDS=	bugzilla>=${PORTVERSION}:${PORTSDIR}/devel/bugzilla42
 
 LATEST_LINK=	${PKGNAMEPREFIX}bugzilla42
+
+NO_WRKSUBDIR=	yes
 
 .include "${.CURDIR}/../../devel/bugzilla42/Makefile.common"
 
