@@ -2,14 +2,14 @@
 # Date created:		2010-06-13
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/graphics/php5-swfed/Makefile,v 1.28 2012/04/03 09:00:04 tota Exp $
+# $FreeBSD: head/graphics/php5-swfed/Makefile 300896 2012-07-14 13:54:48Z beat $
 #
 
 PORTNAME=	swfed
-PORTVERSION=	0.57
+PORTVERSION=	0.58
 CATEGORIES=	graphics www
 MASTER_SITES=	SFJP
-MASTER_SITE_SUBDIR=	${PORTNAME}/55622
+MASTER_SITE_SUBDIR=	${PORTNAME}/56609
 PKGNAMEPREFIX=	php5-
 
 MAINTAINER=	yoya@awm.jp
@@ -18,8 +18,8 @@ COMMENT=	A PHP extension to edit SWF file
 LICENSE=	PHP301
 
 BUILD_DEPENDS=	re2c:${PORTSDIR}/devel/re2c
-LIB_DEPENDS=	gif.5:${PORTSDIR}/graphics/giflib \
-		png.6:${PORTSDIR}/graphics/png
+LIB_DEPENDS=	gif:${PORTSDIR}/graphics/giflib \
+		png15:${PORTSDIR}/graphics/png
 
 DEFAULT_PHP_VER=	5
 IGNORE_WITH_PHP=	4
