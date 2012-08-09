@@ -2,12 +2,11 @@
 # Date created:		2011-09-09
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/graphics/R-cran-shape/Makefile,v 1.4 2011/11/27 07:02:09 bf Exp $
+# $FreeBSD: head/graphics/R-cran-shape/Makefile 300896 2012-07-14 13:54:48Z beat $
 #
 
 PORTNAME=	shape
-PORTVERSION=	1.3.4
-PORTREVISION=	2
+PORTVERSION=	1.4.0
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
