@@ -2,7 +2,7 @@
 # Date created:				21 Feb 2003
 # Whom:					Sunagawa Koji <koj@ofug.net>
 #
-# $FreeBSD: ports/japanese/mailman/Makefile,v 1.6 2012/03/26 15:16:58 tota Exp $
+# $FreeBSD: head/japanese/mailman/Makefile 300896 2012-07-14 13:54:48Z beat $
 #
 
 PORTNAME=	mailman
@@ -23,6 +23,8 @@ LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/gnu-COPYING-GPL
 
 CONFLICTS=	mailman-2.1.*
+
+PORTSCOUT=	limit:.*\.j\d+$$
 
 USE_AUTOTOOLS=	autoconf
 USE_GETTEXT=	yes
