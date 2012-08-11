@@ -2,11 +2,11 @@
 # Date created:		2008-02-06
 # Whom:			TAKATSU Tomonari <tota@rtfm.jp>
 #
-# $FreeBSD: ports/japanese/rubygem-jpmobile/Makefile,v 1.26 2012/05/13 18:40:09 tota Exp $
+# $FreeBSD: head/japanese/rubygem-jpmobile/Makefile 300896 2012-07-14 13:54:48Z beat $
 #
 
 PORTNAME=	jpmobile
-PORTVERSION=	3.0.4
+PORTVERSION=	3.0.5
 CATEGORIES=	japanese www rubygems
 MASTER_SITES=	RG
 
@@ -15,7 +15,7 @@ COMMENT=	A Rails plugin for Japanese mobile-phones
 
 LICENSE=	MIT
 
-RUN_DEPENDS=	rubygem-rails>=3.2.0:${PORTSDIR}/www/rubygem-rails
+RUN_DEPENDS=	rubygem-rails>=3.2.8:${PORTSDIR}/www/rubygem-rails
 
 USE_RUBY=	yes
 USE_RUBYGEMS=	yes
