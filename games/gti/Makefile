@@ -2,11 +2,11 @@
 # Date created:		2012-08-16
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: head/games/gti/Makefile 302618 2012-08-16 08:06:42Z tota $
 #
 
 PORTNAME=	gti
-PORTVERSION=	0.0.2012.08.15
+PORTVERSION=	0.0.2012.08.16
 CATEGORIES=	games
 MASTER_SITES=	https://github.com/rwos/gti/tarball/master/
 DISTNAME=	${GITNAME}-${GITVERSION}
@@ -17,7 +17,7 @@ COMMENT=	Just a silly git launcher, basically. Inspired by sl
 GITUSER=	rwos
 GITREPONAME=	${PORTNAME}
 GITNAME=	${GITUSER}-${GITREPONAME}
-GITVERSION=	ee63b3f
+GITVERSION=	ef5c4d8
 
 FETCH_ARGS=	-pRr
 ALL_TARGET=	${PORTNAME}
