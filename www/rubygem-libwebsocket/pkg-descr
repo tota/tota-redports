@@ -1,0 +1,4 @@
+A WebSocket message parser/constructor. It is not a server and is
+not meant to be one. It can be used in any server, event loop etc.
+
+WWW:	https://github.com/imanel/websocket-ruby
