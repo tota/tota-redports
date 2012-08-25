@@ -1,0 +1,15 @@
+#
+# $FreeBSD: head/devel/bugzilla/Makefile.common 301498 2012-07-24 21:37:07Z ohauer $
+#
+
+DIST_SUBDIR=	${PORTNAME}
+
+CONFLICTS=	bugzilla-3.* \
+		bugzilla-4.2.*
+
+PORTSCOUT=	limit:^4\.0\.
+
+WWWDIR=	${PREFIX}/www/bugzilla
+
+NO_BUILD=	yes
+
