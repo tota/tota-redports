@@ -2,12 +2,11 @@
 # Date created:		2012-08-16
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: head/games/gti/Makefile 302663 2012-08-17 03:15:54Z tota $
+# $FreeBSD: head/games/gti/Makefile 303003 2012-08-23 11:28:06Z tota $
 #
 
 PORTNAME=	gti
-PORTVERSION=	1.0.3
-PORTREVISION=	1
+PORTVERSION=	1.0.4
 CATEGORIES=	games
 
 MAINTAINER=	tota@FreeBSD.org
@@ -16,7 +15,7 @@ COMMENT=	Just a silly git launcher, basically. Inspired by sl
 USE_GITHUB=	yes
 GH_ACCOUNT=	rwos
 GH_TAGNAME=	v${PORTVERSION}
-GH_COMMIT=	8865ed5
+GH_COMMIT=	e16ca0b
 
 ALL_TARGET=	${PORTNAME}
 
