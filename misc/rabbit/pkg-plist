@@ -1,35 +1,23 @@
-bin/rabbirack
 bin/rabbirc
 bin/rabbit
 bin/rabbit-command
+bin/rabbit-slide
+bin/rabbit-theme
 bin/rabbit-theme-manager
-bin/rabbiter
-bin/rabrick
 %%RUBY_SITELIBDIR%%/rabbit/action.rb
 %%RUBY_SITELIBDIR%%/rabbit/action/basic.rb
 %%RUBY_SITELIBDIR%%/rabbit/action/radio.rb
 %%RUBY_SITELIBDIR%%/rabbit/action/toggle.rb
+%%RUBY_SITELIBDIR%%/rabbit/author-configuration.rb
 %%RUBY_SITELIBDIR%%/rabbit/canvas.rb
+%%RUBY_SITELIBDIR%%/rabbit/command/rabbit-slide.rb
+%%RUBY_SITELIBDIR%%/rabbit/command/rabbit-theme.rb
+%%RUBY_SITELIBDIR%%/rabbit/command/rabbit.rb
 %%RUBY_SITELIBDIR%%/rabbit/config.rb
 %%RUBY_SITELIBDIR%%/rabbit/console.rb
 %%RUBY_SITELIBDIR%%/rabbit/console/roff.rb
 %%RUBY_SITELIBDIR%%/rabbit/cursor-manager.rb
-%%RUBY_SITELIBDIR%%/rabbit/default-config.rb
 %%RUBY_SITELIBDIR%%/rabbit/dependency-canvas.rb
-%%RUBY_SITELIBDIR%%/rabbit/div/comment-i.erb
-%%RUBY_SITELIBDIR%%/rabbit/div/comment.erb
-%%RUBY_SITELIBDIR%%/rabbit/div/css.erb
-%%RUBY_SITELIBDIR%%/rabbit/div/js.erb
-%%RUBY_SITELIBDIR%%/rabbit/div/log.erb
-%%RUBY_SITELIBDIR%%/rabbit/div/main-i.erb
-%%RUBY_SITELIBDIR%%/rabbit/div/main.css
-%%RUBY_SITELIBDIR%%/rabbit/div/main.erb
-%%RUBY_SITELIBDIR%%/rabbit/div/navi-i.erb
-%%RUBY_SITELIBDIR%%/rabbit/div/navi.erb
-%%RUBY_SITELIBDIR%%/rabbit/div/prototype.js
-%%RUBY_SITELIBDIR%%/rabbit/div/slide-i.erb
-%%RUBY_SITELIBDIR%%/rabbit/div/slide.erb
-%%RUBY_SITELIBDIR%%/rabbit/div/tofu.rb
 %%RUBY_SITELIBDIR%%/rabbit/element.rb
 %%RUBY_SITELIBDIR%%/rabbit/element/base.rb
 %%RUBY_SITELIBDIR%%/rabbit/element/base/draw-hook.rb
@@ -62,6 +50,7 @@ bin/rabrick
 %%RUBY_SITELIBDIR%%/rabbit/formatter.rb
 %%RUBY_SITELIBDIR%%/rabbit/frame.rb
 %%RUBY_SITELIBDIR%%/rabbit/front.rb
+%%RUBY_SITELIBDIR%%/rabbit/gem-finder.rb
 %%RUBY_SITELIBDIR%%/rabbit/gesture/handler.rb
 %%RUBY_SITELIBDIR%%/rabbit/gesture/processor.rb
 %%RUBY_SITELIBDIR%%/rabbit/gettext.rb
@@ -84,11 +73,6 @@ bin/rabrick
 %%RUBY_SITELIBDIR%%/rabbit/logger/gui.rb
 %%RUBY_SITELIBDIR%%/rabbit/logger/stderr.rb
 %%RUBY_SITELIBDIR%%/rabbit/menu.rb
-%%RUBY_SITELIBDIR%%/rabbit/middleware/config.ru
-%%RUBY_SITELIBDIR%%/rabbit/middleware/controller.rb
-%%RUBY_SITELIBDIR%%/rabbit/middleware/public/stylesheets/rabbirack.css
-%%RUBY_SITELIBDIR%%/rabbit/middleware/views/index.haml
-%%RUBY_SITELIBDIR%%/rabbit/middleware/views/layout.haml
 %%RUBY_SITELIBDIR%%/rabbit/parser.rb
 %%RUBY_SITELIBDIR%%/rabbit/parser/base.rb
 %%RUBY_SITELIBDIR%%/rabbit/parser/ext/aafigure.rb
@@ -118,6 +102,7 @@ bin/rabrick
 %%RUBY_SITELIBDIR%%/rabbit/parser/rd/visitor.rb
 %%RUBY_SITELIBDIR%%/rabbit/parser/wiki.rb
 %%RUBY_SITELIBDIR%%/rabbit/parser/wiki/output.rb
+%%RUBY_SITELIBDIR%%/rabbit/path-manipulatable.rb
 %%RUBY_SITELIBDIR%%/rabbit/progress.rb
 %%RUBY_SITELIBDIR%%/rabbit/rabbit.rb
 %%RUBY_SITELIBDIR%%/rabbit/renderer.rb
@@ -162,6 +147,7 @@ bin/rabrick
 %%RUBY_SITELIBDIR%%/rabbit/renderer/print/multiple.rb
 %%RUBY_SITELIBDIR%%/rabbit/search-window.rb
 %%RUBY_SITELIBDIR%%/rabbit/searcher.rb
+%%RUBY_SITELIBDIR%%/rabbit/slideshare.rb
 %%RUBY_SITELIBDIR%%/rabbit/soap/base.rb
 %%RUBY_SITELIBDIR%%/rabbit/soap/driver.rb
 %%RUBY_SITELIBDIR%%/rabbit/soap/server.rb
@@ -174,6 +160,9 @@ bin/rabrick
 %%RUBY_SITELIBDIR%%/rabbit/source/slide-share.rb
 %%RUBY_SITELIBDIR%%/rabbit/source/uri.rb
 %%RUBY_SITELIBDIR%%/rabbit/stock.rb
+%%RUBY_SITELIBDIR%%/rabbit/task.rb
+%%RUBY_SITELIBDIR%%/rabbit/task/slide.rb
+%%RUBY_SITELIBDIR%%/rabbit/task/theme.rb
 %%RUBY_SITELIBDIR%%/rabbit/theme-browser.rb
 %%RUBY_SITELIBDIR%%/rabbit/theme-browser/default-tag.yaml
 %%RUBY_SITELIBDIR%%/rabbit/theme-browser/document.rb
@@ -305,6 +294,7 @@ bin/rabrick
 %%RUBY_SITELIBDIR%%/rabbit/theme/mirror-effect/mirror-effect.rb
 %%RUBY_SITELIBDIR%%/rabbit/theme/mirror-effect/property.rb
 %%RUBY_SITELIBDIR%%/rabbit/theme/nari/nari.rb
+%%RUBY_SITELIBDIR%%/rabbit/theme/nari/property.rb
 %%RUBY_SITELIBDIR%%/rabbit/theme/newline-in-slides/newline-in-slides.rb
 %%RUBY_SITELIBDIR%%/rabbit/theme/newline-in-slides/property.rb
 %%RUBY_SITELIBDIR%%/rabbit/theme/newline-in-title/newline-in-title.rb
@@ -400,19 +390,16 @@ bin/rabrick
 %%RUBY_SITELIBDIR%%/rabbit/theme/title-shadow/title-shadow.rb
 %%RUBY_SITELIBDIR%%/rabbit/theme/title-slide-background-image/property.rb
 %%RUBY_SITELIBDIR%%/rabbit/theme/title-slide-background-image/title-slide-background-image.rb
-%%RUBY_SITELIBDIR%%/rabbit/theme/twitter-comment/property.rb
-%%RUBY_SITELIBDIR%%/rabbit/theme/twitter-comment/twitter-comment.rb
 %%RUBY_SITELIBDIR%%/rabbit/trackball.rb
-%%RUBY_SITELIBDIR%%/rabbit/twitter.rb
 %%RUBY_SITELIBDIR%%/rabbit/utils.rb
+%%RUBY_SITELIBDIR%%/rabbit/version.rb
 %%RUBY_SITELIBDIR%%/rabbit/xmlrpc/base.rb
 %%RUBY_SITELIBDIR%%/rabbit/xmlrpc/client.rb
 %%RUBY_SITELIBDIR%%/rabbit/xmlrpc/server.rb
-%%NLS%%share/locale/en/LC_MESSAGES/rabbit.mo
-%%NLS%%share/locale/fr/LC_MESSAGES/rabbit.mo
-%%NLS%%share/locale/ja/LC_MESSAGES/rabbit.mo
+share/locale/en/LC_MESSAGES/rabbit.mo
+share/locale/fr/LC_MESSAGES/rabbit.mo
+share/locale/ja/LC_MESSAGES/rabbit.mo
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/xmlrpc
-@dirrm %%RUBY_SITELIBDIR%%/rabbit/theme/twitter-comment
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/theme/title-slide-background-image
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/theme/title-shadow
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/theme/title-on-image-toolkit
@@ -524,6 +511,7 @@ bin/rabrick
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/theme-browser/ext
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/theme-browser
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/theme
+@dirrm %%RUBY_SITELIBDIR%%/rabbit/task
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/source
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/soap
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/renderer/print
@@ -538,10 +526,6 @@ bin/rabrick
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/parser/markdown
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/parser/ext
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/parser
-@dirrm %%RUBY_SITELIBDIR%%/rabbit/middleware/views
-@dirrm %%RUBY_SITELIBDIR%%/rabbit/middleware/public/stylesheets
-@dirrm %%RUBY_SITELIBDIR%%/rabbit/middleware/public
-@dirrm %%RUBY_SITELIBDIR%%/rabbit/middleware
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/logger
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/image
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/html
@@ -549,7 +533,7 @@ bin/rabrick
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/gesture
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/element/base
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/element
-@dirrm %%RUBY_SITELIBDIR%%/rabbit/div
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/console
+@dirrm %%RUBY_SITELIBDIR%%/rabbit/command
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/action
 @dirrm %%RUBY_SITELIBDIR%%/rabbit

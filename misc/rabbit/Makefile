@@ -1,12 +1,7 @@
-# New ports collection makefile for:	rabbit
-# Date created:		2010-08-01
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: head/misc/rabbit/Makefile 301395 2012-07-23 13:10:16Z tota $
-#
+# $FreeBSD: head/misc/rabbit/Makefile 301532 2012-07-25 20:56:28Z tota $
 
 PORTNAME=	rabbit
-PORTVERSION=	1.0.9
+PORTVERSION=	2.0.0
 CATEGORIES=	misc ruby
 MASTER_SITES=	http://rabbit-shockers.org/download/ \
 		LOCAL
@@ -15,8 +10,8 @@ MASTER_SITE_SUBDIR=	tota/${PORTNAME}
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	An RD-document-based presentation application
 
-LICENSE=	GPLv2
-LICENSE_FILE=	${WRKSRC}/GPL
+LICENSE=	GPLv2 GPLv3
+LICENSE_COMB=	dual
 
 RUN_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2 \
 		${RUBY_SITEARCHLIBDIR}/rsvg2.so:${PORTSDIR}/graphics/ruby-rsvg2 \
@@ -28,33 +23,29 @@ RUN_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2 \
 		rubygem-haml>0:${PORTSDIR}/www/rubygem-haml \
 		rd2:${PORTSDIR}/textproc/ruby-rdtool \
 		rubygem-coderay>=1.0.0:${PORTSDIR}/textproc/rubygem-coderay \
-		rubygem-kramdown>0:${PORTSDIR}/textproc/rubygem-kramdown
+		rubygem-kramdown>0:${PORTSDIR}/textproc/rubygem-kramdown \
+		rubygem-gettext>0:${PORTSDIR}/devel/rubygem-gettext \
+		${RUBY_SITELIBDIR}/rt/rtparser.rb:${PORTSDIR}/textproc/ruby-rttool
 
+USE_GETTEXT=	run
 USE_RUBY=	yes
-USE_RUBY_SETUP=	yes
-.if defined(WITHOUT_NLS)
-PLIST_SUB+=	NLS="@comment "
-.else
-USE_GETTEXT=	yes
-RUN_DEPENDS+=	rubygem-gettext>0:${PORTSDIR}/devel/rubygem-gettext
-PLIST_SUB+=	NLS=""
-.endif
+NO_BUILD=	yes
 
-RUBY_SHEBANG_FILES=	bin/rabbirack \
-			bin/rabbirc \
+RUBY_SHEBANG_FILES=	bin/rabbirc \
 			bin/rabbit \
 			bin/rabbit-command \
-			bin/rabbit-theme-manager \
-			bin/rabbiter \
-			bin/rabrick
+			bin/rabbit-slide \
+			bin/rabbit-theme \
+			bin/rabbit-theme-manager
 
 PORTDOCS=	*
 PORTEXAMPLES=	*
 PORTDATA=	*
 
-OPTIONS_DEFINE=	MIMETEX TWITTER
+REINPLACE_ARGS=	-i ''
+
+OPTIONS_DEFINE=	MIMETEX
 MIMETEX_DESC=	Run with mimetex
-TWITTER_DESC=	Run with Twitter
 
 .include <bsd.port.options.mk>
 
@@ -62,20 +53,23 @@ TWITTER_DESC=	Run with Twitter
 RUN_DEPENDS+=	${LOCALBASE}/www/mimetex/cgi-bin/mimetex.cgi:${PORTSDIR}/www/mimetex
 .endif
 
-.if ${PORT_OPTIONS:MTWITTER}
-RUN_DEPENDS+=	rubygem-twitter_oauth>=0:${PORTSDIR}/security/rubygem-twitter_oauth \
-		rubygem-twitter-stream>=0.1.16:${PORTSDIR}/net/rubygem-twitter-stream
-.endif
-
 post-patch:
-	${RM} ${WRKSRC}/bin/rabwii
-	${RUBY} -i -pe 'sub %r|((\s*)require "rack")|, %Q|\\2require "rubygems"\n\\1|' ${WRKSRC}/bin/rabbirack
 	${RUBY} -i -pe 'sub %r|(require "hikidoc")|, %Q|require "rubygems"\n\\1|' ${WRKSRC}/lib/rabbit/parser/wiki.rb
-	${RUBY} -i -pe "sub %r|((\s*)require 'twitter_oauth')|, %Q|\\\2require 'rubygems'\n\\\1|" ${WRKSRC}/lib/rabbit/twitter.rb
 	${RUBY} -i -pe "sub %r|(require 'coderay')|, %Q|require 'rubygems'\n\\\1|" ${WRKSRC}/lib/rabbit/parser/ext/coderay.rb
 .if ${PORT_OPTIONS:MMIMETEX}
 	${REINPLACE_CMD} -e 's|"mimetex.cgi"|"${PREFIX}/www/mimetex/cgi-bin/mimetex.cgi"|' \
 		${WRKSRC}/lib/rabbit/parser/ext/tex.rb
+.endif
+
+do-install:
+	@cd ${INSTALL_WRKSRC} && ${INSTALL_SCRIPT} ${RUBY_SHEBANG_FILES} ${PREFIX}/bin
+	@cd ${INSTALL_WRKSRC}/lib && ${COPYTREE_SHARE} rabbit ${RUBY_SITELIBDIR}
+.if !defined(WITHOUT_NLS)
+.for l in fr en ja
+	@${MKDIR} ${PREFIX}/share/locale/${l}/LC_MESSAGES
+	@${INSTALL_DATA} ${INSTALL_WRKSRC}/data/locale/${l}/LC_MESSAGES/${PORTNAME}.mo \
+		${PREFIX}/share/locale/${l}/LC_MESSAGES
+.endfor
 .endif
 
 post-install:
@@ -88,8 +82,9 @@ post-install:
 	@${MKDIR} ${EXAMPLESDIR}
 	@cd ${WRKSRC}/sample && ${COPYTREE_SHARE} . ${EXAMPLESDIR}
 .endif
-.if defined(NOPORTDATA)
-	@${RM} -r ${DATADIR}
+.if !defined(NOPORTDATA)
+	@${MKDIR} ${DATADIR}
+	@cd ${INSTALL_WRKSRC}/data/rabbit && ${COPYTREE_SHARE} . ${DATADIR}
 .endif
 
 # This target is only meant to be used by the port maintainer.
