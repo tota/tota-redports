@@ -64,13 +64,11 @@ post-patch:
 do-install:
 	@cd ${INSTALL_WRKSRC} && ${INSTALL_SCRIPT} ${RUBY_SHEBANG_FILES} ${PREFIX}/bin
 	@cd ${INSTALL_WRKSRC}/lib && ${COPYTREE_SHARE} rabbit ${RUBY_SITELIBDIR}
-.if !defined(WITHOUT_NLS)
 .for l in fr en ja
 	@${MKDIR} ${PREFIX}/share/locale/${l}/LC_MESSAGES
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/data/locale/${l}/LC_MESSAGES/${PORTNAME}.mo \
 		${PREFIX}/share/locale/${l}/LC_MESSAGES
 .endfor
-.endif
 
 post-install:
 .if !defined(NOPORTDOCS)
@@ -94,7 +92,7 @@ x-generate-plist:
 	${ECHO} ${f} >> pkg-plist.new
 .endfor
 	${FIND} ${RUBY_SITELIBDIR}/rabbit -type f | ${SORT} | ${SED} -e 's,${RUBY_SITELIBDIR},%%RUBY_SITELIBDIR%%,' >> pkg-plist.new
-	${FIND} ${PREFIX}/share/locale -type f -name rabbit.mo | ${SORT} | ${SED} -e 's,^${PREFIX}/,%%NLS%%,' >> pkg-plist.new
+	${FIND} ${PREFIX}/share/locale -type f -name rabbit.mo | ${SORT} | ${SED} -e 's,^${PREFIX}/,,' >> pkg-plist.new
 	${FIND} ${RUBY_SITELIBDIR}/rabbit -type d -depth | ${SORT} -r | ${SED} -e 's,${RUBY_SITELIBDIR},@dirrm %%RUBY_SITELIBDIR%%,' >> pkg-plist.new
 
 .include <bsd.port.mk>
