@@ -6,7 +6,7 @@
 #
 
 PORTNAME=	locale
-PORTVERSION=	2.0.6
+PORTVERSION=	2.0.8
 CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 
