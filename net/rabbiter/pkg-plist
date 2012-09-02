@@ -1,0 +1,6 @@
+bin/rabbiter
+%%RUBY_SITELIBDIR%%/rabbiter.rb
+%%RUBY_SITELIBDIR%%/rabbiter/gettext.rb
+%%RUBY_SITELIBDIR%%/rabbiter/version.rb
+share/locale/ja/LC_MESSAGES/rabbiter.mo
+@dirrm %%RUBY_SITELIBDIR%%/rabbiter
