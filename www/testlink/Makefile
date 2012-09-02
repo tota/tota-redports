@@ -17,6 +17,7 @@ WANT_PHP_WEB=	yes
 WRKSRC=	${WRKDIR}/testlink-ga-testlink-code
 NO_BUILD=	yes
 PLIST_SUB=	WWWOWN=${WWWOWN} WWWGRP=${WWWGRP}
+REINPLACE_ARGS=	-i ''
 
 PORTDOCS=	*
 PORTEXAMPLES=	*
@@ -50,6 +51,7 @@ USE_PHP+=	json
 .endif
 
 post-patch:
+	@${REINPLACE_CMD} -e 's|/var/testlink|${WWWDIR}|' ${WRKSRC}/config.inc.php
 .for f in CHANGELOG CODE_REUSE README TL-1.9-Prague-NEWS.txt
 	@${MV} ${WRKSRC}/${f} ${WRKSRC}/docs
 .endfor
