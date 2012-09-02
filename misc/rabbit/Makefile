@@ -16,14 +16,12 @@ LICENSE_COMB=	dual
 RUN_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2 \
 		${RUBY_SITEARCHLIBDIR}/rsvg2.so:${PORTSDIR}/graphics/ruby-rsvg2 \
 		${RUBY_SITEARCHLIBDIR}/poppler.so:${PORTSDIR}/x11-toolkits/ruby-poppler \
-		${RUBY_SITEARCHLIBDIR}/gio2.so:${PORTSDIR}/devel/ruby-gio2 \
 		hikidoc:${PORTSDIR}/textproc/ruby-hikidoc \
 		rubygem-nokogiri>0:${PORTSDIR}/textproc/rubygem-nokogiri \
-		rubygem-sinatra>0:${PORTSDIR}/www/rubygem-sinatra \
-		rubygem-haml>0:${PORTSDIR}/www/rubygem-haml \
 		rd2:${PORTSDIR}/textproc/ruby-rdtool \
 		rubygem-coderay>=1.0.0:${PORTSDIR}/textproc/rubygem-coderay \
 		rubygem-kramdown>0:${PORTSDIR}/textproc/rubygem-kramdown \
+		rubygem-faraday>0:${PORTSDIR}/www/rubygem-faraday \
 		rubygem-gettext>0:${PORTSDIR}/devel/rubygem-gettext \
 		${RUBY_SITELIBDIR}/rt/rtparser.rb:${PORTSDIR}/textproc/ruby-rttool
 
