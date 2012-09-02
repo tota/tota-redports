@@ -1,12 +1,7 @@
-# New ports collection makefile for:	testlink
-# Date created:		2010-12-26
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/www/testlink/Makefile,v 1.7 2012/03/31 08:06:28 tota Exp $
-#
+# $FreeBSD: head/www/testlink/Makefile 300897 2012-07-14 14:29:18Z beat $
 
 PORTNAME=	testlink
-PORTVERSION=	1.9.3
+PORTVERSION=	1.9.4
 CATEGORIES=	www devel
 MASTER_SITES=	SF
 MASTER_SITE_SUBDIR=	${PORTNAME}/TestLink%201.9/TestLink%20${PORTVERSION}
@@ -19,6 +14,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USE_PHP=	gd iconv mbstring session
 WANT_PHP_WEB=	yes
+WRKSRC=	${WRKDIR}/testlink-ga-testlink-code
 NO_BUILD=	yes
 PLIST_SUB=	WWWOWN=${WWWOWN} WWWGRP=${WWWGRP}
 
