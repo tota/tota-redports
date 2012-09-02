@@ -1,17 +1,12 @@
-# New ports collection makefile for:	R-cran-spdep
-# Date created:		2011-09-17
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/math/R-cran-spdep/Makefile,v 1.10 2012/05/04 20:56:10 bf Exp $
-#
+# $FreeBSD: head/math/R-cran-spdep/Makefile 301663 2012-07-28 15:57:55Z cs $
 
 PORTNAME=	spdep
-DISTVERSION=	0.5-46
+DISTVERSION=	0.5-50
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
 MAINTAINER=	tota@FreeBSD.org
-COMMENT=	Spatial dependence: weighting schemes, statistics and models
+COMMENT=	Spatial dependence: weighting schemes, statistics, and models
 
 LICENSE=	GPLv2 GPLv3
 LICENSE_COMB=	dual
