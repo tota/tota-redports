@@ -1,0 +1,14 @@
+bin/rabbirack
+%%RUBY_SITELIBDIR%%/rabbirack.rb
+%%RUBY_SITELIBDIR%%/rabbirack/application.rb
+%%RUBY_SITELIBDIR%%/rabbirack/config.ru
+%%RUBY_SITELIBDIR%%/rabbirack/gettext.rb
+%%RUBY_SITELIBDIR%%/rabbirack/public/stylesheets/rabbirack.css
+%%RUBY_SITELIBDIR%%/rabbirack/version.rb
+%%RUBY_SITELIBDIR%%/rabbirack/views/index.haml
+%%RUBY_SITELIBDIR%%/rabbirack/views/layout.haml
+share/locale/ja/LC_MESSAGES/rabbirack.mo
+@dirrm %%RUBY_SITELIBDIR%%/rabbirack/views
+@dirrm %%RUBY_SITELIBDIR%%/rabbirack/public/stylesheets
+@dirrm %%RUBY_SITELIBDIR%%/rabbirack/public
+@dirrm %%RUBY_SITELIBDIR%%/rabbirack
