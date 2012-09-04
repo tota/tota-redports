@@ -2,11 +2,12 @@
 # Date created:		2011-03-27
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/net-im/mikutter003/Makefile,v 1.8 2012/06/12 15:10:39 tota Exp $
+# $FreeBSD: head/net-im/mikutter003/Makefile 301960 2012-08-03 15:54:35Z cs $
 #
 
 PORTNAME=	mikutter
 PORTVERSION=	0.0.3.615
+PORTREVISION=	1
 CATEGORIES=	net-im ruby
 MASTER_SITES=	http://mikutter.hachune.net/bin/ \
 		LOCAL
@@ -14,10 +15,10 @@ MASTER_SITE_SUBDIR=	tota/${PORTNAME}
 DISTNAME=	${PORTNAME}.${PORTVERSION}
 
 MAINTAINER=	tota@FreeBSD.org
-COMMENT=	A simple, powerful and moeful twitter client
+COMMENT=	Simple, powerful, and moeful Twitter client
 
-LICENSE=        GPLv3
-LICENSE_FILE=   ${WRKSRC}/LICENSE
+LICENSE=	GPLv3
+LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2 \
 		${RUBY_SITEARCHLIBDIR}/cairo.so:${PORTSDIR}/graphics/ruby-cairo \
@@ -32,6 +33,8 @@ WRKSRC=	${WRKDIR}/${PORTNAME}
 USE_RUBY=	yes
 NO_BUILD=	yes
 
+CONFLICTS=	mikutter-0.1.1.*
+
 RUBY_SHEBANG_FILES=	mikutter.rb \
 			core/autotag.rb \
 			core/chi.rb \
@@ -44,6 +47,8 @@ SUB_LIST=	RUBY_SITELIBDIR=${RUBY_SITELIBDIR}
 
 PORTDOCS=	README
 PORTSCOUT=	limit:^0\.0\.3\.[0-9]*
+
+LATEST_LINK=	${PORTNAME}003
 
 OPTIONS_DEFINE=		HTTPCLIENT NOTIFY
 HTTPCLIENT_DESC=	httpclient support
@@ -89,7 +94,6 @@ x-generate-plist:
 	${FIND} ${RUBY_SITELIBDIR}/mikutter -type f | ${SORT} | ${SED} -e 's,${RUBY_SITELIBDIR},%%RUBY_SITELIBDIR%%,' >> pkg-plist.new
 	${ECHO} share/applications/mikutter.desktop >> pkg-plist.new
 	${ECHO} '@dirrmtry share/applications' >> pkg-plist.new
-	${ECHO} @exec ${MKDIR:S|/bin/||} %D/%%RUBY_SITELIBDIR%%/mikutter/core/hatsunelisp >> pkg-plist.new
 	${FIND} ${RUBY_SITELIBDIR}/mikutter -type d -depth | ${SORT} -r | ${SED} -e 's,${RUBY_SITELIBDIR},@dirrm %%RUBY_SITELIBDIR%%,' >> pkg-plist.new
 
 .include <bsd.port.mk>
