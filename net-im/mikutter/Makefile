@@ -1,9 +1,4 @@
-# New ports collection makefile for:	mikutter
-# Date created:		2011-03-27
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/net-im/mikutter/Makefile,v 1.9 2012/07/02 11:49:34 tota Exp $
-#
+# $FreeBSD: head/net-im/mikutter/Makefile 303706 2012-09-05 13:38:20Z tota $
 
 PORTNAME=	mikutter
 PORTVERSION=	0.1.1.863
@@ -14,11 +9,12 @@ MASTER_SITE_SUBDIR=	tota/${PORTNAME}
 DISTNAME=	${PORTNAME}.${PORTVERSION}
 
 MAINTAINER=	tota@FreeBSD.org
-COMMENT=	A simple, powerful and moeful twitter client
+COMMENT=	Simple, powerful, and moeful Twitter client
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
+INSTALL_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2
 RUN_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2 \
 		${RUBY_SITEARCHLIBDIR}/cairo.so:${PORTSDIR}/graphics/ruby-cairo \
 		${RUBY_PKGNAMEPREFIX}hmac>=0.4.0:${PORTSDIR}/security/ruby-hmac \
@@ -30,7 +26,6 @@ RUN_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2 \
 WRKSRC=	${WRKDIR}/${PORTNAME}
 
 USE_RUBY=	yes
-RUBY_VER=	1.9
 NO_BUILD=	yes
 
 CONFLICTS=	mikutter-0.0.3.*
@@ -55,7 +50,7 @@ OPTIONS_DEFAULT=	${OPTIONS_DEFINE}
 
 .include <bsd.port.pre.mk>
 
-.if ${RUBY_DEFAULT_VER} == 1.8
+.if ${RUBY_VER} == 1.8
 BROKEN=	does not build
 .endif
 
