@@ -52,6 +52,7 @@ RUN_DEPENDS+=	${LOCALBASE}/www/mimetex/cgi-bin/mimetex.cgi:${PORTSDIR}/www/mimet
 .endif
 
 post-patch:
+	${RUBY} -i -pe 'sub %r|(require "gettext")|, %Q|require "rubygems"\n\\1|' ${WRKSRC}/lib/rabbit/gettext.rb
 	${RUBY} -i -pe 'sub %r|(require "hikidoc")|, %Q|require "rubygems"\n\\1|' ${WRKSRC}/lib/rabbit/parser/wiki.rb
 	${RUBY} -i -pe "sub %r|(require 'coderay')|, %Q|require 'rubygems'\n\\\1|" ${WRKSRC}/lib/rabbit/parser/ext/coderay.rb
 .if ${PORT_OPTIONS:MMIMETEX}
