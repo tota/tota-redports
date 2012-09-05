@@ -1,8 +1,8 @@
 --- data/projects/port@Makefile.orig	2003-11-03 21:34:51.000000000 +0900
-+++ data/projects/port@Makefile	2012-09-05 21:01:41.000000000 +0900
-@@ -1,15 +1,4 @@
--%# -*-mode: makefile-*-
--%define c "# "
++++ data/projects/port@Makefile	2012-09-05 22:05:30.000000000 +0900
+@@ -1,15 +1,6 @@
+ %# -*-mode: makefile-*-
+ %define c "# "
 -# New ports collection makefile for:	<:PROJECT>
 -# Date created:		<:DATE>
 -%if !defined("BSDMAIL")
@@ -16,7 +16,7 @@
  
  PORTNAME=	<:PROJECT>
  PORTVERSION=
-@@ -31,6 +20,7 @@
+@@ -31,6 +22,7 @@
  %else
  MAINTAINER=	<:BSDMAIL>
  %endif # !defined("BSDMAIL")
