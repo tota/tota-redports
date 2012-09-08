@@ -49,6 +49,7 @@ post-install:
 
 x-generate-plist:
 	${ECHO} bin/${PORTNAME} > pkg-plist.new
+	${ECHO} bin/packetdiag >> pkg-plist.new
 	${ECHO} bin/rackdiag >> pkg-plist.new
 	${FIND} ${PYTHON_SITELIBDIR}/${PYEASYINSTALL_EGG} -type f | ${SORT} | \
 	${SED} -e 's,${PYTHON_SITELIBDIR},%%PYTHON_SITELIBDIR%%,' \
