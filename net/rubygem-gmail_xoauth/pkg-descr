@@ -1,0 +1,7 @@
+Get access to Gmail IMAP and STMP via OAuth, using the standard
+Ruby Net libraries.
+
+The gem supports 3-legged OAuth, and 2-legged OAuth for Google Apps
+Business or Education account owners.
+
+WWW: https://github.com/nfo/gmail_xoauth
