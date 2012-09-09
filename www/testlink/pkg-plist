@@ -1,4 +1,3 @@
-%%WWWDIR%%/.idea/tlcode.iml
 %%WWWDIR%%/cfg/const.inc.php
 %%WWWDIR%%/cfg/custom_reports.cfg.php
 %%WWWDIR%%/cfg/custom_reports.cfg.php.example
@@ -4339,7 +4338,6 @@
 @dirrmtry %%WWWDIR%%/gui
 @dirrm %%WWWDIR%%/custom
 @dirrm %%WWWDIR%%/cfg
-@dirrm %%WWWDIR%%/.idea
 @dirrmtry %%WWWDIR%%
 @exec mkdir -p %D/%%WWWDIR%%/gui/templates_c
 @exec mkdir -p %D/%%WWWDIR%%/logs

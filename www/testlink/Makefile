@@ -21,6 +21,8 @@ REINPLACE_ARGS=	-i ''
 
 PORTDOCS=	*
 PORTEXAMPLES=	*
+DOCS=	CHANGELOG CODE_REUSE README TL-1.9-Prague-NEWS.txt
+EXAMPLES=	db_sample file_examples samples.txt
 
 OPTIONS_DEFINE=		OPENLDAP EXTJS
 OPTIONS_MULTI=		BACKEND
@@ -50,32 +52,41 @@ USE_PHP+=	ldap
 USE_PHP+=	json
 .endif
 
+.for e in ${EXAMPLES}
+EXCLUDE_EXAMPLES+=	--exclude=${e}
+.endfor
+
 post-patch:
 	@${REINPLACE_CMD} -e 's|/var/testlink|${WWWDIR}|' ${WRKSRC}/config.inc.php
-.for f in CHANGELOG CODE_REUSE README TL-1.9-Prague-NEWS.txt
-	@${MV} ${WRKSRC}/${f} ${WRKSRC}/docs
-.endfor
-	@${MV} ${WRKSRC}/docs/db_sample ${WRKDIR}
-	@${MV} ${WRKSRC}/docs/file_examples ${WRKDIR}
-	@${MV} ${WRKSRC}/docs ${WRKDIR}
 	@${FIND} ${WRKSRC} -name "\.*" -delete
+	@${RM} -rf ${WRKSRC}/.idea
 
 do-install:
 	@${MKDIR} ${WWWDIR}
-	@cd ${WRKSRC} && ${COPYTREE_SHARE} . ${WWWDIR}
+	@cd ${WRKSRC} && ${COPYTREE_SHARE} cfg ${WWWDIR}
+	@cd ${WRKSRC} && ${COPYTREE_SHARE} custom ${WWWDIR}
+	@cd ${WRKSRC} && ${COPYTREE_SHARE} gui ${WWWDIR}
+	@cd ${WRKSRC} && ${COPYTREE_SHARE} install ${WWWDIR}
+	@cd ${WRKSRC} && ${COPYTREE_SHARE} lib ${WWWDIR}
+	@cd ${WRKSRC} && ${COPYTREE_SHARE} locale ${WWWDIR}
+	@cd ${WRKSRC} && ${COPYTREE_SHARE} logs ${WWWDIR}
+	@cd ${WRKSRC} && ${COPYTREE_SHARE} third_party ${WWWDIR}
+	@cd ${WRKSRC} && ${COPYTREE_SHARE} upload_area ${WWWDIR}
+	@${INSTALL_DATA} ${WRKSRC}/*.php* ${WWWDIR}
 .if !defined(NOPORTDOCS)
 	@${MKDIR} ${DOCSDIR}
-	@cd ${WRKDIR}/docs && ${COPYTREE_SHARE} . ${DOCSDIR}
+.for f in ${DOCS}
+	@${INSTALL_DATA} ${WRKSRC}/${f} ${DOCSDIR}
+.endfor
+	@${TAR} ${EXCLUDE_EXAMPLES} -C ${WRKSRC}/docs -cf - . | ${TAR} --unlink -C ${DOCSDIR} -xf -
 	@${LN} -s ${DOCSDIR} ${WWWDIR}/docs
 .endif
 .if !defined(NOPORTEXAMPLES)
 	@${MKDIR} ${EXAMPLESDIR}
-	@cd ${WRKDIR} && ${COPYTREE_SHARE} db_sample ${EXAMPLESDIR}
-	@cd ${WRKDIR} && ${COPYTREE_SHARE} file_examples ${EXAMPLESDIR}
+.for f in ${EXAMPLES}
+	@cd ${WRKSRC}/docs && ${COPYTREE_SHARE} ${f} ${EXAMPLESDIR}
+.endfor
 .endif
-
-post-install:
-	@${RM} ${WWWDIR}/LICENSE
 	@${CHOWN} -R ${WWWOWN}:${WWWGRP} ${WWWDIR}
 
 x-generate-plist:
