@@ -21,7 +21,7 @@ USE_GETTEXT=	yes
 USE_RUBY=	yes
 USE_RAKE=	yes
 USE_GITHUB=	yes
-GH_ACCOUNT=	shockers
+GH_ACCOUNT=	rabbit-shocker
 GH_COMMIT=	f870369
 
 RUBY_SHEBANG_FILES=	bin/rabbiter
