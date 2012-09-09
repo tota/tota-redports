@@ -23,12 +23,6 @@ USE_BZIP2=	yes
 
 LANGDIR=	${WWWDIR}/template/ja
 
-post-patch:
-	${REINPLACE_CMD} -i '' -e '/abbrev/d' \
-		${WRKDIR}/default/filterexceptions.pl
-	${REINPLACE_CMD} -i '' -e 's/column.title -%/column.title FILTER html -%/' \
-		${WRKDIR}/default/list/table.html.tmpl
-
 do-install:
 	@-${MKDIR} ${LANGDIR}/default
 	@cd ${WRKDIR}/default; ${COPYTREE_SHARE} . ${LANGDIR}/default
