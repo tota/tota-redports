@@ -1,19 +1,14 @@
-# New ports collection makefile for:	ja-bugzilla
-# Date created:		2004-01-19
-# Whom:			TAKATSU Tomonari <tota@rtfm.jp>
-#
-# $FreeBSD: head/japanese/bugzilla42/Makefile 301531 2012-07-25 20:53:43Z tota $
-#
+# $FreeBSD: head/japanese/bugzilla42/Makefile 303520 2012-09-01 20:18:48Z ohauer $
 
 PORTNAME=	bugzilla
-PORTVERSION=	4.2.2
+PORTVERSION=	4.2.3
 CATEGORIES=	japanese
 MASTER_SITES=	http://bug-ja.org/releases/4.2/ \
 		LOCAL
 MASTER_SITE_SUBDIR=	tota/bugzilla-ja
 DISTNAME=	Bugzilla-ja-${PORTVERSION}-template-rel01
 
-MAINTAINER=	tota@FreeBSD.org
+MAINTAINER=	bugzilla@FreeBSD.org
 COMMENT=	Japanese localization for Bugzilla
 
 RUN_DEPENDS=	bugzilla>=${PORTVERSION}:${PORTSDIR}/devel/bugzilla42
