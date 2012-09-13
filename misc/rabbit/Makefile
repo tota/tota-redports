@@ -3,7 +3,7 @@
 PORTNAME=	rabbit
 PORTVERSION=	2.0.0
 CATEGORIES=	misc ruby
-MASTER_SITES=	http://rabbit-shockers.org/download/ \
+MASTER_SITES=	http://rabbit-shocker.org/download/ \
 		LOCAL
 MASTER_SITE_SUBDIR=	tota/${PORTNAME}
 
