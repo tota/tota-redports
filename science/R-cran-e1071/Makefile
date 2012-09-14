@@ -2,11 +2,11 @@
 # Date created:		2011-09-03
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: head/science/R-cran-e1071/Makefile 300897 2012-07-14 14:29:18Z beat $
 #
 
 PORTNAME=	e1071
-PORTVERSION=	1.6
+DISTVERSION=	1.6-1
 CATEGORIES=	science
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
