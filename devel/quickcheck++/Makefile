@@ -1,12 +1,8 @@
-# New ports collection makefile for:	quickcheck++
-# Date created:		2012-01-29
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/devel/quickcheck++/Makefile,v 1.1 2012/01/29 14:24:10 tota Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD: head/devel/quickcheck++/Makefile 300896 2012-07-14 13:54:48Z beat $
 
 PORTNAME=	quickcheck++
-PORTVERSION=	0.0.1
+PORTVERSION=	0.0.3
 CATEGORIES=	devel
 MASTER_SITES=	http://software.legiasoft.com/archives/ \
 		LOCAL
