@@ -1,12 +1,8 @@
-# New ports collection makefile for:	py-blockdiag
-# Date created:		2011-08-02
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/graphics/py-blockdiag/Makefile,v 1.22 2012/04/25 12:16:42 tota Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD: head/graphics/py-blockdiag/Makefile 300896 2012-07-14 13:54:48Z beat $
 
 PORTNAME=	blockdiag
-PORTVERSION=	1.1.6
+PORTVERSION=	1.1.7
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -50,9 +46,6 @@ RUN_DEPENDS+=	${PKGNAMEPREFIX}reportlab2>0:${PORTSDIR}/print/py-reportlab2
 .if ${PORT_OPTIONS:MIPAFONT}
 RUN_DEPENDS+=	${LOCALBASE}/share/font-ipa/ipag.otf:${PORTSDIR}/japanese/font-ipa
 .endif
-
-post-patch:
-	${REINPLACE_CMD} 's|%%LOCALBASE%%|${LOCALBASE}|' ${WRKSRC}/src/blockdiag/utils/bootstrap.py
 
 post-install:
 .if !defined(NOPORTDOCS)
