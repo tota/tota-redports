@@ -1,12 +1,8 @@
-# New ports collection makefile for:	py-seqdiag
-# Date created:		2011-08-07
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/graphics/py-seqdiag/Makefile,v 1.16 2012/01/09 15:40:58 tabthorpe Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD: head/graphics/py-seqdiag/Makefile 300896 2012-07-14 13:54:48Z beat $
 
 PORTNAME=	seqdiag
-PORTVERSION=	0.7.3
+PORTVERSION=	0.7.4
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -19,7 +15,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	${PKGNAMEPREFIX}imaging>=1.1.5:${PORTSDIR}/graphics/py-imaging \
 		${PKGNAMEPREFIX}funcparserlib>=0.3.4:${PORTSDIR}/devel/py-funcparserlib \
-		${PKGNAMEPREFIX}blockdiag>=1.1.0:${PORTSDIR}/graphics/py-blockdiag
+		${PKGNAMEPREFIX}blockdiag>=1.1.7:${PORTSDIR}/graphics/py-blockdiag
 
 USE_PYTHON=	2.4-2.7
 USE_PYDISTUTILS=	easy_install
