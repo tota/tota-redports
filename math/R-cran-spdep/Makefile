@@ -1,7 +1,7 @@
-# $FreeBSD: head/math/R-cran-spdep/Makefile 301663 2012-07-28 15:57:55Z cs $
+# $FreeBSD: head/math/R-cran-spdep/Makefile 303551 2012-09-02 14:37:52Z tota $
 
 PORTNAME=	spdep
-DISTVERSION=	0.5-50
+DISTVERSION=	0.5-51
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
