@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/py-nwdiag/Makefile 303935 2012-09-08 22:53:40Z tota $
+# $FreeBSD: head/graphics/py-nwdiag/Makefile 305085 2012-09-30 20:30:34Z tota $
 
 PORTNAME=	nwdiag
 PORTVERSION=	0.8.2
@@ -11,13 +11,12 @@ MAINTAINER=	tota@FreeBSD.org
 COMMENT=	A simple network-diagram image generator
 
 LICENSE=	AL2
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	${PKGNAMEPREFIX}imaging>=1.1.5:${PORTSDIR}/graphics/py-imaging \
 		${PKGNAMEPREFIX}funcparserlib>=0.3.4:${PORTSDIR}/devel/py-funcparserlib \
 		${PKGNAMEPREFIX}blockdiag>=1.1.8:${PORTSDIR}/graphics/py-blockdiag
 
-USE_PYTHON=	2.4-2.7
+USE_PYTHON=	-2.7
 USE_PYDISTUTILS=	easy_install
 
 MAN1=	${PORTNAME}.1 rackdiag.1

@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/py-blockdiag/Makefile 304626 2012-09-21 12:54:39Z tota $
+# $FreeBSD: head/graphics/py-blockdiag/Makefile 305083 2012-09-30 20:24:49Z tota $
 
 PORTNAME=	blockdiag
 PORTVERSION=	1.1.8
@@ -11,15 +11,15 @@ MAINTAINER=	tota@FreeBSD.org
 COMMENT=	A simple block-diagram image generator
 
 LICENSE=	AL2
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	${PKGNAMEPREFIX}imaging>=1.1.5:${PORTSDIR}/graphics/py-imaging \
 		${PKGNAMEPREFIX}funcparserlib>=0.3.4:${PORTSDIR}/devel/py-funcparserlib \
+		${PKGNAMEPREFIX}ordereddict>0:${PORTSDIR}/devel/py-ordereddict \
 		${PKGNAMEPREFIX}webcolors>=0:${PORTSDIR}/graphics/py-webcolors
 
 UNIQUENAME=	py-${PORTNAME}
 
-USE_PYTHON=	2.4-2.7
+USE_PYTHON=	-2.7
 USE_PYDISTUTILS=	easy_install
 
 MAN1=	${PORTNAME}.1

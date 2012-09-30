@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/py-actdiag/Makefile 300896 2012-07-14 13:54:48Z beat $
+# $FreeBSD: head/graphics/py-actdiag/Makefile 305084 2012-09-30 20:28:33Z tota $
 
 PORTNAME=	actdiag
 PORTVERSION=	0.3.4
@@ -11,13 +11,12 @@ MAINTAINER=	tota@FreeBSD.org
 COMMENT=	A simple activity-diagram image generator
 
 LICENSE=	AL2
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	${PKGNAMEPREFIX}imaging>=1.1.5:${PORTSDIR}/graphics/py-imaging \
 		${PKGNAMEPREFIX}blockdiag>=1.1.8:${PORTSDIR}/graphics/py-blockdiag \
 		${PKGNAMEPREFIX}funcparserlib>=0.3.4:${PORTSDIR}/devel/py-funcparserlib
 
-USE_PYTHON=	2.4-2.7
+USE_PYTHON=	-2.7
 USE_PYDISTUTILS=	easy_install
 
 MAN1=	${PORTNAME}.1
