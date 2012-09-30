@@ -1,12 +1,8 @@
-# New ports collection makefile for:	py-nwdiag
-# Date created:		2011-08-07
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/graphics/py-nwdiag/Makefile,v 1.11 2012/01/09 15:40:58 tabthorpe Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD: head/graphics/py-nwdiag/Makefile 303935 2012-09-08 22:53:40Z tota $
 
 PORTNAME=	nwdiag
-PORTVERSION=	0.8.1
+PORTVERSION=	0.8.2
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
