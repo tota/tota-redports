@@ -1,12 +1,8 @@
-# New ports collection makefile for:	py-actdiag
-# Date created:		2011-08-07
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/graphics/py-actdiag/Makefile,v 1.13 2012/03/16 19:42:19 tota Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD: head/graphics/py-actdiag/Makefile 300896 2012-07-14 13:54:48Z beat $
 
 PORTNAME=	actdiag
-PORTVERSION=	0.3.3
+PORTVERSION=	0.3.4
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -18,7 +14,7 @@ LICENSE=	AL2
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	${PKGNAMEPREFIX}imaging>=1.1.5:${PORTSDIR}/graphics/py-imaging \
-		${PKGNAMEPREFIX}blockdiag>=1.1.0:${PORTSDIR}/graphics/py-blockdiag \
+		${PKGNAMEPREFIX}blockdiag>=1.1.2:${PORTSDIR}/graphics/py-blockdiag \
 		${PKGNAMEPREFIX}funcparserlib>=0.3.4:${PORTSDIR}/devel/py-funcparserlib
 
 USE_PYTHON=	2.4-2.7
