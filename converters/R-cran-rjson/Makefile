@@ -1,12 +1,8 @@
-# New ports collection makefile for:	R-cran-rjson
-# Date created:		2012-02-21
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: head/converters/R-cran-rjson/Makefile 300895 2012-07-14 12:56:14Z beat $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD: head/converters/R-cran-rjson/Makefile 301500 2012-07-24 21:38:27Z tota $
 
 PORTNAME=	rjson
-PORTVERSION=	0.2.9
+PORTVERSION=	0.2.10
 CATEGORIES=	converters
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
