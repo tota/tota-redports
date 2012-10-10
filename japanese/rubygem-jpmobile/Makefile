@@ -1,12 +1,8 @@
-# New ports collection makefile for:	rubygem-jpmobile
-# Date created:		2008-02-06
-# Whom:			TAKATSU Tomonari <tota@rtfm.jp>
-#
-# $FreeBSD: head/japanese/rubygem-jpmobile/Makefile 300896 2012-07-14 13:54:48Z beat $
-#
+# Created by: TAKATSU Tomonari <tota@rtfm.jp>
+# $FreeBSD: head/japanese/rubygem-jpmobile/Makefile 302405 2012-08-11 08:39:12Z tota $
 
 PORTNAME=	jpmobile
-PORTVERSION=	3.0.5
+PORTVERSION=	3.0.6
 CATEGORIES=	japanese www rubygems
 MASTER_SITES=	RG
 
