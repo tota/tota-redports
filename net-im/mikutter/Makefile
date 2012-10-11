@@ -1,4 +1,4 @@
-# $FreeBSD: head/net-im/mikutter/Makefile 303706 2012-09-05 13:38:20Z tota $
+# $FreeBSD: head/net-im/mikutter/Makefile 303723 2012-09-05 20:56:36Z tota $
 
 PORTNAME=	mikutter
 PORTVERSION=	0.1.1.863
@@ -26,6 +26,7 @@ RUN_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2 \
 WRKSRC=	${WRKDIR}/${PORTNAME}
 
 USE_RUBY=	yes
+RUBY_VER=	1.9
 NO_BUILD=	yes
 
 CONFLICTS=	mikutter-0.0.3.*
@@ -50,8 +51,8 @@ OPTIONS_DEFAULT=	${OPTIONS_DEFINE}
 
 .include <bsd.port.pre.mk>
 
-.if ${RUBY_VER} == 1.8
-BROKEN=	does not build
+.if ${RUBY_DEFAULT_VER} != ${RUBY_VER}
+IGNORE=	requires RUBY_DEFAULT_VER=${RUBY_VER}
 .endif
 
 .if ${PORT_OPTIONS:MHTTPCLIENT}
