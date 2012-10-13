@@ -1,12 +1,9 @@
-# New ports collection makefile for:	rubygem-twitter_oauth
-# Date created:		2011-07-31
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/security/rubygem-twitter_oauth/Makefile,v 1.1 2011/07/31 04:43:00 tota Exp $
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD: head/security/rubygem-twitter_oauth/Makefile 300897 2012-07-14 14:29:18Z beat $
 #
 
 PORTNAME=	twitter_oauth
-PORTVERSION=	0.4.3
+PORTVERSION=	0.4.4
 CATEGORIES=	security rubygems
 MASTER_SITES=	RG
 
