@@ -1,9 +1,5 @@
-# New ports collection makefile for:	mikutter
-# Date created:		2011-03-27
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
 # $FreeBSD: head/net-im/mikutter003/Makefile 301960 2012-08-03 15:54:35Z cs $
-#
 
 PORTNAME=	mikutter
 PORTVERSION=	0.0.3.615
@@ -33,7 +29,7 @@ WRKSRC=	${WRKDIR}/${PORTNAME}
 USE_RUBY=	yes
 NO_BUILD=	yes
 
-CONFLICTS=	mikutter-0.1.1.*
+CONFLICTS=	mikutter-0.2.0.*
 
 RUBY_SHEBANG_FILES=	mikutter.rb \
 			core/autotag.rb \
