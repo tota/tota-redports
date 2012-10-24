@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/py-actdiag/Makefile 305084 2012-09-30 20:28:33Z tota $
+# $FreeBSD: head/graphics/py-actdiag/Makefile 305143 2012-10-01 22:01:23Z tota $
 
 PORTNAME=	actdiag
-PORTVERSION=	0.3.4
+PORTVERSION=	0.4.0
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -13,7 +13,7 @@ COMMENT=	A simple activity-diagram image generator
 LICENSE=	AL2
 
 RUN_DEPENDS=	${PKGNAMEPREFIX}imaging>=1.1.5:${PORTSDIR}/graphics/py-imaging \
-		${PKGNAMEPREFIX}blockdiag>=1.1.8:${PORTSDIR}/graphics/py-blockdiag \
+		${PKGNAMEPREFIX}blockdiag>=1.2.0:${PORTSDIR}/graphics/py-blockdiag \
 		${PKGNAMEPREFIX}funcparserlib>=0.3.4:${PORTSDIR}/devel/py-funcparserlib
 
 USE_PYTHON=	-2.7
