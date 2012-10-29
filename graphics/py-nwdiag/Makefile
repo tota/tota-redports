@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/py-nwdiag/Makefile 305143 2012-10-01 22:01:23Z tota $
+# $FreeBSD: head/graphics/py-nwdiag/Makefile 306347 2012-10-24 16:14:30Z tota $
 
 PORTNAME=	nwdiag
-PORTVERSION=	0.9.0
+PORTVERSION=	0.9.1
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
