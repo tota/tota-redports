@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/pear-IO_SWF/Makefile 300896 2012-07-14 13:54:48Z beat $
+# $FreeBSD: head/graphics/pear-IO_SWF/Makefile 306900 2012-11-03 05:07:00Z tota $
 
 PORTNAME=	IO_SWF
-PORTVERSION=	2.1.9
+PORTVERSION=	2.2.0
 CATEGORIES=	graphics www pear
 MASTER_SITES=	http://openpear.org/get/ \
 		LOCAL
