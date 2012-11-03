@@ -1,12 +1,8 @@
-# New ports collection makefile for:	pear-IO_Bit
-# Date created:		2011-06-11
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/devel/pear-IO_Bit/Makefile,v 1.2 2012/01/03 00:32:33 tota Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD: head/devel/pear-IO_Bit/Makefile 300896 2012-07-14 13:54:48Z beat $
 
 PORTNAME=	IO_Bit
-PORTVERSION=	2.0.9
+PORTVERSION=	2.1.0
 CATEGORIES=     devel pear
 MASTER_SITES=	http://openpear.org/get/ \
 		LOCAL
