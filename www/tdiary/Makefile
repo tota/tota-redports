@@ -1,12 +1,8 @@
-# New ports collection makefile for:    tdiary
-# Date created:                 21 May 2003
-# Whom:                         Fumihiko Kimura <jfkimura@yahoo.co.jp>
-#
-# $FreeBSD: head/www/tdiary/Makefile 300897 2012-07-14 14:29:18Z beat $
-#
+# Created by: Fumihiko Kimura <jfkimura@yahoo.co.jp>
+# $FreeBSD: head/www/tdiary/Makefile 301815 2012-07-31 20:59:44Z tota $
 
 PORTNAME=	tdiary
-PORTVERSION=	3.1.4
+PORTVERSION=	3.2.0
 CATEGORIES?=	www ruby
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/ \
 		http://www.tdiary.org/download/
@@ -36,13 +32,19 @@ RUBY_SHEBANG_FILES=	index.fcgi \
 			misc/plugin/xmlrpc/xmlrpc.rb \
 			misc/standalone_cgi/bin/server
 
-MD=	HOWTO-authenticate-in-rack.html.md HOWTO-make-io.html.md \
-	HOWTO-make-plugin.html.md HOWTO-make-theme.html.md \
-	HOWTO-testing-tDiary.html.md HOWTO-use-plugin.html.md \
-	HOWTO-write-tDiary.en.html.md HOWTO-write-tDiary.html.md \
-	INSTALL-heroku.html.md INSTALL.html.md README.en.html.md \
-	README.html.md UPGRADE.html.md
-PORTDOCS=	ChangeLog LICENSE README.md doc.css ${MD}
+HTML=	HOWTO-authenticate-in-rack.html HOWTO-make-io.html \
+	HOWTO-make-plugin.html HOWTO-make-theme.html \
+	HOWTO-testing-tDiary.html HOWTO-use-plugin.html \
+	HOWTO-write-tDiary.en.html HOWTO-write-tDiary.html \
+	INSTALL-paas.html INSTALL.html README.en.html \
+	README.html UPGRADE.html
+MD=	HOWTO-authenticate-in-rack.md HOWTO-make-io.md \
+	HOWTO-make-plugin.md HOWTO-make-theme.md \
+	HOWTO-testing-tDiary.md HOWTO-use-plugin.md \
+	HOWTO-write-tDiary.en.md HOWTO-write-tDiary.md \
+	INSTALL-paas.md INSTALL.md README.en.md \
+	README.md UPGRADE.md
+PORTDOCS=	ChangeLog LICENSE doc.css ${HTML} ${MD}
 
 SUB_FILES=	pkg-message tdiaryinst.rb
 SUB_LIST+=	TDIARY_LANG=${TDIARY_LANG} \
