@@ -31,8 +31,9 @@ FILES=		IO/SWF.php IO/SWF/ActionEditor.php \
 		IO/SWF/Tag/FrameLabel.php IO/SWF/Tag/Jpeg.php \
 		IO/SWF/Tag/Lossless.php IO/SWF/Tag/Place.php \
 		IO/SWF/Tag/Remove.php IO/SWF/Tag/Shape.php \
-		IO/SWF/Tag/Sprite.php IO/SWF/Tag/Text.php \
-		IO/SWF/Type.php IO/SWF/Type/Action.php \
+		IO/SWF/Tag/Sound.php IO/SWF/Tag/Sprite.php \
+		IO/SWF/Tag/Text.php IO/SWF/Type.php \
+		IO/SWF/Type/Action.php \
 		IO/SWF/Type/BUTTONCONDACTION.php \
 		IO/SWF/Type/BUTTONRECORD.php \
 		IO/SWF/Type/CLIPACTIONRECORD.php \
@@ -55,9 +56,11 @@ EXAMPLES=	get_bitmapsize.php jpeg_dump.php \
 		swfactioneditor.php swfconvlossless2pngjpeg.php \
 		swfcopy.php swfcountshapeedges.php \
 		swfdecompile.php swfdeformeshape.php \
-		swfdeleteaction.php swfdump.php swfframerate.php \
-		swfgeteditstring.php swfgetmovieclip.php \
-		swfheader.php swflistaction.php \
+		swfdeleteaction.php swfdump.php swfextract.php \
+		swfframerate.php swfgeteditstring.php \
+		swfgetjpegdata.php swfgetmovieclip.php \
+		swfgetpngdata.php swfgetsounddata.php \
+		swfgreptags.php swfheader.php swflistaction.php \
 		swflistmovieclip.php swfrebuild.php \
 		swfreplaceactionstrings.php \
 		swfreplacebitmapdata.php swfreplaceeditstring.php \
