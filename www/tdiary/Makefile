@@ -80,7 +80,7 @@ RUN_DEPENDS+=	${RUBY_SITEARCHLIBDIR}/web/escape_ext.so:${PORTSDIR}/www/ruby-nora
 .endif
 .endif
 
-post-extract:
+pre-patch:
 	@${RM} ${WRKSRC}/.gitignore
 	@${RM} ${WRKSRC}/.travis.yml
 	@${RM} ${WRKSRC}/Capfile
@@ -95,6 +95,7 @@ post-extract:
 	@${RM} -r ${WRKSRC}/test
 	@${RM} -r ${WRKSRC}/vendor/hikidoc-0.0.6
 	@${RM} -r ${WRKSRC}/vendor/imagesize-0.1.1/*
+	@${RM} -r ${WRKSRC}/vendor/rdtool-0.6.37
 	@${MV} ${WRKSRC}/ChangeLog ${WRKSRC}/doc
 	@${MV} ${WRKSRC}/LICENSE ${WRKSRC}/doc
 	@${MV} ${WRKSRC}/README.md ${WRKSRC}/doc
