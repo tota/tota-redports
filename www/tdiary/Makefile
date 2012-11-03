@@ -12,7 +12,6 @@ MAINTAINER=	tota@FreeBSD.org
 COMMENT=	A Web-based diary system (like weblog) written in Ruby
 
 LICENSE=	GPLv2
-LICENSE_FILE=	${WRKSRC}/doc/LICENSE
 
 RUN_DEPENDS=	hikidoc:${PORTSDIR}/textproc/ruby-hikidoc \
 		rubygem-imagesize>=0.1.1:${PORTSDIR}/graphics/rubygem-imagesize
