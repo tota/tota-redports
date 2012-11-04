@@ -57,7 +57,7 @@ EXAMPLES=	get_bitmapsize.php jpeg_dump.php \
 		swfdecompile.php swfdeformeshape.php \
 		swfdeleteaction.php swfdump.php swfframerate.php \
 		swfgeteditstring.php swfgetmovieclip.php \
-		swfheader.php swflistaction.php \
+		swfgreptags.php swfheader.php swflistaction.php \
 		swflistmovieclip.php swfrebuild.php \
 		swfreplaceactionstrings.php \
 		swfreplacebitmapdata.php swfreplaceeditstring.php \
