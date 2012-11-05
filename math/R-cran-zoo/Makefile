@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/math/R-cran-zoo/Makefile 300896 2012-07-14 13:54:48Z beat $
+# $FreeBSD: head/math/R-cran-zoo/Makefile 305440 2012-10-07 08:01:14Z tota $
 
 PORTNAME=	zoo
-DISTVERSION=	1.7-8
+DISTVERSION=	1.7-9
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
