@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/py-blockdiag/Makefile 306345 2012-10-24 16:08:57Z tota $
+# $FreeBSD: head/graphics/py-blockdiag/Makefile 306646 2012-10-29 22:36:58Z tota $
 
 PORTNAME=	blockdiag
-PORTVERSION=	1.2.2
+PORTVERSION=	1.2.3
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
