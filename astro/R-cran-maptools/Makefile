@@ -1,12 +1,8 @@
-# New ports collection makefile for:	R-cran-maptools
-# Date created:		2011-08-16
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/astro/R-cran-maptools/Makefile,v 1.10 2012/06/26 23:56:47 bf Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	maptools
-DISTVERSION=	0.8-16
+DISTVERSION=	0.8-18
 CATEGORIES=	astro
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
