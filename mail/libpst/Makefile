@@ -4,7 +4,8 @@
 PORTNAME=	libpst
 PORTVERSION=	0.6.55
 CATEGORIES=	mail converters
-MASTER_SITES=	http://www.five-ten-sg.com/libpst/packages/
+MASTER_SITES=	http://fossies.org/unix/privat/ \
+		http://www.five-ten-sg.com/libpst/packages/
 
 MAINTAINER=	chifeng@gmail.com
 COMMENT=	A tool for converting Outlook .pst files to mbox and other formats
@@ -21,7 +22,7 @@ CONFIGURE_ARGS+=	--disable-python
 MAN1=	lspst.1 pst2dii.1 pst2ldif.1 readpst.1
 MAN5=	outlook.pst.5
 
-OPTIONS_DEFINE=	PST2DII
+OPTIONS_DEFINE=	DOCS PST2DII
 PST2DII_DESC=	"allow Summation Document Image Information output"
 
 .include <bsd.port.options.mk>
