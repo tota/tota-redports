@@ -1,12 +1,8 @@
-# New ports collection makefile for:	R-cran-MCMCpack
-# Date created:		2012-01-04
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
 # $FreeBSD$
-#
 
 PORTNAME=	MCMCpack
-DISTVERSION=	1.2-1
+DISTVERSION=	1.2-4
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
