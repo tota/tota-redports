@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/R-cran-rgdal/Makefile 306221 2012-10-21 08:04:25Z tota $
+# $FreeBSD: head/graphics/R-cran-rgdal/Makefile 310664 2013-01-19 22:13:49Z tota $
 
 PORTNAME=	rgdal
-DISTVERSION=	0.7-22
+DISTVERSION=	0.8-5
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -14,7 +14,7 @@ LICENSE_COMB=	dual
 
 LIB_DEPENDS=	gdal:${PORTSDIR}/graphics/gdal \
 		proj:${PORTSDIR}/graphics/proj
-RUN_DEPENDS=	R-cran-sp>=0.9.99:${PORTSDIR}/math/R-cran-sp
+RUN_DEPENDS=	R-cran-sp>=1.0.4:${PORTSDIR}/math/R-cran-sp
 
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
