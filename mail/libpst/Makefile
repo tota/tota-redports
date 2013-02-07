@@ -12,6 +12,8 @@ COMMENT=	A tool for converting Outlook .pst files to mbox and other formats
 
 LICENSE=	GPLv2
 
+LIB_DEPENDS=	gsf-1:${PORTSDIR}/devel/libgsf
+
 GNU_CONFIGURE=	yes
 USE_GMAKE=	yes
 USE_ICONV=	yes
