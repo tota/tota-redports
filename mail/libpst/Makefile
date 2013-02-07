@@ -2,7 +2,7 @@
 # $FreeBSD: head/mail/libpst/Makefile 308121 2012-12-03 03:03:11Z tota $
 
 PORTNAME=	libpst
-PORTVERSION=	0.6.55
+PORTVERSION=	0.6.58
 CATEGORIES=	mail converters
 MASTER_SITES=	http://www.five-ten-sg.com/libpst/packages/ \
 		http://fossies.org/unix/privat/
@@ -41,7 +41,7 @@ PLIST_SUB+=	PST2DII="@comment "
 .endif
 
 post-patch:
-	${FIND} -X ${WRKSRC} -type f | ${XARGS} ${REINPLACE_CMD} -i "" \
+	${FIND} -X ${WRKSRC} -type f | ${XARGS} ${REINPLACE_CMD} \
 		-e 's/malloc.h/stdlib.h/g'
 	${REINPLACE_CMD} -e 's;doc\/@PACKAGE@-@VERSION@;doc\/@PACKAGE@;g' \
 		${WRKSRC}/Makefile.in ${WRKSRC}/html/Makefile.in
