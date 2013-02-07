@@ -1,11 +1,11 @@
 # Created by: Nate Underwood <natey@natey.com>
-# $FreeBSD$
+# $FreeBSD: head/mail/libpst/Makefile 308121 2012-12-03 03:03:11Z tota $
 
 PORTNAME=	libpst
 PORTVERSION=	0.6.55
 CATEGORIES=	mail converters
-MASTER_SITES=	http://fossies.org/unix/privat/ \
-		http://www.five-ten-sg.com/libpst/packages/
+MASTER_SITES=	http://www.five-ten-sg.com/libpst/packages/ \
+		http://fossies.org/unix/privat/
 
 MAINTAINER=	chifeng@gmail.com
 COMMENT=	A tool for converting Outlook .pst files to mbox and other formats
@@ -22,14 +22,12 @@ CONFIGURE_ARGS+=	--disable-python
 MAN1=	lspst.1 pst2dii.1 pst2ldif.1 readpst.1
 MAN5=	outlook.pst.5
 
+PORTDOCS=	*
+
 OPTIONS_DEFINE=	DOCS PST2DII
-PST2DII_DESC=	"allow Summation Document Image Information output"
+PST2DII_DESC=	Allow Summation Document Image Information output
 
 .include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MDOCS}
-PORTDOCS=	*
-.endif
 
 .if ${PORT_OPTIONS:MPST2DII}
 CONFIGURE_ARGS+=	--enable-dii=yes
