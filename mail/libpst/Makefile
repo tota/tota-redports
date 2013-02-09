@@ -8,7 +8,7 @@ MASTER_SITES=	http://www.five-ten-sg.com/libpst/packages/ \
 		http://fossies.org/unix/privat/
 
 MAINTAINER=	chifeng@gmail.com
-COMMENT=	A tool for converting Outlook .pst files to mbox and other formats
+COMMENT=	Tool for converting Outlook .pst files to mbox and other formats
 
 LICENSE=	GPLv2
 
