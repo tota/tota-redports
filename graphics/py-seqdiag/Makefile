@@ -27,8 +27,10 @@ MAN1=	${PORTNAME}.1
 PORTDOCS=	README.txt
 PORTEXAMPLES=	*
 
+.include <bsd.port.options.mk>
+
 post-install:
-.if !defined(NOPORTDOCS)
+.if ${PORT_OPTIONS:MDOCS}
 	@${MKDIR} ${DOCSDIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/src/${PORTDOCS} ${DOCSDIR}
 .endif
