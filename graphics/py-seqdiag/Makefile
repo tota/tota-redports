@@ -1,20 +1,20 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/py-seqdiag/Makefile 305143 2012-10-01 22:01:23Z tota $
+# $FreeBSD: head/graphics/py-seqdiag/Makefile 307486 2012-11-16 13:57:04Z tota $
 
 PORTNAME=	seqdiag
-PORTVERSION=	0.8.0
+PORTVERSION=	0.8.2
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=	tota@FreeBSD.org
-COMMENT=	A simple sequence-diagram image generator
+COMMENT=	Simple sequence-diagram image generator
 
 LICENSE=	AL2
 
 RUN_DEPENDS=	${PKGNAMEPREFIX}imaging>=1.1.5:${PORTSDIR}/graphics/py-imaging \
 		${PKGNAMEPREFIX}funcparserlib>=0.3.4:${PORTSDIR}/devel/py-funcparserlib \
-		${PKGNAMEPREFIX}blockdiag>=1.2.0:${PORTSDIR}/graphics/py-blockdiag
+		${PKGNAMEPREFIX}blockdiag>=1.2.4:${PORTSDIR}/graphics/py-blockdiag
 
 USE_PYTHON=	-2.7
 USE_PYDISTUTILS=	easy_install
