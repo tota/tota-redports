@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/devel/R-cran-caret/Makefile 300896 2012-07-14 13:54:48Z beat $
+# $FreeBSD$
 
 PORTNAME=	caret
-DISTVERSION=	5.15-044
+DISTVERSION=	5.15-61
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -11,7 +11,7 @@ COMMENT=	Classification and Regression Training
 
 LICENSE=	GPLv2
 
-RUN_DEPENDS=	R-cran-reshape>0:${PORTSDIR}/devel/R-cran-reshape \
+RUN_DEPENDS=	R-cran-reshape2>0:${PORTSDIR}/devel/R-cran-reshape2 \
 		R-cran-plyr>0:${PORTSDIR}/devel/R-cran-plyr \
 		R-cran-foreach>0:${PORTSDIR}/devel/R-cran-foreach
 
