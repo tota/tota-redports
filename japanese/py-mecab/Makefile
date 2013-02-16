@@ -2,7 +2,7 @@
 # Date created:                         27 August 2007
 # Whom:                                 Junji NAKANISHI <jun-g@daemonfreaks.com>
 #
-# $FreeBSD: head/japanese/py-mecab/Makefile 300896 2012-07-14 13:54:48Z beat $
+# $FreeBSD: head/japanese/py-mecab/Makefile 305812 2012-10-13 03:58:43Z tota $
 
 PORTNAME=	mecab
 PORTVERSION=	0.994

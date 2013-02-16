@@ -2,7 +2,7 @@
 # Date created:		23 April 2003
 # Whom:			Akinori MUSHA aka knu <knu@idaemons.org>
 #
-# $FreeBSD: head/japanese/p5-MeCab/Makefile 300896 2012-07-14 13:54:48Z beat $
+# $FreeBSD: head/japanese/p5-MeCab/Makefile 305811 2012-10-13 03:56:48Z tota $
 #
 
 PORTNAME=	MeCab
