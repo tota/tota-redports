@@ -1,17 +1,19 @@
-# New ports collection makefile for:	mecab
-# Date created:		2 April 2003
-# Whom:			Akinori MUSHA aka knu <knu@idaemons.org>
-#
-# $FreeBSD: head/japanese/mecab/Makefile 308985 2012-12-16 06:12:28Z az $
-#
+# Created by: Akinori MUSHA aka knu <knu@idaemons.org>
+# $FreeBSD$
 
 PORTNAME=	mecab
-PORTVERSION=	0.994
+PORTVERSION=	0.995
 CATEGORIES=	japanese textproc
-MASTER_SITES=	${MASTER_SITE_GOOGLE_CODE}
+MASTER_SITES=	GOOGLE_CODE
 
 MAINTAINER=	clsung@FreeBSD.org
 COMMENT=	Yet Another Part-of-Speech and Morphological Analyzer
+
+LICENSE=	BSD GPLv2 LGPL21
+LICENSE_COMB=	dual
+LICENSE_FILE_BSD=	${WRKSRC}/BSD
+LICENSE_FILE_GPLv2=	${WRKSRC}/GPL
+LICENSE_FILE_LGPL21=	${WRKSRC}/LGPL
 
 USE_AUTOTOOLS=	libtool
 USE_ICONV=	yes
@@ -22,16 +24,30 @@ USE_LDCONFIG=	yes
 CPPFLAGS+=	${PTHREAD_CFLAGS} -I ${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 
-# Default charset (euc-jp/shift_jis/utf-8)
-.if defined(WITH_CHARSET)
-CONFIGURE_ARGS+=	--with-charset=${WITH_CHARSET}
-.endif
-
 MAN1=		mecab.1
 
-DOCS=		AUTHORS README doc/*.html
+PORTDOCS=	AUTHORS README *.html
 
-.include <bsd.port.pre.mk>
+OPTIONS_DEFINE=	DOCS
+
+OPTIONS_RADIO=	CHARSET
+OPTIONS_RADIO_CHARSET=	EUCJP SHIFTJIS UTF8
+
+EUCJP_DESC=	Use EUC-JP as default charset.
+SHIFTJIS_DESC=	Use SHIFT-JIS as default charset.
+UTF8_DESC=	Use UTF-8 as default charset.
+
+OPTIONS_DEFAULT=	EUCJP
+
+.include <bsd.port.options.mk>
+
+.if ${PORT_OPTIONS:MEUCJP}
+CONFIGURE_ARGS+=	--with-charset=euc-jp
+.elif ${PORT_OPTIONS:MSHIFTJIS}
+CONFIGURE_ARGS+=	--with-charset=shift_jis
+.elif ${PORT_OPTIONS:MUTF8}
+CONFIGURE_ARGS+=	--with-charset=utf-8
+.endif
 
 post-patch:
 	${REINPLACE_CMD} -e 's/-lpthread/${PTHREAD_LIBS}/g' \
@@ -48,12 +64,13 @@ post-install:
 	@if [ ! -f ${PREFIX}/etc/mecabrc ]; then \
 		${INSTALL_DATA} ${PREFIX}/etc/mecabrc.dist ${PREFIX}/etc/mecabrc; \
 	fi
-.if !defined(NOPORTDOCS)
+.if ${PORT_OPTIONS:MDOCS}
 	${MKDIR} ${DOCSDIR}
-.for f in ${DOCS}
+.for f in ${PORTDOCS:N*.html}
 	${INSTALL_DATA} ${WRKSRC}/${f} ${DOCSDIR}/
 .endfor
+	${INSTALL_DATA} ${WRKSRC}/doc/*.html ${DOCSDIR}/
 .endif
 	@${CAT} ${PKGMESSAGE}
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
