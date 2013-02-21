@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/textproc/rubygem-coderay/Makefile 300897 2012-07-14 14:29:18Z beat $
+# $FreeBSD: head/textproc/rubygem-coderay/Makefile 305517 2012-10-08 05:16:58Z tota $
 
 PORTNAME=	coderay
-PORTVERSION=	1.0.8
+PORTVERSION=	1.0.9
 CATEGORIES=	textproc rubygems
 MASTER_SITES=	RG
 
