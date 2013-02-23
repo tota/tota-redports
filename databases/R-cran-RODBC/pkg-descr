@@ -1,0 +1,9 @@
+Package RODBC implements ODBC database connectivity.
+
+Two groups of functions are provided. The mainly internal odbc*
+commands implement low-level access to the ODBC functions of similar
+name. The sql* functions operate at a higher level to read, save,
+copy and manipulate data between data frames and SQL tables. Many
+connections can be open at once to any combination of DSN/hosts.
+
+WWW: http://cran.r-project.org/web/packages/RODBC/
