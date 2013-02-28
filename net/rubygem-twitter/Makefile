@@ -2,13 +2,13 @@
 # Date created:			Apr 15, 2007
 # Whom:				ijliao
 #
-# $FreeBSD: head/net/rubygem-twitter/Makefile 300897 2012-07-14 14:29:18Z beat $
+# $FreeBSD$
 #
 
 PORTNAME=	twitter
-PORTVERSION=	3.4.1
+PORTVERSION=	3.6.0
 CATEGORIES=	net rubygems
-MASTER_SITES=	RG
+MASTER_SITES=   RG
 
 MAINTAINER=	clsung@FreeBSD.org
 COMMENT=	Command line twits and an API wrapper
