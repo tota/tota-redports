@@ -1,12 +1,8 @@
-# New ports collection makefile for:	R-cran-twitteR
-# Date created:		2011-09-04
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/net/R-cran-twitteR/Makefile,v 1.12 2012/01/19 20:36:09 tota Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD: head/net/R-cran-twitteR/Makefile 309935 2013-01-04 17:51:39Z bf $
 
 PORTNAME=	twitteR
-PORTVERSION=	0.99.19
+PORTVERSION=	1.1.0
 CATEGORIES=	net
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -16,7 +12,7 @@ COMMENT=	R based Twitter client
 LICENSE=	ART20
 
 RUN_DEPENDS=	R-cran-RCurl>0:${PORTSDIR}/ftp/R-cran-RCurl \
-		R-cran-rjson>0:${PORTSDIR}/converters/R-cran-rjson \
+		R-cran-rjson>=0.2.12:${PORTSDIR}/converters/R-cran-rjson \
 		R-cran-ROAuth>=0.9.0:${PORTSDIR}/security/R-cran-ROAuth
 
 USE_R_MOD=	yes
