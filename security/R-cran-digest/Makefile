@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/security/R-cran-digest/Makefile 311048 2013-01-27 02:23:15Z tota $
+# $FreeBSD$
 
 PORTNAME=	digest
 PORTVERSION=	0.6.3

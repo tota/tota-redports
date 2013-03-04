@@ -1,12 +1,9 @@
-# New ports collection makefile for:	R-cran-munsell
-# Date created:		2012-02-08
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: head/graphics/R-cran-munsell/Makefile 300896 2012-07-14 13:54:48Z beat $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	munsell
 PORTVERSION=	0.4
+PORTREVISION=	1
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 

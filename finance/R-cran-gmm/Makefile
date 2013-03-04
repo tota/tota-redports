@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/finance/R-cran-gmm/Makefile 300896 2012-07-14 13:54:48Z beat $
+# $FreeBSD$
 
 PORTNAME=	gmm
-DISTVERSION=	1.4-3
+DISTVERSION=	1.4-5
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 

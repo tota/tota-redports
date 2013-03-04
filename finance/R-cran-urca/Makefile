@@ -1,12 +1,9 @@
-# New ports collection makefile for:	R-cran-urca
-# Date created:		2012-02-06
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: head/finance/R-cran-urca/Makefile 300896 2012-07-14 13:54:48Z beat $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	urca
 DISTVERSION=	1.2-7
+PORTREVISION=	1
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 

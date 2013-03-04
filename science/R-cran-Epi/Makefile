@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/science/R-cran-Epi/Makefile 309935 2013-01-04 17:51:39Z bf $
+# $FreeBSD$
 
 PORTNAME=	Epi
 PORTVERSION=	1.1.44

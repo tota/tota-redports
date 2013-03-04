@@ -1,12 +1,9 @@
-# New ports collection makefile for:	R-cran-RJSONIO
-# Date created:		2011-09-03
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/converters/R-cran-RJSONIO/Makefile,v 1.8 2012/01/19 14:47:54 tota Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	RJSONIO
-DISTVERSION=	0.98-1
+DISTVERSION=	1.0-1
+PORTREVISION=	1
 CATEGORIES=	converters
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -17,5 +14,8 @@ LICENSE=	BSD
 
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
+
+post-patch:
+	${REINPLACE_CMD} "s/std::snprintf/snprintf/" ${WRKSRC}/src/libjson/Source/NumberToString.h
 
 .include <bsd.port.mk>

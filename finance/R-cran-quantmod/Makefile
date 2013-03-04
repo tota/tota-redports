@@ -1,12 +1,8 @@
-# New ports collection makefile for:	R-cran-quantmod
-# Date created:		2011-10-30
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
 # $FreeBSD$
-#
 
 PORTNAME=	quantmod
-DISTVERSION=	0.3-17
+DISTVERSION=	0.4-0
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -16,7 +12,7 @@ COMMENT=	Quantitative Financial Modelling and Trading Framework for R
 LICENSE=	GPLv3
 
 RUN_DEPENDS=	R-cran-Defaults>0:${PORTSDIR}/devel/R-cran-Defaults \
-		R-cran-xts>=0.7.5:${PORTSDIR}/math/R-cran-sp \
+		R-cran-xts>=0.9.0:${PORTSDIR}/math/R-cran-sp \
 		R-cran-zoo>0:${PORTSDIR}/math/R-cran-zoo \
 		R-cran-TTR>=0.2:${PORTSDIR}/finance/R-cran-TTR
 

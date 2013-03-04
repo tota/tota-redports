@@ -1,12 +1,9 @@
-# New ports collection makefile for:	R-cran-plm
-# Date created:		2012-01-04
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/finance/R-cran-plm/Makefile,v 1.3 2012/05/04 20:56:05 bf Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	plm
-DISTVERSION=	1.2-10
+DISTVERSION=	1.3-1
+PORTREVISION=	1
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 

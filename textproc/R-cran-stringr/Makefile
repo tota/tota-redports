@@ -1,12 +1,9 @@
-# New ports collection makefile for:	R-cran-stringr
-# Date created:		2012-02-07
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: head/textproc/R-cran-stringr/Makefile 300897 2012-07-14 14:29:18Z beat $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	stringr
-PORTVERSION=	0.6.1
+PORTVERSION=	0.6.2
+PORTREVISION=	1
 CATEGORIES=	textproc
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 

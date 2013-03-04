@@ -1,12 +1,9 @@
-# New ports collection makefile for:	R-cran-strucchange
-# Date created:		2012-02-05
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/finance/R-cran-strucchange/Makefile,v 1.3 2012/05/04 20:56:05 bf Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	strucchange
 DISTVERSION=	1.4-7
+PORTREVISION=	2
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 

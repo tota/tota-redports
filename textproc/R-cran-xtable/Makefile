@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/textproc/R-cran-xtable/Makefile 309935 2013-01-04 17:51:39Z bf $
+# $FreeBSD$
 
 PORTNAME=	xtable
 DISTVERSION=	1.7-1

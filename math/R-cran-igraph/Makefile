@@ -1,5 +1,5 @@
 # Created by: Wen Heping <wenheping@gmail.com>
-# $FreeBSD: head/math/R-cran-igraph/Makefile 311734 2013-02-05 21:42:24Z tota $
+# $FreeBSD$
 
 PORTNAME=	igraph
 DISTVERSION=	0.6.5-1

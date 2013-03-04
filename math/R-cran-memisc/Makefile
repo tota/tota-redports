@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/math/R-cran-memisc/Makefile 311163 2013-01-29 13:22:42Z tota $
+# $FreeBSD$
 
 PORTNAME=	memisc
 DISTVERSION=	0.96-3

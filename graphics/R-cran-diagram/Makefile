@@ -1,12 +1,9 @@
-# New ports collection makefile for:	R-cran-diagram
-# Date created:		2011-09-09
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/graphics/R-cran-diagram/Makefile,v 1.5 2011/12/20 12:29:47 tota Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	diagram
 PORTVERSION=	1.6
+PORTREVISION=	5
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 

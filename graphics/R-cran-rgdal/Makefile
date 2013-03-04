@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/R-cran-rgdal/Makefile 310664 2013-01-19 22:13:49Z tota $
+# $FreeBSD$
 
 PORTNAME=	rgdal
 DISTVERSION=	0.8-5

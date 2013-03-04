@@ -1,13 +1,9 @@
-# New ports collection makefile for:	R-cran-itertools
-# Date created:		2011-08-16
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/devel/R-cran-itertools/Makefile,v 1.4 2011/11/27 07:02:08 bf Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	itertools
 DISTVERSION=	0.1-1
-PORTREVISION=	2
+PORTREVISION=	7
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 

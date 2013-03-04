@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/math/R-cran-spdep/Makefile 304988 2012-09-28 10:57:19Z tota $
+# $FreeBSD$
 
 PORTNAME=	spdep
-DISTVERSION=	0.5-52
+DISTVERSION=	0.5-56
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -15,7 +15,8 @@ LICENSE_COMB=	dual
 RUN_DEPENDS=	R-cran-sp>=0.9:${PORTSDIR}/math/R-cran-sp \
 		R-cran-maptools>=0.5.4:${PORTSDIR}/astro/R-cran-maptools \
 		R-cran-deldir>0:${PORTSDIR}/math/R-cran-deldir \
-		R-cran-coda>0:${PORTSDIR}/math/R-cran-coda
+		R-cran-coda>0:${PORTSDIR}/math/R-cran-coda \
+		R-cran-LearnBayes>0:${PORTSDIR}/math/R-cran-LearnBayes
 
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
