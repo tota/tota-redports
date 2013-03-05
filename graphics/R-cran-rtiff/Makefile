@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/graphics/R-cran-rtiff/Makefile 311941 2013-02-08 14:52:18Z tota $
 
 PORTNAME=	rtiff
 PORTVERSION=	1.4.2
