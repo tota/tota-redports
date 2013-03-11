@@ -1,27 +1,25 @@
-# $FreeBSD: head/www/testlink/Makefile 300897 2012-07-14 14:29:18Z beat $
+# $FreeBSD: head/www/testlink/Makefile 310768 2013-01-21 13:44:47Z tota $
 
 PORTNAME=	testlink
-PORTVERSION=	1.9.4
+PORTVERSION=	1.9.6
 CATEGORIES=	www devel
 MASTER_SITES=	SF
 MASTER_SITE_SUBDIR=	${PORTNAME}/TestLink%201.9/TestLink%20${PORTVERSION}
 
 MAINTAINER=	tota@FreeBSD.org
-COMMENT=	A web based test management and test execution system
+COMMENT=	Web based test management and test execution system
 
 LICENSE=	GPLv2
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USE_PHP=	gd iconv mbstring session
+USE_PHP=	gd iconv mbstring session xml
 WANT_PHP_WEB=	yes
-WRKSRC=	${WRKDIR}/testlink-ga-testlink-code
 NO_BUILD=	yes
 PLIST_SUB=	WWWOWN=${WWWOWN} WWWGRP=${WWWGRP}
 REINPLACE_ARGS=	-i ''
 
 PORTDOCS=	*
 PORTEXAMPLES=	*
-DOCS=	CHANGELOG CODE_REUSE README TL-1.9-Prague-NEWS.txt
+DOCS=	CHANGELOG CODE_REUSE README
 EXAMPLES=	db_sample file_examples samples.txt
 
 OPTIONS_DEFINE=		OPENLDAP EXTJS
@@ -74,7 +72,7 @@ do-install:
 	@cd ${WRKSRC} && ${COPYTREE_SHARE} third_party ${WWWDIR}
 	@cd ${WRKSRC} && ${COPYTREE_SHARE} upload_area ${WWWDIR}
 	@${INSTALL_DATA} ${WRKSRC}/*.php* ${WWWDIR}
-.if !defined(NOPORTDOCS)
+.if ${PORT_OPTIONS:MDOCS}
 	@${MKDIR} ${DOCSDIR}
 .for f in ${DOCS}
 	@${INSTALL_DATA} ${WRKSRC}/${f} ${DOCSDIR}
@@ -82,7 +80,7 @@ do-install:
 	@${TAR} ${EXCLUDE_EXAMPLES} -C ${WRKSRC}/docs -cf - . | ${TAR} --unlink -C ${DOCSDIR} -xf -
 	@${LN} -s ${DOCSDIR} ${WWWDIR}/docs
 .endif
-.if !defined(NOPORTEXAMPLES)
+.if ${PORT_OPTIONS:MEXAMPLES}
 	@${MKDIR} ${EXAMPLESDIR}
 .for f in ${EXAMPLES}
 	@cd ${WRKSRC}/docs && ${COPYTREE_SHARE} ${f} ${EXAMPLESDIR}
