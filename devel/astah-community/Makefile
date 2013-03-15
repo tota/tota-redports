@@ -1,18 +1,18 @@
 # Created by: Yoshihiko Sarumaru <mistral@imasy.or.jp>
-# $FreeBSD: head/devel/astah-community/Makefile 300896 2012-07-14 13:54:48Z beat $
+# $FreeBSD$
 
 PORTNAME=	astah
-PORTVERSION=	6.6.4
+PORTVERSION=	6.7.0
 CATEGORIES=	devel java
 MASTER_SITES=	#
 PKGNAMESUFFIX=	-community
 DISTNAME=	${PORTNAME}${PKGNAMESUFFIX}-${PORTVERSION:S!.!_!g}-${REVISION}
 
 MAINTAINER=	tota@FreeBSD.org
-COMMENT=	A Java/UML Object-Oriented Design Tool
+COMMENT=	Java/UML Object-Oriented Design Tool
 
 USE_ZIP=	yes
-REVISION=	41775
+REVISION=	43495
 
 .include <bsd.port.pre.mk>
 
@@ -42,17 +42,13 @@ PORTDATA=	astah-community.jar astah-api.jar astah-gui_en.properties_org \
 		astah.ico astah-doc.ico Welcome.asta Welcome_ja.asta \
 		lib template
 
-.if !defined(NOPORTDOCS)
 PORTDOCS=	API_sample_program_license_agreement.txt \
 		API_sample_program_license_agreement_ja.txt \
 		CommandRunner.html CommandRunner_ja.html \
 		ProductInformation.txt \
 		api
-.endif
 
-.if !defined(NOPORTEXAMPLES)
 PORTEXAMPLES=	astah-key.properties_org Sample.asta
-.endif
 
 post-patch:
 .for script in ${PLIST_FILES:S!bin/!!}
@@ -60,7 +56,7 @@ post-patch:
 	                     s!%%DATADIR%%!${DATADIR}!" \
 		 ${WRKSRC}/${script}
 .endfor
-.if !defined(NOPORTDOCS)
+.if ${PORT_OPTIONS:MDOCS}
 	${REINPLACE_CMD} 's/png\\/png\//' ${WRKSRC}/api/*/doc/astahAPI_reference.html
 .endif
 
@@ -70,7 +66,7 @@ do-install:
 .endfor
 	${MKDIR} ${DATADIR}
 	(cd ${WRKSRC} && ${COPYTREE_SHARE} "${PORTDATA}" ${DATADIR})
-.if !defined(NOPORTDOCS)
+.if ${PORT_OPTIONS:MDOCS}
 	${MKDIR} ${DOCSDIR}
 .for docfile in ${PORTDOCS:Napi}
 	${INSTALL_DATA} ${WRKSRC}/${docfile} ${DOCSDIR}
@@ -78,7 +74,7 @@ do-install:
 	${MKDIR} ${DOCSDIR}/api
 	(cd ${WRKSRC}/api && ${COPYTREE_SHARE} \* ${DOCSDIR}/api)
 .endif
-.if !defined(NOPORTEXAMPLES)
+.if ${PORT_OPTIONS:MEXAMPLES}
 	${MKDIR} ${EXAMPLESDIR}
 .for examplefile in ${PORTEXAMPLES}
 	${INSTALL_DATA} ${WRKSRC}/${examplefile} ${EXAMPLESDIR}
