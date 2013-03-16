@@ -27,6 +27,7 @@ use Getopt::Std;
 use File::Find;
 use IPC::Open2;
 use POSIX qw(strftime);
+use SVN::Client;
 
 sub perror($$$$);
 our ($opt_a, $opt_A, $opt_b, $opt_C, $opt_c, $opt_g, $opt_h, $opt_m, $opt_t, $opt_v, $opt_M, $opt_N, $opt_B, $opt_V, @ALLOWED_FULL_PATHS, @MASTERSITES_WHITELIST);
@@ -161,6 +162,7 @@ foreach my $i (@osdep) {
 
 # The PORTSDIR environment variable overrides our defaults.
 $portsdir = $ENV{PORTSDIR} if ( defined $ENV{'PORTSDIR'} );
+$ENV{'PL_SVN_IGNORE'} //= '';
 my $mfile_moved = "${portsdir}/MOVED";
 my $mfile_uids = "${portsdir}/UIDs";
 my $mfile_gids = "${portsdir}/GIDs";
@@ -367,11 +369,29 @@ if ($committer) {
 		} elsif ($_ eq '.svn' && -d) {
 			&perror("FATAL", $fullname, -1, "for safety, be sure to cleanup ".
 				"Subversion files before committing the port.");
+
+			$File::Find::prune = 1;
 		} elsif ($_ eq 'CVS' && -d) {
 			if ($newport) {
 				&perror("FATAL", $fullname, -1, "for safety, be sure to cleanup ".
 						"CVS directories before importing the new port.");
 			}
+
+			$File::Find::prune = 1;
+		} else {
+			my $ctx = new SVN::Client();
+			$ctx->status(
+				$makevar{'.CURDIR'} . '/' . $fullname, 'HEAD',
+				sub {
+					my ($path, $status) = @_;
+					if ($status->text_status() == $SVN::Wc::Status::unversioned) {
+						&perror("FATAL", "", -1, "$fullname not under SVN.")
+							unless (eval { /$ENV{'PL_SVN_IGNORE'}/, 1 } &&
+								/$ENV{'PL_SVN_IGNORE'}/);
+					}
+				},
+				0, 0, 0, 0
+			);
 
 			$File::Find::prune = 1;
 		}
