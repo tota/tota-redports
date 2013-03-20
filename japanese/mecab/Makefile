@@ -30,24 +30,7 @@ PORTDOCS=	AUTHORS README *.html
 
 OPTIONS_DEFINE=	DOCS
 
-OPTIONS_RADIO=	CHARSET
-OPTIONS_RADIO_CHARSET=	EUCJP SHIFTJIS UTF8
-
-EUCJP_DESC=	Use EUC-JP as default charset.
-SHIFTJIS_DESC=	Use SHIFT-JIS as default charset.
-UTF8_DESC=	Use UTF-8 as default charset.
-
-OPTIONS_DEFAULT=	EUCJP
-
 .include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MEUCJP}
-CONFIGURE_ARGS+=	--with-charset=euc-jp
-.elif ${PORT_OPTIONS:MSHIFTJIS}
-CONFIGURE_ARGS+=	--with-charset=shift_jis
-.elif ${PORT_OPTIONS:MUTF8}
-CONFIGURE_ARGS+=	--with-charset=utf-8
-.endif
 
 post-patch:
 	${REINPLACE_CMD} -e 's/-lpthread/${PTHREAD_LIBS}/g' \
