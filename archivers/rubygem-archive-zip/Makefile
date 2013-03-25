@@ -1,12 +1,8 @@
-# New ports collection makefile for:	rubygem-archive-zip
-# Date created:		2011-08-06
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/archivers/rubygem-archive-zip/Makefile,v 1.3 2011/11/02 18:05:03 pgollucci Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	archive-zip
-PORTVERSION=	0.5.0
+PORTVERSION=	0.6.0
 CATEGORIES=	archivers rubygems
 MASTER_SITES=	RG
 
