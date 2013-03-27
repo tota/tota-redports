@@ -19,6 +19,7 @@ OPTIONS_DEFAULT=	EXPR2
 EXPR2_DESC=	Build skkdic-expr2 (needs glib-2.x)
 
 USE_GCC=	any
+USE_GMAKE=	yes
 GNU_CONFIGURE=	yes
 MAKE_JOBS_SAFE=	yes
 
@@ -31,7 +32,6 @@ PLIST_FILES=	bin/skkdic-count bin/skkdic-expr bin/skkdic-sort
 
 .if ${PORT_OPTIONS:MEXPR2}
 USE_GNOME=	glib20
-CONFIGURE_ARGS=	--with-skkdic-expr2
 PORTDOCS+=	README.skkdic-expr2
 PLIST_FILES+=	bin/skkdic-expr2
 .else
