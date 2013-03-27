@@ -1,9 +1,5 @@
-# New ports collection makefile for:	skk-tools
-# Date created:		31 Oct 1998
-# Whom:			Shigeyuki FUKUSHIMA <shige@kuis.kyoto-u.ac.jp>
-#
-# $FreeBSD: head/japanese/skk-tools/Makefile 305610 2012-10-09 22:12:13Z linimon $
-#
+# Created by: Shigeyuki FUKUSHIMA <shige@kuis.kyoto-u.ac.jp>
+# $FreeBSD$
 
 PORTNAME=	skk-tools
 PORTVERSION=	1.3.2
@@ -35,6 +31,7 @@ PLIST_FILES=	bin/skkdic-count bin/skkdic-expr bin/skkdic-sort
 
 .if ${PORT_OPTIONS:MEXPR2}
 USE_GNOME=	glib20
+CONFIGURE_ARGS=	--with-skkdic-expr2
 PORTDOCS+=	README.skkdic-expr2
 PLIST_FILES+=	bin/skkdic-expr2
 .else
