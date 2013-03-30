@@ -27,7 +27,6 @@ use Getopt::Std;
 use File::Find;
 use IPC::Open2;
 use POSIX qw(strftime);
-use SVN::Client;
 
 sub perror($$$$);
 our ($opt_a, $opt_A, $opt_b, $opt_C, $opt_c, $opt_g, $opt_h, $opt_m, $opt_t, $opt_v, $opt_M, $opt_N, $opt_B, $opt_V, @ALLOWED_FULL_PATHS, @MASTERSITES_WHITELIST);
@@ -378,22 +377,16 @@ if ($committer) {
 			}
 
 			$File::Find::prune = 1;
-		} else {
-			my $ctx = new SVN::Client();
-			$ctx->status(
-				$makevar{'.CURDIR'} . '/' . $fullname, 'HEAD',
-				sub {
-					my ($path, $status) = @_;
-					if ($status->text_status() == $SVN::Wc::Status::unversioned) {
-						&perror("FATAL", "", -1, "$fullname not under SVN.")
-							unless (eval { /$ENV{'PL_SVN_IGNORE'}/, 1 } &&
-								/$ENV{'PL_SVN_IGNORE'}/);
-					}
-				},
-				0, 0, 0, 0
-			);
+		} elsif (-f) {
+			my $fullpath = $makevar{'.CURDIR'}.'/'.$fullname;
+			my $result = `svn status $fullpath`;
 
-			$File::Find::prune = 1;
+			chomp $result;
+			if (substr($result, 0, 1) eq '?') {
+				&perror("FATAL", "", -1, "$fullname not under SVN.")
+					unless (eval { /$ENV{'PL_SVN_IGNORE'}/, 1 } &&
+						/$ENV{'PL_SVN_IGNORE'}/);
+			}
 		}
 	}
 

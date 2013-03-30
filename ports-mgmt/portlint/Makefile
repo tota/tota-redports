@@ -14,8 +14,6 @@ DISTFILES=	# none
 MAINTAINER=	marcus@FreeBSD.org
 COMMENT=	A verifier for FreeBSD port directory
 
-RUN_DEPENDS=	p5-subversion>=0:${PORTSDIR}/devel/p5-subversion
-
 NO_BUILD=	yes
 WRKSRC=		${WRKDIR}/src
 USE_PERL5_RUN=	yes
