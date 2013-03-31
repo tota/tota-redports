@@ -1,9 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/math/R-cran-sandwich/Makefile 313562 2013-03-07 04:21:34Z bf $
 
 PORTNAME=	sandwich
-DISTVERSION=	2.2-9
-PORTREVISION=	4
+DISTVERSION=	2.2-10
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
