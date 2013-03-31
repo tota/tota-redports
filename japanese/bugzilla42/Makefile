@@ -1,12 +1,12 @@
-# $FreeBSD: head/japanese/bugzilla42/Makefile 303520 2012-09-01 20:18:48Z ohauer $
+# $FreeBSD: head/japanese/bugzilla42/Makefile 307665 2012-11-22 20:19:40Z ohauer $
 
 PORTNAME=	bugzilla
-PORTVERSION=	4.2.3
+PORTVERSION=	4.2.5
 CATEGORIES=	japanese
 MASTER_SITES=	http://bug-ja.org/releases/4.2/ \
 		LOCAL
 MASTER_SITE_SUBDIR=	tota/bugzilla-ja
-DISTNAME=	Bugzilla-ja-${PORTVERSION}-template-rel01
+DISTNAME=	Bugzilla-ja-${PORTVERSION}-template
 
 MAINTAINER=	bugzilla@FreeBSD.org
 COMMENT=	Japanese localization for Bugzilla
