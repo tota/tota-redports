@@ -1,0 +1,4 @@
+Package contains a simple SMTP client which provides a portable
+solution for sending email, including attachements, from within R.
+
+WWW: http://cran.r-project.org/web/packages/sendmailR/
