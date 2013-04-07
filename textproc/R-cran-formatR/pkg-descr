@@ -1,0 +1,7 @@
+This package provides a function tidy.source() and optionally a GUI
+(by gWidgets and preferably gWidgetsRGtk2) to format R source code.
+Spaces and indent will be added to the code automatically, and
+comments will be preserved under certain conditions, so that R code
+will be more human-readable and tidy.
+
+WWW: http://cran.r-project.org/web/packages/formatR/
