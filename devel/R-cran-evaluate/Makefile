@@ -9,6 +9,8 @@ DISTNAME=	${PORTNAME}_${PORTVERSION}
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Parsing and evaluation tools in more detail than the default
 
+RUN_DEPENDS=	R-cran-stringr>=0.4:${PORTSDIR}/textproc/R-cran-stringr
+
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
