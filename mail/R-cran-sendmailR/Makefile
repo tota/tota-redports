@@ -21,6 +21,7 @@ CONTENT_ID_DESC=	Enable to set the Content-Type
 CONTENT_TYPE_DESC=	Add Content-ID of attachment files
 
 OPTIONS_DEFAULT=	CONTENT_ID CONTENT_TYPE
+OPTIONSFILE=	${PORT_DBDIR}/R-cran-${PORTNAME}/options
 
 .include <bsd.port.options.mk>
 
