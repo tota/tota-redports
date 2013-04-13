@@ -1,0 +1,4 @@
+Package contains templates for different plots to be combined into
+a plot matrix, as well as a parallel coordinate plot function.
+
+WWW: http://cran.r-project.org/web/packages/GGally/
