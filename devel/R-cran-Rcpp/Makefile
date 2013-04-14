@@ -1,12 +1,8 @@
-# New ports collection makefile for:	R-cran-Rcpp
-# Date created:		2012-04-24
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
 # $FreeBSD$
-#
 
 PORTNAME=	Rcpp
-PORTVERSION=	0.9.10
+PORTVERSION=	0.10.3
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
