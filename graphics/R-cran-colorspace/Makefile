@@ -2,8 +2,7 @@
 # $FreeBSD: head/graphics/R-cran-colorspace/Makefile 313562 2013-03-07 04:21:34Z bf $
 
 PORTNAME=	colorspace
-DISTVERSION=	1.2-1
-PORTREVISION=	1
+DISTVERSION=	1.2-2
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
