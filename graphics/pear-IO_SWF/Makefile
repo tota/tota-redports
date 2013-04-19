@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/pear-IO_SWF/Makefile 306900 2012-11-03 05:07:00Z tota $
+# $FreeBSD: head/graphics/pear-IO_SWF/Makefile 311604 2013-02-04 11:31:58Z tota $
 
 PORTNAME=	IO_SWF
-PORTVERSION=	2.2.0
+PORTVERSION=	2.2.3
 CATEGORIES=	graphics www pear
 MASTER_SITES=	http://openpear.org/get/ \
 		LOCAL
@@ -66,7 +66,7 @@ EXAMPLES=	get_bitmapsize.php jpeg_dump.php \
 		swfreplacebitmapdata.php swfreplaceeditstring.php \
 		swfreplacemovieclip.php swfselectbycids.php \
 		swfsetactionvariables.php swfsetbgcolor.php \
-		swfwireframe.php
+		swfsliceshaperecords.php swfwireframe.php
 _EXAMPLESDIR=   sample
 
 x-generate-files: extract
