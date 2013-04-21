@@ -2,20 +2,18 @@
 # $FreeBSD$
 
 PORTNAME=	mecab
-PORTVERSION=	0.995
+PORTVERSION=	0.996
 CATEGORIES=	japanese textproc
 MASTER_SITES=	GOOGLE_CODE
 
-MAINTAINER=	clsung@FreeBSD.org
+MAINTAINER=	yasu@utahime.org
 COMMENT=	Yet Another Part-of-Speech and Morphological Analyzer
 
 LICENSE=	BSD GPLv2 LGPL21
 LICENSE_COMB=	dual
-LICENSE_FILE_BSD=	${WRKSRC}/BSD
-LICENSE_FILE_GPLv2=	${WRKSRC}/GPL
-LICENSE_FILE_LGPL21=	${WRKSRC}/LGPL
 
-USE_AUTOTOOLS=	libtool
+USE_AUTOTOOLS=	autoconf autoheader automake aclocal libtool
+USE_GETTEXT=	build
 USE_ICONV=	yes
 USE_PERL5_BUILD=	yes
 GNU_CONFIGURE=	yes
@@ -23,6 +21,8 @@ USE_LDCONFIG=	yes
 
 CPPFLAGS+=	${PTHREAD_CFLAGS} -I ${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
+
+ACLOCAL_ARGS=	--system-acdir=${LOCALBASE}/share/aclocal
 
 MAN1=		mecab.1
 
