@@ -1,8 +1,8 @@
 # Created by: Bo-Yi Wu <appleboy.tw@gmail.com>
-# $FreeBSD$
+# $FreeBSD: head/www/gallery3/Makefile 316464 2013-04-24 18:10:30Z ak $
 
 PORTNAME=	gallery3
-PORTVERSION=	3.0.4
+PORTVERSION=	3.0.5
 CATEGORIES=	www
 MASTER_SITES=	SF/gallery/${PORTNAME}/${PORTVERSION}
 DISTNAME=	gallery-${PORTVERSION}
@@ -21,15 +21,9 @@ NO_BUILD=	yes
 
 SUB_FILES=	pkg-message
 
-OPTIONS=	DCRAW "Enable dcraw support" off \
-		FFMPEG "Enable ffmpeg support" off \
-		GD "Enable gd support" off \
-		GRAPHMAGICK "Enable graphicsmagick support" off \
-		IMAGEMAGICK "Enable imagemagick support" on \
-		JHEAD "Enable jhead support" on \
-		NETPBM "Enable netpbm support" off \
-		NLS "Enable National Language Support" on \
-		UNZIP "Enable unzip support" on
+OPTIONS_DEFINE=	DCRAW FFMPEG GD GRAPHMAGICK IMAGEMAGICK JHEAD \
+		NETPBM NLS UNZIP
+OPTIONS_DEFAULT=	IMAGEMAGICK JHEAD UNZIP
 
 .include <bsd.port.options.mk>
 
@@ -38,41 +32,45 @@ OPTIONS=	DCRAW "Enable dcraw support" off \
 WWWDIR=		${GALLERY3DIR}
 .endif
 
-.if defined(WITH_DCRAW)
+.if ${PORT_OPTIONS:MDCRAW}
 RUN_DEPENDS+=	dcraw:${PORTSDIR}/graphics/dcraw
 .endif
 
-.if defined(WITH_FFMPEG)
+.if ${PORT_OPTIONS:MFFMPEG}
 LIB_DEPENDS+=	avcodec:${PORTSDIR}/multimedia/ffmpeg
 .endif
 
-.if defined(WITH_GD)
+.if ${PORT_OPTIONS:MGD}
 USE_PHP+=	gd
 RUN_DEPENDS+=	pngtogd:${PORTSDIR}/graphics/gd
 .endif
 
-.if defined(WITH_GRAPHMAGICK)
+.if ${PORT_OPTIONS:MGRAPHMAGICK}
 RUN_DEPENDS+=	gm:${PORTSDIR}/graphics/GraphicsMagick
 .endif
 
-.if !defined(WITHOUT_IMAGEMAGICK)
-RUN_DEPENDS+=	convert:${PORTSDIR}/graphics/ImageMagick
+.if ${PORT_OPTIONS:MIMAGEMAGICK}
+.if !defined(WITHOUT_X11)
+RUN_DEPENDS+=    convert:${PORTSDIR}/graphics/ImageMagick
+.else
+RUN_DEPENDS+=    convert:${PORTSDIR}/graphics/ImageMagick-nox11
+.endif
 .endif
 
-.if !defined(WITHOUT_JHEAD)
+.if ${PORT_OPTIONS:MJHEAD}
 RUN_DEPENDS+=	jhead:${PORTSDIR}/graphics/jhead
 .endif
 
-.if defined(WITH_NETPBM)
+.if ${PORT_OPTIONS:MNETPBM}
 RUN_DEPENDS+=	giftopnm:${PORTSDIR}/graphics/netpbm
 .endif
 
-.if !defined(WITHOUT_NLS)
+.if ${PORT_OPTIONS:MNLS}
 USE_PHP+=	gettext
-USE_GETTEXT=	yes	# Pet portlint
+USES+=		gettext
 .endif
 
-.if !defined(WITHOUT_UNZIP)
+.if ${PORT_OPTIONS:MUNZIP}
 RUN_DEPENDS+=	unzip:${PORTSDIR}/archivers/unzip
 .endif
 
