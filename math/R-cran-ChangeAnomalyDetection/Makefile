@@ -3,7 +3,7 @@
 
 PORTNAME=	ChangeAnomalyDetection
 PORTVERSION=	0.1.0
-CATEGORIES=	finance
+CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
 MAINTAINER=	tota@FreeBSD.org
