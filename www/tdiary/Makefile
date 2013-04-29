@@ -1,20 +1,20 @@
 # Created by: Fumihiko Kimura <jfkimura@yahoo.co.jp>
-# $FreeBSD: head/www/tdiary/Makefile 301815 2012-07-31 20:59:44Z tota $
+# $FreeBSD: head/www/tdiary/Makefile 311161 2013-01-29 13:18:15Z tota $
 
 PORTNAME=	tdiary
-PORTVERSION=	3.2.0
+PORTVERSION=	3.2.2
 CATEGORIES?=	www ruby
-MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/ \
-		http://www.tdiary.org/download/
+MASTER_SITES=	http://www.tdiary.org/download/
 DISTNAME=	${PORTNAME}-full-${PORTVERSION}
 
 MAINTAINER=	tota@FreeBSD.org
-COMMENT=	A Web-based diary system (like weblog) written in Ruby
+COMMENT=	Web-based diary system (like weblog) written in Ruby
 
 LICENSE=	GPLv2
 
 RUN_DEPENDS=	hikidoc:${PORTSDIR}/textproc/ruby-hikidoc \
-		rubygem-imagesize>=0.1.1:${PORTSDIR}/graphics/rubygem-imagesize
+		rubygem-imagesize>=0.1.1:${PORTSDIR}/graphics/rubygem-imagesize \
+		rubygem-json_pure>=1.7.7:${PORTSDIR}/devel/rubygem-json_pure
 
 NO_BUILD=	yes
 USE_RUBY=	yes
@@ -28,22 +28,17 @@ RUBY_SHEBANG_FILES=	index.fcgi \
 			misc/migrate.rb \
 			misc/plugin/amazon/amazonimg.rb \
 			misc/plugin/squeeze.rb \
-			misc/plugin/xmlrpc/xmlrpc.rb \
-			misc/standalone_cgi/bin/server
+			misc/plugin/xmlrpc/xmlrpc.rb
 
-HTML=	HOWTO-authenticate-in-rack.html HOWTO-make-io.html \
-	HOWTO-make-plugin.html HOWTO-make-theme.html \
-	HOWTO-testing-tDiary.html HOWTO-use-plugin.html \
-	HOWTO-write-tDiary.en.html HOWTO-write-tDiary.html \
-	INSTALL-paas.html INSTALL.html README.en.html \
-	README.html UPGRADE.html
-MD=	HOWTO-authenticate-in-rack.md HOWTO-make-io.md \
-	HOWTO-make-plugin.md HOWTO-make-theme.md \
-	HOWTO-testing-tDiary.md HOWTO-use-plugin.md \
-	HOWTO-write-tDiary.en.md HOWTO-write-tDiary.md \
-	INSTALL-paas.md INSTALL.md README.en.md \
-	README.md UPGRADE.md
-PORTDOCS=	ChangeLog LICENSE doc.css ${HTML} ${MD}
+DOCFILES=	HOWTO-authenticate-in-rack HOWTO-make-io \
+		HOWTO-make-plugin HOWTO-make-theme \
+		HOWTO-testing-tDiary HOWTO-use-plugin \
+		HOWTO-write-tDiary.en HOWTO-write-tDiary \
+		INSTALL-paas INSTALL README.en \
+		README UPGRADE
+HTML=	${DOCFILES:S/$/.html/}
+MD=	${DOCFILES:S/$/.md/}
+PORTDOCS=	ChangeLog doc.css ${HTML} ${MD}
 
 SUB_FILES=	pkg-message tdiaryinst.rb
 SUB_LIST+=	TDIARY_LANG=${TDIARY_LANG} \
@@ -61,43 +56,35 @@ TDIARY_LANG=	en
 
 REINPLACE_ARGS=	-i ''
 
-.include <bsd.port.pre.mk>
+OPTIONS_DEFINE=	DOCS NORA
+OPTIONS_DEFAULT=	NORA
 
-.if ${RUBY_VER} == 1.9
-.if !defined(RUBY_PROVIDED)
-IGNORE=	requires Ruby 1.9.1 or later
-.endif
-.endif
+NORA_DESC=	Use Nora
 
-.if ${RUBY_VER} == 1.8
-.if !defined(RUBY_PROVIDED)
-IGNORE=	requires Ruby 1.8.5 or later
-.endif
-RUN_DEPENDS+=	${DEPEND_RUBY_ICONV}
-.if !defined(WITHOUT_TDIARY_NORA)
-RUN_DEPENDS+=	${RUBY_SITEARCHLIBDIR}/web/escape_ext.so:${PORTSDIR}/www/ruby-nora
-.endif
-.endif
+.include <bsd.port.options.mk>
 
 pre-patch:
+	@${RM} ${WRKSRC}/.coveralls.yml
 	@${RM} ${WRKSRC}/.gitignore
 	@${RM} ${WRKSRC}/.travis.yml
 	@${RM} ${WRKSRC}/Capfile
 	@${RM} ${WRKSRC}/Gemfile
 	@${RM} ${WRKSRC}/Gemfile.lock
+	@${RM} ${WRKSRC}/LICENSE
 	@${RM} ${WRKSRC}/Procfile
 	@${RM} ${WRKSRC}/Rakefile
 	@${RM} ${WRKSRC}/config.ru
-	@${RM} -r ${WRKSRC}/.bundle
 	@${RM} -r ${WRKSRC}/public
 	@${RM} -r ${WRKSRC}/spec
 	@${RM} -r ${WRKSRC}/test
 	@${RM} -r ${WRKSRC}/vendor/hikidoc-0.0.6
 	@${RM} -r ${WRKSRC}/vendor/imagesize-0.1.1/*
-	@${RM} -r ${WRKSRC}/vendor/rdtool-0.6.37
+	@${RM} -r ${WRKSRC}/vendor/json_pure-1.7.7
 	@${MV} ${WRKSRC}/ChangeLog ${WRKSRC}/doc
-	@${MV} ${WRKSRC}/LICENSE ${WRKSRC}/doc
 	@${MV} ${WRKSRC}/README.md ${WRKSRC}/doc
+
+post-patch:
+	@${RUBY} -i -pe "sub %r|((\s*)require 'json')|, %Q|\\\2require 'rubygems'\n\\\1|" ${WRKSRC}/tdiary.rb
 
 pre-install:
 	@${SED} -e 's,#!/usr/bin/env ruby,#!${RUBY},' \
@@ -115,7 +102,7 @@ do-install:
 post-install:
 	@${ECHO_CMD} '@exec ${CHOWN} -R ${WWWOWN}:${WWWGRP} ${WWWDIR}' >> ${TMPPLIST}
 	@${ECHO_CMD} bin/${TDIARY_SCRIPT} >> ${TMPPLIST}
-.if !defined(NOPORTDOCS)
+.if ${PORT_OPTIONS:MDOCS}
 	@${INSTALL} -d ${DOCSDIR}
 	@cd ${WRKSRC}/doc && ${INSTALL_DATA} ${PORTDOCS} ${DOCSDIR}
 .endif
@@ -124,5 +111,23 @@ post-install:
 x-generate-plist:
 	${FIND} ${WWWDIR} -type f -o -type l | ${SORT} | ${SED} -e 's,${WWWDIR},%%WWWDIR%%,g' > pkg-plist.new
 	${FIND} ${WWWDIR} -type d -depth | ${SORT} -r | ${SED} -e 's,${WWWDIR},@dirrm %%WWWDIR%%,g' >> pkg-plist.new
+
+.include <bsd.port.pre.mk>
+
+.if ${RUBY_VER} == 1.9
+.if !defined(RUBY_PROVIDED)
+IGNORE=	requires Ruby 1.9.1 or later
+.endif
+.endif
+
+.if ${RUBY_VER} == 1.8
+.if !defined(RUBY_PROVIDED)
+IGNORE=	requires Ruby 1.8.5 or later
+.endif
+RUN_DEPENDS+=	${DEPEND_RUBY_ICONV}
+.if ${PORT_OPTIONS:MNORA}
+RUN_DEPENDS+=	${RUBY_SITEARCHLIBDIR}/web/escape_ext.so:${PORTSDIR}/www/ruby-nora
+.endif
+.endif
 
 .include <bsd.port.post.mk>
