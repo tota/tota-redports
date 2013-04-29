@@ -1,9 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/security/R-cran-ROAuth/Makefile 313562 2013-03-07 04:21:34Z bf $
 
 PORTNAME=	ROAuth
-PORTVERSION=	0.9.2
-PORTREVISION=	1
+PORTVERSION=	0.9.3
 CATEGORIES=	security
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
