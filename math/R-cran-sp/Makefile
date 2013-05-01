@@ -1,0 +1,18 @@
+# Created by: Wen Heping <wenheping@gmail.com>
+# $FreeBSD: head/math/R-cran-sp/Makefile 317009 2013-05-01 09:47:18Z wen $
+
+PORTNAME=	sp
+DISTVERSION=	1.0-9
+CATEGORIES=	math
+DISTNAME=	${PORTNAME}_${DISTVERSION}
+
+MAINTAINER=	wen@FreeBSD.org
+COMMENT=	R Classes and Methods for Spatial Data
+
+LICENSE=	GPLv2 GPLv3
+LICENSE_COMB=	dual
+
+USE_R_MOD=		yes
+R_MOD_AUTOPLIST=	yes
+
+.include <bsd.port.mk>
