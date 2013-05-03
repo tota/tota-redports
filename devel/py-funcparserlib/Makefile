@@ -13,7 +13,7 @@ COMMENT=	Recursive descent parsing library based on functional combinators
 LICENSE=	MIT
 
 USE_PYTHON=	yes
-USE_PYDISTUTILS=	yes
+USE_PYDISTUTILS=	easy_install
 
 PORTDOCS=	README doc
 DOCSDIR=	${PREFIX}/share/doc/${UNIQUENAME}
