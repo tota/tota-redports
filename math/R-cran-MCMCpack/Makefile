@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/math/R-cran-MCMCpack/Makefile 316120 2013-04-19 22:29:13Z tota $
+# $FreeBSD: head/math/R-cran-MCMCpack/Makefile 316167 2013-04-20 23:10:25Z tota $
 
 PORTNAME=	MCMCpack
-DISTVERSION=	1.3-2
+DISTVERSION=	1.3-3
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
