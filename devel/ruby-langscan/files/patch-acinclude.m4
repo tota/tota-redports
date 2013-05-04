@@ -1,5 +1,5 @@
 --- acinclude.m4.orig	2006-01-05 21:51:48.000000000 +0900
-+++ acinclude.m4	2013-05-03 21:49:02.000000000 +0900
++++ acinclude.m4	2013-05-04 17:57:54.000000000 +0900
 @@ -41,7 +41,7 @@
    AC_MSG_CHECKING([path to ruby library])
    if test "x$rubydir" = x; then
@@ -30,7 +30,7 @@
 -  RUBY_HDRHDIR="`ruby -rmkmf -e 'puts Config::CONFIG["archdir"]'`"
 +  RUBY_CC="`ruby -rrbconfig -e 'puts RbConfig::MAKEFILE_CONFIG["CC"]'`"
 +  RUBY_LDSHARED="`ruby -rrbconfig -e 'puts RbConfig::MAKEFILE_CONFIG["LDSHARED"]'`"
-+  RUBY_CFLAGS="`ruby -rrbconfig -e "puts RbConfig::MAKEFILE_CONFIG["CCDLFLAGS"] + " " + RbConfig::MAKEFILE_CONFIG["CFLAGS"]` -I\$(CFLAGS)"
++  RUBY_CFLAGS="`ruby -rrbconfig -e 'puts RbConfig::MAKEFILE_CONFIG["CCDLFLAGS"] + " " + RbConfig::MAKEFILE_CONFIG["CFLAGS"]'` -I\$(CFLAGS)"
 +  RUBY_DLEXT="`ruby -rrbconfig -e 'puts RbConfig::MAKEFILE_CONFIG["DLEXT"]'`"
 +  RUBY_DLDFLAGS="`ruby -rrbconfig -e 'puts RbConfig::MAKEFILE_CONFIG["DLDFLAGS"]'`"
 +  RUBY_LIBS="`ruby -rrbconfig -e 'puts RbConfig::MAKEFILE_CONFIG["LIBS"]'`"
