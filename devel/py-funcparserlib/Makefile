@@ -27,7 +27,7 @@ OPTIONSFILE=	${PORT_DBDIR}/py-${PORTNAME}/options
 
 post-install:
 .if ${PORT_OPTIONS:MDOCS}
-	@${RM} ${WRKSRC}/doc/Makefile
+	@${RM} -f ${WRKSRC}/doc/Makefile
 	@${MKDIR} ${DOCSDIR}
 	@cd ${INSTALL_WRKSRC} \
 	  && ${FIND} ${PORTDOCS} -type d -exec ${MKDIR} ${DOCSDIR}/\{} \; \
