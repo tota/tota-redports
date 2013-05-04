@@ -1,37 +1,31 @@
-# New ports collection makefile for:	rubygem-objectdetect
-# Date created:		2008-11-25
-# Whom:			TAKATSU Tomonari <tota@rtfm.jp>
-#
-# $FreeBSD: ports/graphics/rubygem-objectdetect/Makefile,v 1.12 2011/06/29 11:46:01 mm Exp $
-#
+# Created by: TAKATSU Tomonari <tota@rtfm.jp>
+# $FreeBSD: head/graphics/rubygem-objectdetect/Makefile 313317 2013-03-03 01:43:02Z swills $
 
 PORTNAME=	objectdetect
 PORTVERSION=	0.0.3
-PORTREVISION=	5
+PORTREVISION=	6
 CATEGORIES=	graphics rubygems
-MASTER_SITES=	${MASTER_SITE_LOCAL}
-MASTER_SITE_SUBDIR=	mm
-DISTFILES=	${PORTNAME}-${PORTVERSION}-opencv23.gem
+MASTER_SITES=	RG
 
 MAINTAINER=	tota@FreeBSD.org
-COMMENT=	A simple library for detecting objects in pictures
-
-LIB_DEPENDS=	opencv_legacy.2:${PORTSDIR}/graphics/opencv
+COMMENT=	Simple library for detecting objects in pictures
 
 LICENSE=	MIT
 
+LIB_DEPENDS=	opencv_legacy:${PORTSDIR}/graphics/opencv
+
+RUBY_VER=	1.9
 USE_RUBY=	yes
 USE_RUBYGEMS=	yes
 RUBYGEM_AUTOPLIST=	yes
 
 .include <bsd.port.pre.mk>
 
-.if ${RUBY_VER} == 1.9
-BROKEN=	does not work with ruby 1.9
-.endif
-
 .if ${OSVERSION} < 700000
 BROKEN=		does not compile on 6.X
 .endif
+
+post-patch:
+	${REINPLACE_CMD} -E 's|(objectdetect)|\1/version|' ${WRKSRC}/test/test_helper.rb
 
 .include <bsd.port.post.mk>
