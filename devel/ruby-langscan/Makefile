@@ -38,7 +38,7 @@ CFLAGS+=	-fPIC
 
 .if ${RUBY_VER} > 1.8
 CFLAGS+=	-I${LOCALBASE}/include/ruby-${RUBY_VER} \
-		-I${LOCALBASE}/include/ruby-${RUBY_VER}/${RUBY_ARCH} \
+		-I${LOCALBASE}/include/ruby-${RUBY_VER}/${RUBY_ARCH}
 PLIST_SUB+=	RIPPER="@comment "
 .else
 PLIST_SUB+=	RIPPER=""
