@@ -66,7 +66,10 @@ RUBYGEM_ARGS+=	--no-rdoc
 
 post-patch:
 .for l in 1.8.6 1.8.7 1.9.2 1.9.3
-	${ECHO} lib/io/like-${l}.rb >> ${WRKSRC}/MANIFEST
+	@${ECHO} lib/io/like-${l}.rb >> ${WRKSRC}/MANIFEST
+.endfor
+.for f in likestringio.rb rot13filter.rb
+	@${RUBY} -i -pe "sub %r|((\s*)require 'io/like')|, %Q|\\\2require 'rubygems'\n\\\1|" ${WRKSRC}/examples/${f}
 .endfor
 
 do-build:
