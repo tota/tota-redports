@@ -54,6 +54,8 @@ RUBYGEM_ARGS=-l --no-update-sources --no-ri --install-dir ${PREFIX}/lib/ruby/gem
 
 WRKSRC=	${WRKDIR}/${GH_PROJECT}-${GH_COMMIT}
 
+FETCH_ARGS=	-Fpr
+
 OPTIONS_DEFINE=	DOCS
 
 .include <bsd.port.options.mk>
