@@ -2,10 +2,10 @@
 # $FreeBSD: head/devel/rubygem-io-like/Makefile 313317 2013-03-03 01:43:02Z swills $
 
 PORTNAME=	io-like
-PORTVERSION=	0.3.0
-PORTREVISION=	1
+PORTVERSION=	0.3.0.20130301
 CATEGORIES=	devel rubygems
-MASTER_SITES=	http://github.com/${GH_ACCOUNT}/${PORTNAME}/archive/${GH_COMMIT}${EXTRACT_SUFX}?dummy=/
+MASTER_SITES=	LOCAL
+MASTER_SITE_SUBDIR=	tota/${PORTNAME}
 PKGNAMEPREFIX=	rubygem-
 
 MAINTAINER=	tota@FreeBSD.org
@@ -16,16 +16,13 @@ RUN_DEPENDS=	${RUBYGEMBIN}:${PORTSDIR}/devel/ruby-gems
 
 USE_RUBY=	yes
 USE_RAKE=	yes
-USE_GITHUB=	yes
-GH_ACCOUNT=	lwoggardner
-GH_COMMIT=	ruby-1.9-temp
 
 GEMS_BASE_DIR=	lib/ruby/gems/${RUBY_VER}
 GEMS_DIR=	${GEMS_BASE_DIR}/gems
 DOC_DIR=	${GEMS_BASE_DIR}/doc
 CACHE_DIR=	${GEMS_BASE_DIR}/cache
 SPEC_DIR=	${GEMS_BASE_DIR}/specifications
-GEM_NAME=	${PORTNAME}-${PORTVERSION}
+GEM_NAME=	${PORTNAME}-${PORTVERSION:C/(\.[0-9]+)$//}
 GEM_LIB_DIR=	${GEMS_DIR}/${GEM_NAME}
 GEM_DOC_DIR=	${DOC_DIR}/${GEM_NAME}
 GEM_SPEC=	${SPEC_DIR}/${GEM_NAME}.gemspec
@@ -52,7 +49,7 @@ GEMFILES=	${GEM_NAME}.gem
 
 RUBYGEM_ARGS=-l --no-update-sources --no-ri --install-dir ${PREFIX}/lib/ruby/gems/${RUBY_VER}
 
-WRKSRC=	${WRKDIR}/${GH_PROJECT}-${GH_COMMIT}
+WRKSRC=	${WRKDIR}/${PORTNAME}-ruby-1.9-temp
 
 OPTIONS_DEFINE=	DOCS
 
