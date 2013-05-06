@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/math/R-cran-forecast/Makefile 317458 2013-05-06 03:00:57Z tota $
 
 PORTNAME=	forecast
-PORTVERSION=	4.03
+PORTVERSION=	4.04
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -12,11 +12,8 @@ COMMENT=	Forecasting functions for time series and linear models
 LICENSE=	GPLv2 GPLv3
 LICENSE_COMB=	dual
 
-RUN_DEPENDS=	R-cran-tseries>0:${PORTSDIR}/finance/R-cran-tseries \
-		R-cran-fracdiff>0:${PORTSDIR}/math/R-cran-fracdiff \
-		R-cran-zoo>0:${PORTSDIR}/math/R-cran-zoo \
-		R-cran-RcppArmadillo>=0.2.35:${PORTSDIR}/math/R-cran-RcppArmadillo \
-		R-cran-colorspace>0:${PORTSDIR}/graphics/R-cran-colorspace
+RUN_DEPENDS=	R-cran-fracdiff>0:${PORTSDIR}/math/R-cran-fracdiff \
+		R-cran-RcppArmadillo>=0.2.35:${PORTSDIR}/math/R-cran-RcppArmadillo
 
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
