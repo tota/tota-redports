@@ -11,7 +11,8 @@ PKGNAMEPREFIX=	rubygem-
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Interface of IO objects to classes providing a few simple methods
 
-BUILD_DEPENDS=	${RUBYGEMBIN}:${PORTSDIR}/devel/ruby-gems
+BUILD_DEPENDS=	${RUBYGEMBIN}:${PORTSDIR}/devel/ruby-gems \
+		rdoc:${PORTSDIR}/devel/rubygem-rdoc
 RUN_DEPENDS=	${RUBYGEMBIN}:${PORTSDIR}/devel/ruby-gems
 
 USE_RUBY=	yes
