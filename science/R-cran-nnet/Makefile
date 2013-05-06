@@ -1,12 +1,8 @@
-# New ports collection makefile for:	R-cran-nnet
-# Date created:		2012-01-04
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
 # $FreeBSD$
-#
 
 PORTNAME=	nnet
-DISTVERSION=	7.3-1
+DISTVERSION=	7.3-6
 CATEGORIES=	science
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
