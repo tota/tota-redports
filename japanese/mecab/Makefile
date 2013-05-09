@@ -1,5 +1,5 @@
 # Created by: Akinori MUSHA aka knu <knu@idaemons.org>
-# $FreeBSD$
+# $FreeBSD: head/japanese/mecab/Makefile 316662 2013-04-27 11:59:28Z mva $
 
 PORTNAME=	mecab
 PORTVERSION=	0.996
@@ -13,8 +13,7 @@ LICENSE=	BSD GPLv2 LGPL21
 LICENSE_COMB=	dual
 
 USE_AUTOTOOLS=	autoconf autoheader automake aclocal libtool
-USE_GETTEXT=	build
-USE_ICONV=	yes
+USES=		iconv gettext:build
 USE_PERL5_BUILD=	yes
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
