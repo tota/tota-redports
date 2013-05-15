@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gti
-PORTVERSION=	1.1.0
+PORTVERSION=	1.1.1
 CATEGORIES=	games
 
 MAINTAINER=	tota@FreeBSD.org
@@ -11,7 +11,7 @@ COMMENT=	Just a silly git launcher, basically. Inspired by sl
 USE_GITHUB=	yes
 GH_ACCOUNT=	rwos
 GH_TAGNAME=	v${PORTVERSION}
-GH_COMMIT=	5afb520
+GH_COMMIT=	811998c
 
 MAN6=	${PORTNAME}.6
 
