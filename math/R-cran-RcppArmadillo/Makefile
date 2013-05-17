@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/math/R-cran-RcppArmadillo/Makefile 317461 2013-05-06 06:01:32Z tota $
+# $FreeBSD: head/math/R-cran-RcppArmadillo/Makefile 317660 2013-05-08 12:50:26Z tota $
 
 PORTNAME=	RcppArmadillo
-PORTVERSION=	0.3.810.2
+PORTVERSION=	0.3.820
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
