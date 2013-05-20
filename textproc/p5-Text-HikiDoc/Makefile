@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/textproc/p5-Text-HikiDoc/Makefile 318504 2013-05-19 09:15:02Z tota $
 
 PORTNAME=	Text-HikiDoc
-PORTVERSION=	1.020
+PORTVERSION=	1.021
 CATEGORIES=	textproc perl5
 MASTER_SITES=	CPAN
 PKGNAMEPREFIX=	p5-
