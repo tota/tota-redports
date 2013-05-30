@@ -11,7 +11,7 @@ COMMENT=	Just a silly git launcher, basically. Inspired by sl
 USE_GITHUB=	yes
 GH_ACCOUNT=	rwos
 GH_TAGNAME=	v${PORTVERSION}
-GH_COMMIT=	811998c
+GH_COMMIT=	92b9219
 
 MAN6=	${PORTNAME}.6
 
@@ -30,7 +30,7 @@ do-build:
 	@${CC} ${CFLAGS} -o ${WRKSRC}/${PORTNAME} ${WRKSRC}/${PORTNAME}.c
 
 do-install:
-	@${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME} ${PREFIX}/bin
-	@${INSTALL_MAN} ${WRKSRC}/${MAN6} ${MANPREFIX}/man/man6
+	${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME} ${PREFIX}/bin
+	${INSTALL_MAN} ${WRKSRC}/${MAN6} ${MANPREFIX}/man/man6
 
 .include <bsd.port.mk>
