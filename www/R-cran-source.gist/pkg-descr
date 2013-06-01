@@ -1,0 +1,3 @@
+Analogous to source(), but works when given a Gist URL or ID.
+
+WWW: http://cran.r-project.org/web/packages/source.gist/
