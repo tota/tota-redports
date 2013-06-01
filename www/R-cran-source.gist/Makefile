@@ -11,6 +11,9 @@ COMMENT=	Read R code from a GitHub Gist
 
 LICENSE=	MIT
 
+RUN_DEPENDS=	R-cran-RCurl>0:${PORTSDIR}/ftp/R-cran-RCurl \
+		R-cran-rjson>0:${PORTSDIR}/converters/R-cran-rjson
+
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
