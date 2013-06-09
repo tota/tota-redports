@@ -1,7 +1,7 @@
-# $FreeBSD: head/japanese/bugzilla42/Makefile 307665 2012-11-22 20:19:40Z ohauer $
+# $FreeBSD: head/japanese/bugzilla42/Makefile 315642 2013-03-31 17:36:29Z ohauer $
 
 PORTNAME=	bugzilla
-PORTVERSION=	4.2.5
+PORTVERSION=	4.2.6
 CATEGORIES=	japanese
 MASTER_SITES=	http://bug-ja.org/releases/4.2/ \
 		LOCAL
