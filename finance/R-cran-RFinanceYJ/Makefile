@@ -1,9 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/finance/R-cran-RFinanceYJ/Makefile 319316 2013-05-28 15:15:05Z bf $
+# $FreeBSD: head/finance/R-cran-RFinanceYJ/Makefile 319607 2013-06-01 21:47:52Z tota $
 
 PORTNAME=	RFinanceYJ
-PORTVERSION=	0.1.6
-PORTREVISION=	10
+PORTVERSION=	0.2.0
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
