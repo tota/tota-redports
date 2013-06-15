@@ -2,7 +2,7 @@
 # $FreeBSD: head/net-im/mikutter/Makefile 308976 2012-12-16 03:16:46Z tota $
 
 PORTNAME=	mikutter
-PORTVERSION=	0.2.0.1089
+PORTVERSION=	0.2.2.1264
 CATEGORIES=	net-im ruby
 MASTER_SITES=	http://mikutter.hachune.net/bin/ \
 		LOCAL
@@ -35,11 +35,8 @@ NO_BUILD=	yes
 CONFLICTS=	mikutter-0.0.3.*
 
 RUBY_SHEBANG_FILES=	mikutter.rb \
-			core/autotag.rb \
-			core/chi.rb \
-			core/initialize.rb \
-			core/lib/piapro.rb \
-			core/miku/miku.rb
+			core/miku/miku.rb \
+			devel/makechi.rb
 
 SUB_FILES=	mikutter.desktop
 SUB_LIST=	RUBY_SITELIBDIR=${RUBY_SITELIBDIR}
@@ -89,7 +86,7 @@ do-install:
 		&& ${COPYTREE_SHARE} vendor ${RUBY_SITELIBDIR}/mikutter
 	@${MKDIR} ${PREFIX}/share/applications
 	@${INSTALL_DATA} ${WRKDIR}/${SUB_FILES} ${PREFIX}/share/applications/
-.if !defined(NOPORTDOCS)
+.if ${PORT_OPTIONS:MDOCS}
 	@${MKDIR} ${DOCSDIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/${PORTDOCS} ${DOCSDIR}
 .endif
