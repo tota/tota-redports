@@ -1,0 +1,55 @@
+# $FreeBSD$
+
+NO_OPTIONS_SORT=	yes
+
+OPTIONS_DEFINE=	\
+	DOCS		\
+	MYSQL		\
+	PGSQL		\
+	SQLITE		\
+	GRAPHVIZ	\
+	GRAPH_REPORTS	\
+	CHARTING_MODULES\
+	PATCH_VIEWER	\
+	MORE_HTML	\
+	INBOUND_EMAIL	\
+	MAIL_QUEUEING	\
+	SMTP_AUTH	\
+	SMTP_SSL	\
+	MOVE_BUGZ	\
+	MIME_SNIFF	\
+	BMP2PNG		\
+	XMLRPC		\
+	JSONRPC		\
+	MODPERL		\
+	EXPORT_IMPORT	\
+	CONTRIB		\
+	LDAP		\
+	RADIUS
+
+OPTIONS_DEFAULT=	\
+	CHARTING_MODULES\
+	CONTRIB		\
+	DOCS		\
+	GRAPH_REPORTS	\
+	MORE_HTML	\
+	PATCH_VIEWER
+
+BMP2PNG_DESC=		BMP Attachments to PNGs
+CHARTING_MODULES_DESC=	Bug charting support
+CONTRIB_DESC=		Install user-contributed scripts
+EXPORT_IMPORT_DESC=	Import/export bugs (via XML)
+GRAPH_REPORTS_DESC=	Graphical Reports
+INBOUND_EMAIL_DESC=	Inbound Email
+JSONRPC_DESC=		JSON-RPC Interface
+LDAP_DESC=		LDAP Authentication
+MAIL_QUEUEING_DESC=	Mail Queueing
+MIME_SNIFF_DESC=	Sniff MIME type of attachments
+MORE_HTML_DESC=		More HTML in Product/Group Descriptions
+MOVE_BUGZ_DESC=		Move Bugs Between Installations
+PATCH_VIEWER_DESC=	Patch Viewer
+RADIUS_DESC=		RADIUS Authentication
+SMTP_AUTH_DESC=		SMTP Authentication
+SMTP_SSL_DESC=		SSL Support for SMTP
+XMLRPC_DESC=		XML-RPC Interface
+
