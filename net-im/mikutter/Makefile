@@ -13,27 +13,25 @@ MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Simple, powerful, and moeful Twitter client
 
 LICENSE=	GPLv3
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
-INSTALL_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2
-RUN_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2 \
-		${RUBY_SITEARCHLIBDIR}/cairo.so:${PORTSDIR}/graphics/ruby-cairo \
+RUN_DEPENDS=	rubygem-gtk2>0:${PORTSDIR}/x11-toolkits/rubygem-gtk2 \
+		graphics/rubygem-cairo:${PORTSDIR}/graphics/rubygem-cairo \
 		rubygem-addressable>=2.2.7:${PORTSDIR}/www/rubygem-addressable \
-		${RUBY_PKGNAMEPREFIX}hmac>=0.4.0:${PORTSDIR}/security/ruby-hmac \
+		rubygem-mac>=0.4.0:${PORTSDIR}/security/rubygem-hmac \
 		rubygem-json_pure>=0:${PORTSDIR}/devel/rubygem-json_pure \
 		${RUBY_SITELIBDIR}/memoize.rb:${PORTSDIR}/devel/ruby-memoize \
-		rubygem-oauth>=0:${PORTSDIR}/net/rubygem-oauth \
+		rubygem-oauth>=0.4.7:${PORTSDIR}/net/rubygem-oauth \
 		${RUBY_SITELIBDIR}/bsearch.rb:${PORTSDIR}/devel/ruby-bsearch \
 		rubygem-typed-array>=0.1.2:${PORTSDIR}/devel/rubygem-typed-array
 
 WRKSRC=	${WRKDIR}/${PORTNAME}
 
 USE_RUBY=	yes
-RUBY_VER=	1.9
 NO_BUILD=	yes
 
 CONFLICTS=	mikutter-0.0.3.*
 
+RUBY_REQUIRE=	Ruby >= 190
 RUBY_SHEBANG_FILES=	mikutter.rb \
 			core/miku/miku.rb \
 			devel/makechi.rb
@@ -51,8 +49,8 @@ OPTIONS_DEFAULT=	${OPTIONS_DEFINE}
 
 .include <bsd.port.pre.mk>
 
-.if ${RUBY_DEFAULT_VER} != ${RUBY_VER}
-IGNORE=	requires RUBY_DEFAULT_VER=${RUBY_VER}
+.if !defined(RUBY_PROVIDED)
+IGNORE=	requires Ruby 1.9.0 or later
 .endif
 
 .if ${PORT_OPTIONS:MHTTPCLIENT}
