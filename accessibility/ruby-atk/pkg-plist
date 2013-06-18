@@ -1,5 +1,0 @@
-libdata/pkgconfig/ruby-atk.pc
-%%RUBY_SITELIBDIR%%/atk.rb
-%%RUBY_SITEARCHLIBDIR%%/atk.so
-%%RUBY_SITEARCHLIBDIR%%/rbatk.h
-%%RUBY_SITEARCHLIBDIR%%/rbatkversion.h
