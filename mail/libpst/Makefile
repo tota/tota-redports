@@ -1,8 +1,8 @@
 # Created by: Nate Underwood <natey@natey.com>
-# $FreeBSD$
+# $FreeBSD: head/mail/libpst/Makefile 319589 2013-06-01 20:45:56Z tota $
 
 PORTNAME=	libpst
-PORTVERSION=	0.6.59
+PORTVERSION=	0.6.60
 CATEGORIES=	mail converters
 MASTER_SITES=	http://www.five-ten-sg.com/libpst/packages/ \
 		http://fossies.org/unix/privat/
@@ -11,8 +11,6 @@ MAINTAINER=	chifeng@gmail.com
 COMMENT=	Tool for converting Outlook .pst files to mbox and other formats
 
 LICENSE=	GPLv2
-
-LIB_DEPENDS=	gsf-1:${PORTSDIR}/devel/libgsf
 
 GNU_CONFIGURE=	yes
 USE_GMAKE=	yes
