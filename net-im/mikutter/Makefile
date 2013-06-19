@@ -14,11 +14,11 @@ COMMENT=	Simple, powerful, and moeful Twitter client
 
 LICENSE=	GPLv3
 
-RUN_DEPENDS=	rubygem-gtk2>0:${PORTSDIR}/x11-toolkits/rubygem-gtk2 \
-		graphics/rubygem-cairo:${PORTSDIR}/graphics/rubygem-cairo \
+RUN_DEPENDS=	rubygem-gtk2>=1.5.0:${PORTSDIR}/x11-toolkits/rubygem-gtk2 \
+		graphics/rubygem-cairo>=1.10.0:${PORTSDIR}/graphics/rubygem-cairo \
 		rubygem-addressable>=2.2.7:${PORTSDIR}/www/rubygem-addressable \
 		rubygem-mac>=0.4.0:${PORTSDIR}/security/rubygem-hmac \
-		rubygem-json_pure>=0:${PORTSDIR}/devel/rubygem-json_pure \
+		rubygem-json>=1.8.0:${PORTSDIR}/devel/rubygem-json \
 		${RUBY_SITELIBDIR}/memoize.rb:${PORTSDIR}/devel/ruby-memoize \
 		rubygem-oauth>=0.4.7:${PORTSDIR}/net/rubygem-oauth \
 		${RUBY_SITELIBDIR}/bsearch.rb:${PORTSDIR}/devel/ruby-bsearch \
@@ -31,7 +31,7 @@ NO_BUILD=	yes
 
 CONFLICTS=	mikutter-0.0.3.*
 
-RUBY_REQUIRE=	Ruby >= 190
+RUBY_REQUIRE=	Ruby >= 193
 RUBY_SHEBANG_FILES=	mikutter.rb \
 			core/miku/miku.rb \
 			devel/makechi.rb
@@ -50,7 +50,7 @@ OPTIONS_DEFAULT=	${OPTIONS_DEFINE}
 .include <bsd.port.pre.mk>
 
 .if !defined(RUBY_PROVIDED)
-IGNORE=	requires Ruby 1.9.0 or later
+IGNORE=	requires Ruby 1.9.3 or later
 .endif
 
 .if ${PORT_OPTIONS:MHTTPCLIENT}
@@ -64,29 +64,18 @@ RUN_DEPENDS+=	notify-send:${PORTSDIR}/devel/libnotify
 post-patch:
 	@${REINPLACE_CMD} -i '' -e "s|%%RUBY_SITELIBDIR%%|${RUBY_SITELIBDIR}|" \
 		${WRKSRC}/mikutter.rb
-	@${RM} -rf ${WRKSRC}/core/lib/json*
-	@${RM} -rf ${WRKSRC}/core/lib/oauth*
-	@${RM} -rf ${WRKSRC}/core/lib/ruby-bsearch-1.5
-	@${RM} -rf ${WRKSRC}/vendor/addressable
-	@${RM} -rf ${WRKSRC}/vendor/bsearch*
-	@${RM} -rf ${WRKSRC}/vendor/hmac*
-	@${RM} -rf ${WRKSRC}/vendor/json*
-	@${RM} -rf ${WRKSRC}/vendor/memoize.rb
-	@${RM} -rf ${WRKSRC}/vendor/oauth*
-	@${RM} -rf ${WRKSRC}/vendor/ruby-bsearch-1.5
-	@${RM} -rf ${WRKSRC}/vendor/typed-array*
+	@${RM} -r ${WRKSRC}/vendor
 
 do-install:
-	@${INSTALL_SCRIPT} ${INSTALL_WRKSRC}/mikutter.rb ${PREFIX}/bin/mikutter
-	@cd ${INSTALL_WRKSRC} \
+	${INSTALL_SCRIPT} ${INSTALL_WRKSRC}/mikutter.rb ${PREFIX}/bin/mikutter
+	cd ${INSTALL_WRKSRC} \
 		&& ${COPYTREE_SHARE} core ${RUBY_SITELIBDIR}/mikutter \
-		&& ${COPYTREE_SHARE} plugin ${RUBY_SITELIBDIR}/mikutter \
-		&& ${COPYTREE_SHARE} vendor ${RUBY_SITELIBDIR}/mikutter
+		&& ${COPYTREE_SHARE} plugin ${RUBY_SITELIBDIR}/mikutter
 	@${MKDIR} ${PREFIX}/share/applications
-	@${INSTALL_DATA} ${WRKDIR}/${SUB_FILES} ${PREFIX}/share/applications/
+	${INSTALL_DATA} ${WRKDIR}/${SUB_FILES} ${PREFIX}/share/applications/
 .if ${PORT_OPTIONS:MDOCS}
 	@${MKDIR} ${DOCSDIR}
-	@${INSTALL_DATA} ${INSTALL_WRKSRC}/${PORTDOCS} ${DOCSDIR}
+	${INSTALL_DATA} ${INSTALL_WRKSRC}/${PORTDOCS} ${DOCSDIR}
 .endif
 
 x-generate-plist:

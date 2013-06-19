@@ -298,69 +298,9 @@ bin/mikutter
 %%RUBY_SITELIBDIR%%/mikutter/core/userlist.rb
 %%RUBY_SITELIBDIR%%/mikutter/core/utils.rb
 %%RUBY_SITELIBDIR%%/mikutter/plugin/WHATSTHIS
-%%RUBY_SITELIBDIR%%/mikutter/vendor/digest/hmac.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/ruby_hmac.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test-unit.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/assertionfailederror.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/assertions.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/attribute-matcher.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/attribute.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/autorunner.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/code-snippet-fetcher.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/collector.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/collector/descendant.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/collector/dir.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/collector/load.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/collector/objectspace.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/collector/xml.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/color-scheme.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/color.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/data.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/diff.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/error.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/exceptionhandler.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/failure.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/fault-location-detector.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/fixture.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/notification.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/omission.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/pending.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/priority.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/runner/console.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/runner/emacs.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/runner/xml.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/testcase.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/testresult.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/testsuite.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/testsuitecreator.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/ui/console/outputlevel.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/ui/console/testrunner.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/ui/emacs/testrunner.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/ui/testrunner.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/ui/testrunnermediator.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/ui/testrunnerutilities.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/ui/xml/testrunner.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/util/backtracefilter.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/util/method-owner-finder.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/util/observable.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/util/output.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/util/procwrapper.rb
-%%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/version.rb
 share/applications/mikutter.desktop
 @dirrmtry share/applications
-@dirrm %%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/util
-@dirrm %%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/ui/xml
-@dirrm %%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/ui/emacs
-@dirrm %%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/ui/console
-@dirrm %%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/ui
-@dirrm %%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/runner
-@dirrm %%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit/collector
-@dirrm %%RUBY_SITELIBDIR%%/mikutter/vendor/test/unit
-@dirrm %%RUBY_SITELIBDIR%%/mikutter/vendor/test
-@dirrm %%RUBY_SITELIBDIR%%/mikutter/vendor/digest
-@dirrm %%RUBY_SITELIBDIR%%/mikutter/vendor
-@dirrm %%RUBY_SITELIBDIR%%/mikutter/plugin
+@dirrmtry %%RUBY_SITELIBDIR%%/mikutter/plugin
 @dirrm %%RUBY_SITELIBDIR%%/mikutter/core/skin/data/sounds/sources/retweeted_data/e00/d00
 @dirrm %%RUBY_SITELIBDIR%%/mikutter/core/skin/data/sounds/sources/retweeted_data/e00
 @dirrm %%RUBY_SITELIBDIR%%/mikutter/core/skin/data/sounds/sources/retweeted_data
