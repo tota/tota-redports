@@ -17,7 +17,7 @@ LICENSE=	GPLv3
 RUN_DEPENDS=	rubygem-gtk2>=1.5.0:${PORTSDIR}/x11-toolkits/rubygem-gtk2 \
 		graphics/rubygem-cairo>=1.10.0:${PORTSDIR}/graphics/rubygem-cairo \
 		rubygem-addressable>=2.2.7:${PORTSDIR}/www/rubygem-addressable \
-		rubygem-mac>=0.4.0:${PORTSDIR}/security/rubygem-hmac \
+		rubygem-hmac>=0.4.0:${PORTSDIR}/security/rubygem-hmac \
 		rubygem-json>=1.8.0:${PORTSDIR}/devel/rubygem-json \
 		${RUBY_SITELIBDIR}/memoize.rb:${PORTSDIR}/devel/ruby-memoize \
 		rubygem-oauth>=0.4.7:${PORTSDIR}/net/rubygem-oauth \
