@@ -3,7 +3,9 @@
 
 PORTNAME=	gti
 PORTVERSION=	1.1.1
+PORTREVISION=	1
 CATEGORIES=	games
+MASTER_SITES=	GH GHC LOCAL/tota/${PORTNAME}
 
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Just a silly git launcher, basically. Inspired by sl
