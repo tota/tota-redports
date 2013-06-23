@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/net-im/mikutter/Makefile 308976 2012-12-16 03:16:46Z tota $
+# $FreeBSD: head/net-im/mikutter/Makefile 321632 2013-06-23 12:34:33Z tota $
 
 PORTNAME=	mikutter
 PORTVERSION=	0.2.2.1264
@@ -28,8 +28,6 @@ WRKSRC=	${WRKDIR}/${PORTNAME}
 
 USE_RUBY=	yes
 NO_BUILD=	yes
-
-CONFLICTS=	mikutter-0.0.3.*
 
 RUBY_REQUIRE=	Ruby >= 193
 RUBY_SHEBANG_FILES=	mikutter.rb \
