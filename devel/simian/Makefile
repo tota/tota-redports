@@ -33,7 +33,7 @@ OPTIONS_DEFINE=	JAVA MONO
 
 OPTIONS_DEFAULT=	JAVA
 
-.include <bsd.port.options.mk>
+.include <bsd.port.pre.mk>
 
 .if ${PORT_OPTIONS:MJAVA}
 USE_JAVA=	yes
@@ -54,6 +54,25 @@ PLIST_SUB+=	MONO="@comment "
 SUB_LIST+=	MONO="@comment "
 .endif
 
+pre-fetch:
+.if !exists(${DISTDIR}/${DISTNAME}${EXTRACT_SUFX})
+.if !defined(PACKAGE_BUILDING) && (!defined(SIMIAN_AGREE_LICENSE) || ${SIMIAN_AGREE_LICENSE} != "yes")
+	@${ECHO}	By downloading this version, you agree to the terms
+	@${ECHO}	and conditions set out in the license agreement and
+	@${ECHO}        you agree that, should you wish to continue using
+	@${ECHO}	Simian for other than open source projects, non-
+	@${ECHO}	commercial projects or evaluation purposes for a
+	@${ECHO}	period greater than 15 days, you will purchase a
+	@${ECHO}	license as described following URL.
+	@${ECHO}
+	@${ECHO}	http://www.harukizaemon.com/simian/LICENSE.txt
+	@${ECHO}
+	@${ECHO}	Build with SIMIAN_AGREE_LICENSE=yes to continue.
+	@${ECHO}
+	@${FALSE}
+.endif
+.endif
+
 do-install:
 	@${MKDIR} ${PREFIX}/share/xsl/${PORTNAME}
 	${INSTALL_DATA} ${WRKSRC}/simian.xsl ${PREFIX}/share/xsl/${PORTNAME}
@@ -72,4 +91,4 @@ do-install:
 		&& ${FIND} ${PORTDOCS} -type f -exec ${INSTALL_DATA} \{} ${DOCSDIR}/\{} \;
 .endif
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
