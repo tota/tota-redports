@@ -1,17 +1,13 @@
-# New ports collection makefile for:	rabbit
-# Date created:		2010-08-01
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: head/misc/rabbit/Makefile 301532 2012-07-25 20:56:28Z tota $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	rabbit
-PORTVERSION=	2.0.5
-CATEGORIES=	misc ruby
+PORTVERSION=	2.1.1
+CATEGORIES=	misc rubygems
 MASTER_SITES=	RG
 
 MAINTAINER=	tota@FreeBSD.org
-COMMENT=	An RD-document-based presentation application
+COMMENT=	RD-document-based presentation application
 
 RUN_DEPENDS=	rubygem-coderay>=1.0.0:${PORTSDIR}/textproc/rubygem-coderay \
 		rubygem-faraday>=0:${PORTSDIR}/www/rubygem-faraday \
@@ -23,7 +19,7 @@ RUN_DEPENDS=	rubygem-coderay>=1.0.0:${PORTSDIR}/textproc/rubygem-coderay \
 		rubygem-poppler>=0:${PORTSDIR}/x11-toolkits/rubygem-poppler \
 		rubygem-rdtool>=0:${PORTSDIR}/textproc/rubygem-rdtool \
 		rubygem-rsvg2>=0:${PORTSDIR}/graphics/rubygem-rsvg2 \
-		rubygem-rttool>=0:${PORTSDIR}/textproc/rubygem-rttool 
+		rubygem-rttool>=0:${PORTSDIR}/textproc/rubygem-rttool
 
 USE_GETTEXT=	yes
 USE_RUBY=	yes
