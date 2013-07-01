@@ -26,7 +26,7 @@ USE_RUBY=	yes
 USE_RUBYGEMS=	yes
 RUBYGEM_AUTOPLIST=	yes
 PLIST_FILES=	bin/rabbit bin/rabbirc bin/rabbit-command bin/rabbit-slide \
-		bin/rabbit-theme bin/rabbit-theme-manager
+		bin/rabbit-theme
 
 OPTIONS_DEFINE=	MIMETEX
 MIMETEX_DESC=	Run with mimetex
