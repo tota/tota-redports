@@ -29,7 +29,8 @@ PORTDOCS=	changes.html customers.html features.html \
 		simian.jpg \
 		javadoc
 
-OPTIONS_DEFINE=	JAVA MONO
+OPTIONS_MULTI=	LANG
+OPTIONS_MULTI_LANG=	JAVA MONO
 
 OPTIONS_DEFAULT=	JAVA
 
