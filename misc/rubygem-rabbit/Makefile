@@ -38,6 +38,7 @@ RUN_DEPENDS+=	${LOCALBASE}/www/mimetex/cgi-bin/mimetex.cgi:${PORTSDIR}/www/mimet
 .endif
 
 .if ${PORT_OPTIONS:MMIMETEX}
+post-patch:
 	${REINPLACE_CMD} -e 's|"mimetex.cgi"|"${PREFIX}/www/mimetex/cgi-bin/mimetex.cgi"|' \
 		${WRKSRC}/lib/rabbit/parser/ext/tex.rb
 .endif
