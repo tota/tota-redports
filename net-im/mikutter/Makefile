@@ -2,7 +2,7 @@
 # $FreeBSD: head/net-im/mikutter/Makefile 321632 2013-06-23 12:34:33Z tota $
 
 PORTNAME=	mikutter
-PORTVERSION=	0.2.2.1264
+PORTVERSION=	0.2.2.1297
 CATEGORIES=	net-im ruby
 MASTER_SITES=	http://mikutter.hachune.net/bin/ \
 		LOCAL
