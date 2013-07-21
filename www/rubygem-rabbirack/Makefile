@@ -20,8 +20,7 @@ RUN_DEPENDS=	rubygem-haml>0:${PORTSDIR}/www/rubygem-haml \
 USE_GETTEXT=	yes
 USE_RUBY=	yes
 USE_RUBYGEMS=	yes
-
 RUBYGEM_AUTOPLIST=	yes
-RUBY_SHEBANG_FILES=	bin/rabbirack
+PLIST_FILES=	bin/rabbirack
 
 .include <bsd.port.mk>
