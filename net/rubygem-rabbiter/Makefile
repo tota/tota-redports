@@ -20,5 +20,6 @@ RUN_DEPENDS=	rubygem-gio2>=1.1.4:${PORTSDIR}/devel/rubygem-gio2 \
 USE_RUBY=	yes
 USE_RUBYGEMS=	yes
 RUBYGEM_AUTOPLIST=	yes
+PLIST_FILES=	bin/rabbiter
 
 .include <bsd.port.mk>
