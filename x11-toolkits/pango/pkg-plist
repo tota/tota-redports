@@ -136,9 +136,11 @@ share/gtk-doc/html/pango/up.png
 @dirrm share/gtk-doc/html/pango
 @dirrmtry share/gtk-doc/html
 @dirrmtry share/gtk-doc
+@dirrmtry share/gir-1.0
 @dirrm lib/pango/%%VERSION%%/modules
 @dirrm lib/pango/%%VERSION%%
 @dirrm lib/pango
+@dirrmtry lib/girepository-1.0
 @dirrm include/pango-1.0/pango
 @dirrm include/pango-1.0
 @dirrm etc/pango
