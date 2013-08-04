@@ -12,7 +12,7 @@ COMMENT=	Read and write PNG images
 LICENSE=	GPLv2 GPLv3
 LICENSE_COMB=	dual
 
-LIB_DEPENDS=	png:${PORTSDIR}/graphics/png
+LIB_DEPENDS=	png15:${PORTSDIR}/graphics/png
 
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
