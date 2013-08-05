@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/net-im/mikutter/Makefile 321632 2013-06-23 12:34:33Z tota $
+# $FreeBSD$
 
 PORTNAME=	mikutter
-PORTVERSION=	0.2.2.1297
+PORTVERSION=	0.2.2.1318
 CATEGORIES=	net-im ruby
 MASTER_SITES=	http://mikutter.hachune.net/bin/ \
 		LOCAL
