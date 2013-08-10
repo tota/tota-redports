@@ -11,4 +11,6 @@ libexec/mecab/mecab-dict-index
 libexec/mecab/mecab-system-eval
 libexec/mecab/mecab-test-gen
 @dirrm libexec/mecab
-etc/mecabrc
+@unexec if cmp -s %D/etc/mecabrc.dist %D/etc/mecabrc; then rm -f %D/etc/mecabrc; else true; fi
+etc/mecabrc.dist
+@exec if [ ! -f %D/etc/mecabrc ]; then cp -p %D/%F %B/mecabrc; fi
