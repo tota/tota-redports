@@ -21,6 +21,7 @@ USE_RUBY_EXTCONF=	yes
 INSTALL_TARGET=	site-install
 
 OPTIONS_DEFINE=	DOCS EXAMPLES
+OPTIONSFILE=	${PORT_DBDIR}/ja-ruby-${PORTNAME}/options
 
 .include <bsd.port.pre.mk>
 
