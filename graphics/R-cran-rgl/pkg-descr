@@ -1,0 +1,21 @@
+The rgl package is a visualization device system for R, using OpenGL
+as the rendering backend. An rgl device at its core is a real-time
+3D engine written in C++. It provides an interactive viewpoint
+navigation facility (mouse + wheel support) and an R programming
+interface.
+
+Features
+ * cross-platform portable R Plug-in (osx/carbon, win32, unix/X11)
+ * R programing interface
+ * Interactive viewpoint navigation
+ * Automatic data focus Geometry primitives: points, lines, triangles,
+   quads, texts, spheres, 3D sprites, particles, terrrain
+ * Up to 8 light sources
+ * Alpha-blending (transparency)
+ * Side-dependant rendering
+ * Texture-mapping with mipmap support
+ * Environmental effects: fogging, background sphere
+ * Bounding box with axis ticks marks
+ * Undo operation
+
+WWW: http://rgl.neoscientists.org/
