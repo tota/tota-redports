@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/www/R-cran-httpuv/Makefile 319316 2013-05-28 15:15:05Z bf $
+# $FreeBSD$
 
 PORTNAME=	httpuv
-PORTVERSION=	1.0.6.3
+PORTVERSION=	1.1.0
 CATEGORIES=	www
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -22,8 +22,5 @@ USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
 MAKE_ENV=	MAKE=${GMAKE}
-
-post-patch:
-	@${REINPLACE_CMD} 's|/bin/bash|/bin/sh|' ${WRKSRC}/configure
 
 .include <bsd.port.mk>
