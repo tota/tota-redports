@@ -19,4 +19,6 @@ RUN_DEPENDS=	R-cran-sp>=1.0.9:${PORTSDIR}/math/R-cran-sp
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
+R_POSTCMD_INSTALL_OPTIONS+=	--configure-args="--with-proj-lib=${LOCALBASE}/lib"
+
 .include <bsd.port.mk>
