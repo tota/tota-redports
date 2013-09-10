@@ -1,7 +1,7 @@
-# $FreeBSD: head/www/testlink/Makefile 315535 2013-03-29 10:19:41Z tota $
+# $FreeBSD$
 
 PORTNAME=	testlink
-PORTVERSION=	1.9.7
+PORTVERSION=	1.9.8
 CATEGORIES=	www devel
 MASTER_SITES=	SF
 MASTER_SITE_SUBDIR=	${PORTNAME}/TestLink%201.9/TestLink%20${PORTVERSION}
