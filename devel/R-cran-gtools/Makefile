@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gtools
-PORTVERSION=	3.0.0
+PORTVERSION=	3.1.0
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -14,4 +14,5 @@ LICENSE=	LGPL21
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>
