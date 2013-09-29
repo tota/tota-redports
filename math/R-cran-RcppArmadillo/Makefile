@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/math/R-cran-RcppArmadillo/Makefile 324608 2013-08-12 01:24:30Z tota $
+# $FreeBSD: head/math/R-cran-RcppArmadillo/Makefile 327746 2013-09-20 20:55:04Z bapt $
 
 PORTNAME=	RcppArmadillo
 PORTVERSION=	0.3.910.0
@@ -17,4 +17,5 @@ RUN_DEPENDS=	R-cran-Rcpp>=0.10.2:${PORTSDIR}/devel/R-cran-Rcpp
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>
