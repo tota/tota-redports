@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/math/R-cran-forecast/Makefile 321513 2013-06-22 01:25:20Z tota $
+# $FreeBSD: head/math/R-cran-forecast/Makefile 327746 2013-09-20 20:55:04Z bapt $
 
 PORTNAME=	forecast
-PORTVERSION=	4.06
+PORTVERSION=	4.7
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -22,4 +22,5 @@ RUN_DEPENDS=	R-cran-tseries>0:${PORTSDIR}/finance/R-cran-tseries \
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>
