@@ -3,6 +3,7 @@
 
 PORTNAME=	quantmod
 DISTVERSION=	0.4-0
+PORTREVISION=	2
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -19,4 +20,5 @@ RUN_DEPENDS=	R-cran-Defaults>0:${PORTSDIR}/devel/R-cran-Defaults \
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

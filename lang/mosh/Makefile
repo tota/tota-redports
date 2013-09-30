@@ -1,12 +1,9 @@
-# New ports collection makefile for:   mosh
-# Date created:                2008-07-06
-# Whom:                        Katsuji ISHIKAWA <katsuji.ishikawa@gmail.com>
-#
-# $FreeBSD: ports/lang/mosh/Makefile,v 1.6 2009/04/30 22:54:30 miwi Exp $
-#
+# Created by: Katsuji ISHIKAWA <katsuji.ishikawa@gmail.com>
+# $FreeBSD$
 
 PORTNAME=	mosh
 PORTVERSION=	0.2.7
+PORTREVISION=	1
 CATEGORIES=	lang
 MASTER_SITES=	GOOGLE_CODE
 
@@ -20,17 +17,23 @@ USE_GCC=	4.2+
 USE_GMAKE=	yes
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--datadir=${PREFIX}/lib
-MAKE_JOBS_SAFE=	yes
 CFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
+
+CONFLICTS_INSTALL=	mosh-1.[0-9].*
 
 PROJECTHOST=	mosh-scheme
 MAN1=	mosh.1 mosh_config.1
 
+NO_STAGE=	yes
 .include <bsd.port.pre.mk>
 
 .if ${OSVERSION} < 800000
 BROKEN=	Does not build on FreeBSD 7.x
+.endif
+
+.if ${ARCH} == "ia64" || ${ARCH} == "powerpc" || ${ARCH} == "sparc64"
+BROKEN=		Does not compile on ia64, powerpc, or sparc64
 .endif
 
 post-patch:

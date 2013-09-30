@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/devel/rubygem-io-like/Makefile 313317 2013-03-03 01:43:02Z swills $
+# $FreeBSD$
 
 PORTNAME=	io-like
 PORTVERSION=	0.3.0.20130301
@@ -9,7 +9,7 @@ MASTER_SITE_SUBDIR=	tota/${PORTNAME}
 PKGNAMEPREFIX=	rubygem-
 
 MAINTAINER=	tota@FreeBSD.org
-COMMENT=	Interface of IO objects to classes providing a few simple methods
+COMMENT=	The interface of IO objects to classes providing a few simple methods
 
 BUILD_DEPENDS=	${RUBYGEMBIN}:${PORTSDIR}/devel/ruby-gems \
 		rdoc:${PORTSDIR}/devel/rubygem-rdoc
@@ -54,6 +54,7 @@ WRKSRC=	${WRKDIR}/${PORTNAME}-ruby-1.9-temp
 
 OPTIONS_DEFINE=	DOCS
 
+NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MDOCS}

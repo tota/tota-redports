@@ -1,8 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/databases/R-cran-DBI/Makefile 316623 2013-04-26 16:31:38Z tota $
+# $FreeBSD$
 
 PORTNAME=	DBI
 DISTVERSION=	0.2-7
+PORTREVISION=	1
 CATEGORIES=	databases
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -15,4 +16,5 @@ LICENSE_COMB=	dual
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

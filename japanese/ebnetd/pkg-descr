@@ -4,7 +4,7 @@ via TCP/IP.
 
 ebnetd:  ebnetd is a server of EBNET protocol which is designed to
 	 communicate with EB Library. For more details about EB
-	 Library, see http://www.sra.co.jp/m-kasahr/eb/.
+	 Library.
 
 ndtpd:   ndtpd is an NDTP (Network Dictionary Transfer Protocol)
 	 server. The first implementation of the NDTP esrver is

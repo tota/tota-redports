@@ -1,9 +1,5 @@
-# New ports collection makefile for:	mod_amazon_proxy
-# Date created:		2011-09-24
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/www/mod_amazon_proxy/Makefile,v 1.1 2011/09/24 05:23:57 tota Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	mod_amazon_proxy
 PORTVERSION=	20100913
@@ -16,7 +12,7 @@ COMMENT=	Amazon Auth Proxy for Product Advertising API
 
 LIB_DEPENDS=	apreq2:${PORTSDIR}/www/libapreq2
 
-USE_APACHE=	22+
+USE_APACHE=	22
 
 CONFFILE=	httpd-amazon-proxy.conf
 CONFDIR=	${PREFIX}/${APACHEETCDIR}/Includes
@@ -24,6 +20,7 @@ CONFDIR=	${PREFIX}/${APACHEETCDIR}/Includes
 PORTDOCS=	README
 PORTEXAMPLES=	rpaproxy.yaml
 
+NO_STAGE=	yes
 post-patch:
 	@${REINPLACE_CMD} -e 's|modules|${APACHEMODDIR}|' ${WRKSRC}/${CONFFILE}.sample
 

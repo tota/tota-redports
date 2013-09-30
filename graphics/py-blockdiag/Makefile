@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/py-blockdiag/Makefile 307671 2012-11-23 02:39:17Z tota $
+# $FreeBSD$
 
 PORTNAME=	blockdiag
 PORTVERSION=	1.2.4
@@ -36,6 +36,7 @@ PDF_DESC=	Enable PDF output
 
 OPTIONS_DEFAULT=	PDF
 
+NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MPDF}

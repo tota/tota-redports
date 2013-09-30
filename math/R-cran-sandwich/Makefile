@@ -1,8 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/math/R-cran-sandwich/Makefile 313562 2013-03-07 04:21:34Z bf $
+# $FreeBSD$
 
 PORTNAME=	sandwich
 DISTVERSION=	2.2-10
+PORTREVISION=	1
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -16,4 +17,5 @@ RUN_DEPENDS=	R-cran-zoo>0:${PORTSDIR}/math/R-cran-zoo
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

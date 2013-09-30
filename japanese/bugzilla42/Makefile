@@ -1,4 +1,4 @@
-# $FreeBSD: head/japanese/bugzilla42/Makefile 315642 2013-03-31 17:36:29Z ohauer $
+# $FreeBSD$
 
 PORTNAME=	bugzilla
 PORTVERSION=	4.2.6
@@ -24,13 +24,8 @@ USE_BZIP2=	yes
 LANGDIR=	${WWWDIR}/template/ja
 
 do-install:
-	@-${MKDIR} ${LANGDIR}/default
-	@cd ${WRKDIR}/default; ${COPYTREE_SHARE} . ${LANGDIR}/default
-.if !defined(BATCH)
-	@${ECHO_MSG}
-	@${CAT} ${PKGMESSAGE}
-	@${ECHO_MSG}
-.endif
+	@-${MKDIR} ${STAGEDIR}${LANGDIR}/default
+	@cd ${WRKDIR}/default; ${COPYTREE_SHARE} . ${STAGEDIR}${LANGDIR}/default
 
 # Maintainer
 plist: patch

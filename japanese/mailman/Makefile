@@ -1,9 +1,5 @@
-# New ports collection makefile for:	ja-mailman
-# Date created:				21 Feb 2003
-# Whom:					Sunagawa Koji <koj@ofug.net>
-#
-# $FreeBSD: head/japanese/mailman/Makefile 316464 2013-04-24 18:10:30Z ak $
-#
+# Created by: Sunagawa Koji <koj@ofug.net>
+# $FreeBSD$
 
 PORTNAME=	mailman
 PORTVERSION=	2.1.14.j7
@@ -37,7 +33,6 @@ CONFIGURE_ARGS+=--with-python=${PYTHON_CMD} \
 		--with-groupname=${MM_GROUPNAME} \
 		--with-mail-gid=${MAIL_GID} --with-cgi-gid=${CGI_GID} \
 		--with-permcheck=no
-MAKE_JOBS_SAFE=	yes
 
 # The Mailman port supports a number of variables that may be tweaked at
 # build time.  Getting the values of some of them right is crucial!
@@ -86,6 +81,7 @@ COURIER_DESC=		for use with courier
 
 OPTIONS_DEFAULT=	SENDMAIL
 
+NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MSENDMAIL}

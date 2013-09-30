@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@rtfm.jp>
-# $FreeBSD: head/japanese/rubygem-jpmobile/Makefile 302405 2012-08-11 08:39:12Z tota $
+# $FreeBSD$
 
 PORTNAME=	jpmobile
-PORTVERSION=	3.0.6
+PORTVERSION=	3.0.7
 CATEGORIES=	japanese www rubygems
 MASTER_SITES=	RG
 
@@ -24,6 +24,7 @@ TERMINFO_DESC=		terminal information support
 
 OPTIONS_DEFAULT=	IPADDRESSES TERMINFO
 
+NO_STAGE=	yes
 .include <bsd.port.pre.mk>
 
 PKGNAMEPREFIX:=	${PKGNAMEPREFIX}rubygem-

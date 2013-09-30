@@ -1,8 +1,9 @@
 # Created by: Shigeyuki FUKUSHIMA <shige@kuis.kyoto-u.ac.jp>
-# $FreeBSD: head/japanese/ddskk/Makefile 312479 2013-02-18 05:44:30Z miwi $
+# $FreeBSD$
 
 PORTNAME=	ddskk
 PORTVERSION=	15.1
+PORTREVISION=	1
 CATEGORIES=	japanese elisp
 MASTER_SITES=	http://openlab.ring.gr.jp/skk/maintrunk/ \
 		ftp://ftp.ring.gr.jp/pub/elisp/skk/maintrunk/ \
@@ -14,7 +15,6 @@ COMMENT=	Simple Kana to Kanji conversion program on Emacsen
 
 OPTIONS_DEFINE=	DOCS EXAMPLES
 
-MAKE_JOBS_SAFE=	yes
 USE_EMACS=	yes
 INFO=		skk
 
@@ -25,6 +25,7 @@ PORTEXAMPLES=	Emacs.ad dot.emacs dot.skk
 ALL_TARGET=	elc info
 MAKE_ARGS+=	SKK_LISPDIR=${PREFIX}/${SKK_LISPDIR} SKK_INFODIR=${PREFIX}/${INFO_PATH}
 
+NO_STAGE=	yes
 pre-install:
 	# required for non-standard PREFIX
 	${MKDIR} ${PREFIX}/${SKK_LISPDIR}

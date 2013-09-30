@@ -1,9 +1,5 @@
-# New ports collection makefile for:	rubygem-jpmobile-ipaddresses
-# Date created:		2010-09-18
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/japanese/rubygem-jpmobile-ipaddresses/Makefile,v 1.4 2011/08/06 06:48:30 tota Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	jpmobile-ipaddresses
 PORTVERSION=	0.0.2
@@ -19,6 +15,7 @@ USE_RUBY=	yes
 USE_RUBYGEMS=	yes
 RUBYGEM_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.pre.mk>
 
 PKGNAMEPREFIX:=	${PKGNAMEPREFIX}rubygem-

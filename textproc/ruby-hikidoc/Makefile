@@ -1,9 +1,5 @@
-# New ports collection makefile for:	ruby-hikidoc
-# Date created:		2011-07-30
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/textproc/ruby-hikidoc/Makefile,v 1.1 2011/07/30 16:13:04 tota Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	hikidoc
 PORTVERSION=	0.0.6
@@ -19,6 +15,7 @@ COMMENT=	A text-to-HTML conversion tool for web writers
 USE_RUBY=	yes
 USE_RUBY_SETUP=	yes
 RUBY_SHEBANG_FILES=	bin/hikidoc
+NO_STAGE=	yes
 
 PORTDOCS=	NEWS NEWS.ja README README.ja \
 		TextFormattingRules TextFormattingRules.ja

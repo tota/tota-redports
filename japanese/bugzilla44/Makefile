@@ -24,13 +24,8 @@ USE_BZIP2=	yes
 LANGDIR=	${WWWDIR}/template/ja
 
 do-install:
-	@-${MKDIR} ${LANGDIR}/default
-	@cd ${WRKDIR}/default; ${COPYTREE_SHARE} . ${LANGDIR}/default
-.if !defined(BATCH)
-	@${ECHO_MSG}
-	@${CAT} ${PKGMESSAGE}
-	@${ECHO_MSG}
-.endif
+	@-${MKDIR} ${STAGEDIR}${LANGDIR}/default
+	@cd ${WRKDIR}/default; ${COPYTREE_SHARE} . ${STAGEDIR}${LANGDIR}/default
 
 # Maintainer
 plist: patch

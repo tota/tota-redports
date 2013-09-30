@@ -1,8 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/science/R-cran-Epi/Makefile 313562 2013-03-07 04:21:34Z bf $
+# $FreeBSD$
 
 PORTNAME=	Epi
 PORTVERSION=	1.1.49
+PORTREVISION=	1
 CATEGORIES=	science
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -14,4 +15,5 @@ LICENSE=	GPLv2
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

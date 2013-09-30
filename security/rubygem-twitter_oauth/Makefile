@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/security/rubygem-twitter_oauth/Makefile 305850 2012-10-13 20:37:03Z tota $
+# $FreeBSD$
 
 PORTNAME=	twitter_oauth
-PORTVERSION=	0.4.93
+PORTVERSION=	0.4.94
 CATEGORIES=	security rubygems
 MASTER_SITES=	RG
 
@@ -17,4 +17,5 @@ USE_RUBY=	yes
 USE_RUBYGEMS=	yes
 RUBYGEM_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

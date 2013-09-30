@@ -1,5 +1,5 @@
 # Created by: Sergei Kolobov <sergei@kolobov.com>
-# $FreeBSD: head/ports-mgmt/porttools/Makefile 313176 2013-03-02 00:40:53Z tota $
+# $FreeBSD$
 
 PORTNAME=	porttools
 PORTVERSION=	0.99
@@ -36,6 +36,7 @@ OPTIONS_DEFAULT=	NEWFILE
 
 NEWFILE_DESC=	Enable newfile support
 
+NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MNEWFILE}

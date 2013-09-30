@@ -3,6 +3,7 @@
 
 PORTNAME=	PerformanceAnalytics
 PORTVERSION=	1.1.0
+PORTREVISION=	2
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -17,4 +18,5 @@ RUN_DEPENDS=	R-cran-zoo>0:${PORTSDIR}/math/R-cran-zoo \
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

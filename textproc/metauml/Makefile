@@ -1,9 +1,5 @@
-# New ports collection makefile for:	metauml
-# Date created:		2007-08-29
-# Whom:			TAKATSU Tomonari <tota@rtfm.jp>
-#
-# $FreeBSD: ports/textproc/metauml/Makefile,v 1.8 2010/12/31 13:19:56 tota Exp $
-#
+# Created by: TAKATSU Tomonari <tota@rtfm.jp>
+# $FreeBSD$
 
 PORTNAME=	metauml
 PORTVERSION=	0.2.5
@@ -21,12 +17,10 @@ EXTRACT_ONLY=	${PORTNAME}_lib_${PORTVERSION}.tgz lop-release.tgz
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	A MetaPost library for typesetting UML diagrams
 
-BUILD_DEPENDS=	mktexlsr:${PORTSDIR}/print/teTeX-base
-RUN_DEPENDS=	latex:${PORTSDIR}/print/teTeX-base
-
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/thrunk/License
 
+USE_TEX=	latex
 PLIST_SUB=	TEXMFDIR=${TEXMFDIR} MKTEXLSR=${MKTEXLSR} MPDIR=${MPDIR}
 
 TEXMFDIR=	share/texmf
@@ -37,6 +31,7 @@ NO_BUILD=	yes
 WRKSRC=	${WRKDIR}/${PORTNAME}_lib
 EXAMPLES=	*.1 *.jpg *.mp lop lop.html lop.pdf lop.tex
 
+NO_STAGE=	yes
 do-install:
 	${MKDIR} ${PREFIX}/${MPDIR}
 	${INSTALL_DATA} ${WRKSRC}/thrunk/*.mp ${PREFIX}/${MPDIR}

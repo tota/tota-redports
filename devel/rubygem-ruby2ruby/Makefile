@@ -2,21 +2,22 @@
 # $FreeBSD$
 
 PORTNAME=	ruby2ruby
-PORTVERSION=	2.0.3
+PORTVERSION=	2.0.6
 CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 
-MAINTAINER=	tota@FreeBSD.org
-COMMENT=	Pure ruby code generator easily from ParseTree's Sexps # '
+MAINTAINER=	ruby@FreeBSD.org
+COMMENT=	A pure ruby code generator easily from ParseTree's Sexps # '
 
 LICENSE=	MIT
 
-RUN_DEPENDS=	rubygem-ruby_parser>=3.1:${PORTSDIR}/devel/rubygem-ruby_parser \
-		rubygem-sexp_processor>=4.0:${PORTSDIR}/devel/rubygem-sexp_processor
+RUN_DEPENDS=	rubygem-sexp_processor>=4.0:${PORTSDIR}/devel/rubygem-sexp_processor \
+		rubygem-ruby_parser>=3.1:${PORTSDIR}/devel/rubygem-ruby_parser
 
 USE_RUBY=	yes
 USE_RUBYGEMS=	yes
 RUBYGEM_AUTOPLIST=	yes
 PLIST_FILES=	bin/r2r_show
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

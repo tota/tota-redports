@@ -1,12 +1,8 @@
-# New ports collection makefile for:	japanese/rubygem-myrurema
-# Date created:		2012-02-08
-# Whom:			Shin-ya MURAKAMI <murashin@gfd-dennou.org>
-#
+# Created by: Shin-ya MURAKAMI <murashin@gfd-dennou.org>
 # $FreeBSD$
-#
 
 PORTNAME=	myrurema
-PORTVERSION=	0.3.0
+PORTVERSION=	0.3.4
 CATEGORIES=	japanese rubygems
 MASTER_SITES=	RG
 
@@ -21,6 +17,7 @@ USE_RUBYGEMS=	yes
 RUBYGEM_AUTOPLIST=	yes
 PLIST_FILES=	bin/rurema
 
+NO_STAGE=	yes
 .include <bsd.port.pre.mk>
 
 PKGNAMEPREFIX:=	${PKGNAMEPREFIX}rubygem-

@@ -18,7 +18,6 @@ LIB_DEPENDS=	gif:${PORTSDIR}/graphics/giflib \
 		png15:${PORTSDIR}/graphics/png
 
 DEFAULT_PHP_VER=	5
-IGNORE_WITH_PHP=	4
 USE_PHP=	zlib
 USE_PHPEXT=	yes
 
@@ -30,6 +29,7 @@ PLIST_SUB=	WWWOWN=${WWWOWN} WWWGRP=${WWWGRP}
 PORTDOCS=	readme.txt
 PORTEXAMPLES=	*
 
+NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 post-install:

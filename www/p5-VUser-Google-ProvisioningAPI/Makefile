@@ -1,9 +1,5 @@
-# New ports collection makefile for:	p5-VUser-Google-ProvisioningAPI
-# Date created:		2011-04-28
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/www/p5-VUser-Google-ProvisioningAPI/Makefile,v 1.2 2011/06/20 09:22:14 az Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	VUser-Google-ProvisioningAPI
 PORTVERSION=	0.24
@@ -15,11 +11,12 @@ PKGNAMEPREFIX=	p5-
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Perl module that implements the Google Provisioning API
 
-RUN_DEPENDS=	${SITE_PERL}/LWP/UserAgent.pm:${PORTSDIR}/www/p5-libwww \
-		${SITE_PERL}/${PERL_ARCH}/Encode.pm:${PORTSDIR}/converters/p5-Encode \
-		${SITE_PERL}/XML/Simple.pm:${PORTSDIR}/textproc/p5-XML-Simple
+RUN_DEPENDS=	p5-libwww>=0:${PORTSDIR}/www/p5-libwww \
+		p5-Encode>=0:${PORTSDIR}/converters/p5-Encode \
+		p5-XML-Simple>=0:${PORTSDIR}/textproc/p5-XML-Simple
 
-PERL_CONFIGURE=	yes
+USES=		perl5
+USE_PERL5=	configure
 
 MAN3=	VUser::Google::ProvisioningAPI::V2_0::EmailListEntry.3 \
 	VUser::Google::ProvisioningAPI::V2_0::NicknameEntry.3 \
@@ -29,4 +26,5 @@ MAN3=	VUser::Google::ProvisioningAPI::V2_0::EmailListEntry.3 \
 	VUser::Google::ProvisioningAPI::V2_0::EmailListRecipientEntry.3 \
 	VUser::Google::ProvisioningAPI::V2_0::UserEntry.3
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

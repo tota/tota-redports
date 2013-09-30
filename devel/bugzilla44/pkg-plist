@@ -183,6 +183,7 @@
 %%PORTDOCS%%%%DOCSDIR%%/en/images/note.gif
 %%PORTDOCS%%%%DOCSDIR%%/en/images/tip.gif
 %%PORTDOCS%%%%DOCSDIR%%/en/images/warning.gif
+@comment %%PORTDOCS%%%%DOCSDIR%%/en/pdf/Bugzilla-Guide.pdf
 %%PORTDOCS%%%%DOCSDIR%%/en/rel_notes.txt
 %%PORTDOCS%%%%DOCSDIR%%/en/txt/Bugzilla-Guide.txt
 %%PORTDOCS%%%%DOCSDIR%%/en/xml/Bugzilla-Guide.xml
@@ -998,8 +999,6 @@
 @dirrmtry %%WWWDIR%%/js/history.js
 @dirrmtry %%WWWDIR%%/js
 @dirrm %%WWWDIR%%/images
-@dirrmtry %%WWWDIR%%/graphs
-@dirrmtry %%WWWDIR%%/data
 %%CONTRIB%%@dirrm %%WWWDIR%%/contrib/cmdline
 %%CONTRIB%%@dirrm %%WWWDIR%%/contrib/bugzilla-submit
 @dirrmtry %%WWWDIR%%/contrib
@@ -1028,6 +1027,8 @@
 @dirrm %%WWWDIR%%/Bugzilla/Auth
 @dirrm %%WWWDIR%%/Bugzilla/Attachment
 @dirrmtry %%WWWDIR%%/Bugzilla
+@dirrmtry %%WWWDIR%%/data
+@dirrmtry %%WWWDIR%%/graphs
 @dirrmtry %%WWWDIR%%
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/xsl
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/lib/Pod/Simple/HTMLBatch
@@ -1040,7 +1041,7 @@
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/en/pdf
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/en/images/callouts
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/en/images
-%%PORTDOCS%%@dirrm %%DOCSDIR%%/en/html/api/extensions
+%%PORTDOCS%%@dirrmtry %%DOCSDIR%%/en/html/api/extensions
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/en/html/api/contrib
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/en/html/api/Bugzilla/Whine
 %%PORTDOCS%%@dirrm %%DOCSDIR%%/en/html/api/Bugzilla/WebService/Server

@@ -1,5 +1,5 @@
 # Created by: Akinori MUSHA aka knu <knu@idaemons.org>
-# $FreeBSD: head/japanese/p5-MeCab/Makefile 324174 2013-08-02 18:52:07Z mat $
+# $FreeBSD$
 
 PORTNAME=	MeCab
 PORTVERSION=	0.996
@@ -22,6 +22,7 @@ USE_PERL5=	configure
 OPTIONS_DEFINE=	EXAMPLES
 OPTIONSFILE=	${PORT_DBDIR}/ja-p5-${PORTNAME}/options
 
+NO_STAGE=	yes
 .include <bsd.port.pre.mk>
 
 PKGNAMEPREFIX:=	${PKGNAMEPREFIX}p5-

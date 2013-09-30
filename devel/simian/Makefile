@@ -1,5 +1,5 @@
 # Created by: andreas@syndrom23.de
-# $FreeBSD: head/devel/simian/Makefile 315179 2013-03-24 23:21:58Z eadler $
+# $FreeBSD$
 
 PORTNAME=	simian
 PORTVERSION=	2.3.34
@@ -34,6 +34,7 @@ OPTIONS_MULTI_LANG=	JAVA MONO
 
 OPTIONS_DEFAULT=	JAVA
 
+NO_STAGE=	yes
 .include <bsd.port.pre.mk>
 
 .if ${PORT_OPTIONS:MJAVA}
@@ -60,7 +61,7 @@ pre-fetch:
 .if !defined(PACKAGE_BUILDING) && (!defined(SIMIAN_AGREE_LICENSE) || ${SIMIAN_AGREE_LICENSE} != "yes")
 	@${ECHO}	By downloading this version, you agree to the terms
 	@${ECHO}	and conditions set out in the license agreement and
-	@${ECHO}        you agree that, should you wish to continue using
+	@${ECHO}	you agree that, should you wish to continue using
 	@${ECHO}	Simian for other than open source projects, non-
 	@${ECHO}	commercial projects or evaluation purposes for a
 	@${ECHO}	period greater than 15 days, you will purchase a

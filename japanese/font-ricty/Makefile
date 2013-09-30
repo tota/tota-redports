@@ -1,15 +1,10 @@
-# New ports collection makefile for:	font-ricty
-# Date created:		24 April 2012
-# Whom:			masaki
-#
-# $FreeBSD: ports/japanese/font-ricty/Makefile,v 1.2 2012/05/03 23:01:54 tota Exp $
-#
+# Created by: masaki
+# $FreeBSD$
 
 PORTNAME=	ricty
-PORTVERSION=	3.2.0
+PORTVERSION=	3.2.1b
 PORTREVISION=	1
 CATEGORIES=	japanese x11-fonts
-MASTER_SITES=	https://nodeload.github.com/yascentur/Ricty/tarball/${PORTVERSION}?dummy=/
 PKGNAMEPREFIX=	ja-font-
 
 MAINTAINER=	masaki@club.kyutech.ac.jp
@@ -17,12 +12,17 @@ COMMENT=	Ricty - fonts for programming
 
 RUN_DEPENDS=	fc-cache:${PORTSDIR}/x11-fonts/fontconfig
 BUILD_DEPENDS=	${LOCALBASE}/${X_FONTSDIR}/OTF/Inconsolata.otf:${PORTSDIR}/x11-fonts/inconsolata-ttf \
-				${LOCALBASE}/${X_FONTSDIR}/TTF/migu-1m-regular.ttf:${PORTSDIR}/japanese/font-migu \
-				${LOCALBASE}/${X_FONTSDIR}/TTF/migu-1m-bold.ttf:${PORTSDIR}/japanese/font-migu \
-				fontforge:${PORTSDIR}/print/fontforge
+		${LOCALBASE}/${X_FONTSDIR}/TTF/migu-1m-regular.ttf:${PORTSDIR}/japanese/font-migu \
+		${LOCALBASE}/${X_FONTSDIR}/TTF/migu-1m-bold.ttf:${PORTSDIR}/japanese/font-migu \
+		fontforge:${PORTSDIR}/print/fontforge
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	yascentur
+GH_COMMIT=	${GH_TAGNAME}
+GH_PROJECT=	Ricty
+GH_TAGNAME=	dfd3637
 
 NO_PACKAGE=	redistribution is not allowed
-FETCH_BEFORE_ARGS=	-o ${DISTNAME}${EXTRACT_SUFX}
 PKGINSTALL=	${WRKDIR}/pkg-install
 PKGDEINSTALL=	${WRKDIR}/pkg-install
 SUB_FILES=	pkg-install
@@ -30,17 +30,19 @@ SUB_LIST=	X_FONTSDIR=${PREFIX}/${X_FONTSDIR}
 PLIST_SUB=	X_FONTSDIR=${X_FONTSDIR} \
 		LOCAL_FONTSDIR=${LOCAL_FONTSDIR}
 PORTDOCS=	README.md
-TAG=	b9d8b9c
-WRKSRC=	${WRKDIR}/yascentur-Ricty-${TAG}
 
 LOCAL_FONTSDIR=	share/fonts
 X_FONTSDIR=	lib/X11/fonts
 
-OPTIONS=	DISCORD "Install Ricty-Discord" On
+OPTIONS_DEFINE=	DISCORD DOCS
+DISCORD_DESC=	Install Ricty-Discord
 
+OPTIONS_DEFAULT=	DISCORD
+
+NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
-.if defined(WITH_DISCORD)
+.if ${PORT_OPTIONS:MDISCORD}
 PLIST_SUB+=	DISCORD=""
 SUB_LIST+=	DISCORD=""
 .else
@@ -58,7 +60,7 @@ do-build:
 do-install:
 	${MKDIR} ${DATADIR}
 	${INSTALL_DATA} ${WRKSRC}/Ricty-*.ttf ${DATADIR}
-.if defined(WITH_DISCORD)
+.if ${PORT_OPTIONS:MDISCORD}
 	${INSTALL_DATA} ${WRKSRC}/RictyDiscord-*.ttf ${DATADIR}
 .endif
 	${MKDIR} ${PREFIX}/${LOCAL_FONTSDIR}/TTF
@@ -76,7 +78,7 @@ do-install:
 		${PREFIX}/etc/fonts/conf.d/20-unhint-ricty.conf
 	${LN} -s -f ../conf.avail/62-fonts-ricty.conf \
 		${PREFIX}/etc/fonts/conf.d/62-fonts-ricty.conf
-.if defined(WITH_DISCORD)
+.if ${PORT_OPTIONS:MDISCORD}
 	${INSTALL_DATA} ${FILESDIR}/20-unhint-rictydiscord.conf \
 		${FILESDIR}/62-fonts-rictydiscord.conf \
 		${PREFIX}/etc/fonts/conf.avail
@@ -85,7 +87,7 @@ do-install:
 	${LN} -s -f ../conf.avail/62-fonts-rictydiscord.conf \
 		${PREFIX}/etc/fonts/conf.d/62-fonts-rictydiscord.conf
 .endif
-.if !defined(NOPORTDOCS)
+.if ${PORT_OPTIONS:MDOCS}
 	${MKDIR} ${DOCSDIR}
 	cd ${WRKSRC} && ${INSTALL_DATA} ${PORTDOCS} ${DOCSDIR}
 .endif

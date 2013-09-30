@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	em-twitter
-PORTVERSION=	0.2.1
+PORTVERSION=	0.2.2
 CATEGORIES=	www rubygems
 MASTER_SITES=	RG
 
@@ -17,4 +17,5 @@ USE_RUBY=	yes
 USE_RUBYGEMS=	yes
 RUBYGEM_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

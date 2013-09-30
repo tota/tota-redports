@@ -1,14 +1,9 @@
-# ex:ts=8
-# Ports collection makefile for:	rpy
-# Date created:			Jan 14, 2003
-# Whom:				ijliao
-#
-# $FreeBSD: ports/math/rpy/Makefile,v 1.31 2012/03/03 16:59:34 bf Exp $
-#
+# Created by: ijliao
+# $FreeBSD$
 
 PORTNAME=	rpy
 PORTVERSION=	1.0.3
-PORTREVISION=	22
+PORTREVISION=	28
 CATEGORIES=	math
 MASTER_SITES=	SF
 
@@ -27,9 +22,10 @@ USE_PYTHON=	yes
 USE_PYDISTUTILS=	yes
 LDFLAGS+=	-L${LOCALBASE}/lib/R/modules -L${LOCALBASE}/lib/R/lib
 
+NO_STAGE=	yes
 post-patch:
 	@${REINPLACE_CMD} -e 's,^statichere ,,' ${WRKSRC}/src/rpymodule.c
-	@${REINPLACE_CMD} -e 's|%%LOCALBASE%%|${LOCALBASE}|g' ${WRKSRC}/setup.py
+	@${REINPLACE_CMD} -e 's|/usr/share|${LOCALBASE}/lib|' ${WRKSRC}/setup.py
 
 pre-configure:
 	@(if [ ! -e ${LOCALBASE}/lib/R/lib/libR.so ] ; then \

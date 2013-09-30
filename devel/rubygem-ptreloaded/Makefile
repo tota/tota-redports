@@ -1,9 +1,5 @@
-# New ports collection makefile for:	rubygem-ptreloaded
-# Date created:		2007-09-28
-# Whom:			TAKATSU Tomonari <tota@rtfm.jp>
-#
-# $FreeBSD: ports/devel/rubygem-ptreloaded/Makefile,v 1.7 2010/12/31 06:17:40 tota Exp $
-#
+# Created by: TAKATSU Tomonari <tota@rtfm.jp>
+# $FreeBSD$
 
 PORTNAME=	ptreloaded
 PORTVERSION=	0.0.1
@@ -24,4 +20,5 @@ USE_RUBY=	yes
 USE_RUBYGEMS=	yes
 RUBYGEM_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/math/R-cran-labeling/Makefile 319316 2013-05-28 15:15:05Z bf $
+# $FreeBSD$
 
 PORTNAME=	labeling
 PORTVERSION=	0.2
@@ -9,7 +9,10 @@ DISTNAME=	${PORTNAME}_${PORTVERSION}
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Provides a range of axis labeling algorithms
 
+LICENSE=	MIT
+
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

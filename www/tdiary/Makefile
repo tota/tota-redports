@@ -1,11 +1,11 @@
 # Created by: Fumihiko Kimura <jfkimura@yahoo.co.jp>
-# $FreeBSD: head/www/tdiary/Makefile 317010 2013-05-01 11:08:14Z tota $
+# $FreeBSD$
 
 PORTNAME=	tdiary
-PORTVERSION=	4.0.0
+PORTVERSION=	3.2.2
 CATEGORIES?=	www ruby
 MASTER_SITES=	http://www.tdiary.org/download/
-DISTNAME=	${PORTNAME}-full-v${PORTVERSION}
+DISTNAME=	${PORTNAME}-full-${PORTVERSION}
 
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Web-based diary system (like weblog) written in Ruby
@@ -18,7 +18,7 @@ RUN_DEPENDS=	hikidoc:${PORTSDIR}/textproc/ruby-hikidoc \
 
 NO_BUILD=	yes
 USE_RUBY=	yes
-RUBY_REQUIRE=	Ruby >= 193
+RUBY_REQUIRE=	Ruby >= 185
 
 RUBY_SHEBANG_FILES=	index.fcgi \
 			index.rb \
@@ -43,7 +43,7 @@ PORTDOCS=	ChangeLog doc.css ${HTML} ${MD}
 SUB_FILES=	pkg-message tdiaryinst.rb
 SUB_LIST+=	TDIARY_LANG=${TDIARY_LANG} \
 		TDIARY_SCRIPT=${TDIARY_SCRIPT}
-WRKSRC=		${WRKDIR}/${PORTNAME}-v${PORTVERSION}
+WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
 DOCSDIR=	${PREFIX}/share/doc/${UNIQUENAME}
 WWWDIR=		${PREFIX}/www/${UNIQUENAME}
 
@@ -56,37 +56,31 @@ TDIARY_LANG=	en
 
 REINPLACE_ARGS=	-i ''
 
-OPTIONS_DEFINE=	DOCS
+OPTIONS_DEFINE=	DOCS NORA
+OPTIONS_DEFAULT=	NORA
 
-.include <bsd.port.pre.mk>
+NORA_DESC=	Use Nora
 
-.if ${RUBY_VER} == 1.9
-.if !defined(RUBY_PROVIDED)
-IGNORE=	requires Ruby 1.9.3 or later
-.endif
-.endif
-
-.if ${RUBY_VER} == 1.8
-.if !defined(RUBY_PROVIDED)
-IGNORE=	requires Ruby 1.9.3 or later
-.endif
-.endif
+NO_STAGE=	yes
+.include <bsd.port.options.mk>
 
 pre-patch:
 	@${RM} ${WRKSRC}/.coveralls.yml
 	@${RM} ${WRKSRC}/.gitignore
 	@${RM} ${WRKSRC}/.travis.yml
+	@${RM} ${WRKSRC}/Capfile
 	@${RM} ${WRKSRC}/Gemfile
 	@${RM} ${WRKSRC}/Gemfile.lock
 	@${RM} ${WRKSRC}/LICENSE
 	@${RM} ${WRKSRC}/Procfile
 	@${RM} ${WRKSRC}/Rakefile
 	@${RM} ${WRKSRC}/config.ru
-	@${RM} -r ${WRKSRC}/.bundle
 	@${RM} -r ${WRKSRC}/public
 	@${RM} -r ${WRKSRC}/spec
 	@${RM} -r ${WRKSRC}/test
-	@${RM} -r ${WRKSRC}/vendor
+	@${RM} -r ${WRKSRC}/vendor/hikidoc-0.0.6
+	@${RM} -r ${WRKSRC}/vendor/imagesize-0.1.1/*
+	@${RM} -r ${WRKSRC}/vendor/json_pure-1.7.7
 	@${MV} ${WRKSRC}/ChangeLog ${WRKSRC}/doc
 	@${MV} ${WRKSRC}/README.md ${WRKSRC}/doc
 
@@ -103,6 +97,7 @@ do-install:
 	@${INSTALL_SCRIPT} ${WRKDIR}/${TDIARY_SCRIPT} ${PREFIX}/bin
 	@-${MKDIR} ${WWWDIR}
 	@${TAR} --exclude "doc" -C ${WRKSRC} -cf - . | ${TAR} --unlink -C ${WWWDIR} -xf -
+	@${LN} -sf ${LOCALBASE}/lib/ruby/gems/${RUBY_VER}/gems/imagesize-0.1.1/lib ${WWWDIR}/vendor/imagesize-0.1.1/lib
 	@${CHOWN} -R ${WWWOWN}:${WWWGRP} ${WWWDIR}
 
 post-install:
@@ -117,5 +112,23 @@ post-install:
 x-generate-plist:
 	${FIND} ${WWWDIR} -type f -o -type l | ${SORT} | ${SED} -e 's,${WWWDIR},%%WWWDIR%%,g' > pkg-plist.new
 	${FIND} ${WWWDIR} -type d -depth | ${SORT} -r | ${SED} -e 's,${WWWDIR},@dirrm %%WWWDIR%%,g' >> pkg-plist.new
+
+.include <bsd.port.pre.mk>
+
+.if ${RUBY_VER} == 1.9
+.if !defined(RUBY_PROVIDED)
+IGNORE=	requires Ruby 1.9.1 or later
+.endif
+.endif
+
+.if ${RUBY_VER} == 1.8
+.if !defined(RUBY_PROVIDED)
+IGNORE=	requires Ruby 1.8.5 or later
+.endif
+RUN_DEPENDS+=	${DEPEND_RUBY_ICONV}
+.if ${PORT_OPTIONS:MNORA}
+RUN_DEPENDS+=	${RUBY_SITEARCHLIBDIR}/web/escape_ext.so:${PORTSDIR}/www/ruby-nora
+.endif
+.endif
 
 .include <bsd.port.post.mk>

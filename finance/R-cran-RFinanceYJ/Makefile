@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/finance/R-cran-RFinanceYJ/Makefile 321894 2013-06-27 15:00:45Z tota $
+# $FreeBSD$
 
 PORTNAME=	RFinanceYJ
 PORTVERSION=	0.3.1
@@ -17,4 +17,5 @@ RUN_DEPENDS=	R-cran-XML>0:${PORTSDIR}/textproc/R-cran-XML \
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

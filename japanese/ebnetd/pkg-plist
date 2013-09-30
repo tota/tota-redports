@@ -1,4 +1,3 @@
-@comment $FreeBSD: head/japanese/ebnetd/pkg-plist 300896 2012-07-14 13:54:48Z beat $
 etc/ebnetd.conf.sample
 libexec/ebhtstat
 libexec/ebnstat
@@ -15,4 +14,4 @@ sbin/ndtpcheck
 sbin/ndtpcontrol
 sbin/ndtpd
 @exec mkdir -m 0755 -p %%EBNETD_RUNDIR%%
-@unexec rmdir %%EBNETD_RUNDIR%%
+@dirrmtry %%EBNETD_RUNDIR%%

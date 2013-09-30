@@ -1,12 +1,8 @@
 # Created by: Jun-ichiro itojun Hagino <itojun@itojun.org>
-# $FreeBSD: head/ports-mgmt/portlint/Makefile 313808 2013-03-10 06:16:40Z marcus $
-#
-# This port is self contained in the src directory.
-#
+# $FreeBSD$
 
 PORTNAME=	portlint
-PORTVERSION=	2.14.2
-PORTREVISION=	1
+PORTVERSION=	2.14.4
 CATEGORIES=	ports-mgmt
 MASTER_SITES=	# none
 DISTFILES=	# none
@@ -16,7 +12,8 @@ COMMENT=	A verifier for FreeBSD port directory
 
 NO_BUILD=	yes
 WRKSRC=		${WRKDIR}/src
-USE_PERL5_RUN=	yes
+USES=		perl5
+USE_PERL5=	run
 
 SRC=		${.CURDIR}/src
 
@@ -28,6 +25,7 @@ PLIST_FILES+=	%%EXAMPLESDIR%%/portlintgrep
 PLIST_DIRS=	%%EXAMPLESDIR%%
 .endif
 
+NO_STAGE=	yes
 do-fetch:
 	@${DO_NADA}
 

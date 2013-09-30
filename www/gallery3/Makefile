@@ -1,8 +1,8 @@
 # Created by: Bo-Yi Wu <appleboy.tw@gmail.com>
-# $FreeBSD: head/www/gallery3/Makefile 316464 2013-04-24 18:10:30Z ak $
+# $FreeBSD$
 
 PORTNAME=	gallery3
-PORTVERSION=	3.0.7
+PORTVERSION=	3.0.9
 CATEGORIES=	www
 MASTER_SITES=	SF/gallery/${PORTNAME}/${PORTVERSION}
 DISTNAME=	gallery-${PORTVERSION}
@@ -25,6 +25,7 @@ OPTIONS_DEFINE=	DCRAW FFMPEG GD GRAPHMAGICK IMAGEMAGICK JHEAD \
 		NETPBM NLS UNZIP
 OPTIONS_DEFAULT=	IMAGEMAGICK JHEAD UNZIP
 
+NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 .if defined(GALLERY3DIR)

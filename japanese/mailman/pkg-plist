@@ -1,4 +1,4 @@
-@comment $FreeBSD: head/japanese/mailman/pkg-plist 300896 2012-07-14 13:54:48Z beat $
+@comment $FreeBSD$
 @stopdaemon mailman
 @unexec if cmp -s %D/%%MMDIR%%/Mailman/mm_cfg.py %D/%%MMDIR%%/Mailman/mm_cfg.py.dist; then rm -f %D/%%MMDIR%%/Mailman/mm_cfg.py; fi
 @unexec rm -f %D/%%MMDIR%%/Mailman/mm_cfg.pyc

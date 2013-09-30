@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/py-nwdiag/Makefile 306347 2012-10-24 16:14:30Z tota $
+# $FreeBSD$
 
 PORTNAME=	nwdiag
-PORTVERSION=	0.9.1
+PORTVERSION=	0.9.4
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -14,7 +14,7 @@ LICENSE=	AL2
 
 RUN_DEPENDS=	${PKGNAMEPREFIX}imaging>=1.1.5:${PORTSDIR}/graphics/py-imaging \
 		${PKGNAMEPREFIX}funcparserlib>=0.3.4:${PORTSDIR}/devel/py-funcparserlib \
-		${PKGNAMEPREFIX}blockdiag>=1.2.0:${PORTSDIR}/graphics/py-blockdiag
+		${PKGNAMEPREFIX}blockdiag>=1.2.4:${PORTSDIR}/graphics/py-blockdiag
 
 USE_PYTHON=	-2.7
 USE_PYDISTUTILS=	easy_install
@@ -27,6 +27,7 @@ EXAMPLESDIR=	${PREFIX}/share/examples/${PKGNAMEPREFIX}${PORTNAME}
 PORTDOCS=	README.txt
 PORTEXAMPLES=	*
 
+NO_STAGE=	yes
 post-install:
 .if !defined(NOPORTDOCS)
 	@${MKDIR} ${DOCSDIR}
@@ -34,9 +35,11 @@ post-install:
 .endif
 .if !defined(NOPORTEXAMPLES)
 	@${MKDIR} ${EXAMPLESDIR}
+.for d in ${PORTNAME} packetdiag
 	@${INSTALL_DATA} \
-		${INSTALL_WRKSRC}/examples/${PORTNAME}/${PORTEXAMPLES} \
+		${INSTALL_WRKSRC}/examples/${d}/${PORTEXAMPLES} \
 		${EXAMPLESDIR}
+.endfor
 .endif
 .for f in ${MAN1}
 	@${INSTALL_MAN} ${WRKSRC}/${f} ${MAN1PREFIX}/man/man1/

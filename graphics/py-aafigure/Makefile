@@ -1,9 +1,5 @@
-# New ports collection makefile for:	py-aafigure
-# Date created:		2010-08-07
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/graphics/py-aafigure/Makefile,v 1.2 2010/12/31 06:37:29 tota Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	aafigure
 PORTVERSION=	0.5
@@ -29,6 +25,7 @@ EXAMPLESDIR=	${PREFIX}/share/examples/${PKGNAMEPREFIX}${PORTNAME}
 PORTDOCS=	README.txt
 PORTEXAMPLES=	*
 
+NO_STAGE=	yes
 post-install:
 .if !defined(NOPORTDOCS)
 	${MKDIR} ${DOCSDIR}

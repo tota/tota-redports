@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/devel/quickcheck++/Makefile 300896 2012-07-14 13:54:48Z beat $
+# $FreeBSD$
 
 PORTNAME=	quickcheck++
 PORTVERSION=	0.0.3
@@ -25,6 +25,7 @@ PORTEXAMPLES=	examples.cc
 OPTIONS_DEFINE=	DOXYGEN
 DOXYGEN_DESC=	Build documentation with doxygen
 
+NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 .if !defined(NOPORTDOCS) && ${PORT_OPTIONS:MDOXYGEN}

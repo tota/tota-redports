@@ -1,4 +1,4 @@
-# $FreeBSD: head/japanese/kon2-16dot/files/dotconfig 300896 2012-07-14 13:54:48Z beat $
+# $FreeBSD$
 BINDIR	= $(TOPDIR)/bin
 LIBDIR	= $(TOPDIR)/etc
 MANDIR	= $(TOPDIR)/man/ja/man

@@ -1,8 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/converters/R-cran-RJSONIO/Makefile 315166 2013-03-24 21:23:35Z tota $
+# $FreeBSD$
 
 PORTNAME=	RJSONIO
 DISTVERSION=	1.0-3
+PORTREVISION=	1
 CATEGORIES=	converters
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -14,4 +15,5 @@ LICENSE=	BSD
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

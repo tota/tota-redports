@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@rtfm.jp>
-# $FreeBSD: head/japanese/mecab-ipadic/Makefile 312044 2013-02-11 05:52:13Z tota $
+# $FreeBSD$
 
 PORTNAME=	mecab-ipadic
 DISTVERSION=	2.7.0-20070801
@@ -21,7 +21,8 @@ LICENSE_PERMS_ICOT=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 BUILD_DEPENDS=	ja-mecab>=0.94:${PORTSDIR}/japanese/mecab
 
-USE_PERL5_BUILD=	yes
+USES=			perl5
+USE_PERL5=		build
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--with-dicdir=${PREFIX}/lib/mecab/dic/ipadic
 
@@ -32,6 +33,7 @@ EUCJP_DESC=	Use EUC-JP as dictionary charset.
 SHIFTJIS_DESC=	Use SHIFT-JIS as dictionary charset.
 UTF8_DESC=	Use UTF-8 as dictionary charset.
 
+NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MEUCJP}

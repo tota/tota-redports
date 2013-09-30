@@ -1,9 +1,5 @@
-# New ports collection makefile for:	ruby-escape
-# Date created:		2011-03-29
-# Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
-#
-# $FreeBSD: ports/textproc/ruby-escape/Makefile,v 1.1 2011/03/29 21:00:05 tota Exp $
-#
+# Created by: TAKATSU Tomonari <tota@FreeBSD.org>
+# $FreeBSD$
 
 PORTNAME=	escape
 PORTVERSION=	0.2
@@ -14,13 +10,14 @@ PKGNAMEPREFIX=	${RUBY_PKGNAMEPREFIX}
 DIST_SUBDIR=	${RUBY_PKGNAMEPREFIX:S|${RUBY_SUFFIX}-||}
 
 MAINTAINER=	tota@FreeBSD.org
-COMMENT=	A Ruby library provies HTML/URI/shell escaping functions
+COMMENT=	Ruby library provides HTML/URI/shell escaping functions
 
 USE_RUBY=	yes
 NO_BUILD=	yes
 
 DOCS=	ChangeLog README
 
+NO_STAGE=	yes
 do-install:
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/escape.rb ${RUBY_SITELIBDIR}/
 .if !defined(NOPORTDOCS)

@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	testlink
-PORTVERSION=	1.9.8
+PORTVERSION=	1.9.7
 CATEGORIES=	www devel
 MASTER_SITES=	SF
 MASTER_SITE_SUBDIR=	${PORTNAME}/TestLink%201.9/TestLink%20${PORTVERSION}
@@ -32,6 +32,7 @@ EXTJS_DESC=		Enable Ext JS support
 
 OPTIONS_DEFAULT=	MYSQL EXTJS
 
+NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MMYSQL}

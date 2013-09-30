@@ -3,6 +3,7 @@
 
 PORTNAME=	ChangeAnomalyDetection
 PORTVERSION=	0.1.0
+PORTREVISION=	1
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -17,4 +18,5 @@ RUN_DEPENDS=	R-cran-TTR>0:${PORTSDIR}/finance/R-cran-TTR \
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/devel/ruby-memoize/Makefile 327726 2013-09-20 17:17:44Z bapt $
+# $FreeBSD$
 
 PORTNAME=	memoize
 PORTVERSION=	1.3.1

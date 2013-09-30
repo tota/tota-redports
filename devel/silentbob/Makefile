@@ -1,9 +1,5 @@
-# New ports collection makefile for:	silentbob
-# Date created:		2008-11-13
-# Whom:			TAKATSU Tomonari <tota@rtfm.jp>
-#
-# $FreeBSD: ports/devel/silentbob/Makefile,v 1.9 2010/10/01 14:31:55 tota Exp $
-#
+# Created by: TAKATSU Tomonari <tota@rtfm.jp>
+# $FreeBSD$
 
 PORTNAME=	silentbob
 PORTVERSION=	2.4.2
@@ -13,7 +9,7 @@ MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}2/${PORTNAME}-2.4/
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Yet another sourcecode indexing tool
 
-USE_CMAKE=	yes
+USES=		cmake
 
 LICENSE=	GPLv1
 LICENSE_FILE=	${WRKSRC}/COPYING
@@ -21,10 +17,9 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 PORTDOCS=	*
 PLIST_FILES=	bin/bob
 
-post-extract:
-	@${RM} ${WRKSRC}/CMakeCache.txt
-
+NO_STAGE=	yes
 post-patch:
+	@${RM} ${WRKSRC}/CMakeCache.txt
 	@${REINPLACE_CMD} -e 's|/usr/lib/silent_bob/|${PREFIX}/lib/silent_bob/|' \
 		${WRKSRC}/src/init.cxx
 

@@ -3,7 +3,7 @@
 
 PORTNAME=	strucchange
 DISTVERSION=	1.4-7
-PORTREVISION=	2
+PORTREVISION=	4
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -18,4 +18,5 @@ RUN_DEPENDS=	R-cran-zoo>0:${PORTSDIR}/math/R-cran-zoo \
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

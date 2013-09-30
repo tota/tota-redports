@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/devel/R-cran-gdata/Makefile 319316 2013-05-28 15:15:05Z bf $
+# $FreeBSD$
 
 PORTNAME=	gdata
 PORTVERSION=	2.13.2
@@ -13,8 +13,10 @@ LICENSE=	GPLv2
 
 RUN_DEPENDS=	R-cran-gtools>0:${PORTSDIR}/devel/R-cran-gtools
 
-USE_PERL5_RUN=	yes
+USES=		perl5
+USE_PERL5=	run
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
+NO_STAGE=	yes
 .include <bsd.port.mk>

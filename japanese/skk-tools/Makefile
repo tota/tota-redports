@@ -18,20 +18,19 @@ OPTIONS_DEFINE=	EXPR2
 OPTIONS_DEFAULT=	EXPR2
 EXPR2_DESC=	Build skkdic-expr2 (needs glib-2.x)
 
-USE_GCC=	any
-USE_GMAKE=	yes
 GNU_CONFIGURE=	yes
-MAKE_JOBS_SAFE=	yes
 
 DOCSDIR=	${PREFIX}/share/doc/skk
 
 PORTDOCS=	README.skktools
 PLIST_FILES=	bin/skkdic-count bin/skkdic-expr bin/skkdic-sort
 
+NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MEXPR2}
 USE_GNOME=	glib20
+USES+=		pkgconfig
 PORTDOCS+=	README.skkdic-expr2
 PLIST_FILES+=	bin/skkdic-expr2
 .else
