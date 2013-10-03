@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/devel/pear-IO_Bit/Makefile 327724 2013-09-20 17:13:42Z bapt $
 
 PORTNAME=	IO_Bit
-PORTVERSION=	2.1.0
+PORTVERSION=	2.1.1
 CATEGORIES=     devel pear
 MASTER_SITES=	http://openpear.org/get/ \
 		LOCAL
