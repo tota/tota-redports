@@ -1,0 +1,4 @@
+Distributes the V8 JavaScript engine in binary and source forms
+in order to support fast builds of The Ruby Racer
+
+WWW: https://rubygems.org/gems/libv8
