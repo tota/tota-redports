@@ -85,6 +85,7 @@ pre-patch:
 	@${RM} ${WRKSRC}/Rakefile
 	@${RM} ${WRKSRC}/config.ru
 	@${RM} -r ${WRKSRC}/.bundle
+	@${RM} -r ${WRKSRC}/misc/lib/bundler-1.3.5
 	@${RM} -r ${WRKSRC}/public
 	@${RM} -r ${WRKSRC}/spec
 	@${RM} -r ${WRKSRC}/test
