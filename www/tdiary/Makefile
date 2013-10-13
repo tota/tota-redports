@@ -1,8 +1,8 @@
 # Created by: Fumihiko Kimura <jfkimura@yahoo.co.jp>
-# $FreeBSD: head/www/tdiary/Makefile 327776 2013-09-20 23:36:50Z bapt $
+# $FreeBSD: head/www/tdiary/Makefile 330205 2013-10-13 05:25:07Z tota $
 
 PORTNAME=	tdiary
-PORTVERSION=	4.0.0
+PORTVERSION=	4.0.1
 CATEGORIES?=	www ruby
 MASTER_SITES=	http://www.tdiary.org/download/
 DISTNAME=	${PORTNAME}-full-v${PORTVERSION}
