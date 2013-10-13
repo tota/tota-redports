@@ -60,7 +60,6 @@ REINPLACE_ARGS=	-i ''
 
 OPTIONS_DEFINE=	DOCS
 
-NO_STAGE=	yes
 .include <bsd.port.pre.mk>
 
 .if ${RUBY_VER} == 1.9
@@ -103,17 +102,17 @@ pre-install:
 	@${REINPLACE_CMD} '/#!\/usr\/bin\/env ruby/d' ${WRKSRC}/misc/migrate.rb
 
 do-install:
-	@${INSTALL_SCRIPT} ${WRKDIR}/${TDIARY_SCRIPT} ${PREFIX}/bin
-	@-${MKDIR} ${WWWDIR}
-	@${TAR} --exclude "doc" -C ${WRKSRC} -cf - . | ${TAR} --unlink -C ${WWWDIR} -xf -
-	@${CHOWN} -R ${WWWOWN}:${WWWGRP} ${WWWDIR}
+	@${INSTALL_SCRIPT} ${WRKDIR}/${TDIARY_SCRIPT} ${STAGEDIR}${PREFIX}/bin
+	@-${MKDIR} ${STAGEDIR}${WWWDIR}
+	@${TAR} --exclude "doc" -C ${WRKSRC} -cf - . | ${TAR} --unlink -C ${STAGEDIR}${WWWDIR} -xf -
+	@${CHOWN} -R ${WWWOWN}:${WWWGRP} ${STAGEDIR}${WWWDIR}
 
 post-install:
 	@${ECHO_CMD} '@exec ${CHOWN} -R ${WWWOWN}:${WWWGRP} ${WWWDIR}' >> ${TMPPLIST}
 	@${ECHO_CMD} bin/${TDIARY_SCRIPT} >> ${TMPPLIST}
 .if ${PORT_OPTIONS:MDOCS}
-	@${INSTALL} -d ${DOCSDIR}
-	@cd ${WRKSRC}/doc && ${INSTALL_DATA} ${PORTDOCS} ${DOCSDIR}
+	@${INSTALL} -d ${STAGEDIR}${DOCSDIR}
+	@cd ${WRKSRC}/doc && ${INSTALL_DATA} ${PORTDOCS} ${STAGEDIR}${DOCSDIR}
 .endif
 	@${CAT} ${PKGMESSAGE}
 
