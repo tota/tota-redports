@@ -174,7 +174,6 @@
 %%WWWDIR%%/misc/style/wiki/README.en
 %%WWWDIR%%/misc/style/wiki/wiki_parser.rb
 %%WWWDIR%%/misc/style/wiki/wiki_style.rb
-%%WWWDIR%%/misc/templates/Gemfile.local.erb
 %%WWWDIR%%/misc/theme_convert/Readme.rd
 %%WWWDIR%%/misc/theme_convert/append.rcss
 %%WWWDIR%%/misc/theme_convert/theme_convert.rb
@@ -2262,7 +2261,6 @@
 @dirrm %%WWWDIR%%/plugin/en
 @dirrm %%WWWDIR%%/plugin
 @dirrm %%WWWDIR%%/misc/theme_convert
-@dirrm %%WWWDIR%%/misc/templates
 @dirrm %%WWWDIR%%/misc/style/wiki
 @dirrm %%WWWDIR%%/misc/style/rd
 @dirrm %%WWWDIR%%/misc/style/gfm
