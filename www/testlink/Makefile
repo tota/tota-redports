@@ -87,7 +87,6 @@ do-install:
 	@cd ${WRKSRC}/docs && ${COPYTREE_SHARE} ${f} ${STAGEDIR}${EXAMPLESDIR}
 .endfor
 .endif
-	@${CHOWN} -R ${WWWOWN}:${WWWGRP} ${STAGEDIR}${WWWDIR}
 
 x-generate-plist:
 	${FIND} ${WWWDIR} -type f | ${SORT} | ${SED} -e 's,${WWWDIR},%%WWWDIR%%,g' > pkg-plist.new
