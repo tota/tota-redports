@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/graphics/py-blockdiag/Makefile 327733 2013-09-20 18:35:44Z bapt $
 
 PORTNAME=	blockdiag
-PORTVERSION=	1.2.4
+PORTVERSION=	1.3.0
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -12,14 +12,13 @@ COMMENT=	A simple block-diagram image generator
 
 LICENSE=	AL2
 
-RUN_DEPENDS=	${PKGNAMEPREFIX}imaging>=1.1.5:${PORTSDIR}/graphics/py-imaging \
-		${PKGNAMEPREFIX}funcparserlib>=0.3.4:${PORTSDIR}/devel/py-funcparserlib \
-		${PKGNAMEPREFIX}ordereddict>0:${PORTSDIR}/devel/py-ordereddict \
+RUN_DEPENDS=	${PKGNAMEPREFIX}pillow>=1.1.5:${PORTSDIR}/graphics/py-pillow \
+		${PKGNAMEPREFIX}funcparserlib>=0.3.6:${PORTSDIR}/devel/py-funcparserlib \
 		${PKGNAMEPREFIX}webcolors>=0:${PORTSDIR}/graphics/py-webcolors
 
 UNIQUENAME=	py-${PORTNAME}
 
-USE_PYTHON=	-2.7
+USE_PYTHON=	yes
 USE_PYDISTUTILS=	easy_install
 
 MAN1=	${PORTNAME}.1
@@ -37,7 +36,11 @@ PDF_DESC=	Enable PDF output
 OPTIONS_DEFAULT=	PDF
 
 NO_STAGE=	yes
-.include <bsd.port.options.mk>
+.include <bsd.port.pre.mk>
+
+.if ${PYTHON_VER} == 3.1
+IGNORE=	does not support in ${PYTHON_VERSION}
+.endif
 
 .if ${PORT_OPTIONS:MPDF}
 RUN_DEPENDS+=	${PKGNAMEPREFIX}reportlab2>0:${PORTSDIR}/print/py-reportlab2
@@ -48,11 +51,11 @@ RUN_DEPENDS+=	${LOCALBASE}/share/font-ipa/ipag.otf:${PORTSDIR}/japanese/font-ipa
 .endif
 
 post-install:
-.if !defined(NOPORTDOCS)
+.if ${PORT_OPTIONS:MDOCS}
 	@${MKDIR} ${DOCSDIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/src/${PORTDOCS} ${DOCSDIR}
 .endif
-.if !defined(NOPORTEXAMPLES)
+.if ${PORT_OPTIONS:MEXAMPLES}
 	@${MKDIR} ${EXAMPLESDIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/examples/${PORTEXAMPLES} ${EXAMPLESDIR}
 .endif
@@ -67,4 +70,4 @@ x-generate-plist:
 	${SED} -e 's,${PYTHON_SITELIBDIR},@dirrm %%PYTHON_SITELIBDIR%%,' \
 	-e 's,${PYEASYINSTALL_EGG},%%PYEASYINSTALL_EGG%%,' >> pkg-plist.new
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
