@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	seqdiag
-PORTVERSION=	0.8.2
+PORTVERSION=	0.9.0
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -12,11 +12,11 @@ COMMENT=	Simple sequence-diagram image generator
 
 LICENSE=	AL2
 
-RUN_DEPENDS=	${PKGNAMEPREFIX}imaging>=1.1.5:${PORTSDIR}/graphics/py-imaging \
-		${PKGNAMEPREFIX}funcparserlib>=0.3.4:${PORTSDIR}/devel/py-funcparserlib \
-		${PKGNAMEPREFIX}blockdiag>=1.2.4:${PORTSDIR}/graphics/py-blockdiag
+RUN_DEPENDS=	${PKGNAMEPREFIX}pillow>=2.2.1:${PORTSDIR}/graphics/py-pillow \
+		${PKGNAMEPREFIX}funcparserlib>=0.3.6:${PORTSDIR}/devel/py-funcparserlib \
+		${PKGNAMEPREFIX}blockdiag>=1.3.0:${PORTSDIR}/graphics/py-blockdiag
 
-USE_PYTHON=	-2.7
+USE_PYTHON=	yes
 USE_PYDISTUTILS=	easy_install
 
 DOCSDIR=	${PREFIX}/share/doc/${UNIQUENAME}
@@ -28,14 +28,18 @@ PORTDOCS=	README.txt
 PORTEXAMPLES=	*
 
 NO_STAGE=	yes
-.include <bsd.port.options.mk>
+.include <bsd.port.pre.mk>
+
+.if ${PYTHON_VER} == 3.1
+IGNORE=	does not support in ${PYTHON_VERSION}
+.endif
 
 post-install:
 .if ${PORT_OPTIONS:MDOCS}
 	@${MKDIR} ${DOCSDIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/src/${PORTDOCS} ${DOCSDIR}
 .endif
-.if !defined(NOPORTEXAMPLES)
+.if ${PORT_OPTIONS:MEXAMPLES}
 	@${MKDIR} ${EXAMPLESDIR}
 	@${INSTALL_DATA} ${INSTALL_WRKSRC}/examples/${PORTEXAMPLES} ${EXAMPLESDIR}
 .endif
@@ -52,4 +56,4 @@ x-generate-plist:
 		-e 's,${PYEASYINSTALL_EGG},%%PYEASYINSTALL_EGG%%,' \
 		>> pkg-plist.new
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
