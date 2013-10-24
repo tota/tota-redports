@@ -12,7 +12,7 @@ COMMENT=	A simple block-diagram image generator
 
 LICENSE=	AL2
 
-RUN_DEPENDS=	${PKGNAMEPREFIX}pillow>=1.1.5:${PORTSDIR}/graphics/py-pillow \
+RUN_DEPENDS=	${PKGNAMEPREFIX}pillow>=2.2.1:${PORTSDIR}/graphics/py-pillow \
 		${PKGNAMEPREFIX}funcparserlib>=0.3.6:${PORTSDIR}/devel/py-funcparserlib \
 		${PKGNAMEPREFIX}webcolors>=0:${PORTSDIR}/graphics/py-webcolors
 
