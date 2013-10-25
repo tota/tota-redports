@@ -1,9 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/devel/R-cran-caTools/Makefile 327726 2013-09-20 17:17:44Z bapt $
 
 PORTNAME=	caTools
-PORTVERSION=	1.14
-PORTREVISION=	1
+PORTVERSION=	1.16
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
