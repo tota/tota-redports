@@ -5,7 +5,7 @@
          infoline("Downloading standard T1 font curves")
  
 -        remotehandle = urllib2.urlopen("http://www.reportlab.com/ftp/fonts/pfbfer.zip")
-+        remotehandle = open("/usr/ports/distfiles/pfbfer.zip")
++        remotehandle = open("%%DISTDIR%%/pfbfer.zip")
          zipdata = StringIO.StringIO(remotehandle.read())
          remotehandle.close()
          archive = zipfile.ZipFile(zipdata)

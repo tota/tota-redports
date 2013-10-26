@@ -485,7 +485,3 @@
 @dirrm %%PYTHON_SITELIBDIR%%/reportlab/graphics
 @dirrm %%PYTHON_SITELIBDIR%%/reportlab/fonts
 @dirrm %%PYTHON_SITELIBDIR%%/reportlab
-%%PORTDOCS%%%%DOCSDIR%%/reportlab-graphics-reference.pdf
-%%PORTDOCS%%%%DOCSDIR%%/reportlab-reference.pdf
-%%PORTDOCS%%%%DOCSDIR%%/reportlab-userguide.pdf
-%%PORTDOCS%%@dirrm %%DOCSDIR%%
