@@ -1,9 +1,9 @@
 # Created by: Fumihiko Kimura <jfkimura@yahoo.co.jp>
-# $FreeBSD$
+# $FreeBSD: head/www/tdiary/Makefile 330846 2013-10-19 05:12:48Z tota $
 
 PORTNAME=	tdiary
 PORTVERSION=	4.0.0
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES?=	www ruby
 MASTER_SITES=	http://www.tdiary.org/download/
 DISTNAME=	${PORTNAME}-full-v${PORTVERSION}
@@ -18,6 +18,7 @@ RUN_DEPENDS=	rubygem-fastimage>=1.5.0:${PORTSDIR}/graphics/rubygem-fastimage \
 		rubygem-multi_json>=1.7.7:${PORTSDIR}/devel/rubygem-multi_json \
 		rubygem-rack>=0:${PORTSDIR}/www/rubygem-rack
 
+NEED_ROOT=	yes
 NO_BUILD=	yes
 USE_RUBY=	yes
 RUBY_REQUIRE=	Ruby >= 193
@@ -64,12 +65,6 @@ OPTIONS_DEFINE=	DOCS
 .include <bsd.port.pre.mk>
 
 .if ${RUBY_VER} == 1.9
-.if !defined(RUBY_PROVIDED)
-IGNORE=	requires Ruby 1.9.3 or later
-.endif
-.endif
-
-.if ${RUBY_VER} == 1.8
 .if !defined(RUBY_PROVIDED)
 IGNORE=	requires Ruby 1.9.3 or later
 .endif
