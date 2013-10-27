@@ -18,7 +18,6 @@ RUN_DEPENDS=	rubygem-fastimage>=1.5.0:${PORTSDIR}/graphics/rubygem-fastimage \
 		rubygem-multi_json>=1.7.7:${PORTSDIR}/devel/rubygem-multi_json \
 		rubygem-rack>=0:${PORTSDIR}/www/rubygem-rack
 
-NEED_ROOT=	yes
 NO_BUILD=	yes
 USE_RUBY=	yes
 RUBY_REQUIRE=	Ruby >= 193
@@ -102,7 +101,6 @@ do-install:
 	@${INSTALL_SCRIPT} ${WRKDIR}/${TDIARY_SCRIPT} ${STAGEDIR}${PREFIX}/bin
 	@-${MKDIR} ${STAGEDIR}${WWWDIR}
 	@${TAR} --exclude "doc" -C ${WRKSRC} -cf - . | ${TAR} --unlink -C ${STAGEDIR}${WWWDIR} -xf -
-	@${CHOWN} -R ${WWWOWN}:${WWWGRP} ${STAGEDIR}${WWWDIR}
 
 post-install:
 	@${ECHO_CMD} '@exec ${CHOWN} -R ${WWWOWN}:${WWWGRP} ${WWWDIR}' >> ${TMPPLIST}
