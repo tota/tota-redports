@@ -1,9 +1,8 @@
 # Created by: Fumihiko Kimura <jfkimura@yahoo.co.jp>
-# $FreeBSD: head/www/tdiary/Makefile 330846 2013-10-19 05:12:48Z tota $
+# $FreeBSD$
 
 PORTNAME=	tdiary
-PORTVERSION=	4.0.0
-PORTREVISION=	2
+PORTVERSION=	4.0.1
 CATEGORIES?=	www ruby
 MASTER_SITES=	http://www.tdiary.org/download/
 DISTNAME=	${PORTNAME}-full-v${PORTVERSION}
@@ -37,8 +36,8 @@ DOCFILES=	HOWTO-authenticate-in-rack HOWTO-make-io \
 		HOWTO-make-plugin HOWTO-make-theme \
 		HOWTO-testing-tDiary HOWTO-use-plugin \
 		HOWTO-write-tDiary.en HOWTO-write-tDiary \
-		INSTALL-cgi INSTALL-paas INSTALL-rack INSTALL \
-		README.en README UPGRADE
+		INSTALL-paas INSTALL README.en \
+		README UPGRADE
 HTML=	${DOCFILES:S/$/.html/}
 MD=	${DOCFILES:S/$/.md/}
 PORTDOCS=	ChangeLog doc.css ${HTML} ${MD}
