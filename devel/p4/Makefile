@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	p4
-PORTVERSION=	2012.1.473528
+PORTVERSION=	2013.2.707225
 CATEGORIES=	devel
 MASTER_SITES=	ftp://ftp.perforce.com/perforce/${P4VERSION}/bin.${PLATFORM}/ \
 		http://filehost.perforce.com/perforce/${P4VERSION}/bin.${PLATFORM}/
@@ -26,12 +26,11 @@ NO_WRKSUBDIR=	yes
 
 PLIST_FILES=	bin/p4
 
-NO_STAGE=	yes
 .include <bsd.port.pre.mk>
 
 .include "Makefile.inc"
 
 do-install:
-	${INSTALL_PROGRAM} ${_DISTDIR}/p4 ${PREFIX}/bin/
+	${INSTALL_PROGRAM} ${_DISTDIR}/p4 ${STAGEDIR}${PREFIX}/bin/
 
 .include <bsd.port.post.mk>
