@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	digest
-PORTVERSION=	0.6.3
-PORTREVISION=	2
+PORTVERSION=	0.6.4
 CATEGORIES=	security
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -15,5 +14,4 @@ LICENSE=	GPLv2
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
