@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	png
-DISTVERSION=	0.1-6
+DISTVERSION=	0.1-7
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -17,5 +17,4 @@ LIB_DEPENDS=	png15:${PORTSDIR}/graphics/png
 USE_R_MOD=	yes
 R_MOD_AUTOPLIST=	yes
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
