@@ -1,9 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/devel/R-cran-reshape/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	reshape
 PORTVERSION=	0.8.4
-PORTREVISION=	9
+PORTREVISION=	11
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -14,8 +14,6 @@ LICENSE=	MIT
 
 RUN_DEPENDS=	R-cran-plyr>0:${PORTSDIR}/devel/R-cran-plyr
 
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
