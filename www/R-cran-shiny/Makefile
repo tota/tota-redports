@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/www/R-cran-shiny/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	shiny
 PORTVERSION=	0.8.0
@@ -17,8 +17,6 @@ RUN_DEPENDS=	R-cran-httpuv>=1.2.0:${PORTSDIR}/www/R-cran-httpuv \
 		R-cran-xtable>0:${PORTSDIR}/textproc/R-cran-xtable \
 		R-cran-digest>0:${PORTSDIR}/security/R-cran-digest
 
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
