@@ -1,9 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/math/R-cran-RHmm/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	RHmm
 PORTVERSION=	2.0.3
-PORTREVISION=	1
+PORTREVISION=	3
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -13,8 +13,6 @@ COMMENT=	Hidden Markov Models simulations and estimations
 LICENSE=	GPLv2 GPLv3
 LICENSE_COMB=	dual
 
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
