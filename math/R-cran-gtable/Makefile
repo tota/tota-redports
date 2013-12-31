@@ -1,8 +1,8 @@
-# $FreeBSD$
+# $FreeBSD: head/math/R-cran-gtable/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	gtable
 PORTVERSION=	0.1.2
-PORTREVISION=	3
+PORTREVISION=	5
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -11,8 +11,6 @@ COMMENT=	Arrange grobs in tables
 
 LICENSE=	GPLv2
 
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
