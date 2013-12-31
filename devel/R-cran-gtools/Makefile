@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/devel/R-cran-gtools/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	gtools
 PORTVERSION=	3.1.1
@@ -11,8 +11,6 @@ COMMENT=	Various R programming tools
 
 LICENSE=	LGPL21
 
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
