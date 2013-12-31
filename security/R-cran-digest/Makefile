@@ -2,8 +2,7 @@
 # $FreeBSD: head/security/R-cran-digest/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	digest
-PORTVERSION=	0.6.3
-PORTREVISION=	4
+PORTVERSION=	0.6.4
 CATEGORIES=	security
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
