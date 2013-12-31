@@ -1,8 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/finance/R-cran-RFinanceYJ/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	RFinanceYJ
 PORTVERSION=	0.3.1
+PORTREVISION=	2
 CATEGORIES=	finance
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -14,8 +15,6 @@ LICENSE=	BSD
 RUN_DEPENDS=	R-cran-XML>0:${PORTSDIR}/textproc/R-cran-XML \
 		R-cran-xts>0:${PORTSDIR}/math/R-cran-xts
 
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
