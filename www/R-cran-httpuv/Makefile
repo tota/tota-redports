@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/www/R-cran-httpuv/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	httpuv
-PORTVERSION=	1.2.1
+PORTVERSION=	1.2.0
 CATEGORIES=	www
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -17,10 +17,7 @@ LICENSE_PERMS_NODE=	auto-accept
 
 RUN_DEPENDS=	R-cran-Rcpp>=0.10.2:${PORTSDIR}/devel/R-cran-Rcpp
 
-USE_GMAKE=	yes
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
-
-MAKE_ENV=	MAKE=${GMAKE}
+MAKE_ENV=	MAKE=${MAKE_CMD}
+USES=		cran:auto-plist gmake
 
 .include <bsd.port.mk>
