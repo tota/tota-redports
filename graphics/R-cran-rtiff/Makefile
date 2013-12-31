@@ -16,4 +16,6 @@ RUN_DEPENDS=	R-cran-pixmap>0:${PORTSDIR}/graphics/R-cran-pixmap
 
 USES=	cran:auto-plist
 
+LDFLAGS=	-L${LOCALBASE}/lib
+
 .include <bsd.port.mk>
