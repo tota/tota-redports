@@ -1,9 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/graphics/R-cran-shape/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	shape
 PORTVERSION=	1.4.0
-PORTREVISION=	3
+PORTREVISION=	5
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -12,8 +12,6 @@ COMMENT=	Functions for plotting graphical shapes, colors
 
 LICENSE=	GPLv3
 
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
