@@ -1,8 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/math/R-cran-labeling/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	labeling
 PORTVERSION=	0.2
+PORTREVISION=	2
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -11,8 +12,6 @@ COMMENT=	Provides a range of axis labeling algorithms
 
 LICENSE=	MIT
 
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
