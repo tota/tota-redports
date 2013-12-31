@@ -1,8 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/astro/R-cran-maptools/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	maptools
 DISTVERSION=	0.8-27
+PORTREVISION=	2
 CATEGORIES=	astro
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -14,8 +15,6 @@ LICENSE_COMB=	dual
 
 RUN_DEPENDS=	R-cran-sp>=1.0.11:${PORTSDIR}/math/R-cran-sp
 
-NO_STAGE=	yes
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
 .include <bsd.port.mk>
