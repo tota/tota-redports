@@ -1,9 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/devel/R-cran-proto/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	proto
 DISTVERSION=	0.3-10
-PORTREVISION=	3
+PORTREVISION=	5
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -12,8 +12,6 @@ COMMENT=	Prototype object-based programming
 
 LICENSE=	GPLv2
 
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
