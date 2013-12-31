@@ -1,9 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/devel/R-cran-plyr/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	plyr
 PORTVERSION=	1.8
-PORTREVISION=	3
+PORTREVISION=	5
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -13,8 +13,6 @@ COMMENT=	Tools for splitting, applying, and combining data
 RUN_DEPENDS=	R-cran-itertools>0:${PORTSDIR}/devel/R-cran-itertools \
 		R-cran-iterators>0:${PORTSDIR}/devel/R-cran-iterators
 
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
