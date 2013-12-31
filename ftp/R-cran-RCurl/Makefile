@@ -1,9 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/ftp/R-cran-RCurl/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	RCurl
 DISTVERSION=	1.95-4.1
-PORTREVISION=	2
+PORTREVISION=	4
 CATEGORIES=	ftp
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -16,8 +16,6 @@ BUILD_DEPENDS=	curl-config:${PORTSDIR}/ftp/curl
 RUN_DEPENDS=	R-cran-bitops>0:${PORTSDIR}/devel/R-cran-bitops
 LIB_DEPENDS=	curl:${PORTSDIR}/ftp/curl
 
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
