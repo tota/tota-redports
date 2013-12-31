@@ -1,8 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/math/R-cran-xts/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	xts
 DISTVERSION=	0.9-7
+PORTREVISION=	2
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -14,8 +15,6 @@ LICENSE_COMB=	dual
 
 RUN_DEPENDS=	R-cran-zoo>=1.7.10:${PORTSDIR}/math/R-cran-zoo
 
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
