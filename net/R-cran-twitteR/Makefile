@@ -1,8 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/net/R-cran-twitteR/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	twitteR
 PORTVERSION=	1.1.7
+PORTREVISION=	2
 CATEGORIES=	net
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -15,8 +16,6 @@ RUN_DEPENDS=	R-cran-RCurl>0:${PORTSDIR}/ftp/R-cran-RCurl \
 		R-cran-rjson>=0.2.12:${PORTSDIR}/converters/R-cran-rjson \
 		R-cran-ROAuth>=0.9.3:${PORTSDIR}/security/R-cran-ROAuth
 
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
