@@ -1,8 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/devel/R-cran-caret/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	caret
 DISTVERSION=	5.17-7
+PORTREVISION=	2
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -15,8 +16,6 @@ RUN_DEPENDS=	R-cran-reshape2>0:${PORTSDIR}/devel/R-cran-reshape2 \
 		R-cran-plyr>0:${PORTSDIR}/devel/R-cran-plyr \
 		R-cran-foreach>0:${PORTSDIR}/devel/R-cran-foreach
 
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
