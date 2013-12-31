@@ -1,9 +1,9 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/graphics/R-cran-dichromat/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	dichromat
 DISTVERSION=	2.0-0
-PORTREVISION=	2
+PORTREVISION=	4
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -12,8 +12,6 @@ COMMENT=	Color schemes for dichromats
 
 LICENSE=	GPLv2
 
-USE_R_MOD=	yes
-R_MOD_AUTOPLIST=	yes
+USES=	cran:auto-plist
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
