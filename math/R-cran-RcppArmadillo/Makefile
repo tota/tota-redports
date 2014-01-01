@@ -1,9 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/math/R-cran-RcppArmadillo/Makefile 337846 2013-12-28 10:28:40Z dbn $
+# $FreeBSD: head/math/R-cran-RcppArmadillo/Makefile 338263 2013-12-31 08:43:18Z tota $
 
 PORTNAME=	RcppArmadillo
-PORTVERSION=	0.3.920.3
-PORTREVISION=	1
+PORTVERSION=	0.3.930.1
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -16,5 +15,8 @@ LICENSE_COMB=	dual
 RUN_DEPENDS=	R-cran-Rcpp>=0.10.5:${PORTSDIR}/devel/R-cran-Rcpp
 
 USES=	cran:auto-plist
+
+post-patch:
+	${REINPLACE_CMD} -e 's|bin/bash|bin/sh|' ${WRKSRC}/configure
 
 .include <bsd.port.mk>
