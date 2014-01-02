@@ -31,5 +31,4 @@ regression-test: extract
 	${PYTHON_CMD} ${PYSETUP} build_ext -i && \
 	${PYTHON_CMD} selftest.py
 
-NO_STAGE=	yes
 .include <bsd.port.mk>
