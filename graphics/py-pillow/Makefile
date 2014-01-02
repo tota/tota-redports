@@ -15,7 +15,8 @@ LIB_DEPENDS=	jpeg:${PORTSDIR}/graphics/jpeg \
 
 USE_GITHUB=		yes
 USE_PYTHON=		yes
-USE_PYDISTUTILS=	easy_install
+USE_PYDISTUTILS=	yes
+PYDISTUTILS_AUTOPLIST=	yes
 
 GH_ACCOUNT=	python-imaging
 GH_PROJECT=	${PYDISTUTILS_PKGNAME}
@@ -24,7 +25,6 @@ GH_COMMIT=	3c2496e
 CONFLICTS_INSTALL=	py*-imaging-*
 
 PYDISTUTILS_PKGNAME=	Pillow
-PYEASYINSTALL_ARCHDEP=	yes
 
 regression-test: extract
 	@cd ${WRKSRC} && \

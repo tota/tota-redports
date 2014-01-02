@@ -1,7 +1,0 @@
-@comment $FreeBSD: head/graphics/py-pillow/pkg-plist 316516 2013-04-25 13:49:31Z koobs $
-bin/pilconvert.py
-bin/pildriver.py
-bin/pilfile.py
-bin/pilfont.py
-bin/pilprint.py
-%%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%
