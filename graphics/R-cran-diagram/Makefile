@@ -2,8 +2,7 @@
 # $FreeBSD: head/graphics/R-cran-diagram/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	diagram
-PORTVERSION=	1.6.1
-PORTREVISION=	3
+PORTVERSION=	1.6.2
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
