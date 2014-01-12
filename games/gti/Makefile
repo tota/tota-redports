@@ -8,14 +8,17 @@ CATEGORIES=	games
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Just a silly git launcher, basically. Inspired by sl
 
+LICENSE=	GTI
+LICENSE_NAME=	MIT-like license
+LICENSE_FILE=	${WRKSRC}/README.md
+LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	rwos
 GH_TAGNAME=	v${PORTVERSION}
 GH_COMMIT=	97639f3
 
-MAN6=	${PORTNAME}.6
-
-PLIST_FILES=	bin/${PORTNAME}
+PLIST_FILES=	bin/${PORTNAME} man/man6/${PORTNAME}.6.gz
 
 GTI_SPEED?=	50
 CFLAGS+=	-DGTI_SPEED=${GTI_SPEED}
@@ -31,6 +34,6 @@ do-build:
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME} ${STAGEDIR}${PREFIX}/bin
-	${INSTALL_MAN} ${WRKSRC}/${MAN6} ${STAGEDIR}${MANPREFIX}/man/man6
+	${INSTALL_MAN} ${WRKSRC}/${PORTNAME}.6 ${STAGEDIR}${MANPREFIX}/man/man6
 
 .include <bsd.port.mk>
