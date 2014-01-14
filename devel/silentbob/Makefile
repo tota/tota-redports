@@ -20,7 +20,7 @@ OPTIONS_DEFINE=	DOCS
 
 post-patch:
 	@${RM} ${WRKSRC}/CMakeCache.txt
-	@${REINPLACE_CMD} -e 's|/usr/lib/silent_bob/|${PREFIX}/lib/silent_bob/|' \
+	@${REINPLACE_CMD} -e '/lib\/silent_bob/s|/usr|${PREFIX}|' \
 		${WRKSRC}/src/init.cxx
 
 post-install:
