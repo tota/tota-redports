@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/www/R-cran-httpuv/Makefile 337846 2013-12-28 10:28:40Z dbn $
+# $FreeBSD: head/www/R-cran-httpuv/Makefile 338306 2013-12-31 14:02:34Z tota $
 
 PORTNAME=	httpuv
-PORTVERSION=	1.2.1
+PORTVERSION=	1.2.2
 CATEGORIES=	www
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
