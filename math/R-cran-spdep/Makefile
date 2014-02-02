@@ -2,7 +2,7 @@
 # $FreeBSD: head/math/R-cran-spdep/Makefile 337846 2013-12-28 10:28:40Z dbn $
 
 PORTNAME=	spdep
-DISTVERSION=	0.5-68
+DISTVERSION=	0.5-71
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
