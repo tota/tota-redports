@@ -2,7 +2,7 @@
 # $FreeBSD: head/graphics/R-cran-rgdal/Makefile 338247 2013-12-31 07:09:03Z tota $
 
 PORTNAME=	rgdal
-DISTVERSION=	0.8-15
+DISTVERSION=	0.8-16
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
