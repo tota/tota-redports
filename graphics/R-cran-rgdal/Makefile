@@ -2,7 +2,7 @@
 # $FreeBSD: head/graphics/R-cran-rgdal/Makefile 338247 2013-12-31 07:09:03Z tota $
 
 PORTNAME=	rgdal
-DISTVERSION=	0.8-14
+DISTVERSION=	0.8-15
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
@@ -18,6 +18,6 @@ RUN_DEPENDS=	R-cran-sp>=1.0.9:${PORTSDIR}/math/R-cran-sp
 
 USES=	cran:auto-plist
 
-R_POSTCMD_INSTALL_OPTIONS+=	--configure-args="--with-proj-lib=${LOCALBASE}/lib"
+#R_POSTCMD_INSTALL_OPTIONS+=	--configure-args="--with-proj-lib=${LOCALBASE}/lib"
 
 .include <bsd.port.mk>
