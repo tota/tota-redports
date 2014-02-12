@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/graphics/py-actdiag/Makefile 343634 2014-02-10 13:54:26Z ehaupt $
 
 PORTNAME=	actdiag
 PORTVERSION=	0.5.1
@@ -25,6 +25,8 @@ MAN1=	${PORTNAME}.1
 DOCSDIR=	${PREFIX}/share/doc/${UNIQUENAME}
 PORTDOCS=	README.rst
 
+OPTIONS_DEFINE=	DOCS
+
 .include <bsd.port.pre.mk>
 
 .if ${PYTHON_VER} == 3.1
@@ -32,10 +34,8 @@ IGNORE=	does not support in ${PYTHON_VERSION}
 .endif
 
 post-install:
-.if ${PORT_OPTIONS:MDOCS}
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
-	@${INSTALL_DATA} ${INSTALL_WRKSRC}/${PORTDOCS} ${STAGEDIR}${DOCSDIR}
-.endif
-	@${INSTALL_MAN} ${WRKSRC}/${MAN1} ${STAGEDIR}${MAN1PREFIX}/man/man1/
+	${INSTALL_DATA} ${INSTALL_WRKSRC}/${PORTDOCS} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_MAN} ${WRKSRC}/${MAN1} ${STAGEDIR}${MAN1PREFIX}/man/man1/
 
 .include <bsd.port.post.mk>
