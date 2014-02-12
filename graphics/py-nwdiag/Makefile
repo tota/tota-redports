@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/py-nwdiag/Makefile 327733 2013-09-20 18:35:44Z bapt $
+# $FreeBSD: head/graphics/py-nwdiag/Makefile 340722 2014-01-22 17:00:46Z mat $
 
 PORTNAME=	nwdiag
 PORTVERSION=	1.0.0
@@ -28,6 +28,8 @@ EXAMPLESDIR=	${PREFIX}/share/examples/${PKGNAMEPREFIX}${PORTNAME}
 PORTDOCS=	README.txt
 PORTEXAMPLES=	*
 
+OPTIONS_DEFINE=	DOCS EXAMPLES
+
 .include <bsd.port.pre.mk>
 
 .if ${PYTHON_VER} == 3.1
@@ -35,20 +37,16 @@ IGNORE=	does not support in ${PYTHON_VERSION}
 .endif
 
 post-install:
-.if ${PORT_OPTIONS:MDOCS}
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
-	@${INSTALL_DATA} ${INSTALL_WRKSRC}/src/${PORTDOCS} ${STAGEDIR}${DOCSDIR}
-.endif
-.if ${PORT_OPTIONS:MEXAMPLES}
+	${INSTALL_DATA} ${INSTALL_WRKSRC}/src/${PORTDOCS} ${STAGEDIR}${DOCSDIR}
 	@${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
 .for d in ${PORTNAME} packetdiag
-	@${INSTALL_DATA} \
+	${INSTALL_DATA} \
 		${INSTALL_WRKSRC}/examples/${d}/${PORTEXAMPLES} \
 		${STAGEDIR}${EXAMPLESDIR}
 .endfor
-.endif
 .for f in ${MAN1}
-	@${INSTALL_MAN} ${WRKSRC}/${f} ${STAGEDIR}${MAN1PREFIX}/man/man1/
+	${INSTALL_MAN} ${WRKSRC}/${f} ${STAGEDIR}${MAN1PREFIX}/man/man1/
 .endfor
 
 .include <bsd.port.post.mk>
