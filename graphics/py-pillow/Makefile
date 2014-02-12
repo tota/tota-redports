@@ -10,9 +10,9 @@ DISTNAME=	${PYDISTUTILS_PKGNAME}-${PORTVERSION}
 MAINTAINER=	koobs@FreeBSD.org
 COMMENT=	Fork of the Python Imaging Library (PIL)
 
-#LICENSE=	PIL
-#LICENSE_NAME=	Standard PIL License
-#LICENSE_PERMS=	auto-accept
+LICENSE=	PIL
+LICENSE_FILE=	${WRKSRC}/docs/LICENSE
+LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 LIB_DEPENDS=	jpeg:${PORTSDIR}/graphics/jpeg \
 		freetype:${PORTSDIR}/print/freetype2
