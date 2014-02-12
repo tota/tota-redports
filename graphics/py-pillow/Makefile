@@ -11,11 +11,12 @@ MAINTAINER=	koobs@FreeBSD.org
 COMMENT=	Fork of the Python Imaging Library (PIL)
 
 LICENSE=	PIL
+LICENSE_NAME=	Standard PIL License
 LICENSE_FILE=	${WRKSRC}/docs/LICENSE
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
-LIB_DEPENDS=	jpeg:${PORTSDIR}/graphics/jpeg \
-		freetype:${PORTSDIR}/print/freetype2
+LIB_DEPENDS=	libjpeg.so:${PORTSDIR}/graphics/jpeg \
+		libfreetype.so:${PORTSDIR}/print/freetype2
 
 USE_GITHUB=		yes
 USE_PYTHON=		yes
