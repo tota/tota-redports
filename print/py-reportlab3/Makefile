@@ -56,9 +56,11 @@ post-patch:
 			  -e 's|%%PFBFER%%|${PFBFER}|' \
 				${WRKSRC}/setup.py
 .if ${PORT_OPTIONS:MDOCS}
+.for f in genAll.py userguide/genuserguide.py
 	@${REINPLACE_CMD} -e 's|%%STAGEDIR%%|${STAGEDIR}|' \
 			  -e 's|%%PYTHON_SITELIBDIR%%|${PYTHON_SITELIBDIR}|' \
-				${WRKSRC}/docs/genAll.py
+				${WRKSRC}/docs/${f}
+.endfor
 .endif
 
 post-install:
