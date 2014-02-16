@@ -16,6 +16,8 @@ COMMENT=	Library to create PDF documents using the Python language
 
 LICENSE=	BSD
 
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pillow>0:${PORTSDIR}/graphics/py-pillow
+
 USE_PYTHON=	yes
 USE_PYDISTUTILS=	yes
 
