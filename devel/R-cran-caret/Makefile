@@ -2,7 +2,7 @@
 # $FreeBSD: head/devel/R-cran-caret/Makefile 339137 2014-01-08 14:27:19Z tota $
 
 PORTNAME=	caret
-DISTVERSION=	6.0-22
+DISTVERSION=	6.0-24
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
