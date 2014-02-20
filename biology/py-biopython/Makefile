@@ -19,7 +19,7 @@ USE_PYDISTUTILS=	easy_install
 PYEASYINSTALL_ARCHDEP=	yes
 
 .if !defined(WITHOUT_REPORTLAB)
-RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}reportlab>0:${PORTSDIR}/print/py-reportlab
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}reportlab>0:${PORTSDIR}/print/py-reportlab1
 .endif
 
 NO_STAGE=	yes

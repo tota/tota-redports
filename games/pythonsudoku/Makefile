@@ -19,7 +19,7 @@ LICENSE=	GPLv2
 LIB_DEPENDS+=	libcups.so:${PORTSDIR}/print/cups-client
 RUN_DEPENDS=	${PYGAME} \
 		${PYTHON_PKGNAMEPREFIX}imaging>=0:${PORTSDIR}/graphics/py-imaging \
-		${PYTHON_PKGNAMEPREFIX}reportlab>=0:${PORTSDIR}/print/py-reportlab
+		${PYTHON_PKGNAMEPREFIX}reportlab>=0:${PORTSDIR}/print/py-reportlab1
 
 USE_BZIP2=	yes
 USES=		desktop-file-utils

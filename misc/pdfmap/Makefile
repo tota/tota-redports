@@ -12,7 +12,7 @@ COMMENT=	Generate maps in PDF format and place clickable objects on them
 
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}jaxml>=3.01:${PORTSDIR}/textproc/py-jaxml \
 		${PYTHON_SITELIBDIR}/PIL/Image.py:${PORTSDIR}/graphics/py-imaging
-BUILD_DEPENDS=	${PYTHON_SITELIBDIR}/reportlab/pdfgen/canvas.py:${PORTSDIR}/print/py-reportlab \
+BUILD_DEPENDS=	${PYTHON_SITELIBDIR}/reportlab/pdfgen/canvas.py:${PORTSDIR}/print/py-reportlab1 \
 		${PYTHON_SITELIBDIR}/PIL/Image.py:${PORTSDIR}/graphics/py-imaging
 
 USE_PYTHON=	yes
