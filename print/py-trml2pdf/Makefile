@@ -12,7 +12,7 @@ MAINTAINER=	ports@caomhin.org
 COMMENT=	Tiny RML2PDF easily creates PDF documents.
 
 RUN_DEPENDS=	${LOCALBASE}/bin/pildriver.py:${PORTSDIR}/graphics/py-imaging \
-		${PYTHON_SITELIBDIR}/reportlab/__init__.py:${PORTSDIR}/print/py-reportlab1
+		${PYTHON_PKGNAMEPREFIX}reportlab1>=0:${PORTSDIR}/print/py-reportlab1
 
 NO_BUILD=	yes
 

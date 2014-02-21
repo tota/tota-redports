@@ -43,7 +43,7 @@ RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}lxml>=0:${PORTSDIR}/devel/py-lxml
 .if ${PORT_OPTIONS:MREPORTLAB2}
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}reportlab2>=2:${PORTSDIR}/print/py-reportlab2
 .else
-RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}reportlab>=1.19:${PORTSDIR}/print/py-reportlab1
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}reportlab1>=1.19:${PORTSDIR}/print/py-reportlab1
 .endif
 
 .if ${PORT_OPTIONS:MCHARDET}
