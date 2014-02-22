@@ -22,9 +22,10 @@ USE_PYTHON=	yes
 USE_PYDISTUTILS=	yes
 PYDISTUTILS_AUTOPLIST=	yes
 
-PORTSCOUT=	limit:^3\.0\.
 CONFLICTS=	py*-reportlab[^3]-[^3].* \
 		py*-reportlab-[^3].*
+
+PORTSCOUT=	limit:^3\.0\.
 
 PFBFER_VERSION=	20070710
 PFBFER=	pfbfer-${PFBFER_VERSION}.zip
