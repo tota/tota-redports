@@ -1,9 +1,9 @@
 # Created by: ijliao
-# $FreeBSD$
+# $FreeBSD: head/misc/pdfmap/Makefile 345421 2014-02-21 13:38:12Z ehaupt $
 
 PORTNAME=	pdfmap
 PORTVERSION=	2.00
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	misc
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/${PORTNAME}-${PORTVERSION}
 
@@ -22,7 +22,7 @@ DOCS=		CREDITS NEWS README TODO doc/*.html
 
 NO_STAGE=	yes
 
-OPTIONS_DEFINE=	DOCS 
+OPTIONS_DEFINE=	DOCS
 
 .include <bsd.port.options.mk>
 
