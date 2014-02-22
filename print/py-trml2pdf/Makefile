@@ -1,9 +1,9 @@
 # Created by: Kevin Golding <ports@caomhin.org>
-# $FreeBSD$
+# $FreeBSD: head/print/py-trml2pdf/Makefile 340722 2014-01-22 17:00:46Z mat $
 
 PORTNAME=	trml2pdf
 PORTVERSION=	1.2
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	print python
 MASTER_SITES=	SF/kraft/${PORTNAME}/${PORTVERSION}
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

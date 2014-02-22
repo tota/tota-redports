@@ -1,8 +1,9 @@
 # Created by: Kevin Golding <ports@caomhin.org>
-# $FreeBSD$
+# $FreeBSD: head/www/py-satchmo/Makefile 327776 2013-09-20 23:36:50Z bapt $
 
 PORTNAME=	satchmo
 PORTVERSION=	0.9.2
+PORTREVISION=	1
 CATEGORIES=	www python
 MASTER_SITES=	http://www.caomhin.org/ports/
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}

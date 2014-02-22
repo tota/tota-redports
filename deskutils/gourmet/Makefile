@@ -1,8 +1,9 @@
 # Created by: Adam Weinberger <adamw@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/deskutils/gourmet/Makefile 339634 2014-01-13 21:00:02Z rene $
 
 PORTNAME=	gourmet
 PORTVERSION=	0.16.0
+PORTREVISION=	1
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	https://launchpadlibrarian.net/133161899/
 

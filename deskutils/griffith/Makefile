@@ -1,8 +1,9 @@
 # Created by: Andrew Pantyukhin <infofarmer@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/deskutils/griffith/Makefile 339634 2014-01-13 21:00:02Z rene $
 
 PORTNAME=	griffith
 PORTVERSION=	0.13
+PORTREVISION=	1
 CATEGORIES=	deskutils
 MASTER_SITES=	http://launchpadlibrarian.net/87859599/
 
