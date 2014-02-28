@@ -15,7 +15,8 @@ LICENSE_NAME_HW=	Hadley Wickham COPYRIGHT
 LICENSE_FILE_HW=	${WRKSRC}/LICENSE
 LICENSE_PERMS_HW=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
-RUN_DEPENDS=	R-cran-itertools>0:${PORTSDIR}/devel/R-cran-itertools \
+RUN_DEPENDS=	R-cran-Rcpp>=0.11.0:${PORTSDIR}/devel/R-cran-Rcpp \
+		R-cran-itertools>0:${PORTSDIR}/devel/R-cran-itertools \
 		R-cran-iterators>0:${PORTSDIR}/devel/R-cran-iterators
 
 USES=	cran:auto-plist
