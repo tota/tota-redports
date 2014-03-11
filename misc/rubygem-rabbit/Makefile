@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	rabbit
-PORTVERSION=	2.1.1
+PORTVERSION=	2.1.2
 CATEGORIES=	misc rubygems
 MASTER_SITES=	RG
 
@@ -14,7 +14,7 @@ LICENSE_COMB=	dual
 
 RUN_DEPENDS=	rubygem-coderay>=1.0.0:${PORTSDIR}/textproc/rubygem-coderay \
 		rubygem-faraday>0:${PORTSDIR}/www/rubygem-faraday \
-		rubygem-gettext>0:${PORTSDIR}/devel/rubygem-gettext \
+		rubygem-gettext>=3.0.1:${PORTSDIR}/devel/rubygem-gettext \
 		rubygem-gtk2>0:${PORTSDIR}/x11-toolkits/rubygem-gtk2 \
 		rubygem-hikidoc>0:${PORTSDIR}/textproc/rubygem-hikidoc \
 		rubygem-kramdown>0:${PORTSDIR}/textproc/rubygem-kramdown \
@@ -34,7 +34,6 @@ PLIST_FILES=	bin/rabbit bin/rabbirc bin/rabbit-command bin/rabbit-slide \
 OPTIONS_DEFINE=	MIMETEX
 MIMETEX_DESC=	Run with mimetex
 
-NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MMIMETEX}
