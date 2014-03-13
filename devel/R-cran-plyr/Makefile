@@ -21,4 +21,7 @@ RUN_DEPENDS=	R-cran-Rcpp>=0.11.0:${PORTSDIR}/devel/R-cran-Rcpp \
 
 USES=	cran:auto-plist
 
+post-stage:
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/R/library/plyr/libs/plyr.so
+
 .include <bsd.port.mk>
