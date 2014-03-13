@@ -13,4 +13,7 @@ LICENSE=	LGPL21
 
 USES=	cran:auto-plist
 
+post-stage:
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/R/library/gtools/libs/gtools.so
+
 .include <bsd.port.mk>
