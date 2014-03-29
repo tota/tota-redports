@@ -2,12 +2,14 @@
 # $FreeBSD$
 
 PORTNAME=	addressable
-PORTVERSION=	2.3.5
+PORTVERSION=	2.3.6
 CATEGORIES=	www devel rubygems
 MASTER_SITES=	RG
 
 MAINTAINER=	ruby@FreeBSD.org
-COMMENT=	A replacement for the URI implementation
+COMMENT=	Replacement for the URI implementation
+
+LICENSE=	APACHE20
 
 USE_RUBY=	yes
 USE_RUBYGEMS=	yes
