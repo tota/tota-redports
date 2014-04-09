@@ -1,9 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/devel/R-cran-gdata/Makefile 337846 2013-12-28 10:28:40Z dbn $
+# $FreeBSD$
 
 PORTNAME=	gdata
-PORTVERSION=	2.13.2
-PORTREVISION=	2
+PORTVERSION=	2.13.3
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -14,7 +13,9 @@ LICENSE=	GPLv2
 
 RUN_DEPENDS=	R-cran-gtools>0:${PORTSDIR}/devel/R-cran-gtools
 
-USES=		cran:auto-plist perl5 
+USES=		cran:auto-plist perl5 shebangfix
 USE_PERL5=	run
+
+SHEBANG_FILES=	inst/perl/*.pl
 
 .include <bsd.port.mk>
