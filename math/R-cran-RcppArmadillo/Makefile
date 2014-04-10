@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/math/R-cran-RcppArmadillo/Makefile 348084 2014-03-13 15:11:54Z tota $
+# $FreeBSD$
 
 PORTNAME=	RcppArmadillo
-PORTVERSION=	0.4.100.2.1
+PORTVERSION=	0.4.200.0
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
@@ -18,8 +18,5 @@ USES=	cran:auto-plist
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|bin/bash|bin/sh|' ${WRKSRC}/configure
-
-post-stage:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/R/library/RcppArmadillo/libs/RcppArmadillo.so
 
 .include <bsd.port.mk>
