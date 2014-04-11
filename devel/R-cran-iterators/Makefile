@@ -1,9 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/devel/R-cran-iterators/Makefile 338168 2013-12-30 20:55:18Z ohauer $
+# $FreeBSD$
 
 PORTNAME=	iterators
-PORTVERSION=	1.0.6
-PORTREVISION=	7
+PORTVERSION=	1.0.7
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
