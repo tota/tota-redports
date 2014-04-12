@@ -23,22 +23,21 @@ PLIST_FILES=	%%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%
 OPTIONS_DEFINE=	DOCS
 OPTIONSFILE=	${PORT_DBDIR}/py-${PORTNAME}/options
 
-NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 post-install:
 .if ${PORT_OPTIONS:MDOCS}
 	@${RM} -f ${WRKSRC}/doc/Makefile
-	@${MKDIR} ${DOCSDIR}
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
 	@cd ${INSTALL_WRKSRC} \
-	  && ${FIND} ${PORTDOCS} -type d -exec ${MKDIR} ${DOCSDIR}/\{} \; \
-	  && ${FIND} ${PORTDOCS} -type f -exec ${INSTALL_DATA} \{} ${DOCSDIR}/\{} \;
+	  && ${FIND} ${PORTDOCS} -type d -exec ${MKDIR} ${STAGEDIR}${DOCSDIR}/\{} \; \
+	  && ${FIND} ${PORTDOCS} -type f -exec ${INSTALL_DATA} \{} ${STAGEDIR}${DOCSDIR}/\{} \;
 .endif
 
 x-generate-plist:
-	${FIND} ${PYTHON_SITELIBDIR}/${PORTNAME} -type f | ${SORT} | \
-	${SED} -e 's,${PYTHON_SITELIBDIR},%%PYTHON_SITELIBDIR%%,' > pkg-plist.new
-	${FIND} ${PYTHON_SITELIBDIR}/${PORTNAME} -type d -depth | ${SORT} -r | \
-	${SED} -e 's,${PYTHON_SITELIBDIR},@dirrm %%PYTHON_SITELIBDIR%%,' >> pkg-plist.new
+	${FIND} ${STAGEDIR}${PYTHON_SITELIBDIR}/${PORTNAME} -type f | ${SORT} | \
+	${SED} -e 's,${STAGEDIR}${PYTHON_SITELIBDIR},%%PYTHON_SITELIBDIR%%,' > pkg-plist.new
+	${FIND} ${STAGEDIR}${PYTHON_SITELIBDIR}/${PORTNAME} -type d -depth | ${SORT} -r | \
+	${SED} -e 's,${STAGEDIR}${PYTHON_SITELIBDIR},@dirrm %%PYTHON_SITELIBDIR%%,' >> pkg-plist.new
 
 .include <bsd.port.mk>
