@@ -34,10 +34,4 @@ post-install:
 	  && ${FIND} ${PORTDOCS} -type f -exec ${INSTALL_DATA} \{} ${STAGEDIR}${DOCSDIR}/\{} \;
 .endif
 
-x-generate-plist:
-	${FIND} ${STAGEDIR}${PYTHON_SITELIBDIR}/${PORTNAME} -type f | ${SORT} | \
-	${SED} -e 's,${STAGEDIR}${PYTHON_SITELIBDIR},%%PYTHON_SITELIBDIR%%,' > pkg-plist.new
-	${FIND} ${STAGEDIR}${PYTHON_SITELIBDIR}/${PORTNAME} -type d -depth | ${SORT} -r | \
-	${SED} -e 's,${STAGEDIR}${PYTHON_SITELIBDIR},@dirrm %%PYTHON_SITELIBDIR%%,' >> pkg-plist.new
-
 .include <bsd.port.mk>
