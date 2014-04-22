@@ -1,8 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/py-actdiag/Makefile 343634 2014-02-10 13:54:26Z ehaupt $
+# $FreeBSD$
 
 PORTNAME=	actdiag
-PORTVERSION=	0.5.1
+PORTVERSION=	0.4.3
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -12,30 +12,21 @@ COMMENT=	Simple activity-diagram image generator
 
 LICENSE=	APACHE20
 
-RUN_DEPENDS=	${PKGNAMEPREFIX}pillow>=2.2.1:${PORTSDIR}/graphics/py-pillow \
-		${PKGNAMEPREFIX}blockdiag>=1.3.1:${PORTSDIR}/graphics/py-blockdiag \
-		${PKGNAMEPREFIX}funcparserlib>=0.3.6:${PORTSDIR}/devel/py-funcparserlib
+RUN_DEPENDS=	${PKGNAMEPREFIX}imaging>=1.1.5:${PORTSDIR}/graphics/py-imaging \
+		${PKGNAMEPREFIX}blockdiag>=1.2.4:${PORTSDIR}/graphics/py-blockdiag \
+		${PKGNAMEPREFIX}funcparserlib>=0.3.4:${PORTSDIR}/devel/py-funcparserlib
 
-USE_PYTHON=	yes
+USE_PYTHON=	2
 USE_PYDISTUTILS=	yes
 PYDISTUTILS_AUTOPLIST=	yes
 
-MAN1=	${PORTNAME}.1
-
 DOCSDIR=	${PREFIX}/share/doc/${UNIQUENAME}
-PORTDOCS=	README.rst
+PORTDOCS=	README.txt
 
 OPTIONS_DEFINE=	DOCS
 
-.include <bsd.port.pre.mk>
-
-.if ${PYTHON_VER} == 3.1
-IGNORE=	does not support in ${PYTHON_VERSION}
-.endif
-
 post-install:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
-	${INSTALL_DATA} ${INSTALL_WRKSRC}/${PORTDOCS} ${STAGEDIR}${DOCSDIR}
-	${INSTALL_MAN} ${WRKSRC}/${MAN1} ${STAGEDIR}${MAN1PREFIX}/man/man1/
+	${INSTALL_DATA} ${INSTALL_WRKSRC}/src/${PORTDOCS} ${STAGEDIR}${DOCSDIR}
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
