@@ -1,8 +1,8 @@
 # Created by: Wen Heping <wenheping@gmail.com>
-# $FreeBSD: head/math/R-cran-igraph/Makefile 337846 2013-12-28 10:28:40Z dbn $
+# $FreeBSD: head/math/R-cran-igraph/Makefile 347809 2014-03-10 20:55:20Z gerald $
 
 PORTNAME=	igraph
-DISTVERSION=	0.7.0
+DISTVERSION=	0.7.1
 CATEGORIES=	math
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
