@@ -20,8 +20,6 @@ USE_PYTHON=	yes
 USE_PYDISTUTILS=	yes
 PYDISTUTILS_AUTOPLIST=	yes
 
-MAN1=	${PORTNAME}.1 rackdiag.1
-
 DOCSDIR=	${PREFIX}/share/doc/${PKGNAMEPREFIX}${PORTNAME}
 EXAMPLESDIR=	${PREFIX}/share/examples/${PKGNAMEPREFIX}${PORTNAME}
 
@@ -45,8 +43,9 @@ post-install:
 		${INSTALL_WRKSRC}/examples/${d}/${PORTEXAMPLES} \
 		${STAGEDIR}${EXAMPLESDIR}
 .endfor
-.for f in ${MAN1}
-	${INSTALL_MAN} ${WRKSRC}/${f} ${STAGEDIR}${MAN1PREFIX}/man/man1/
+.for f in ${PORTNAME} rackdiag
+	${INSTALL_MAN} ${WRKSRC}/${f}.1 ${STAGEDIR}${PREFIX}/man/man1/
+	@{ECHO_CMD} man/man1/${f}.1.gz >> ${TMPPLIST}
 .endfor
 
 .include <bsd.port.post.mk>
