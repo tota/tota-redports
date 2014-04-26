@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/graphics/py-seqdiag/Makefile 343634 2014-02-10 13:54:26Z ehaupt $
+# $FreeBSD: head/graphics/py-seqdiag/Makefile 345412 2014-02-21 13:37:15Z ehaupt $
 
 PORTNAME=	seqdiag
 PORTVERSION=	0.9.0
@@ -23,8 +23,6 @@ PYDISTUTILS_AUTOPLIST=	yes
 DOCSDIR=	${PREFIX}/share/doc/${UNIQUENAME}
 EXAMPLESDIR=	${PREFIX}/share/examples/${UNIQUENAME}
 
-MAN1=	${PORTNAME}.1
-
 PORTDOCS=	README.txt
 PORTEXAMPLES=	*
 
@@ -41,6 +39,7 @@ post-install:
 	${INSTALL_DATA} ${INSTALL_WRKSRC}/src/${PORTDOCS} ${STAGEDIR}${DOCSDIR}
 	@${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
 	${INSTALL_DATA} ${INSTALL_WRKSRC}/examples/${PORTEXAMPLES} ${STAGEDIR}${EXAMPLESDIR}
-	${INSTALL_MAN} ${WRKSRC}/${MAN1} ${STAGEDIR}${MAN1PREFIX}/man/man1/
+	${INSTALL_MAN} ${WRKSRC}/${PORTNAME}.1 ${STAGEDIR}${PREFIX}/man/man1/
+	@${ECHO_CMD} man/man1/${PORTNAME}.1.gz >> ${TMPPLIST}
 
 .include <bsd.port.post.mk>
