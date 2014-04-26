@@ -57,6 +57,6 @@ post-install:
 	@${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
 	${INSTALL_DATA} ${INSTALL_WRKSRC}/examples/${PORTEXAMPLES} ${STAGEDIR}${EXAMPLESDIR}
 	${INSTALL_MAN} ${WRKSRC}/${PORTNAME}.1 ${STAGEDIR}${PREFIX}/man/man1/
-	${ECHO_CMD} man/man1/${PORTNAME}.1.gz >> ${TMPPLIST}
+	@${ECHO_CMD} man/man1/${PORTNAME}.1.gz >> ${TMPPLIST}
 
 .include <bsd.port.post.mk>
