@@ -45,7 +45,7 @@ post-install:
 .endfor
 .for f in ${PORTNAME} rackdiag
 	${INSTALL_MAN} ${WRKSRC}/${f}.1 ${STAGEDIR}${PREFIX}/man/man1/
-	@{ECHO_CMD} man/man1/${f}.1.gz >> ${TMPPLIST}
+	@${ECHO_CMD} man/man1/${f}.1.gz >> ${TMPPLIST}
 .endfor
 
 .include <bsd.port.post.mk>
