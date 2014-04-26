@@ -41,7 +41,7 @@ IGNORE=	does not support in ${PYTHON_VERSION}
 .endif
 
 .if ${PORT_OPTIONS:MPDF}
-RUN_DEPENDS+=	${PKGNAMEPREFIX}reportlab2>0:${PORTSDIR}/print/py-reportlab2
+RUN_DEPENDS+=	${PKGNAMEPREFIX}reportlab>0:${PORTSDIR}/print/py-reportlab
 .endif
 
 .if ${PORT_OPTIONS:MIPAFONT}
