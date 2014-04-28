@@ -1,16 +1,15 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/converters/R-cran-RJSONIO/Makefile 337846 2013-12-28 10:28:40Z dbn $
+# $FreeBSD$
 
 PORTNAME=	RJSONIO
-DISTVERSION=	1.0-3
-PORTREVISION=	3
+DISTVERSION=	1.2-0.1
 CATEGORIES=	converters
 DISTNAME=	${PORTNAME}_${DISTVERSION}
 
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Serialize R objects to JSON, JavaScript Object Notation
 
-LICENSE=	BSD
+LICENSE=	BSD3CLAUSE
 
 USES=	cran:auto-plist
 
