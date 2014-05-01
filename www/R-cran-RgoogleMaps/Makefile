@@ -1,9 +1,8 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD: head/www/R-cran-RgoogleMaps/Makefile 337846 2013-12-28 10:28:40Z dbn $
+# $FreeBSD$
 
 PORTNAME=	RgoogleMaps
-PORTVERSION=	1.2.0.5
-PORTREVISION=	2
+PORTVERSION=	1.2.0.6
 CATEGORIES=	www
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
