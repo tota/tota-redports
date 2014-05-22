@@ -1,8 +1,7 @@
-# $FreeBSD: head/graphics/R-cran-ggplot2/Makefile 337846 2013-12-28 10:28:40Z dbn $
+# $FreeBSD$
 
 PORTNAME=	ggplot2
-PORTVERSION=	0.9.3.1
-PORTREVISION=	4
+PORTVERSION=	1.0.0
 CATEGORIES=	graphics
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
