@@ -3,6 +3,7 @@
 
 PORTNAME=	mailman
 PORTVERSION=	2.1.14.j7
+PORTREVISION=	1
 PORTEPOCH=	1
 CATEGORIES=	japanese mail
 MASTER_SITES=	http://www.python.jp/doc/contrib/mailman/_static/ \
@@ -23,7 +24,7 @@ PORTSCOUT=	limit:.*\.j\d+$$
 
 USE_AUTOTOOLS=	autoconf
 USES=		gettext
-USE_PYTHON=	yes
+USE_PYTHON=	2
 USE_RC_SUBR=	mailman
 
 GNU_CONFIGURE_PREFIX=	${MAILMANDIR}
@@ -65,7 +66,7 @@ PORTDOCS=	ACKNOWLEDGMENTS BUGS FAQ INSTALL NEWS NEWS.japan.utf-8 \
 		mailman-member.txt \
 		FreeBSD-post-install-notes
 
-OPTIONS_DEFINE=		INTEGRATION NAMAZU2
+OPTIONS_DEFINE=		DOCS INTEGRATION NAMAZU2
 
 OPTIONS_SINGLE=		MTA
 OPTIONS_SINGLE_MTA=	SENDMAIL EXIM3 EXIM4 POSTFIX COURIER
@@ -80,7 +81,6 @@ COURIER_DESC=		for use with courier
 
 OPTIONS_DEFAULT=	SENDMAIL
 
-NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MSENDMAIL}
@@ -138,27 +138,30 @@ pre-configure:
 .endif
 
 post-install:
-	@${RM} -f ${MAILMANDIR}/pythonlib/*.egg-info
-.for dir in cron scripts
-	@${PYTHON_CMD} ${PYTHON_LIBDIR}/compileall.py ${MAILMANDIR}/${dir}
+# Compile additional Python scripts:
+.for dir in bin
+	(cd ${STAGEDIR}${MAILMANDIR} \
+	  && ${PYTHON_CMD} ${PYTHON_LIBDIR}/compileall.py \
+	  -d ${MAILMANDIR}${dir} ${dir})
 .endfor
-	@${CHGRP} -R ${MM_GROUPNAME} ${MAILMANDIR}
-	@${MKDIR} ${PREFIX}/${IMGDIR}
+	@${RM} -f ${STAGEDIR}${MAILMANDIR}/pythonlib/*.egg-info
+	# mm_cfg.py is handled by pkg-plist:
+	@${RM} -f ${STAGEDIR}${MAILMANDIR}/Mailman/mm_cfg.py
+	@${RM} -f ${STAGEDIR}${MAILMANDIR}/Mailman/mm_cfg.pyc
+	@${MKDIR} ${STAGEDIR}${PREFIX}/${IMGDIR}
 .for imgfile in ${IMGFILES}
-	@${CP} ${MAILMANDIR}/icons/${imgfile} ${PREFIX}/${IMGDIR}
+	${CP} ${STAGEDIR}${MAILMANDIR}/icons/${imgfile} ${STAGEDIR}${PREFIX}/${IMGDIR}
 .endfor
-	@uudecode -p ${FILESDIR}/powerlogo.gif.uue > \
-	  ${PREFIX}/${IMGDIR}/powerlogo.gif
-.if !defined(NOPORTDOCS)
-	@${CP} -R ${WRKSRC}/doc/* ${WRKSRC}/
-	@${MKDIR} ${DOCSDIR}
-	@${INSTALL_DATA} ${FILESDIR}/FreeBSD-post-install-notes ${DOCSDIR}
+	uudecode -p ${FILESDIR}/powerlogo.gif.uue > \
+	  ${STAGEDIR}${PREFIX}/${IMGDIR}/powerlogo.gif
+.if ${PORT_OPTIONS:MDOCS}
+	${CP} -R ${WRKSRC}/doc/* ${WRKSRC}/
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${FILESDIR}/FreeBSD-post-install-notes ${STAGEDIR}${DOCSDIR}
 .for docfile in ${PORTDOCS:NFreeBSD-post-install-notes}
-	@${INSTALL_DATA} ${WRKSRC}/${docfile} ${DOCSDIR}
+	${INSTALL_DATA} ${WRKSRC}/${docfile} ${STAGEDIR}${DOCSDIR}
 .endfor
 .endif
-	@${SH} ${PKGINSTALL} ${PKGNAME} POST-INSTALL
-	@${CAT} ${PKGMESSAGE}
 .if ${PORT_OPTIONS:MPOSTFIX}
 	@if [ "x`${LOCALBASE}/sbin/postconf -h myhostname`" != "xlocalhost" ]; then \
 		${ECHO_CMD} ""; \
