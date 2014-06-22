@@ -1,5 +1,5 @@
 # Created by: Sunagawa Koji <koj@ofug.net>
-# $FreeBSD$
+# $FreeBSD: head/japanese/mailman/Makefile 327737 2013-09-20 18:47:54Z bapt $
 
 PORTNAME=	mailman
 PORTVERSION=	2.1.14.j7
@@ -16,7 +16,6 @@ MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Japanized mailman which is a mailing list manager with a web front-end
 
 LICENSE=	GPLv2
-LICENSE_FILE=	${WRKSRC}/gnu-COPYING-GPL
 
 CONFLICTS=	mailman-2.1.*
 
