@@ -1,22 +1,19 @@
-# New ports collection makefile for:	mailman
-# Date created:		10 July 2000
-# Whom:			n_hibma@qubesoft.com
-#
-# $FreeBSD: ports/mail/mailman/Makefile,v 1.94 2011/11/01 21:59:37 dougb Exp $
-#
+# Created by: n_hibma@qubesoft.com
+# $FreeBSD: head/mail/mailman/Makefile 354242 2014-05-16 15:56:24Z mandree $
 
 PORTNAME=	mailman
-DISTVERSION=	2.1.14
-PORTREVISION=	6
+DISTVERSION=	2.1.18-1
+PORTREVISION=	1
 CATEGORIES=	mail
 MASTER_SITES=	${MASTER_SITE_GNU} \
-		SF/${PORTNAME}/Mailman%202.1%20%28stable%29/${PORTVERSION}
+		SF/${PORTNAME}/Mailman%202.1%20%28stable%29/${PORTVERSION} \
+		https://launchpad.net/mailman/${DISTVERSION:R}/${DISTVERSION}/+download/
 MASTER_SITE_SUBDIR=	${PORTNAME}
 EXTRACT_SUFX=	.tgz
 DIST_SUBDIR=	mailman
 
-MAINTAINER=	ports@FreeBSD.org
-COMMENT=	A mailing list manager (MLM) with a user-friendly web front-end
+MAINTAINER=	mandree@FreeBSD.org
+COMMENT=	Mailing list manager with user-friendly web front-end
 
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/gnu-COPYING-GPL
@@ -24,7 +21,7 @@ LICENSE_FILE=	${WRKSRC}/gnu-COPYING-GPL
 CONFLICTS=	ja-mailman-2.1.*
 
 USE_AUTOTOOLS=	autoconf
-USE_PYTHON=	yes
+USE_PYTHON=	2
 USE_RC_SUBR=	mailman
 
 GNU_CONFIGURE_PREFIX=	${MAILMANDIR}
@@ -33,7 +30,6 @@ CONFIGURE_ARGS+=--with-python=${PYTHON_CMD} \
 		--with-groupname=${MM_GROUPNAME} \
 		--with-mail-gid=${MAIL_GID} --with-cgi-gid=${CGI_GID} \
 		--with-permcheck=no
-MAKE_JOBS_SAFE=	yes
 
 # The Mailman port supports a number of variables that may be tweaked at
 # build time.  Getting the values of some of them right is crucial!
@@ -52,7 +48,7 @@ USERS=		${MM_USERNAME}
 GROUPS=		${MM_GROUPNAME}
 
 MAILMANDIR=	${PREFIX}/${MM_DIR}
-PLIST_SUB=	MMDIR=${MM_DIR} IMGDIR=${IMGDIR}
+PLIST_SUB=	MMDIR=${MM_DIR} IMGDIR=${IMGDIR} MM_USERNAME=${MM_USERNAME} MM_GROUPNAME=${MM_GROUPNAME}
 SUB_FILES=	pkg-message pkg-install pkg-deinstall
 SUB_LIST=	MAILMANDIR=${MAILMANDIR} USER=${MM_USERNAME} GROUP=${MM_GROUPNAME}
 
@@ -66,75 +62,52 @@ PORTDOCS=	ACKNOWLEDGMENTS BUGS FAQ INSTALL NEWS README README-I18N.en \
 		mailman-member.txt \
 		FreeBSD-post-install-notes
 
-OPTIONS=	SENDMAIL "for use with sendmail" off \
-		EXIM3 "for use with exim3" off \
-		EXIM4 "for use with exim4" off \
-		POSTFIX "for use with postfix" off \
-		COURIER "for use with courier" off \
-		HTDIG "htdig integration patches" off \
-		INTEGRATION "integrating postfix and mailman" off \
-		NAMAZU2 "make private archives searchable with namazu2" off
+OPTIONS_SINGLE=	MTA
+OPTIONS_SINGLE_MTA=	SENDMAIL EXIM4 POSTFIX COURIER
+OPTIONS_DEFINE=	HTDIG NAMAZU2 NLS DOCS
+OPTIONS_DEFAULT=	SENDMAIL
+COURIER_DESC=	for use with courier
+EXIM4_DESC=	for use with exim4
+POSTFIX_DESC=	for use with postfix
+SENDMAIL_DESC=	for use with sendmail
+HTDIG_DESC=	- EXPERIMENTAL - htdig integration patches
+NAMAZU2_DESC=	Make private archives searchable with namazu2
+MTA_DESC=	Integrate with which MTA?
 
 .include <bsd.port.options.mk>
 
-.if defined(WITHOUT_NLS)
-PLIST_SUB+=	NLS="@comment "
-.else
-USE_GETTEXT=	yes
+.if ${PORT_OPTIONS:MNLS}
+USES+=		gettext
 PLIST_SUB+=	NLS=""
+.else
+PLIST_SUB+=	NLS="@comment "
+MAKE_ARGS+=	LANGUAGES=en
 .endif
 
-.if defined(WITH_SENDMAIL)
-.if defined(WITH_EXIM3) || defined(WITH_EXIM4) || defined(WITH_POSTFIX) || \
-defined(WITH_COURIER)
-IGNORE=	can only have one MTA selected to integrate with
-.endif
+.if ${PORT_OPTIONS:MSENDMAIL}
 MAIL_GID?=	mailnull
 .endif
 
-.if defined(WITH_EXIM3)
-.if defined(WITH_SENDMAIL) || defined(WITH_EXIM4) || defined(WITH_POSTFIX) || \
-defined(WITH_COURIER)
-IGNORE=	can only have one MTA selected to integrate with
-.endif
-MAIL_GID?=	nobody
-.endif
-
-.if defined(WITH_EXIM4)
-.if defined(WITH_SENDMAIL) || defined(WITH_EXIM3) || defined(WITH_POSTFIX) || \
-defined(WITH_COURIER)
-IGNORE=	can only have one MTA selected to integrate with
-.endif
+.if ${PORT_OPTIONS:MEXIM4}
 MAIL_GID?=	mail
 .endif
 
-.if defined(WITH_POSTFIX)
-.if defined(WITH_SENDMAIL) || defined(WITH_EXIM3) || defined(WITH_EXIM4) || \
-defined(WITH_COURIER)
-IGNORE=	can only have one MTA selected to integrate with
-.endif
-.if defined(WITH_INTEGRATION)
+.if ${PORT_OPTIONS:MPOSTFIX}
+RUN_DEPENDS+=	${LOCALBASE}/sbin/postconf:${PORTSDIR}/mail/postfix
+BUILD_DEPENDS+=	${LOCALBASE}/sbin/postconf:${PORTSDIR}/mail/postfix
 MAIL_GID?=	mailman
-.else
-MAIL_GID?=	nobody
-.endif
 EXTRA_PATCHES+=	${FILESDIR}/postfix-verp.diff
 .endif
 
-.if defined(WITH_COURIER)
-.if defined(WITH_SENDMAIL) || defined(WITH_EXIM3) || defined(WITH_EXIM4) || \
-defined(WITH_POSTFIX)
-IGNORE=	can only have one MTA selected to integrate with
-.endif
+.if ${PORT_OPTIONS:MCOURIER}
 MAIL_GID?=	courier
 .endif
 
-.if defined(WITH_HTDIG)
-BROKEN=	the HTDIG option is currently broken
+.if ${PORT_OPTIONS:MHTDIG}
 PATCH_SITES+=	http://www.openinfo.co.uk/mm/patches/444879/:patch1 \
 		http://www.openinfo.co.uk/mm/patches/444884/:patch2
-PATCHFILES+=	indexing-${DISTVERSION}-0.1.patch.gz:patch1 \
-		htdig-${DISTVERSION}-0.1.patch.gz:patch2
+PATCHFILES+=	indexing-2.1.12-0.1.patch.gz:patch1 \
+		htdig-2.1.12-0.1.patch.gz:patch2
 PATCH_DIST_STRIP=	-p1
 PKGNAMESUFFIX+=	-with-htdig
 RUN_DEPENDS+=	htdig:${PORTSDIR}/textproc/htdig
@@ -143,60 +116,83 @@ PLIST_SUB+=	SUB_HTDIG=""
 PLIST_SUB+=	SUB_HTDIG="@comment "
 .endif
 
-.if defined(WITH_NAMAZU2)
+.if ${PORT_OPTIONS:MNAMAZU2}
 RUN_DEPENDS+=	mknmz:${PORTSDIR}/databases/namazu2
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-Mailman-Cgi-private.py
 .endif
 
-pre-fetch:
+BUILD_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}dnspython>=0:${PORTSDIR}/dns/py-dnspython
+RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}dnspython>=0:${PORTSDIR}/dns/py-dnspython
+
+pre-everything::
 	@${ECHO} ""
 	@${ECHO} "You may change the following build options:"
-	@${ECHO} "MM_USERNAME=mailman	The username of the Mailman user."
-	@${ECHO} "MM_USERID=91		The user ID of the Mailman user."
-	@${ECHO} "MM_GROUPNAME=mailman	The group to which the Mailman user will belong."
-	@${ECHO} "MM_GROUPID=MM_USERID	The group ID for the Mailman user."
-	@${ECHO} "MM_DIR=mailman		Mailman will be installed in ${PREFIX}/${MM_DIR}."
-	@${ECHO} "CGI_GID=www		The group name or id under which your web server executes CGI scripts."
-	@${ECHO} "IMGDIR=www/icons	Icon images will be installed in ${PREFIX}/${IMGDIR}."
+	@${ECHO} ""
+	@${ECHO} "Option		Default Value	Description"
+	@${ECHO} "-------------	---------------	------------------------------------------------"
+	@${ECHO} "MM_USERNAME	mailman		The username of the Mailman user."
+	@${ECHO} "MM_USERID	91		The user ID of the Mailman user."
+	@${ECHO} "MM_GROUPNAME	mailman		The group to which the Mailman user will belong."
+	@${ECHO} "MM_GROUPID	\$$MM_USERID	The group ID for the Mailman user."
+	@${ECHO} "MM_DIR		mailman		Mailman will be installed in"
+	@${ECHO} "				${PREFIX}/${MM_DIR}."
+	@${ECHO} "CGI_GID		www		The group name or id under which your web"
+	@${ECHO} "				server executes CGI scripts."
+	@${ECHO} "IMGDIR		www/icons	Icon images will be installed in"
+	@${ECHO} "				${PREFIX}/${IMGDIR}."
 	@${ECHO} ""
 
 post-patch:
 	@${REINPLACE_CMD} -e 's#%%LOCALBASE%%#${LOCALBASE}#g' \
 	  ${WRKSRC}/Mailman/Defaults.py.in
 	@${REINPLACE_CMD} -e 's/^0,5,10/#&/' ${WRKSRC}/cron/crontab.in.in
-.if defined(WITHOUT_NLS)
+.if empty(PORT_OPTIONS:MNLS)
 	@${REINPLACE_CMD} -e 's/messages//' ${WRKSRC}/Makefile.in
-	@${REINPLACE_CMD} -e 's/templates//' ${WRKSRC}/Makefile.in
 .endif
 
-.if defined(WITH_POSTFIX) && defined(WITH_INTEGRATION)
+.if ${PORT_OPTIONS:MPOSTFIX}
 pre-configure:
 	@${ECHO} "MTA = 'Postfix'" >> ${WRKSRC}/Mailman/mm_cfg.py.dist.in
 .endif
 
 post-install:
-	@${RM} -f ${MAILMANDIR}/pythonlib/*.egg-info
-.for dir in cron scripts
-	@${PYTHON_CMD} ${PYTHON_LIBDIR}/compileall.py ${MAILMANDIR}/${dir}
+.for i in admindb admin confirm create edithtml listinfo options private \
+	rmlist roster subscribe
+	${STRIP_CMD} ${STAGEDIR}${MAILMANDIR}/cgi-bin/${i}
 .endfor
-	@${CHGRP} -R ${MM_GROUPNAME} ${MAILMANDIR}
-	@${MKDIR} ${PREFIX}/${IMGDIR}
-.for imgfile in ${IMGFILES}
-	@${CP} ${MAILMANDIR}/icons/${imgfile} ${PREFIX}/${IMGDIR}
-.endfor
-	@uudecode -p ${FILESDIR}/powerlogo.gif.uue > \
-	  ${PREFIX}/${IMGDIR}/powerlogo.gif
-.if !defined(NOPORTDOCS)
-	@${MV} ${WRKSRC}/doc/* ${WRKSRC}/
-	@${MKDIR} ${DOCSDIR}
-	@${INSTALL_DATA} ${FILESDIR}/FreeBSD-post-install-notes ${DOCSDIR}
-.for docfile in ${PORTDOCS:NFreeBSD-post-install-notes}
-	@${INSTALL_DATA} ${WRKSRC}/${docfile} ${DOCSDIR}
+.if ${PORT_OPTIONS:MHTDIG}
+.for i in htdig mmsearch
+	${STRIP_CMD} ${STAGEDIR}${MAILMANDIR}/cgi-bin/${i}
 .endfor
 .endif
-	@${SH} ${PKGINSTALL} ${PKGNAME} POST-INSTALL
-	@${CAT} ${PKGMESSAGE}
-.if defined(WITH_POSTFIX)
+	${STRIP_CMD} ${STAGEDIR}${MAILMANDIR}/mail/mailman
+# Compile additional Python scripts:
+.for dir in bin
+	(cd ${STAGEDIR}${MAILMANDIR} \
+	    && ${PYTHON_CMD} ${PYTHON_LIBDIR}/compileall.py \
+	    -d ${MAILMANDIR}/${dir} ${dir})
+.endfor
+	@${RM} -f ${STAGEDIR}${MAILMANDIR}/pythonlib/*.egg-info
+	# mm_cfg.py is handled by pkg-plist:
+	@${RM} -f ${STAGEDIR}${MAILMANDIR}/Mailman/mm_cfg.py
+	@${RM} -f ${STAGEDIR}${MAILMANDIR}/Mailman/mm_cfg.pyc
+	${MKDIR} ${STAGEDIR}${PREFIX}/${IMGDIR}
+.for imgfile in ${IMGFILES}
+	${CP} ${STAGEDIR}${MAILMANDIR}/icons/${imgfile} ${STAGEDIR}${PREFIX}/${IMGDIR}
+.endfor
+	uudecode -p ${FILESDIR}/powerlogo.gif.uue > \
+	  ${STAGEDIR}${PREFIX}/${IMGDIR}/powerlogo.gif
+.if ${PORT_OPTIONS:MDOCS}
+	${CP} -R ${WRKSRC}/doc/* ${WRKSRC}/
+	${MKDIR} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${FILESDIR}/FreeBSD-post-install-notes ${STAGEDIR}${DOCSDIR}
+.for docfile in ${PORTDOCS:NFreeBSD-post-install-notes}
+	${INSTALL_DATA} ${WRKSRC}/${docfile} ${STAGEDIR}${DOCSDIR}
+.endfor
+.endif
+	${MKDIR} ${STAGEDIR}${PYTHONPREFIX_SITELIBDIR}
+	${ECHO} "This marker file ensures that Python's upgrade-site-packages handles ${PKGNAME}." >${STAGEDIR}${PYTHONPREFIX_SITELIBDIR}/mailman-info.txt
+.if ${PORT_OPTIONS:MPOSTFIX}
 	@if [ "x`${LOCALBASE}/sbin/postconf -h myhostname`" != "xlocalhost" ]; then \
 		${ECHO_CMD} ""; \
 		${ECHO_CMD} "Your Postfix hostname is non-default."; \
