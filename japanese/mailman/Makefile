@@ -69,12 +69,11 @@ PORTDOCS=	ACKNOWLEDGMENTS BUGS FAQ INSTALL NEWS NEWS.japan.utf-8 \
 OPTIONS_DEFINE=		DOCS INTEGRATION NAMAZU2
 
 OPTIONS_SINGLE=		MTA
-OPTIONS_SINGLE_MTA=	SENDMAIL EXIM3 EXIM4 POSTFIX COURIER
+OPTIONS_SINGLE_MTA=	SENDMAIL EXIM4 POSTFIX COURIER
 
 INTEGRATION_DESC=	integrating postfix and mailman
 NAMAZU2_DESC=		make private archives searchable with namazu2
 SENDMAIL_DESC=		for use with sendmail
-EXIM3_DESC=		for use with exim3
 EXIM4_DESC=		for use with exim4
 POSTFIX_DESC=		for use with postfix
 COURIER_DESC=		for use with courier
@@ -85,10 +84,6 @@ OPTIONS_DEFAULT=	SENDMAIL
 
 .if ${PORT_OPTIONS:MSENDMAIL}
 MAIL_GID?=	mailnull
-.endif
-
-.if ${PORT_OPTIONS:MEXIM3}
-MAIL_GID?=	nobody
 .endif
 
 .if ${PORT_OPTIONS:MEXIM4}
