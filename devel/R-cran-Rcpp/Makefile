@@ -2,7 +2,7 @@
 # $FreeBSD: head/devel/R-cran-Rcpp/Makefile 347809 2014-03-10 20:55:20Z gerald $
 
 PORTNAME=	Rcpp
-PORTVERSION=	0.11.1
+PORTVERSION=	0.11.2
 CATEGORIES=	devel
 DISTNAME=	${PORTNAME}_${PORTVERSION}
 
