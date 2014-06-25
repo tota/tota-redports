@@ -11,8 +11,6 @@ COMMENT=	Ruby bindings to the libgit2 linkable C Git library
 
 LICENSE=	MIT
 
-LIB_DEPENDS=	libgit2.so:${PORTSDIR}/devel/libgit2
-
 USE_RUBY=	yes
 USE_RUBYGEMS=	yes
 USES=	gmake
