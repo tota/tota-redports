@@ -15,6 +15,7 @@ LIB_DEPENDS=	libgit2.so:${PORTSDIR}/devel/libgit2
 
 USE_RUBY=	yes
 USE_RUBYGEMS=	yes
+USES=	gmake
 RUBYGEM_AUTOPLIST=	yes
 
 .include <bsd.port.mk>
