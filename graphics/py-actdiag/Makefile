@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	actdiag
-PORTVERSION=	0.5.1
+PORTVERSION=	0.5.2
 CATEGORIES=	graphics python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -13,7 +13,7 @@ COMMENT=	Simple activity-diagram image generator
 LICENSE=	APACHE20
 
 RUN_DEPENDS=	${PKGNAMEPREFIX}pillow>=2.2.1:${PORTSDIR}/graphics/py-pillow \
-		${PKGNAMEPREFIX}blockdiag>=1.3.1:${PORTSDIR}/graphics/py-blockdiag \
+		${PKGNAMEPREFIX}blockdiag>=1.4.0:${PORTSDIR}/graphics/py-blockdiag \
 		${PKGNAMEPREFIX}funcparserlib>=0.3.6:${PORTSDIR}/devel/py-funcparserlib
 
 USE_PYTHON=	yes
