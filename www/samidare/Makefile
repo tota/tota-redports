@@ -26,6 +26,8 @@ PORTEXAMPLES=	config.yml t.latest.html
 
 ALL_TARGET=	${PORTNAME}
 
+PLIST_FILES=	bin/samidare man/man1/samidare.1.gz
+
 OPTIONS_DEFINE=	DOCS EXAMPLES
 
 post-build:
