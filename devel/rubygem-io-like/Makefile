@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/devel/rubygem-io-like/Makefile 350669 2014-04-09 07:47:01Z bapt $
 
 PORTNAME=	io-like
 PORTVERSION=	0.3.0.20130301
@@ -48,13 +48,12 @@ RUBYGEMBIN=	${LOCALBASE}/bin/gem${RUBY_VER:S/.//}
 
 GEMFILES=	${GEM_NAME}.gem
 
-RUBYGEM_ARGS=-l --no-update-sources --no-ri --install-dir ${PREFIX}/lib/ruby/gems/${RUBY_VER}
+RUBYGEM_ARGS=-l --no-update-sources --no-ri --install-dir ${STAGEDIR}${PREFIX}/lib/ruby/gems/${RUBY_VER} --ignore-dependencies --bindir=${STAGEDIR}${PREFIX}/bin
 
 WRKSRC=	${WRKDIR}/${PORTNAME}-ruby-1.9-temp
 
 OPTIONS_DEFINE=	DOCS
 
-NO_STAGE=	yes
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MDOCS}
@@ -77,19 +76,19 @@ do-build:
 do-install:
 	@(cd ${INSTALL_WRKSRC}; ${SETENV} ${GEM_ENV} ${RUBYGEMBIN} install ${RUBYGEM_ARGS} pkg/${GEMFILES} -- --build-args ${CONFIGURE_ARGS})
 
-post-install:
+post-install-script:
 	@${ECHO} ${GEM_CACHE} >> ${TMPPLIST}
 	@${ECHO} ${GEM_SPEC} >> ${TMPPLIST}
 .if ${PORT_OPTIONS:MDOCS}
-	@${FIND} -ds ${PREFIX}/${GEM_DOC_DIR} -type f -print | ${SED} -E -e \
-		's,^${PREFIX}/?,,' >> ${TMPPLIST}
-	@${FIND} -ds ${PREFIX}/${GEM_DOC_DIR} -type d -print | ${SED} -E -e \
-		's,^${PREFIX}/?,@dirrm ,' >> ${TMPPLIST}
+	@${FIND} -ds ${STAGEDIR}${PREFIX}/${GEM_DOC_DIR} -type f -print | ${SED} -E -e \
+		's,^${STAGEDIR}${PREFIX}/?,,' >> ${TMPPLIST}
+	@${FIND} -ds ${STAGEDIR}${PREFIX}/${GEM_DOC_DIR} -type d -print | ${SED} -E -e \
+		's,^${STAGEDIR}${PREFIX}/?,@dirrm ,' >> ${TMPPLIST}
 .endif
-	@${FIND} -ds ${PREFIX}/${GEM_LIB_DIR} -type f -print | ${SED} -E -e \
-		's,^${PREFIX}/?,,' >> ${TMPPLIST}
-	@${FIND} -ds ${PREFIX}/${GEM_LIB_DIR} -type d -print | ${SED} -E -e \
-		's,^${PREFIX}/?,@dirrm ,' >> ${TMPPLIST}
+	@${FIND} -ds ${STAGEDIR}${PREFIX}/${GEM_LIB_DIR} -type f -print | ${SED} -E -e \
+		's,^${STAGEDIR}${PREFIX}/?,,' >> ${TMPPLIST}
+	@${FIND} -ds ${STAGEDIR}${PREFIX}/${GEM_LIB_DIR} -type d -print | ${SED} -E -e \
+		's,^${STAGEDIR}${PREFIX}/?,@dirrm ,' >> ${TMPPLIST}
 	@${ECHO_CMD} "@unexec rmdir %D/${GEMS_DIR} 2>/dev/null || true" >> ${TMPPLIST}
 .if ${PORT_OPTIONS:MDOCS}
 	@${ECHO_CMD} "@unexec rmdir %D/${DOC_DIR} 2>/dev/null || true" >> ${TMPPLIST}
