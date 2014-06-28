@@ -11,6 +11,9 @@ PKGNAMEPREFIX=	rubygem-
 MAINTAINER=	tota@FreeBSD.org
 COMMENT=	The interface of IO objects to classes providing a few simple methods
 
+LICENSE=	RUBY
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
 BUILD_DEPENDS=	${RUBYGEMBIN}:${PORTSDIR}/devel/ruby-gems \
 		rdoc:${PORTSDIR}/devel/rubygem-rdoc
 RUN_DEPENDS=	${RUBYGEMBIN}:${PORTSDIR}/devel/ruby-gems
@@ -76,7 +79,7 @@ do-build:
 do-install:
 	@(cd ${INSTALL_WRKSRC}; ${SETENV} ${GEM_ENV} ${RUBYGEMBIN} install ${RUBYGEM_ARGS} pkg/${GEMFILES} -- --build-args ${CONFIGURE_ARGS})
 
-post-install-script:
+post-install:
 	@${ECHO} ${GEM_CACHE} >> ${TMPPLIST}
 	@${ECHO} ${GEM_SPEC} >> ${TMPPLIST}
 .if ${PORT_OPTIONS:MDOCS}
