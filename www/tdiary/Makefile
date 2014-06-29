@@ -42,6 +42,9 @@ HTML=	${DOCFILES:S/$/.html/}
 MD=	${DOCFILES:S/$/.md/}
 PORTDOCS=	ChangeLog doc.css ${HTML} ${MD}
 
+PLIST_SUB=	TDIARY_SCRIPT=${TDIARY_SCRIPT} \
+		WWWOWN=${WWWOWN} \
+		WWWGRP=${WWWGRP}
 SUB_FILES=	pkg-message tdiaryinst.rb
 SUB_LIST+=	TDIARY_LANG=${TDIARY_LANG} \
 		TDIARY_SCRIPT=${TDIARY_SCRIPT}
@@ -93,16 +96,14 @@ do-install:
 	${INSTALL_SCRIPT} ${WRKDIR}/${TDIARY_SCRIPT} ${STAGEDIR}${PREFIX}/bin
 	@-${MKDIR} ${STAGEDIR}${WWWDIR}
 	${TAR} --exclude "doc" -C ${WRKSRC} -cf - . | ${TAR} --unlink -C ${STAGEDIR}${WWWDIR} -xf -
-
-post-install:
-	@${ECHO_CMD} '@exec ${CHOWN} -R ${WWWOWN}:${WWWGRP} ${WWWDIR}' >> ${TMPPLIST}
-	@${ECHO_CMD} bin/${TDIARY_SCRIPT} >> ${TMPPLIST}
 	@${INSTALL} -d ${STAGEDIR}${DOCSDIR}
 	cd ${WRKSRC}/doc && ${INSTALL_DATA} ${PORTDOCS} ${STAGEDIR}${DOCSDIR}
-	@${CAT} ${PKGMESSAGE}
 
 x-generate-plist: stage
-	${FIND} ${STAGEDIR}${WWWDIR} -type f -o -type l | ${SORT} | ${SED} -e 's,${STAGEDIR}${WWWDIR},%%WWWDIR%%,g' > pkg-plist.new
+	${ECHO_CMD} bin/%%TDIARY_SCRIPT%% > pkg-plist.new
+	${FIND} ${STAGEDIR}${WWWDIR} -type f -o -type l | ${SORT} | ${SED} -e 's,${STAGEDIR}${WWWDIR},%%WWWDIR%%,g' >> pkg-plist.new
 	${FIND} ${STAGEDIR}${WWWDIR} -type d -depth | ${SORT} -r | ${SED} -e 's,${STAGEDIR}${WWWDIR},@dirrm %%WWWDIR%%,g' >> pkg-plist.new
+	${ECHO_CMD} @exec mkdir -p %D/%%WWWDIR%%/tmp >> pkg-plist.new
+	${ECHO_CMD} @exec chown -R %%WWWOWN%%:%%WWWGRP%% %D/%%WWWDIR%% >> pkg-plist.new
 
 .include <bsd.port.mk>
