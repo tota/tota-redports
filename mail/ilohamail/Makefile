@@ -1,5 +1,5 @@
 # Created by: TAKATSU Tomonari <tota@rtfm.jp>
-# $FreeBSD$
+# $FreeBSD: head/mail/ilohamail/Makefile 340722 2014-01-22 17:00:46Z mat $
 
 PORTNAME=	ilohamail
 PORTVERSION=	0.8.13
@@ -14,6 +14,8 @@ COMMENT=	IlohaMail is a lightweight multilingual webmail program
 NO_BUILD=	yes
 USE_PHP=	pcre
 WANT_PHP_WEB=	yes
+DEPRECATED=	yes
+EXPIRATION_DATE=	2014-08-31
 
 .if !defined(WITHOUT_MYSQL)
 USE_PHP+=	mysql
