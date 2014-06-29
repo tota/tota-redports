@@ -1,9 +1,8 @@
 # Created by: Fumihiko Kimura <jfkimura@yahoo.co.jp>
-# $FreeBSD: head/www/tdiary/Makefile 352237 2014-04-26 10:06:08Z tota $
+# $FreeBSD$
 
 PORTNAME=	tdiary
-PORTVERSION=	4.0.3
-PORTREVISION=	1
+PORTVERSION=	4.0.4
 CATEGORIES?=	www ruby
 MASTER_SITES=	http://www.tdiary.org/download/
 DISTNAME=	${PORTNAME}-full-v${PORTVERSION}
@@ -14,7 +13,7 @@ COMMENT=	Web-based diary system (like weblog) written in Ruby
 LICENSE=	GPLv2
 
 RUN_DEPENDS=	rubygem-fastimage>=1.6.0:${PORTSDIR}/graphics/rubygem-fastimage \
-		rubygem-hikidoc>0:${PORTSDIR}/textproc/rubygem-hikidoc \
+		rubygem-hikidoc>=0:${PORTSDIR}/textproc/rubygem-hikidoc \
 		rubygem-multi_json>=1.8.4:${PORTSDIR}/devel/rubygem-multi_json \
 		rubygem-rack>=0:${PORTSDIR}/www/rubygem-rack
 
@@ -73,9 +72,10 @@ pre-patch:
 	@${RM} ${WRKSRC}/Procfile
 	@${RM} ${WRKSRC}/Rakefile
 	@${RM} ${WRKSRC}/config.ru
+	@${RM} ${WRKSRC}/tdiary.gemspec
 	@${RM} ${WRKSRC}/tmp/.gitkeep
 	@${RM} -rf ${WRKSRC}/.bundle
-	@${RM} -r ${WRKSRC}/misc/lib/bundler-1.6.0.rc
+	@${RM} -r ${WRKSRC}/misc/lib/bundler-1.6.2
 	@${RM} -r ${WRKSRC}/public
 	@${RM} -r ${WRKSRC}/spec
 	@${RM} -r ${WRKSRC}/test
