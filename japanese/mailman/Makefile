@@ -66,17 +66,17 @@ PORTDOCS=	ACKNOWLEDGMENTS BUGS FAQ INSTALL NEWS NEWS.japan.utf-8 \
 		mailman-member.txt \
 		FreeBSD-post-install-notes
 
-OPTIONS_DEFINE=		DOCS INTEGRATION NAMAZU2
+OPTIONS_DEFINE=		DOCS NAMAZU2
 
 OPTIONS_SINGLE=		MTA
 OPTIONS_SINGLE_MTA=	SENDMAIL EXIM4 POSTFIX COURIER
 
-INTEGRATION_DESC=	integrating postfix and mailman
-NAMAZU2_DESC=		make private archives searchable with namazu2
-SENDMAIL_DESC=		for use with sendmail
-EXIM4_DESC=		for use with exim4
-POSTFIX_DESC=		for use with postfix
-COURIER_DESC=		for use with courier
+NAMAZU2_DESC=	Make private archives searchable with namazu2
+SENDMAIL_DESC=	for use with sendmail
+EXIM4_DESC=	for use with exim4
+POSTFIX_DESC=	for use with postfix
+COURIER_DESC=	for use with courier
+MAT_DESC=	Integrate with which MTA?
 
 OPTIONS_DEFAULT=	SENDMAIL
 
@@ -91,11 +91,9 @@ MAIL_GID?=	mail
 .endif
 
 .if ${PORT_OPTIONS:MPOSTFIX}
-.if ${PORT_OPTIONS:MINTEGRATION}
+RUN_DEPENDS+=	${LOCALBASE}/sbin/postconf:${PORTSDIR}/mail/postfix
+BUILD_DEPENDS+=	${LOCALBASE}/sbin/postconf:${PORTSDIR}/mail/postfix
 MAIL_GID?=	mailman
-.else
-MAIL_GID?=	nobody
-.endif
 EXTRA_PATCHES+=	${FILESDIR}/postfix-verp.diff
 .endif
 
@@ -108,16 +106,22 @@ RUN_DEPENDS+=	mknmz:${PORTSDIR}/japanese/namazu2
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-Mailman-Cgi-private.py
 .endif
 
-pre-fetch:
+pre-everything::
 	@${ECHO} ""
 	@${ECHO} "You may change the following build options:"
-	@${ECHO} "MM_USERNAME=mailman	The username of the Mailman user."
-	@${ECHO} "MM_USERID=91		The user ID of the Mailman user."
-	@${ECHO} "MM_GROUPNAME=mailman	The group to which the Mailman user will belong."
-	@${ECHO} "MM_GROUPID=MM_USERID	The group ID for the Mailman user."
-	@${ECHO} "MM_DIR=mailman		Mailman will be installed in ${PREFIX}/${MM_DIR}."
-	@${ECHO} "CGI_GID=www		The group name or id under which your web server executes CGI scripts."
-	@${ECHO} "IMGDIR=www/icons	Icon images will be installed in ${PREFIX}/${IMGDIR}."
+	@${ECHO} ""
+	@${ECHO} "Option		Default Value	Description"
+	@${ECHO} "-------------	---------------	------------------------------------------------"
+	@${ECHO} "MM_USERNAME	mailman		The username of the Mailman user."
+	@${ECHO} "MM_USERID	91		The user ID of the Mailman user."
+	@${ECHO} "MM_GROUPNAME	mailman		The group to which the Mailman user will belong."
+	@${ECHO} "MM_GROUPID	\$$MM_USERID	The group ID for the Mailman user."
+	@${ECHO} "MM_DIR		mailman		Mailman will be installed in"
+	@${ECHO} "				${PREFIX}/${MM_DIR}."
+	@${ECHO} "CGI_GID		www		The group name or id under which your web"
+	@${ECHO} "				server executes CGI scripts."
+	@${ECHO} "IMGDIR		www/icons	Icon images will be installed in"
+	@${ECHO} "				${PREFIX}/${IMGDIR}."
 	@${ECHO} ""
 
 post-patch:
@@ -128,16 +132,21 @@ post-patch:
 pre-configure:
 	@${ECHO} "DEFAULT_SERVER_LANGUAGE = 'ja'" >> ${WRKSRC}/Mailman/mm_cfg.py.dist.in
 	@${ECHO} "GLOBAL_PIPELINE.insert(1, 'iso2022jpfix')" >> ${WRKSRC}/Mailman/mm_cfg.py.dist.in
-.if ${PORT_OPTIONS:MPOSTFIX} && ${PORT_OPTIONS:MINTEGRATION}
+.if ${PORT_OPTIONS:MPOSTFIX}
 	@${ECHO} "MTA = 'Postfix'" >> ${WRKSRC}/Mailman/mm_cfg.py.dist.in
 .endif
 
 post-install:
+.for i in admin admindb confirm create edithtml listinfo options private \
+	rmlist roster subscribe
+	${STRIP_CMD} ${STAGEDIR}${MAILMANDIR}/cgi-bin/${i}
+.endfor
+	${STRIP_CMD} ${STAGEDIR}${MAILMANDIR}/mail/mailman
 # Compile additional Python scripts:
 .for dir in bin
 	(cd ${STAGEDIR}${MAILMANDIR} \
-	  && ${PYTHON_CMD} ${PYTHON_LIBDIR}/compileall.py \
-	  -d ${MAILMANDIR}${dir} ${dir})
+	    && ${PYTHON_CMD} ${PYTHON_LIBDIR}/compileall.py \
+	    -d ${MAILMANDIR}/${dir} ${dir})
 .endfor
 	@${RM} -f ${STAGEDIR}${MAILMANDIR}/pythonlib/*.egg-info
 	# mm_cfg.py is handled by pkg-plist:
