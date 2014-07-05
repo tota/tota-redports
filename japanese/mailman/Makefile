@@ -17,6 +17,7 @@ MAINTAINER=	tota@FreeBSD.org
 COMMENT=	Japanized mailman which is a mailing list manager with a web front-end
 
 LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/gnu-COPYING-GPL
 
 CONFLICTS=	mailman-2.1.*
 
@@ -66,17 +67,17 @@ PORTDOCS=	ACKNOWLEDGMENTS BUGS FAQ INSTALL NEWS NEWS.japan.utf-8 \
 		mailman-member.txt \
 		FreeBSD-post-install-notes
 
-OPTIONS_DEFINE=		DOCS NAMAZU2
+OPTIONS_DEFINE=	DOCS NAMAZU2
 
-OPTIONS_SINGLE=		MTA
+OPTIONS_SINGLE=	MTA
 OPTIONS_SINGLE_MTA=	SENDMAIL EXIM4 POSTFIX COURIER
 
 NAMAZU2_DESC=	Make private archives searchable with namazu2
+MTA_DESC=	Integrate with which MTA?
 SENDMAIL_DESC=	for use with sendmail
 EXIM4_DESC=	for use with exim4
 POSTFIX_DESC=	for use with postfix
 COURIER_DESC=	for use with courier
-MAT_DESC=	Integrate with which MTA?
 
 OPTIONS_DEFAULT=	SENDMAIL
 
@@ -142,11 +143,12 @@ post-install:
 	${STRIP_CMD} ${STAGEDIR}${MAILMANDIR}/cgi-bin/${i}
 .endfor
 	${STRIP_CMD} ${STAGEDIR}${MAILMANDIR}/mail/mailman
+	${STRIP_CMD} ${STAGEDIR}${MAILMANDIR}/pythonlib/pykf.so
 # Compile additional Python scripts:
-.for dir in bin
+.for dir in Mailman bin pythonlib
 	(cd ${STAGEDIR}${MAILMANDIR} \
 	    && ${PYTHON_CMD} ${PYTHON_LIBDIR}/compileall.py \
-	    -d ${MAILMANDIR}/${dir} ${dir})
+	    -f -d ${MAILMANDIR}/${dir} ${dir})
 .endfor
 	@${RM} -f ${STAGEDIR}${MAILMANDIR}/pythonlib/*.egg-info
 	# mm_cfg.py is handled by pkg-plist:
@@ -166,6 +168,8 @@ post-install:
 	${INSTALL_DATA} ${WRKSRC}/${docfile} ${STAGEDIR}${DOCSDIR}
 .endfor
 .endif
+	${MKDIR} ${STAGEDIR}${PYTHONPREFIX_SITELIBDIR}
+	${ECHO} "This marker file ensures that Python's upgrade-site-packages handles ${PKGNAME}." >${STAGEDIR}${PYTHONPREFIX_SITELIBDIR}/mailman-info.txt
 .if ${PORT_OPTIONS:MPOSTFIX}
 	@if [ "x`${LOCALBASE}/sbin/postconf -h myhostname`" != "xlocalhost" ]; then \
 		${ECHO_CMD} ""; \

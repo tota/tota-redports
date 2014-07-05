@@ -2243,6 +2243,7 @@
 %%MMDIR%%/tests/test_security_mgr.py
 %%MMDIR%%/tests/test_smtp.py
 %%MMDIR%%/tests/testall.py
+%%PYTHON_SITELIBDIR%%/mailman-info.txt
 @dirrm %%MMDIR%%/tests/msgs
 @dirrm %%MMDIR%%/tests/bounces
 @dirrm %%MMDIR%%/tests
